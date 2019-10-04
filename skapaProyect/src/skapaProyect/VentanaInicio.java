@@ -1,6 +1,6 @@
 package skapaProyect;
 
-public class ventanaInicio {
+public class VentanaInicio {
 
 	public static void main(String[] args) {
 		String holamundo = "hola Mundo";

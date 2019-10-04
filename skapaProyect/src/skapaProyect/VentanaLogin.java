@@ -2,7 +2,7 @@ package skapaProyect;
 
 import javax.swing.*;
 
-public class ventanaLogin extends JFrame{
+public class VentanaLogin extends JFrame{
 	
 	private JLabel labelTitulo;
 	private JTextArea textoUsuario;
@@ -10,12 +10,12 @@ public class ventanaLogin extends JFrame{
 	private JButton botonInicioSesion;
 	private JLabel textoOlvidoContrasenya;
 	
-	public ventanaLogin() {
+	public VentanaLogin() {
 		
 	}
 
 	public static void main(String[] args) {
-		new ventanaLogin();
+		new VentanaLogin();
 
 	}
 
