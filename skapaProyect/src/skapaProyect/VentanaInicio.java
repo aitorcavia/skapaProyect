@@ -16,7 +16,7 @@ public class VentanaInicio extends JFrame {
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
-			public void run() {
+			public void run() { 
 				try {
 					VentanaInicio frame = new VentanaInicio();
 					frame.setVisible(true);

@@ -14,6 +14,7 @@ import java.awt.Font;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
+import javax.swing.UIManager;
 
 public class VentanaLogin extends JFrame {
 
@@ -50,16 +51,19 @@ public class VentanaLogin extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panel = new JPanel();
-		panel.setBackground(new Color(153, 255, 255));
-		panel.setForeground(Color.BLACK);
-		panel.setBounds(15, 26, 398, 71);
-		contentPane.add(panel);
+		JPanel panelSkapa = new JPanel();
+		panelSkapa.setBorder(UIManager.getBorder("FormattedTextField.border"));
+		panelSkapa.setBackground(new Color(153, 255, 255));
+		panelSkapa.setForeground(Color.BLACK);
+		panelSkapa.setBounds(15, 26, 398, 71);
+		contentPane.add(panelSkapa);
+		panelSkapa.setLayout(null);
 		
-		JLabel lblSkapa = new JLabel("SKAPA");
-		lblSkapa.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 40));
-		panel.add(lblSkapa);
-		lblSkapa.setHorizontalAlignment(SwingConstants.CENTER);
+		JLabel textSkapa = new JLabel("SKAPA");
+		textSkapa.setBounds(1, 1, 396, 69);
+		textSkapa.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 40));
+		panelSkapa.add(textSkapa);
+		textSkapa.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		JLabel lblUsername = new JLabel("Usuario");
 		lblUsername.setFont(new Font("Yu Gothic UI", Font.PLAIN, 18));
