@@ -43,7 +43,7 @@ public class VentanaLogin extends JFrame {
 	public VentanaLogin() {
 		setTitle("Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 519);
+		setBounds(100, 100, 441, 519);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(224, 255, 255));
 		contentPane.setForeground(new Color(175, 238, 238));
