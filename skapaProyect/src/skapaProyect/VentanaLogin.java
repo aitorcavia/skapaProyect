@@ -15,6 +15,8 @@ import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import javax.swing.UIManager;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class VentanaLogin extends JFrame {
 
@@ -43,24 +45,24 @@ public class VentanaLogin extends JFrame {
 	public VentanaLogin() {
 		setTitle("Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 441, 519);
+		setBounds(100, 100, 440, 522);
 		contentPane = new JPanel();
-		contentPane.setBackground(new Color(224, 255, 255));
-		contentPane.setForeground(new Color(175, 238, 238));
+		contentPane.setBackground(new Color(135, 206, 250));
+		contentPane.setForeground(new Color(135, 206, 250));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JPanel panelSkapa = new JPanel();
 		panelSkapa.setBorder(UIManager.getBorder("FormattedTextField.border"));
-		panelSkapa.setBackground(new Color(153, 255, 255));
+		panelSkapa.setBackground(new Color(224, 255, 255));
 		panelSkapa.setForeground(Color.BLACK);
-		panelSkapa.setBounds(15, 26, 398, 71);
+		panelSkapa.setBounds(15, 26, 388, 71);
 		contentPane.add(panelSkapa);
 		panelSkapa.setLayout(null);
 		
 		JLabel textSkapa = new JLabel("SKAPA");
-		textSkapa.setBounds(1, 1, 396, 69);
+		textSkapa.setBounds(1, 1, 382, 69);
 		textSkapa.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 40));
 		panelSkapa.add(textSkapa);
 		textSkapa.setHorizontalAlignment(SwingConstants.CENTER);
@@ -78,18 +80,22 @@ public class VentanaLogin extends JFrame {
 		JTextArea textArea = new JTextArea();
 		textArea.setFont(new Font("Monospaced", Font.PLAIN, 18));
 		textArea.setTabSize(18);
-		textArea.setBounds(15, 176, 398, 35);
+		textArea.setBounds(15, 176, 388, 35);
 		contentPane.add(textArea);
 		
-		JButton btnSingIn = new JButton("Sing In");
+		JButton btnSingIn = new JButton("Iniciar sesion");
+		btnSingIn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+			}
+		});
 		btnSingIn.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		btnSingIn.setBackground(new Color(204, 255, 255));
-		btnSingIn.setBounds(298, 361, 115, 29);
+		btnSingIn.setBounds(248, 362, 155, 29);
 		contentPane.add(btnSingIn);
 		
 		passwordField = new JPasswordField();
 		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		passwordField.setBounds(15, 285, 398, 35);
+		passwordField.setBounds(15, 285, 388, 35);
 		contentPane.add(passwordField);
 	}
 }
