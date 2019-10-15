@@ -47,15 +47,15 @@ public class VentanaLogin extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 440, 522);
 		contentPane = new JPanel();
-		contentPane.setBackground(UIManager.getColor("Button.light"));
-		contentPane.setForeground(new Color(175, 238, 238));
+		contentPane.setBackground(new Color(135, 206, 250));
+		contentPane.setForeground(new Color(135, 206, 250));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JPanel panelSkapa = new JPanel();
 		panelSkapa.setBorder(UIManager.getBorder("FormattedTextField.border"));
-		panelSkapa.setBackground(UIManager.getColor("Button.highlight"));
+		panelSkapa.setBackground(new Color(224, 255, 255));
 		panelSkapa.setForeground(Color.BLACK);
 		panelSkapa.setBounds(15, 26, 388, 71);
 		contentPane.add(panelSkapa);
