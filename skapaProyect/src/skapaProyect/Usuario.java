@@ -2,33 +2,31 @@ package skapaProyect;
 
 public class Usuario {
 
-	protected String nombre;
-	protected String apellido;
-	protected String correo;
+	protected String usuario;
 	protected String contrasenya;
+	protected String correo;
 	
-	public Usuario(String nombre, String apellido, String correo, String contrasenya) {
+	public Usuario(String usuario, String contrasenya, String correo) {
 		super();
-		this.nombre = nombre;
-		this.apellido = apellido;
-		this.correo = correo;
+		this.usuario = usuario;
 		this.contrasenya = contrasenya;
+		this.correo = correo;
 	}
 
-	public String getNombre() {
-		return nombre;
+	public String getUsuario() {
+		return usuario;
 	}
 
-	public void setNombre(String nombre) {
-		this.nombre = nombre;
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
 	}
 
-	public String getApellido() {
-		return apellido;
+	public String getContrasenya() {
+		return contrasenya;
 	}
 
-	public void setApellido(String apellido) {
-		this.apellido = apellido;
+	public void setContrasenya(String contrasenya) {
+		this.contrasenya = contrasenya;
 	}
 
 	public String getCorreo() {
@@ -39,13 +37,13 @@ public class Usuario {
 		this.correo = correo;
 	}
 
-	public String getContrasenya() {
-		return contrasenya;
+	@Override
+	public String toString() {
+		return "Usuario [usuario=" + usuario + ", contrasenya=" + contrasenya + ", correo=" + correo + "]";
 	}
-
-	public void setContrasenya(String contrasenya) {
-		this.contrasenya = contrasenya;
-	}
+	
+	
+	
 	
 	
 	

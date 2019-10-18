@@ -14,12 +14,14 @@ import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.UIManager;
 import java.awt.Window.Type;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.Dialog.ModalExclusionType;
 
 public class VentanaRegistro extends JFrame {
 
 	private JPanel contentPane;
-	private JPasswordField passwordField;
+	private JPasswordField textoContrasenya;
 
 	/**
 	 * Launch the application.
@@ -49,42 +51,62 @@ public class VentanaRegistro extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel label = new JLabel("Usuario");
-		label.setFont(new Font("Yu Gothic UI", Font.PLAIN, 18));
-		label.setBounds(15, 39, 112, 20);
-		contentPane.add(label);
+		JLabel labelUsuario = new JLabel("Usuario");
+		labelUsuario.setFont(new Font("Yu Gothic UI", Font.PLAIN, 18));
+		labelUsuario.setBounds(15, 39, 112, 20);
+		contentPane.add(labelUsuario);
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setTabSize(18);
-		textArea.setFont(new Font("Monospaced", Font.PLAIN, 18));
-		textArea.setBounds(15, 75, 388, 35);
-		contentPane.add(textArea);
+		JTextArea textoUsuario = new JTextArea();
+		textoUsuario.setTabSize(18);
+		textoUsuario.setFont(new Font("Monospaced", Font.PLAIN, 18));
+		textoUsuario.setBounds(15, 75, 388, 35);
+		contentPane.add(textoUsuario);
 		
-		JLabel label_1 = new JLabel("Contrase\u00F1a");
-		label_1.setFont(new Font("Yu Gothic UI", Font.PLAIN, 18));
-		label_1.setBounds(15, 140, 112, 20);
-		contentPane.add(label_1);
+		JLabel labelConstrasenya = new JLabel("Contrase\u00F1a");
+		labelConstrasenya.setFont(new Font("Yu Gothic UI", Font.PLAIN, 18));
+		labelConstrasenya.setBounds(15, 140, 112, 20);
+		contentPane.add(labelConstrasenya);
 		
-		passwordField = new JPasswordField();
-		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		passwordField.setBounds(15, 176, 388, 35);
-		contentPane.add(passwordField);
+		textoContrasenya = new JPasswordField();
+		textoContrasenya.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		textoContrasenya.setBounds(15, 176, 388, 35);
+		contentPane.add(textoContrasenya);
 		
-		JLabel lblEmail = new JLabel("Correo electr\u00F3nico");
-		lblEmail.setFont(new Font("Yu Gothic UI", Font.PLAIN, 18));
-		lblEmail.setBounds(15, 245, 201, 20);
-		contentPane.add(lblEmail);
+		JLabel labelCorreo = new JLabel("Correo electr\u00F3nico");
+		labelCorreo.setFont(new Font("Yu Gothic UI", Font.PLAIN, 18));
+		labelCorreo.setBounds(15, 245, 201, 20);
+		contentPane.add(labelCorreo);
 		
-		JTextArea textArea_1 = new JTextArea();
-		textArea_1.setTabSize(18);
-		textArea_1.setFont(new Font("Monospaced", Font.PLAIN, 18));
-		textArea_1.setBounds(15, 281, 388, 35);
-		contentPane.add(textArea_1);
+		JTextArea textoCorreo = new JTextArea();
+		textoCorreo.setTabSize(18);
+		textoCorreo.setFont(new Font("Monospaced", Font.PLAIN, 18));
+		textoCorreo.setBounds(15, 281, 388, 35);
+		contentPane.add(textoCorreo);
 		
-		JButton btnRegistrarme = new JButton("Registrarme");
-		btnRegistrarme.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnRegistrarme.setBackground(new Color(204, 255, 255));
-		btnRegistrarme.setBounds(263, 355, 140, 29);
-		contentPane.add(btnRegistrarme);
+		JButton botonRegistro = new JButton("Registrarme");
+		botonRegistro.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		botonRegistro.setBackground(new Color(204, 255, 255));
+		botonRegistro.setBounds(263, 355, 140, 29);
+		contentPane.add(botonRegistro);
+		
+		botonRegistro.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				String usuario;
+				String contrasenya;
+				String correo;
+				
+				usuario = textoUsuario.getText();
+				contrasenya = textoContrasenya.getText();
+				correo = textoCorreo.getText();
+				
+				Usuario u = new Usuario (usuario, contrasenya, correo);
+				
+				System.out.println(u);
+			}
+		});
+		
+		
 	}
 }
