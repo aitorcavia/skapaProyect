@@ -12,6 +12,7 @@ import javax.swing.JScrollBar;
 import javax.swing.JTextPane;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import java.awt.Color;
 
 public class VentanaChat extends JFrame {
 
@@ -41,6 +42,8 @@ public class VentanaChat extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 349, 559);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(135, 206, 250));
+		contentPane.setForeground(Color.BLACK);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
