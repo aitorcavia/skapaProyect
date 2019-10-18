@@ -146,15 +146,19 @@ public class VentanaAjustes extends JFrame {
 		BotonPago.setBounds(168, 192, 115, 39);
 		contentPane.add(BotonPago);
 		
-		JButton BotonAyuda = new JButton("Ayuda");
-		BotonAyuda.setBounds(168, 237, 115, 29);
-		contentPane.add(BotonAyuda);
-		
-		JButton BotonInformacion = new JButton("(i)");
-		BotonInformacion.setBounds(168, 279, 115, 26);
+		JButton BotonInformacion = new JButton("(i) / Ayuda");
+		BotonInformacion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		BotonInformacion.setBounds(168, 237, 115, 68);
 		contentPane.add(BotonInformacion);
 		
 		JButton BotonCuenta = new JButton("C");
+		BotonCuenta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
 		BotonCuenta.setBounds(168, 318, 115, 29);
 		contentPane.add(BotonCuenta);
 	}
