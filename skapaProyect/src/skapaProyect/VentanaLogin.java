@@ -24,7 +24,6 @@ import javax.security.auth.login.LoginContext;
 import javax.swing.DropMode;
 import java.awt.Window.Type;
 import javax.swing.ImageIcon;
-import java.awt.SystemColor;
 
 public class VentanaLogin extends JFrame {
 
@@ -102,16 +101,10 @@ public class VentanaLogin extends JFrame {
 		contentPane.add(textoSkapa);
 		textoSkapa.setColumns(10);
 		
-		JLabel botonRegistro = new JLabel("Quisiera crearme una cuenta");
-		botonRegistro.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		botonRegistro.setForeground(SystemColor.controlShadow);
-		botonRegistro.setBounds(15, 430, 254, 20);
-		contentPane.add(botonRegistro);
-		
 		 
 		botonInicioSesion.addActionListener(new ActionListener() {
 			@Override
-			public void actionPerformed(ActionEvent e) { 
+			public void actionPerformed(ActionEvent e) {
 				
 				String usuario = textoUsuario.getText();
 				String contrasenya = textoContrasenya.getText();
@@ -124,11 +117,12 @@ public class VentanaLogin extends JFrame {
 				}else { 
 					JOptionPane.showMessageDialog(null, "No se ha podido iniciar sesion", "Error", 0);
 					
+					
+					
 				}
-		
+			
 			}
 		});
-		
 		
 	}
 }
