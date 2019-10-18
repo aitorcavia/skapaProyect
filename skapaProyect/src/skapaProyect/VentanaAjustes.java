@@ -125,37 +125,37 @@ public class VentanaAjustes extends JFrame {
 		TextoSeguridad.setBounds(15, 110, 142, 26);
 		contentPane.add(TextoSeguridad);
 		
-		JButton btnNewButton = new JButton("P");
-		btnNewButton.addActionListener(new ActionListener() {
+		JButton BotonPrivacidad = new JButton("P");
+		BotonPrivacidad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		btnNewButton.setBounds(168, 73, 115, 29);
-		contentPane.add(btnNewButton);
+		BotonPrivacidad.setBounds(168, 73, 115, 29);
+		contentPane.add(BotonPrivacidad);
 		
-		JButton btnNewButton_1 = new JButton("S");
-		btnNewButton_1.setBounds(168, 110, 115, 26);
-		contentPane.add(btnNewButton_1);
+		JButton BotonSeguridad = new JButton("S");
+		BotonSeguridad.setBounds(168, 110, 115, 26);
+		contentPane.add(BotonSeguridad);
 		
-		JButton btnNewButton_2 = new JButton("A");
-		btnNewButton_2.setBounds(168, 147, 115, 29);
-		contentPane.add(btnNewButton_2);
+		JButton BotonAnuncio = new JButton("A");
+		BotonAnuncio.setBounds(168, 147, 115, 29);
+		contentPane.add(BotonAnuncio);
 		
-		JButton btnNewButton_3 = new JButton("$");
-		btnNewButton_3.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		btnNewButton_3.setBounds(168, 192, 115, 39);
-		contentPane.add(btnNewButton_3);
+		JButton BotonPago = new JButton("$");
+		BotonPago.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		BotonPago.setBounds(168, 192, 115, 39);
+		contentPane.add(BotonPago);
 		
-		JButton btnNewButton_4 = new JButton("Ayuda");
-		btnNewButton_4.setBounds(168, 237, 115, 29);
-		contentPane.add(btnNewButton_4);
+		JButton BotonAyuda = new JButton("Ayuda");
+		BotonAyuda.setBounds(168, 237, 115, 29);
+		contentPane.add(BotonAyuda);
 		
-		JButton btnNewButton_5 = new JButton("(i)");
-		btnNewButton_5.setBounds(168, 279, 115, 26);
-		contentPane.add(btnNewButton_5);
+		JButton BotonInformacion = new JButton("(i)");
+		BotonInformacion.setBounds(168, 279, 115, 26);
+		contentPane.add(BotonInformacion);
 		
-		JButton btnNewButton_6 = new JButton("C");
-		btnNewButton_6.setBounds(168, 318, 115, 29);
-		contentPane.add(btnNewButton_6);
+		JButton BotonCuenta = new JButton("C");
+		BotonCuenta.setBounds(168, 318, 115, 29);
+		contentPane.add(BotonCuenta);
 	}
 }
