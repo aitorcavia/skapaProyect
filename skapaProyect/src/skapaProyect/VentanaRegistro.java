@@ -93,10 +93,10 @@ public class VentanaRegistro extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String usuario;
+				String usuario; 
 				String contrasenya;
 				String correo;
-				
+				 
 				usuario = textoUsuario.getText();
 				contrasenya = textoContrasenya.getText();
 				correo = textoCorreo.getText();
