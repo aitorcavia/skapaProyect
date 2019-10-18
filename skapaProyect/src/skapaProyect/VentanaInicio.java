@@ -9,13 +9,21 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JToolBar;
+import javax.swing.JEditorPane;
+import javax.swing.JTextPane;
+import java.awt.Color;
+import javax.swing.JLabel;
+import javax.swing.JSeparator;
 
 public class VentanaInicio extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtCategoria;
-	private JTextField txtProvincia;
-	private JTextField txtPrecio;
+	private JTextField categoria;
+	private JTextField provincia;
+	private JTextField precio;
+	private JTextField nombreAnuncio1;
+	private JTextField nombreAnuncio2;
+	private JTextField nombreAnuncio3;
 
 	/**
 	 * Launch the application.
@@ -41,42 +49,74 @@ public class VentanaInicio extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 349, 559);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(135, 206, 250));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(150, 42, 146, 20);
-		contentPane.add(comboBox);
+		JComboBox comboBoxCategoria = new JComboBox();
+		comboBoxCategoria.setBounds(150, 42, 146, 20);
+		contentPane.add(comboBoxCategoria);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(150, 86, 146, 20);
-		contentPane.add(comboBox_1);
+		JComboBox comboBoxProvincia = new JComboBox();
+		comboBoxProvincia.setBounds(150, 86, 146, 20);
+		contentPane.add(comboBoxProvincia);
 		
-		JComboBox comboBox_3 = new JComboBox();
-		comboBox_3.setBounds(150, 127, 59, 20);
-		contentPane.add(comboBox_3);
+		JComboBox comboBoxPrecio1 = new JComboBox();
+		comboBoxPrecio1.setBounds(150, 127, 59, 20);
+		contentPane.add(comboBoxPrecio1);
 		
-		JComboBox comboBox_4 = new JComboBox();
-		comboBox_4.setBounds(237, 127, 59, 20);
-		contentPane.add(comboBox_4);
+		JComboBox comboBoxPrecio2 = new JComboBox();
+		comboBoxPrecio2.setBounds(237, 127, 59, 20);
+		contentPane.add(comboBoxPrecio2);
 		
-		txtCategoria = new JTextField();
-		txtCategoria.setText("Categoria:");
-		txtCategoria.setBounds(10, 42, 115, 20);
-		contentPane.add(txtCategoria);
-		txtCategoria.setColumns(10);
+		categoria = new JTextField();
+		categoria.setText("Categoria:");
+		categoria.setBounds(10, 42, 115, 20);
+		contentPane.add(categoria);
+		categoria.setColumns(10);
 		
-		txtProvincia = new JTextField();
-		txtProvincia.setText("Provincia:");
-		txtProvincia.setBounds(10, 86, 115, 20);
-		contentPane.add(txtProvincia);
-		txtProvincia.setColumns(10);
+		provincia = new JTextField();
+		provincia.setText("Provincia:");
+		provincia.setBounds(10, 86, 115, 20);
+		contentPane.add(provincia);
+		provincia.setColumns(10);
 		
-		txtPrecio = new JTextField();
-		txtPrecio.setText("Precio:");
-		txtPrecio.setBounds(10, 127, 115, 20);
-		contentPane.add(txtPrecio);
-		txtPrecio.setColumns(10);
+		precio = new JTextField();
+		precio.setText("Precio:");
+		precio.setBounds(10, 127, 115, 20);
+		contentPane.add(precio);
+		precio.setColumns(10);
+		
+		JEditorPane buscador = new JEditorPane();
+		buscador.setBounds(66, 11, 230, 20);
+		contentPane.add(buscador);
+		
+		JSeparator anuncio1 = new JSeparator();
+		anuncio1.setBounds(10, 169, 286, 118);
+		contentPane.add(anuncio1);
+		
+		JSeparator anuncio2 = new JSeparator();
+		anuncio2.setBounds(10, 391, 286, 118);
+		contentPane.add(anuncio2);
+		
+		JSeparator anuncio3 = new JSeparator();
+		anuncio3.setBounds(10, 273, 286, 118);
+		contentPane.add(anuncio3);
+		
+		nombreAnuncio1 = new JTextField();
+		nombreAnuncio1.setBounds(20, 179, 154, 20);
+		contentPane.add(nombreAnuncio1);
+		nombreAnuncio1.setColumns(10);
+		
+		nombreAnuncio2 = new JTextField();
+		nombreAnuncio2.setBounds(20, 281, 154, 20);
+		contentPane.add(nombreAnuncio2);
+		nombreAnuncio2.setColumns(10);
+		
+		nombreAnuncio3 = new JTextField();
+		nombreAnuncio3.setBounds(20, 408, 154, 20);
+		contentPane.add(nombreAnuncio3);
+		nombreAnuncio3.setColumns(10);
 	}
 }
