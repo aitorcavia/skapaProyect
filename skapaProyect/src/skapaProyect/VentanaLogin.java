@@ -9,6 +9,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JTextArea;
@@ -21,6 +23,7 @@ import java.awt.event.ActionEvent;
 import javax.security.auth.login.LoginContext;
 import javax.swing.DropMode;
 import java.awt.Window.Type;
+import javax.swing.ImageIcon;
 
 public class VentanaLogin extends JFrame {
 
@@ -94,7 +97,7 @@ public class VentanaLogin extends JFrame {
 		textoSkapa.setBackground(new Color(135, 206, 250));
 		textoSkapa.setFont(new Font("Tahoma", Font.PLAIN, 64));
 		textoSkapa.setText("SKAPA");
-		textoSkapa.setBounds(15, 16, 388, 108);
+		textoSkapa.setBounds(15, 16, 199, 108);
 		contentPane.add(textoSkapa);
 		textoSkapa.setColumns(10);
 		
@@ -106,11 +109,13 @@ public class VentanaLogin extends JFrame {
 				String usuario = textoUsuario.getText();
 				String contrasenya = textoContrasenya.getText();
 				
-				if (usuario.equals("aitor") && contrasenya.equals("12345")) {
-					VentanaRegistro vr = new VentanaRegistro();
+				if (usuario.equals("skapa") && contrasenya.equals("12345")) {
+					VentanaInicio vi = new VentanaInicio();
 					setVisible(false);
-					vr.setVisible(true);
+					vi.setVisible(true);
+					
 				}else { 
+					JOptionPane.showMessageDialog(null, "No se ha podido iniciar sesion", "Error", 0);
 					
 					
 					
@@ -120,6 +125,4 @@ public class VentanaLogin extends JFrame {
 		});
 		
 	}
-
-	
 }
