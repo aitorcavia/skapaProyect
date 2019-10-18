@@ -105,17 +105,17 @@ public class VentanaInicio extends JFrame {
 		contentPane.add(anuncio3);
 		
 		nombreAnuncio1 = new JTextField();
-		nombreAnuncio1.setBounds(20, 179, 154, 20);
+		nombreAnuncio1.setBounds(20, 179, 170, 20);
 		contentPane.add(nombreAnuncio1);
 		nombreAnuncio1.setColumns(10);
 		
 		nombreAnuncio2 = new JTextField();
-		nombreAnuncio2.setBounds(20, 281, 154, 20);
+		nombreAnuncio2.setBounds(20, 281, 170, 20);
 		contentPane.add(nombreAnuncio2);
 		nombreAnuncio2.setColumns(10);
 		
 		nombreAnuncio3 = new JTextField();
-		nombreAnuncio3.setBounds(20, 408, 154, 20);
+		nombreAnuncio3.setBounds(20, 408, 170, 20);
 		contentPane.add(nombreAnuncio3);
 		nombreAnuncio3.setColumns(10);
 	}
