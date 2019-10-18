@@ -108,9 +108,9 @@ public class VentanaLogin extends JFrame {
 				
 				if (usuario.equals("aitor") && contrasenya.equals("12345")) {
 					VentanaRegistro vr = new VentanaRegistro();
-					
+					setVisible(false);
 					vr.setVisible(true);
-				}else {
+				}else { 
 					
 					
 					
