@@ -41,7 +41,7 @@ public class VentanaChat extends JFrame {
 	public VentanaChat() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 349, 559);
-		contentPane = new JPanel();
+		contentPane = new JPanel(); 
 		contentPane.setBackground(new Color(135, 206, 250));
 		contentPane.setForeground(Color.BLACK);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
