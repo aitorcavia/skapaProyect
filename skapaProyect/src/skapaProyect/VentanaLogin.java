@@ -12,12 +12,15 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
 import java.awt.Color;
+import java.awt.Cursor;
 import java.awt.Font;
 import javax.swing.JTextArea;
 import javax.swing.JButton;
 import javax.swing.JPasswordField;
 import javax.swing.UIManager;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.ActionEvent;
 
 import javax.security.auth.login.LoginContext;
@@ -101,6 +104,12 @@ public class VentanaLogin extends JFrame {
 		contentPane.add(textoSkapa);
 		textoSkapa.setColumns(10);
 		
+		JLabel botonRegistro = new JLabel("Deseo crear una cuenta");
+		botonRegistro.setForeground(Color.GRAY);
+		botonRegistro.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		botonRegistro.setBounds(15, 430, 199, 20);
+		contentPane.add(botonRegistro);
+		
 		 
 		botonInicioSesion.addActionListener(new ActionListener() {
 			@Override
@@ -121,6 +130,30 @@ public class VentanaLogin extends JFrame {
 					
 				}
 			
+			}
+		});
+		
+		botonRegistro.setCursor(new Cursor(HAND_CURSOR));
+		
+		botonRegistro.addMouseListener(new MouseListener() {
+			@Override
+			public void mouseReleased(MouseEvent e) {
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {		
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+			}
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				VentanaRegistro vr = new VentanaRegistro();
+				setVisible(false);
+				vr.setVisible(true);
+				
 			}
 		});
 		
