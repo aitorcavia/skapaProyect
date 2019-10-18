@@ -18,10 +18,15 @@ import javax.swing.UIManager;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
+import javax.security.auth.login.LoginContext;
+import javax.swing.DropMode;
+import java.awt.Window.Type;
+
 public class VentanaLogin extends JFrame {
 
 	private JPanel contentPane;
-	private JPasswordField passwordField;
+	private JPasswordField textoContrasenya;
+	private JTextField textoSkapa;
 
 	/**
 	 * Launch the application.
@@ -53,49 +58,68 @@ public class VentanaLogin extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JPanel panelSkapa = new JPanel();
-		panelSkapa.setBorder(UIManager.getBorder("FormattedTextField.border"));
-		panelSkapa.setBackground(new Color(224, 255, 255));
-		panelSkapa.setForeground(Color.BLACK);
-		panelSkapa.setBounds(15, 26, 388, 71);
-		contentPane.add(panelSkapa);
-		panelSkapa.setLayout(null);
+		JLabel labelUsuario = new JLabel("Usuario");
+		labelUsuario.setFont(new Font("Yu Gothic UI", Font.PLAIN, 18));
+		labelUsuario.setBounds(15, 140, 112, 20);
+		contentPane.add(labelUsuario);
 		
-		JLabel textSkapa = new JLabel("SKAPA");
-		textSkapa.setBounds(1, 1, 382, 69);
-		textSkapa.setFont(new Font("Lucida Sans Unicode", Font.PLAIN, 40));
-		panelSkapa.add(textSkapa);
-		textSkapa.setHorizontalAlignment(SwingConstants.CENTER);
+		JLabel labelContrasenya = new JLabel("Contrase\u00F1a");
+		labelContrasenya.setFont(new Font("Yu Gothic UI", Font.PLAIN, 18));
+		labelContrasenya.setBounds(15, 249, 112, 20);
+		contentPane.add(labelContrasenya);
 		
-		JLabel lblUsername = new JLabel("Usuario");
-		lblUsername.setFont(new Font("Yu Gothic UI", Font.PLAIN, 18));
-		lblUsername.setBounds(15, 140, 112, 20);
-		contentPane.add(lblUsername);
+		JTextArea textoUsuario = new JTextArea();
+		textoUsuario.setFont(new Font("Monospaced", Font.PLAIN, 18));
+		textoUsuario.setTabSize(18);
+		textoUsuario.setBounds(15, 176, 388, 35);
+		contentPane.add(textoUsuario);
 		
-		JLabel lblContrasea = new JLabel("Contrase\u00F1a");
-		lblContrasea.setFont(new Font("Yu Gothic UI", Font.PLAIN, 18));
-		lblContrasea.setBounds(15, 249, 112, 20);
-		contentPane.add(lblContrasea);
-		
-		JTextArea textArea = new JTextArea();
-		textArea.setFont(new Font("Monospaced", Font.PLAIN, 18));
-		textArea.setTabSize(18);
-		textArea.setBounds(15, 176, 388, 35);
-		contentPane.add(textArea);
-		
-		JButton btnSingIn = new JButton("Iniciar sesion");
-		btnSingIn.addActionListener(new ActionListener() {
+		JButton botonInicioSesion = new JButton("Iniciar sesion");
+		botonInicioSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 			}
 		});
-		btnSingIn.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		btnSingIn.setBackground(new Color(204, 255, 255));
-		btnSingIn.setBounds(248, 362, 155, 29);
-		contentPane.add(btnSingIn);
+		botonInicioSesion.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		botonInicioSesion.setBackground(new Color(204, 255, 255));
+		botonInicioSesion.setBounds(248, 362, 155, 29);
+		contentPane.add(botonInicioSesion);
 		
-		passwordField = new JPasswordField();
-		passwordField.setFont(new Font("Tahoma", Font.PLAIN, 18));
-		passwordField.setBounds(15, 285, 388, 35);
-		contentPane.add(passwordField);
+		textoContrasenya = new JPasswordField();
+		textoContrasenya.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		textoContrasenya.setBounds(15, 285, 388, 35);
+		contentPane.add(textoContrasenya);
+		
+		textoSkapa = new JTextField();
+		textoSkapa.setEditable(false);
+		textoSkapa.setBackground(new Color(135, 206, 250));
+		textoSkapa.setFont(new Font("Tahoma", Font.PLAIN, 64));
+		textoSkapa.setText("SKAPA");
+		textoSkapa.setBounds(15, 16, 388, 108);
+		contentPane.add(textoSkapa);
+		textoSkapa.setColumns(10);
+		
+		
+		botonInicioSesion.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				String usuario = textoUsuario.getText();
+				String contrasenya = textoContrasenya.getText();
+				
+				if (usuario.equals("aitor") && contrasenya.equals("12345")) {
+					VentanaRegistro vr = new VentanaRegistro();
+					
+					vr.setVisible(true);
+				}else {
+					
+					
+					
+				}
+			
+			}
+		});
+		
 	}
+
+	
 }

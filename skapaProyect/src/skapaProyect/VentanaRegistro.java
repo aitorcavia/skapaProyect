@@ -13,6 +13,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JButton;
 import java.awt.Color;
 import javax.swing.UIManager;
+import java.awt.Window.Type;
+import java.awt.Dialog.ModalExclusionType;
 
 public class VentanaRegistro extends JFrame {
 
@@ -42,7 +44,7 @@ public class VentanaRegistro extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 440, 523);
 		contentPane = new JPanel();
-		contentPane.setBackground(UIManager.getColor("Button.light"));
+		contentPane.setBackground(new Color(135, 206, 250));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
