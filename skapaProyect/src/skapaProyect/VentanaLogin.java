@@ -98,7 +98,7 @@ public class VentanaLogin extends JFrame {
 		contentPane.add(textoSkapa);
 		textoSkapa.setColumns(10);
 		
-		
+		 
 		botonInicioSesion.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
