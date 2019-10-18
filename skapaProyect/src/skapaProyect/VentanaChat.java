@@ -65,6 +65,7 @@ public class VentanaChat extends JFrame {
 		contentPane.add(textPane);
 		
 		JTextPane textPane_1 = new JTextPane();
+		textPane_1.setEditable(false);
 		textPane_1.setBounds(15, 16, 193, 29);
 		contentPane.add(textPane_1);
 		
@@ -73,12 +74,14 @@ public class VentanaChat extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		txtUltimaVezConectado = new JTextField();
+		txtUltimaVezConectado.setEditable(false);
 		txtUltimaVezConectado.setText("Ultima vez conectado");
 		txtUltimaVezConectado.setBounds(15, 47, 160, 20);
 		contentPane.add(txtUltimaVezConectado);
 		txtUltimaVezConectado.setColumns(10);
 		
 		JTextPane textPane_2 = new JTextPane();
+		textPane_2.setEditable(false);
 		textPane_2.setBounds(174, 47, 34, 20);
 		contentPane.add(textPane_2);
 	}
