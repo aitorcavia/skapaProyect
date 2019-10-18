@@ -18,9 +18,6 @@ import javax.swing.JSeparator;
 public class VentanaInicio extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField categoria;
-	private JTextField provincia;
-	private JTextField precio;
 	private JTextField nombreAnuncio1;
 	private JTextField nombreAnuncio2;
 	private JTextField nombreAnuncio3;
@@ -70,24 +67,6 @@ public class VentanaInicio extends JFrame {
 		comboBoxPrecio2.setBounds(237, 127, 59, 20);
 		contentPane.add(comboBoxPrecio2);
 		
-		categoria = new JTextField();
-		categoria.setText("Categoria:");
-		categoria.setBounds(10, 42, 115, 20);
-		contentPane.add(categoria);
-		categoria.setColumns(10);
-		
-		provincia = new JTextField();
-		provincia.setText("Provincia:");
-		provincia.setBounds(10, 86, 115, 20);
-		contentPane.add(provincia);
-		provincia.setColumns(10);
-		
-		precio = new JTextField();
-		precio.setText("Precio:");
-		precio.setBounds(10, 127, 115, 20);
-		contentPane.add(precio);
-		precio.setColumns(10);
-		
 		JEditorPane buscador = new JEditorPane();
 		buscador.setBounds(66, 11, 230, 20);
 		contentPane.add(buscador);
@@ -118,5 +97,17 @@ public class VentanaInicio extends JFrame {
 		nombreAnuncio3.setBounds(20, 408, 155, 30);
 		contentPane.add(nombreAnuncio3);
 		nombreAnuncio3.setColumns(10);
+		
+		JLabel lblCategoria = new JLabel("Categoria:");
+		lblCategoria.setBounds(10, 42, 80, 20);
+		contentPane.add(lblCategoria);
+		
+		JLabel lblProvincia = new JLabel("Provincia:");
+		lblProvincia.setBounds(10, 86, 69, 20);
+		contentPane.add(lblProvincia);
+		
+		JLabel lblPrecio = new JLabel("Precio:");
+		lblPrecio.setBounds(10, 127, 59, 20);
+		contentPane.add(lblPrecio);
 	}
 }
