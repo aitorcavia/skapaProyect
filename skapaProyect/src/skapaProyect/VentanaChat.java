@@ -17,7 +17,7 @@ import java.awt.Color;
 public class VentanaChat extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtUltimaVezConectado;
+	private JTextField UltimaVezConectadotexto;
 
 	/**
 	 * Launch the application.
@@ -60,29 +60,29 @@ public class VentanaChat extends JFrame {
 		BarraVerMensajes.setBounds(301, 16, 26, 408);
 		contentPane.add(BarraVerMensajes);
 		
-		JTextPane textPane = new JTextPane();
-		textPane.setBounds(15, 432, 193, 37);
-		contentPane.add(textPane);
+		JTextPane TextoAEnviar = new JTextPane();
+		TextoAEnviar.setBounds(15, 432, 193, 37);
+		contentPane.add(TextoAEnviar);
 		
-		JTextPane textPane_1 = new JTextPane();
-		textPane_1.setEditable(false);
-		textPane_1.setBounds(15, 16, 193, 29);
-		contentPane.add(textPane_1);
+		JTextPane Nombre = new JTextPane();
+		Nombre.setEditable(false);
+		Nombre.setBounds(15, 16, 193, 29);
+		contentPane.add(Nombre);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setBounds(217, 16, 69, 29);
-		contentPane.add(lblNewLabel);
+		JLabel FotoPersona = new JLabel("New label");
+		FotoPersona.setBounds(217, 16, 69, 29);
+		contentPane.add(FotoPersona);
 		
-		txtUltimaVezConectado = new JTextField();
-		txtUltimaVezConectado.setEditable(false);
-		txtUltimaVezConectado.setText("Ultima vez conectado");
-		txtUltimaVezConectado.setBounds(15, 47, 160, 20);
-		contentPane.add(txtUltimaVezConectado);
-		txtUltimaVezConectado.setColumns(10);
+		UltimaVezConectadotexto = new JTextField();
+		UltimaVezConectadotexto.setEditable(false);
+		UltimaVezConectadotexto.setText("Ultima vez conectado");
+		UltimaVezConectadotexto.setBounds(15, 47, 160, 20);
+		contentPane.add(UltimaVezConectadotexto);
+		UltimaVezConectadotexto.setColumns(10);
 		
-		JTextPane textPane_2 = new JTextPane();
-		textPane_2.setEditable(false);
-		textPane_2.setBounds(174, 47, 34, 20);
-		contentPane.add(textPane_2);
+		JTextPane LaHoraUltimaVezConectado = new JTextPane();
+		LaHoraUltimaVezConectado.setEditable(false);
+		LaHoraUltimaVezConectado.setBounds(174, 47, 34, 20);
+		contentPane.add(LaHoraUltimaVezConectado);
 	}
 }
