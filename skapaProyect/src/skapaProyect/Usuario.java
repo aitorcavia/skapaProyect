@@ -1,5 +1,7 @@
 package skapaProyect;
 
+import java.util.ArrayList;
+
 public class Usuario {
 
 	protected String usuario;
@@ -41,10 +43,6 @@ public class Usuario {
 	public String toString() {
 		return "Usuario [usuario=" + usuario + ", contrasenya=" + contrasenya + ", correo=" + correo + "]";
 	}
-	
-	
-	
-	
 	
 	
 }

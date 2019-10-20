@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.Font;
 import javax.swing.JTextArea;
 import javax.swing.JPasswordField;
@@ -16,6 +18,9 @@ import javax.swing.UIManager;
 import java.awt.Window.Type;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.lang.reflect.Array;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.awt.Dialog.ModalExclusionType;
 
 public class VentanaRegistro extends JFrame {
@@ -89,6 +94,11 @@ public class VentanaRegistro extends JFrame {
 		botonRegistro.setBounds(263, 355, 140, 29);
 		contentPane.add(botonRegistro);
 		
+		JButton botonAtras = new JButton("Atras");
+		botonAtras.setBackground(new Color(135, 206, 235));
+		botonAtras.setBounds(15, 422, 91, 29);
+		contentPane.add(botonAtras);
+		
 		botonRegistro.addActionListener(new ActionListener() {
 			
 			@Override
@@ -102,10 +112,28 @@ public class VentanaRegistro extends JFrame {
 				correo = textoCorreo.getText();
 				
 				Usuario u = new Usuario (usuario, contrasenya, correo);
-				
 				System.out.println(u);
+				
+				JOptionPane.showMessageDialog(null, "Cuenta creada correctamente", "Correcto", 1);
+				
+				VentanaLogin vl = new VentanaLogin();
+				setVisible(false);
+				vl.setVisible(true);
 			}
 		});
+		
+		botonAtras.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				VentanaLogin vl = new VentanaLogin();
+				setVisible(false);
+				vl.setVisible(true);
+				
+			}
+		});
+		
+	
 		
 		
 	}

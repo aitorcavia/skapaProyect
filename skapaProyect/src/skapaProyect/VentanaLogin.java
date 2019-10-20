@@ -125,9 +125,9 @@ public class VentanaLogin extends JFrame {
 					
 				}else { 
 					JOptionPane.showMessageDialog(null, "No se ha podido iniciar sesion", "Error", 0);
-					
-					
-					
+					textoUsuario.setText("");
+					textoContrasenya.setText("");
+			
 				}
 			
 			}
