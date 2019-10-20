@@ -24,10 +24,10 @@ import java.net.Socket;
 
 public class VentanaCliente  {
 
+	TextArea area_chat = null;
 	JFrame ventana_chat = null;
 	JButton btn_enviar = null;
 	JTextField txt_mensaje = null;
-	JTextArea area_chat = null;
 	JPanel contenedor_areachat = null;
 	JPanel contenedor_btntxt = null;
 //	JScrollPane scroll = null;
@@ -61,8 +61,8 @@ public class VentanaCliente  {
 		//scroll = new JScrollPane(area_chat);
 
 		
-		TextArea area_chat_1 = new TextArea();
-		ventana_chat.getContentPane().add(area_chat_1, BorderLayout.CENTER);
+		area_chat = new TextArea();
+		ventana_chat.getContentPane().add(area_chat, BorderLayout.CENTER);
 		ventana_chat.setSize(300,200);
 		ventana_chat.setVisible(true);
 		ventana_chat.setResizable(false);
@@ -71,7 +71,7 @@ public class VentanaCliente  {
 		Thread principal =  new Thread(new Runnable() {
 			public void run() {
 				try {
-					socket = new Socket("local host",9000);
+					socket = new Socket("localhost",9000);
  						leer();
 						escribir();
 					
@@ -114,6 +114,11 @@ public class VentanaCliente  {
 							String enviar_mensaje = txt_mensaje.getText();
 							escritor.println(enviar_mensaje);
 							txt_mensaje.setText("");
+							area_chat.append("YO:  " + enviar_mensaje +"\n");
+	
+							
+							
+							
 
 						}
 					});
