@@ -3,9 +3,11 @@ package skapaProyect;
 // parte1 https://www.youtube.com/watch?v=zZIeUCBKwjc
 //parte 2 https://www.youtube.com/watch?v=VvKv0EN6q0k
 import java.awt.BorderLayout;
+import java.awt.ComponentOrientation;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
 
+import javax.print.attribute.standard.OrientationRequested;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -21,10 +23,12 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import javax.swing.JLabel;
+import java.awt.Color;
 
 public class VentanaCliente  {
 
-	TextArea area_chat = null;
+	JTextArea area_chat = null;
 	JFrame ventana_chat = null;
 	JButton btn_enviar = null;
 	JTextField txt_mensaje = null;
@@ -48,22 +52,29 @@ public class VentanaCliente  {
 		btn_enviar = new JButton("Enviar");
 		txt_mensaje = new JTextField(4);
 		contenedor_areachat = new JPanel();
+		contenedor_areachat.setBounds(0, 0, 294, 0);
 		contenedor_areachat.setLayout(new GridLayout(1,1));
 	//	contenedor_areachat.add(scroll);
 
 		contenedor_btntxt = new JPanel();
+		contenedor_btntxt.setBounds(0, 273, 294, 29);
 		contenedor_btntxt.setLayout(new GridLayout(1,2));
 		contenedor_btntxt.add(txt_mensaje);
 		contenedor_btntxt.add(btn_enviar);
-		ventana_chat.getContentPane().setLayout(new BorderLayout());
-		ventana_chat.getContentPane().add(contenedor_areachat,BorderLayout.NORTH);
-		ventana_chat.getContentPane().add(contenedor_btntxt,BorderLayout.SOUTH);
-		//scroll = new JScrollPane(area_chat);
-
+		ventana_chat.getContentPane().setLayout(null);
+		ventana_chat.getContentPane().add(contenedor_areachat);
+		ventana_chat.getContentPane().add(contenedor_btntxt);
 		
-		area_chat = new TextArea();
-		ventana_chat.getContentPane().add(area_chat, BorderLayout.CENTER);
-		ventana_chat.setSize(300,200);
+		area_chat = new JTextArea();
+		area_chat.setEditable(false);
+		area_chat.setBounds(0, 45, 294, 229);
+		ventana_chat.getContentPane().add(area_chat);
+		
+		JLabel lblNewLabel = new JLabel("Comprador");
+		lblNewLabel.setBackground(new Color(135, 206, 250));
+		lblNewLabel.setBounds(0, 0, 294, 44);
+		ventana_chat.getContentPane().add(lblNewLabel);
+		ventana_chat.setSize(300,341);
 		ventana_chat.setVisible(true);
 		ventana_chat.setResizable(false);
 		ventana_chat.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -138,5 +149,4 @@ public class VentanaCliente  {
 	public static void main(String[] args) {
 		new VentanaCliente();
 	}
-
 }

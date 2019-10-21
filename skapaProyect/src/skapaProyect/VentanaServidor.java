@@ -12,7 +12,7 @@ public class VentanaServidor  {
 	JFrame ventana_chat = null;
 	JButton btn_enviar = null;
 	JTextField txt_mensaje = null;
-	TextArea area_chat = null;
+	JTextArea area_chat = null;
 	JPanel contenedor_areachat = null;
 	JPanel contenedor_btntxt = null;
 	//JScrollPane scroll = null;
@@ -32,19 +32,28 @@ public void hacerInterfaz() {
 	btn_enviar = new JButton("Enviar");
 	txt_mensaje = new JTextField(4);
 	contenedor_areachat = new JPanel();
+	contenedor_areachat.setBounds(0, 0, 294, 0);
 	contenedor_areachat.setLayout(new GridLayout(1,1));
 	//contenedor_areachat.add(scroll);
 	contenedor_btntxt = new JPanel();
+	contenedor_btntxt.setBounds(0, 272, 294, 29);
 	contenedor_btntxt.setLayout(new GridLayout(1,2));
 	contenedor_btntxt.add(txt_mensaje);
 	contenedor_btntxt.add(btn_enviar);
-	ventana_chat.getContentPane().setLayout(new BorderLayout());
-	ventana_chat.getContentPane().add(contenedor_areachat,BorderLayout.NORTH);
-	ventana_chat.getContentPane().add(contenedor_btntxt,BorderLayout.SOUTH);
-	//scroll = new JScrollPane(area_chat);
-	area_chat = new TextArea();
-	ventana_chat.getContentPane().add(area_chat, BorderLayout.CENTER);
-	ventana_chat.setSize(300,200);
+	ventana_chat.getContentPane().setLayout(null);
+	ventana_chat.getContentPane().add(contenedor_areachat);
+	ventana_chat.getContentPane().add(contenedor_btntxt);
+	
+	area_chat = new JTextArea();
+	area_chat.setEditable(false);
+	area_chat.setBounds(0, 46, 294, 225);
+	ventana_chat.getContentPane().add(area_chat);
+	
+	JLabel lblNewLabel = new JLabel("Vendedor");
+	lblNewLabel.setBackground(new Color(135, 206, 250));
+	lblNewLabel.setBounds(0, 0, 294, 46);
+	ventana_chat.getContentPane().add(lblNewLabel);
+	ventana_chat.setSize(300,341);
 	ventana_chat.setVisible(true);
 	ventana_chat.setResizable(false);
 	ventana_chat.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
