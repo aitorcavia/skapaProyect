@@ -30,6 +30,7 @@ public VentanaServidor() {
 public void hacerInterfaz() {
 	ventana_chat = new JFrame("Servidor"); 
 	btn_enviar = new JButton("Enviar");
+	btn_enviar.setBackground(new Color(224, 255, 255));
 	txt_mensaje = new JTextField(4);
 	contenedor_areachat = new JPanel();
 	contenedor_areachat.setBounds(0, 0, 294, 0);
@@ -49,8 +50,11 @@ public void hacerInterfaz() {
 	area_chat.setBounds(0, 46, 294, 225);
 	ventana_chat.getContentPane().add(area_chat);
 	
+	
 	JLabel lblNewLabel = new JLabel("Vendedor");
-	lblNewLabel.setBackground(new Color(135, 206, 250));
+	lblNewLabel.setFont(new Font("Sitka Small", Font.BOLD, 16));
+	lblNewLabel.setOpaque(true);
+	lblNewLabel.setBackground(new Color(173, 216, 230));
 	lblNewLabel.setBounds(0, 0, 294, 46);
 	ventana_chat.getContentPane().add(lblNewLabel);
 	ventana_chat.setSize(300,341);

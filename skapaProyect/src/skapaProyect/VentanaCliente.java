@@ -25,6 +25,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import javax.swing.JLabel;
 import java.awt.Color;
+import java.awt.Font;
 
 public class VentanaCliente  {
 
@@ -50,6 +51,7 @@ public class VentanaCliente  {
 	public void hacerInterfaz() {
 		ventana_chat = new JFrame("Cliente"); 
 		btn_enviar = new JButton("Enviar");
+		btn_enviar.setBackground(new Color(224, 255, 255));
 		txt_mensaje = new JTextField(4);
 		contenedor_areachat = new JPanel();
 		contenedor_areachat.setBounds(0, 0, 294, 0);
@@ -70,10 +72,13 @@ public class VentanaCliente  {
 		area_chat.setBounds(0, 45, 294, 229);
 		ventana_chat.getContentPane().add(area_chat);
 		
-		JLabel lblNewLabel = new JLabel("Comprador");
-		lblNewLabel.setBackground(new Color(135, 206, 250));
-		lblNewLabel.setBounds(0, 0, 294, 44);
-		ventana_chat.getContentPane().add(lblNewLabel);
+		JLabel labelChat = new JLabel("Comprador");
+		labelChat.setFont(new Font("Sitka Small", Font.BOLD, 16));
+		labelChat.setOpaque(true);
+		labelChat.setBackground(new Color(173, 216, 230));
+		labelChat.setBounds(0, 0, 294, 44);
+		
+		ventana_chat.getContentPane().add(labelChat);
 		ventana_chat.setSize(300,341);
 		ventana_chat.setVisible(true);
 		ventana_chat.setResizable(false);
