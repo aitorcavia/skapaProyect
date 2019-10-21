@@ -27,6 +27,7 @@ import javax.security.auth.login.LoginContext;
 import javax.swing.DropMode;
 import java.awt.Window.Type;
 import javax.swing.ImageIcon;
+import java.awt.Dialog.ModalExclusionType;
 
 public class VentanaLogin extends JFrame {
 

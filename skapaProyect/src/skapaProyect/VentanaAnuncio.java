@@ -47,24 +47,20 @@ public class VentanaAnuncio extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JScrollBar BarraDescripcion = new JScrollBar();
-		BarraDescripcion.setBounds(286, 269, 26, 218);
-		contentPane.add(BarraDescripcion);
-		
 		JTextPane TextoDescripcion = new JTextPane();
 		TextoDescripcion.setEditable(false);
 		TextoDescripcion.setFont(new Font("Tahoma", Font.BOLD, 16));
 		TextoDescripcion.setText("Descripci\u00F3n");
-		TextoDescripcion.setBounds(15, 269, 269, 218);
+		TextoDescripcion.setBounds(15, 265, 297, 222);
 		contentPane.add(TextoDescripcion);
 		
-		JLabel Foto = new JLabel("New label");
-		Foto.setBounds(15, 16, 297, 218);
+		JLabel Foto = new JLabel("(IMAGEN PRODUCTO)");
+		Foto.setBounds(15, 16, 297, 177);
 		contentPane.add(Foto);
 		
-		JScrollBar BarraImagen = new JScrollBar();
-		BarraImagen.setOrientation(JScrollBar.HORIZONTAL);
-		BarraImagen.setBounds(15, 238, 297, 26);
-		contentPane.add(BarraImagen);
+		JLabel lblNewLabel = new JLabel("TITULO                    Precio: ");
+		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblNewLabel.setBounds(15, 209, 297, 40);
+		contentPane.add(lblNewLabel);
 	}
 }

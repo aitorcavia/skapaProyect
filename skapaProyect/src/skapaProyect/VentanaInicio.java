@@ -2,16 +2,24 @@ package skapaProyect;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.event.AncestorEvent;
+import javax.swing.event.AncestorListener;
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JToolBar;
 import javax.swing.JEditorPane;
 import javax.swing.JTextPane;
 import java.awt.Color;
+import java.awt.Cursor;
+
 import javax.swing.JLabel;
 import javax.swing.JSeparator;
 
@@ -71,35 +79,35 @@ public class VentanaInicio extends JFrame {
 		buscador.setBounds(66, 11, 230, 20);
 		contentPane.add(buscador);
 		
-		JSeparator anuncio1 = new JSeparator();
-		anuncio1.setBounds(10, 169, 286, 118);
-		contentPane.add(anuncio1);
-		
-		JSeparator anuncio2 = new JSeparator();
-		anuncio2.setBounds(10, 391, 286, 118);
-		contentPane.add(anuncio2);
-		
-		JSeparator anuncio3 = new JSeparator();
-		anuncio3.setBounds(10, 273, 286, 118);
-		contentPane.add(anuncio3);
-		
 		nombreAnuncio1 = new JTextField();
 		nombreAnuncio1.setEditable(false);
 		nombreAnuncio1.setBounds(20, 179, 155, 30);
 		contentPane.add(nombreAnuncio1);
 		nombreAnuncio1.setColumns(10);
 		
+		JSeparator anuncio1 = new JSeparator();
+		anuncio1.setBounds(10, 169, 286, 106);
+		contentPane.add(anuncio1);
+		
 		nombreAnuncio2 = new JTextField();
 		nombreAnuncio2.setEditable(false);
-		nombreAnuncio2.setBounds(20, 281, 155, 30);
+		nombreAnuncio2.setBounds(20, 298, 155, 30);
 		contentPane.add(nombreAnuncio2);
 		nombreAnuncio2.setColumns(10);
+		
+		JSeparator anuncio2 = new JSeparator();
+		anuncio2.setBounds(10, 391, 286, 118);
+		contentPane.add(anuncio2);
 		
 		nombreAnuncio3 = new JTextField();
 		nombreAnuncio3.setEditable(false);
 		nombreAnuncio3.setBounds(20, 408, 155, 30);
 		contentPane.add(nombreAnuncio3);
 		nombreAnuncio3.setColumns(10);
+		
+		JSeparator anuncio3 = new JSeparator();
+		anuncio3.setBounds(10, 286, 286, 118);
+		contentPane.add(anuncio3);
 		
 		JLabel lblCategoria = new JLabel("Categoria:");
 		lblCategoria.setBounds(10, 42, 80, 20);
@@ -112,5 +120,35 @@ public class VentanaInicio extends JFrame {
 		JLabel lblPrecio = new JLabel("Precio:");
 		lblPrecio.setBounds(10, 127, 59, 20);
 		contentPane.add(lblPrecio);
+		
+		nombreAnuncio1.setCursor(new Cursor(HAND_CURSOR));
+		nombreAnuncio2.setCursor(new Cursor(HAND_CURSOR));
+		nombreAnuncio3.setCursor(new Cursor(HAND_CURSOR));
+		
+		nombreAnuncio1.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+			}
+			
+			@Override
+			public void mousePressed(MouseEvent e) {
+			}
+			
+			@Override
+			public void mouseExited(MouseEvent e) {
+			}
+			
+			@Override
+			public void mouseEntered(MouseEvent e) {
+			}
+			
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				VentanaAnuncio va = new VentanaAnuncio();
+				setVisible(false);	
+				va.setVisible(true);
+			}
+		});
 	}
 }
