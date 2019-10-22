@@ -122,10 +122,10 @@ public class VentanaRegistro extends JFrame {
 					Connection conn = DriverManager.getConnection("jdbc:sqlite:data/BD.db");
 					Statement stmt = conn.createStatement();
 					
-				
-					//Introducir datos
-					ResultSet rs = stmt.executeQuery("INSERT INTO usuario (usuario, correo, contraseña) VALUES ('" + usuario + "', '"+ correo + "', '" + contrasenya + "')");
-				
+					String query = "INSERT INTO usuario (usuario, correo, contraseña) VALUES ('" + usuario + "', '"+ correo + "', '" + contrasenya + "')" ;
+					stmt.executeUpdate(query);
+					
+					
 	
 					JOptionPane.showMessageDialog(null, "Cuenta creada correctamente", "Correcto", 1);
 					
