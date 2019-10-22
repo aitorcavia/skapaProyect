@@ -1,6 +1,8 @@
 package skapaProyect;
 
 import javax.swing.*;
+
+
 import java.awt.*;
 import java.net.*;
 import java.io.*;
@@ -69,11 +71,12 @@ public void hacerInterfaz() {
 				servidor = new ServerSocket(9000);
 				while(true) {
 					socket = servidor.accept();
+					
 					leer();
 					escribir();
 				}
-			} catch (Exception ex) {
-				ex.printStackTrace();
+			} catch (Exception e) {
+				e.printStackTrace();
 			}
 		}
 	});
