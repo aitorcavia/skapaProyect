@@ -80,9 +80,9 @@ public class VentanaUsuario extends JFrame {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				VentanaArticulosVenta vr = new VentanaArticulosVenta();
+				VentanaArticulosVenta vA = new VentanaArticulosVenta();
 				setVisible(false);
-				vr.setVisible(true);
+				vA.setVisible(true);
 				
 			}
 
@@ -117,9 +117,9 @@ public class VentanaUsuario extends JFrame {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				VentanaArticulosFavoritos vr = new VentanaArticulosFavoritos();
+				VentanaArticulosFavoritos vF = new VentanaArticulosFavoritos();
 				setVisible(false);
-				vr.setVisible(true);
+				vF.setVisible(true);
 	
 			}
 
@@ -156,9 +156,9 @@ public class VentanaUsuario extends JFrame {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				VentanaOpiniones vr = new VentanaOpiniones();
+				VentanaOpiniones vO = new VentanaOpiniones();
 				setVisible(false);
-				vr.setVisible(true);
+				vO.setVisible(true);
 	
 			}
 
@@ -194,9 +194,9 @@ public class VentanaUsuario extends JFrame {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				VentanaInfo vr = new VentanaInfo();
+				VentanaInfo vI = new VentanaInfo();
 				setVisible(false);
-				vr.setVisible(true);
+				vI.setVisible(true);
 	
 			}
 
