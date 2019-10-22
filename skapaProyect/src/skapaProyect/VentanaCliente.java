@@ -29,6 +29,7 @@ import java.net.Socket;
 import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
+import javax.swing.JSeparator;
 
 public class VentanaCliente  {
 
@@ -58,6 +59,7 @@ public class VentanaCliente  {
 	
 	public void hacerInterfaz() {
 		ventana_chat = new JFrame("Cliente"); 
+		ventana_chat.getContentPane().setBackground(new Color(135, 206, 250));
 		
 		btn_enviar = new JButton("Enviar");
 		btn_enviar.setBackground(new Color(224, 255, 255));
@@ -90,7 +92,7 @@ public class VentanaCliente  {
 		ventana_chat.getContentPane().add(contenedor_btntxt);
 		
 		area_chat = new JTextArea();
-		area_chat.setBounds(0, 45, 294, 229);
+		area_chat.setBounds(0, 70, 294, 204);
 		area_chat.setEditable(false);
 		ventana_chat.getContentPane().add(area_chat);
 	
@@ -100,7 +102,7 @@ public class VentanaCliente  {
 		labelChat.setBounds(0, 0, 294, 44);
 		labelChat.setFont(new Font("Sitka Small", Font.BOLD, 16));
 		labelChat.setOpaque(true);
-		labelChat.setBackground(new Color(173, 216, 230));
+		labelChat.setBackground(new Color(135, 206, 250));
 
 		
 		
@@ -161,7 +163,7 @@ public class VentanaCliente  {
 							String enviar_mensaje = txt_mensaje.getText();
 							escritor.println(enviar_mensaje);
 							txt_mensaje.setText("");
-							area_chat.append("YO:  " + enviar_mensaje +"\n");
+							area_chat.append("Yo: " + enviar_mensaje +"\n");
 		
 							
 

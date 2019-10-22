@@ -115,7 +115,7 @@ public void escribir() {
 						String enviar_mensaje = txt_mensaje.getText();
 						escritor.println(enviar_mensaje);
 						txt_mensaje.setText("");
-						area_chat.append("YO:  " + enviar_mensaje +"\n");
+						area_chat.append(" Yo:   " + enviar_mensaje +"\n");
 						
 					}
 				});
