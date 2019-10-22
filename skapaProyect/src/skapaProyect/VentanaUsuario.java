@@ -21,13 +21,13 @@ public class VentanaUsuario extends JFrame {
 	private JTextField textoNombreUsuario;
 
 	/**
-	 * Launch the application.
+	 *   Launch the application.
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaUsuario frame = new VentanaUsuario();
+					VentanaUsuario frame = new  VentanaUsuario();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
