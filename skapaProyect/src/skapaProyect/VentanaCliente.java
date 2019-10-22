@@ -91,7 +91,7 @@ public class VentanaCliente  {
 		ventana_chat.getContentPane().add(contenedor_areachat);
 		ventana_chat.getContentPane().add(contenedor_btntxt);
 		
-		area_chat = new JTextArea();
+		area_chat =  new JTextArea();
 		area_chat.setBounds(0, 70, 294, 204);
 		area_chat.setEditable(false);
 		ventana_chat.getContentPane().add(area_chat);
