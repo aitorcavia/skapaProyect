@@ -21,6 +21,11 @@ import javax.swing.UIManager;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.awt.event.ActionEvent;
 
 import javax.security.auth.login.LoginContext;
@@ -119,18 +124,47 @@ public class VentanaLogin extends JFrame {
 				String usuario = textoUsuario.getText();
 				String contrasenya = textoContrasenya.getText();
 				
-				if (usuario.equals("skapa") && contrasenya.equals("12345")) {
-					VentanaInicio vi = new VentanaInicio();
-					setVisible(false);
-					vi.setVisible(true);
+				try {
+					Class.forName("org.sqlite.JDBC");
 					
-				}else { 
-					JOptionPane.showMessageDialog(null, "No se ha podido iniciar sesion", "Error", 0);
-					textoUsuario.setText("");
-					textoContrasenya.setText("");
-			
+					Connection conn = DriverManager.getConnection("jdbc:sqlite:data/BD.db");
+					Statement stmt = conn.createStatement();
+				
+					//Recuperar datos, consultas
+					ResultSet rs = stmt.executeQuery("SELECT Usuario, Contraseña FROM usuario");
+					
+					int cont = 0;
+					
+					while (rs.next()) {
+						String usuarioB = rs.getString("Usuario");
+						String contrasenyaB = rs.getString("Contraseña");
+					
+						
+						if (usuarioB.equals(usuario) && contrasenyaB.equals(contrasenya)) {
+							VentanaInicio vi = new VentanaInicio();
+							setVisible(false);
+							vi.setVisible(true);
+							cont++;
+							break;
+						}
+					}
+					
+					if(cont ==0) {
+						JOptionPane.showMessageDialog(null, "No se ha podido iniciar sesion", "Error", 0);
+						textoUsuario.setText("");
+						textoContrasenya.setText("");
+					}
+					
+					stmt.close();
+					conn.close();
+					
+				} catch (ClassNotFoundException e1) {
+					System.out.println("No se ja podido cargar el driver");
+					e1.printStackTrace();
+				}catch (SQLException e1) {
+					System.out.println("No se ha podido conectar a BD");
+					e1.printStackTrace();
 				}
-			
 			}
 		});
 		

@@ -19,6 +19,11 @@ import java.awt.Window.Type;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Array;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.awt.Dialog.ModalExclusionType;
@@ -110,11 +115,30 @@ public class VentanaRegistro extends JFrame {
 				usuario = textoUsuario.getText();
 				contrasenya = textoContrasenya.getText();
 				correo = textoCorreo.getText();
+	
+				try {
+					Class.forName("org.sqlite.JDBC");
+					
+					Connection conn = DriverManager.getConnection("jdbc:sqlite:data/BD.db");
+					Statement stmt = conn.createStatement();
+					
 				
-				Usuario u = new Usuario (usuario, contrasenya, correo);
-				System.out.println(u);
+					//Introducir datos
+					ResultSet rs = stmt.executeQuery("INSERT INTO usuario (usuario, correo, contraseña) VALUES ('" + usuario + "', '"+ correo + "', '" + contrasenya + "')");
 				
-				JOptionPane.showMessageDialog(null, "Cuenta creada correctamente", "Correcto", 1);
+	
+					JOptionPane.showMessageDialog(null, "Cuenta creada correctamente", "Correcto", 1);
+					
+					stmt.close();
+					conn.close();
+			
+				} catch (ClassNotFoundException e1) {
+					System.out.println("No se ja podido cargar el driver");
+					e1.printStackTrace();
+				}catch (SQLException e1) {
+					System.out.println("No se ha podido conectar a BD");
+					e1.printStackTrace();
+				}
 				
 				VentanaLogin vl = new VentanaLogin();
 				setVisible(false);
