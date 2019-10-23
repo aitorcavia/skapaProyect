@@ -170,6 +170,7 @@ public class VentanaPago extends JFrame {
 			}
 			@Override
 			public void mousePressed(MouseEvent e) {
+				TextoNTarjeta.setText(""); 
 			} 
 			@Override
 			public void mouseExited(MouseEvent e) {	
