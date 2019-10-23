@@ -18,7 +18,7 @@ import javax.swing.JLabel;
 public class VentanaAnuncio extends JFrame {
 
 	private JPanel contentPane;
-
+ 
 	/**
 	 * Launch the application.
 	 */
