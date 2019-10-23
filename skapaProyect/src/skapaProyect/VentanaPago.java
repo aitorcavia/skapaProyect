@@ -170,7 +170,7 @@ public class VentanaPago extends JFrame {
 			}
 			@Override
 			public void mousePressed(MouseEvent e) {
-			}
+			} 
 			@Override
 			public void mouseExited(MouseEvent e) {	
 			}
