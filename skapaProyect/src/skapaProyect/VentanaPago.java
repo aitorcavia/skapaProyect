@@ -145,7 +145,7 @@ public class VentanaPago extends JFrame {
 		txtCodigoPostal_1.setBounds(166, 394, 146, 26);
 		contentPane.add(txtCodigoPostal_1);
 		
-		JButton BotonGuardar = new JButton("Guardar");
+		JButton BotonGuardar = new JButton("Guardar"); 
 		BotonGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
