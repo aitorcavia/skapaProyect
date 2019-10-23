@@ -184,8 +184,198 @@ public class VentanaPago extends JFrame {
 				
 			}
 		});
+		Textocaducidad.addMouseListener(new MouseListener() {
 			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+				Textocaducidad.setText(""); 
+			} 
+			@Override
+			public void mouseExited(MouseEvent e) {	
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+			}
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				Textocaducidad.setText(""); 
+				
+			}
+		});
+		TextoCodigodeSeguridad.addMouseListener(new MouseListener() {
+	
+	@Override
+	public void mouseReleased(MouseEvent e) {
+	}
+	@Override
+	public void mousePressed(MouseEvent e) {
+		TextoCodigodeSeguridad.setText(""); 
+	} 
+	@Override
+	public void mouseExited(MouseEvent e) {	
+	}
+	@Override
+	public void mouseEntered(MouseEvent e) {
+	}
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		TextoCodigodeSeguridad.setText(""); 
 		
+	}
+});
+		txtCodigoPostal.addMouseListener(new MouseListener() {
+	
+	@Override
+	public void mouseReleased(MouseEvent e) {
+	}
+	@Override
+	public void mousePressed(MouseEvent e) {
+		txtCodigoPostal.setText(""); 
+	} 
+	@Override
+	public void mouseExited(MouseEvent e) {	
+	}
+	@Override
+	public void mouseEntered(MouseEvent e) {
+	}
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		txtCodigoPostal.setText(""); 
+		
+	}
+});
+		txtDireccin.addMouseListener(new MouseListener() {
+	
+	@Override
+	public void mouseReleased(MouseEvent e) {
+	}
+	@Override
+	public void mousePressed(MouseEvent e) {
+		txtDireccin.setText(""); 
+	} 
+	@Override
+	public void mouseExited(MouseEvent e) {	
+	}
+	@Override
+	public void mouseEntered(MouseEvent e) {
+	}
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		txtDireccin.setText(""); 
+		
+	}
+});
+		txtNombreCompleto.addMouseListener(new MouseListener() {
+	
+	@Override
+	public void mouseReleased(MouseEvent e) {
+	}
+	@Override
+	public void mousePressed(MouseEvent e) {
+		txtNombreCompleto.setText(""); 
+	} 
+	@Override
+	public void mouseExited(MouseEvent e) {	
+	}
+	@Override
+	public void mouseEntered(MouseEvent e) {
+	}
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		txtNombreCompleto.setText(""); 
+		
+	}
+});
+		txtLneaDeDireccin.addMouseListener(new MouseListener() {
+	
+	@Override
+	public void mouseReleased(MouseEvent e) {
+	}
+	@Override
+	public void mousePressed(MouseEvent e) {
+		txtLneaDeDireccin.setText(""); 
+	} 
+	@Override
+	public void mouseExited(MouseEvent e) {	
+	}
+	@Override
+	public void mouseEntered(MouseEvent e) {
+	}
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		txtLneaDeDireccin.setText(""); 
+		
+	}
+});
+
+		txtEstadoprovincia.addMouseListener(new MouseListener() {
+	
+	@Override
+	public void mouseReleased(MouseEvent e) {
+	}
+	@Override
+	public void mousePressed(MouseEvent e) {
+		txtEstadoprovincia.setText(""); 
+	} 
+	@Override
+	public void mouseExited(MouseEvent e) {	
+	}
+	@Override
+	public void mouseEntered(MouseEvent e) {
+	}
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		txtEstadoprovincia.setText(""); 
+		
+	}
+});
+
+		txtCiudad.addMouseListener(new MouseListener() {
+	
+	@Override
+	public void mouseReleased(MouseEvent e) {
+	}
+	@Override
+	public void mousePressed(MouseEvent e) {
+		txtCiudad.setText(""); 
+	} 
+	@Override
+	public void mouseExited(MouseEvent e) {	
+	}
+	@Override
+	public void mouseEntered(MouseEvent e) {
+	}
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		txtCiudad.setText(""); 
+		
+	}
+});
+			
+		txtCodigoPostal_1.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+				txtCodigoPostal_1.setText(""); 
+			} 
+			@Override
+			public void mouseExited(MouseEvent e) {	
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+			}
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				txtCodigoPostal_1.setText(""); 
+				
+			}
+		});
 		
 	}
 }
