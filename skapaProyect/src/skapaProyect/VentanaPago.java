@@ -388,7 +388,7 @@ public class VentanaPago extends JFrame {
 			}
 		});
 		
-			/*private void BotonPaypal(java.awt.event.ActionEvent evt) {
+			/*private void BotonPaypal(java.awt.event.ActionEvent evt){
 				try {
 					Desktop.getDesktop().browse(new URI)
 				}catch

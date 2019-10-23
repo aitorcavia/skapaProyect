@@ -73,7 +73,7 @@ public class VentanaInicio extends JFrame {
 		JComboBox comboBoxPrecio1 = new JComboBox();
 		comboBoxPrecio1.setModel(new DefaultComboBoxModel(new String[] {"1\u20AC", "2\u20AC", "3\u20AC", "4\u20AC", "5\u20AC", "6\u20AC", "7\u20AC", "8\u20AC", "9\u20AC", "10\u20AC", "11\u20AC", "12\u20AC", "13\u20AC", "14\u20AC", "15\u20AC", "16\u20AC", "17\u20AC", "18\u20AC", "19\u20AC"}));
 		comboBoxPrecio1.setBounds(150, 127, 59, 20);
-		contentPane.add(comboBoxPrecio1);
+		contentPane.add(comboBoxPrecio1); 
 		
 		JComboBox comboBoxPrecio2 = new JComboBox();
 		comboBoxPrecio2.setBounds(237, 127, 59, 20);
