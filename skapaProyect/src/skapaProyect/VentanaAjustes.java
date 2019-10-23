@@ -165,152 +165,53 @@ public class VentanaAjustes extends JFrame {
 		BotonCuenta.setBounds(168, 318, 115, 29);
 		contentPane.add(BotonCuenta);
 		
-		BotonAnuncio.setCursor(new Cursor(HAND_CURSOR));
 		
-		BotonAnuncio.addMouseListener(new MouseListener() {
+		BotonAnuncio.addActionListener(new ActionListener() {
 
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				VentanaAnuncio vA = new VentanaAnuncio();
-				setVisible(false);
-				vA.setVisible(true);
+		public void actionPerformed(ActionEvent e) {
+			VentanaAnuncio vA = new VentanaAnuncio();
+			setVisible(false);
+			vA.setVisible(true);
 			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-	});
-		
+		});
 	
-		BotonCuenta.setCursor(new Cursor(HAND_CURSOR));
 		
-		BotonCuenta.addMouseListener(new MouseListener() {
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				VentanaUsuario vC = new VentanaUsuario();
+		BotonCuenta.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VentanaInicio vC = new VentanaInicio();
 				setVisible(false);
 				vC.setVisible(true);
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-	});
-		BotonInformacion.setCursor(new Cursor(HAND_CURSOR));
+				}
+			});
 		
-		BotonInformacion.addMouseListener(new MouseListener() {
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
+			
+		
+		BotonInformacion.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
 				VentanaAyudaInformacion vI = new VentanaAyudaInformacion();
 				setVisible(false);
 				vI.setVisible(true);
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-	});
-	
-		BotonPrivacidad.setCursor(new Cursor(HAND_CURSOR));
+				}
+			});
 		
-		BotonPrivacidad.addMouseListener(new MouseListener() {
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				VentanaPrivacidad vP = new VentanaPrivacidad();
+			
+		
+		
+		BotonPrivacidad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VentanaPrivacidad vPr = new VentanaPrivacidad();
+				setVisible(false);
+				vPr.setVisible(true);
+				}
+			});
+		BotonPago.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VentanaPago vP = new VentanaPago();
 				setVisible(false);
 				vP.setVisible(true);
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				// TODO Auto-generated method stub
-				
-			}
-
-	});
-	
+				}
+			});
+		
+		
+		
 }}
