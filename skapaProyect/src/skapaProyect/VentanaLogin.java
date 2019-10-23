@@ -70,9 +70,9 @@ public class VentanaLogin extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel labelUsuario = new JLabel("Usuario");
+		JLabel labelUsuario = new JLabel("Usuario o correo electronico");
 		labelUsuario.setFont(new Font("Yu Gothic UI", Font.PLAIN, 18));
-		labelUsuario.setBounds(15, 140, 112, 20);
+		labelUsuario.setBounds(15, 140, 223, 20);
 		contentPane.add(labelUsuario);
 		
 		JLabel labelContrasenya = new JLabel("Contrase\u00F1a");
@@ -131,16 +131,17 @@ public class VentanaLogin extends JFrame {
 					Statement stmt = conn.createStatement();
 				
 					//Recuperar datos, consultas
-					ResultSet rs = stmt.executeQuery("SELECT Usuario, Contraseña FROM usuario");
+					ResultSet rs = stmt.executeQuery("SELECT Usuario, Contraseña, Correo FROM usuario");
 					
 					int cont = 0;
 					
 					while (rs.next()) {
 						String usuarioB = rs.getString("Usuario");
 						String contrasenyaB = rs.getString("Contraseña");
+						String correoB = rs.getString("Correo");
 					
 						
-						if (usuarioB.equals(usuario) && contrasenyaB.equals(contrasenya)) {
+						if (usuarioB.equals(usuario) && contrasenyaB.equals(contrasenya) || correoB.equals(usuario) && contrasenyaB.equals(contrasenya)) {
 							VentanaInicio vi = new VentanaInicio();
 							setVisible(false);
 							vi.setVisible(true);

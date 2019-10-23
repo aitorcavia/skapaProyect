@@ -11,6 +11,8 @@ import java.awt.Font;
 import java.awt.Color;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JList;
 import javax.swing.JComboBox;
@@ -160,5 +162,29 @@ public class VentanaPago extends JFrame {
 		BotonPaypal.setFont(new Font("Tahoma", Font.BOLD, 16));
 		BotonPaypal.setBounds(15, 470, 184, 29);
 		contentPane.add(BotonPaypal);
+		
+		TextoNTarjeta.addMouseListener(new MouseListener() {
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+			}
+			@Override
+			public void mouseExited(MouseEvent e) {	
+			}
+			@Override
+			public void mouseEntered(MouseEvent e) {
+			}
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				TextoNTarjeta.setText("");
+				
+			}
+		});
+			
+		
+		
 	}
 }

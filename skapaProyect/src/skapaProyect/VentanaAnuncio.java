@@ -63,4 +63,12 @@ public class VentanaAnuncio extends JFrame {
 		lblNewLabel.setBounds(15, 209, 297, 40);
 		contentPane.add(lblNewLabel);
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 }

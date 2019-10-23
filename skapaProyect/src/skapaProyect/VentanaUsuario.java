@@ -49,11 +49,11 @@ public class VentanaUsuario extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton botonArticulosVenta = new JButton("Articulos en venta");
-		botonArticulosVenta.setBounds(10, 316, 152, 40);
+		botonArticulosVenta.setBounds(10, 310, 302, 40);
 		contentPane.add(botonArticulosVenta);
 		
 		JButton botonArticulosFavoritos = new JButton("Articulos favoritos");
-		botonArticulosFavoritos.setBounds(10, 367, 152, 40);
+		botonArticulosFavoritos.setBounds(10, 354, 302, 40);
 		contentPane.add(botonArticulosFavoritos);
 		
 		JButton botonOpiniones = new JButton("Opiniones");
@@ -61,11 +61,11 @@ public class VentanaUsuario extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		botonOpiniones.setBounds(10, 418, 152, 40);
+		botonOpiniones.setBounds(10, 397, 302, 40);
 		contentPane.add(botonOpiniones);
 		
 		JButton botonInfo = new JButton("+ Info");
-		botonInfo.setBounds(10, 469, 152, 40);
+		botonInfo.setBounds(10, 447, 302, 40);
 		contentPane.add(botonInfo);
 		
 		textoNombreUsuario = new JTextField();
