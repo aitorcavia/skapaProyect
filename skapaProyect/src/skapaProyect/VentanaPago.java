@@ -1,6 +1,9 @@
 package skapaProyect;
 
 import java.awt.BorderLayout;
+import java.awt.Desktop;
+import java.net.URI;
+import javax.swing.JOptionPane;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -9,6 +12,8 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JTextField;
 import java.awt.Font;
 import java.awt.Color;
+import java.awt.Component;
+
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -16,9 +21,11 @@ import java.awt.event.MouseListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JList;
 import javax.swing.JComboBox;
+import javax.swing.DefaultComboBoxModel;
 
 public class VentanaPago extends JFrame {
 
+	private static final Component ActionPerformed = null;
 	private JPanel contentPane;
 	private JTextField TextoPagoConTarjeta;
 	private JTextField TextoNTarjeta;
@@ -155,8 +162,12 @@ public class VentanaPago extends JFrame {
 		contentPane.add(BotonGuardar);
 		
 		JComboBox TipoTarjeta = new JComboBox();
+		TipoTarjeta.setModel(new DefaultComboBoxModel(new String[] {"Visa", "MasterCard", "BBK", "Caixa", "Discover", "American Express"}));
 		TipoTarjeta.setBounds(225, 46, 87, 26);
 		contentPane.add(TipoTarjeta);
+		
+			
+		
 		
 		JButton BotonPaypal = new JButton("Pagar Con Paypal");
 		BotonPaypal.setFont(new Font("Tahoma", Font.BOLD, 16));
@@ -376,6 +387,19 @@ public class VentanaPago extends JFrame {
 				
 			}
 		});
+		
+			/*private void BotonPaypal(java.awt.event.ActionEvent evt) {
+				try {
+					Desktop.getDesktop().browse(new URI)
+				}catch
+				
+			}catch(IOException e) {
+			
+			
+			
+		}*/
+		
+		
 		
 	}
 }
