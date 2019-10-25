@@ -140,7 +140,7 @@ public class VentanaRegistro extends JFrame {
 							stmt.close();
 							conn.close();
 							
-							VentanaLogin vl = new VentanaLogin();
+							VentanaLogin vl = new VentanaLogin(); 
 							setVisible(false);
 							vl.setVisible(true);
 							
