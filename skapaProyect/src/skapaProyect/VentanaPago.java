@@ -179,6 +179,8 @@ public class VentanaPago extends	 javax.swing.JFrame {
 		BotonPaypal.setBounds(15, 470, 184, 29);
 		contentPane.add(BotonPaypal);
 		
+		
+		
 		TextoNTarjeta.addMouseListener(new MouseListener() {
 			
 			@Override

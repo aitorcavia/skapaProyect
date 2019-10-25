@@ -60,10 +60,6 @@ public class VentanaCliente  {
 	public void hacerInterfaz() {
 		ventana_chat = new JFrame("Cliente"); 
 		ventana_chat.getContentPane().setBackground(new Color(135, 206, 250));
-		
-		btn_enviar = new JButton("Enviar");
-		btn_enviar.setBackground(new Color(224, 255, 255));
-		txt_mensaje = new JTextField(4);
 		 txt_nick = new JTextField(5);
 		 txt_ip = new JTextField(8);
 		 
@@ -73,7 +69,7 @@ public class VentanaCliente  {
 			nick_txt.setColumns(10);
 			
 			ip_txt = new JTextField();
-			ip_txt.setBounds(148, 42, 146, 26);
+			ip_txt.setBounds(148, 42, 195, 26);
 			ventana_chat.getContentPane().add(ip_txt);
 			ip_txt.setColumns(10);
 
@@ -83,16 +79,24 @@ public class VentanaCliente  {
 	//	contenedor_areachat.add(scroll);
 
 		contenedor_btntxt = new JPanel();
-		contenedor_btntxt.setBounds(0, 273, 294, 29);
+		contenedor_btntxt.setBounds(0, 490, 343, 29);
 		contenedor_btntxt.setLayout(new GridLayout(1,2));
-		contenedor_btntxt.add(txt_mensaje);
-		contenedor_btntxt.add(btn_enviar);
 		ventana_chat.getContentPane().setLayout(null);
 		ventana_chat.getContentPane().add(contenedor_areachat);
 		ventana_chat.getContentPane().add(contenedor_btntxt);
+		txt_mensaje = new JTextField(4);
+		contenedor_btntxt.add(txt_mensaje);
+		
+		btn_enviar = new JButton("Enviar");
+		btn_enviar.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		contenedor_btntxt.add(btn_enviar);
+		btn_enviar.setBackground(new Color(224, 255, 255));
 		
 		area_chat =  new JTextArea();
-		area_chat.setBounds(0, 70, 294, 204);
+		area_chat.setBounds(0, 70, 343, 420);
 		area_chat.setEditable(false);
 		ventana_chat.getContentPane().add(area_chat);
 	
@@ -109,7 +113,7 @@ public class VentanaCliente  {
 		ventana_chat.getContentPane().add(labelChat);
 		
 		
-		ventana_chat.setSize(300,341);
+		ventana_chat.setSize(349,559);
 		ventana_chat.setVisible(true);
 		ventana_chat.setResizable(false);
 		ventana_chat.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
