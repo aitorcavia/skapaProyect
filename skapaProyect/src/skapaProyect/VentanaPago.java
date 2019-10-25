@@ -392,7 +392,7 @@ public class VentanaPago extends	 javax.swing.JFrame {
 				
 			}
 		});
-	/*	
+		/*
 	private void  JButton1ActionPerformed(ActionEvent evt) {
 		try {
 			Desktop.getDesktop().browse(new URL("https://www.paypal.com/es/signin").toURI());
