@@ -6,7 +6,7 @@ public class Producto {
 
 	public Producto(double precio) {
 		super();
-		this.precio = precio;
+		this.precio = precio; 
 	}
 
 	public double getPrecio() {

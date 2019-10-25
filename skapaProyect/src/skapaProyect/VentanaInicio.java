@@ -22,6 +22,7 @@ import java.awt.Cursor;
 
 import javax.swing.JLabel;
 import javax.swing.JSeparator;
+import javax.swing.DefaultComboBoxModel;
 
 public class VentanaInicio extends JFrame {
 
@@ -60,23 +61,26 @@ public class VentanaInicio extends JFrame {
 		contentPane.setLayout(null);
 		
 		JComboBox comboBoxCategoria = new JComboBox();
-		comboBoxCategoria.setBounds(150, 42, 146, 20);
+		comboBoxCategoria.setModel(new DefaultComboBoxModel(new String[] {"Cocina", "Videojuegos", "Hogar", "Juguetes", "Libreria", "Seguridad", "Codigos"}));
+		comboBoxCategoria.setBounds(160, 47, 146, 20);
 		contentPane.add(comboBoxCategoria);
 		
 		JComboBox comboBoxProvincia = new JComboBox();
-		comboBoxProvincia.setBounds(150, 86, 146, 20);
+		comboBoxProvincia.setModel(new DefaultComboBoxModel(new String[] {"Coru\u00F1a", "Pontevedra", "Lugo", "Orense", "Asturias", "Cantabria", "Bizkaia", "Gipuzkoa", "Alaba", "Navarra", "Huesca", "Zaragoza", "L\u00E9rida", "Girona", "Barcelona", "Tarragona", "Teruel", "La Rioja", "Le\u00F3n", "Palencia", "Burgos", "Soria", "Segovia", "Valladolid", "Zamora", "Salamanca", "\u00C1vila", "Madrid", "Guadalajara", "Cuenca", "Albacete", "Toledo", "Ciudad Real", "Castell\u00F3n", "Valencia", "Alicante", "C\u00E1ceres", "Badajoz", "Murcia", "Huelva", "Sevilla", "C\u00F3rdoba", "Ja\u00E9n", "C\u00E1diz", "M\u00E1laga", "Granada", "Almeria", "Islas Baleares", "Islas Canarias"}));
+		comboBoxProvincia.setBounds(160, 91, 146, 20);
 		contentPane.add(comboBoxProvincia);
 		
 		JComboBox comboBoxPrecio1 = new JComboBox();
+		comboBoxPrecio1.setModel(new DefaultComboBoxModel(new String[] {"1\u20AC", "2\u20AC", "3\u20AC", "4\u20AC", "5\u20AC", "6\u20AC", "7\u20AC", "8\u20AC", "9\u20AC", "10\u20AC", "11\u20AC", "12\u20AC", "13\u20AC", "14\u20AC", "15\u20AC", "16\u20AC", "17\u20AC", "18\u20AC", "19\u20AC"}));
 		comboBoxPrecio1.setBounds(150, 127, 59, 20);
-		contentPane.add(comboBoxPrecio1);
+		contentPane.add(comboBoxPrecio1); 
 		
 		JComboBox comboBoxPrecio2 = new JComboBox();
 		comboBoxPrecio2.setBounds(237, 127, 59, 20);
 		contentPane.add(comboBoxPrecio2);
 		
 		JEditorPane buscador = new JEditorPane();
-		buscador.setBounds(66, 11, 230, 20);
+		buscador.setBounds(66, 11, 225, 20);
 		contentPane.add(buscador);
 		
 		nombreAnuncio1 = new JTextField();
@@ -113,8 +117,8 @@ public class VentanaInicio extends JFrame {
 		lblCategoria.setBounds(10, 42, 80, 20);
 		contentPane.add(lblCategoria);
 		
-		JLabel lblProvincia = new JLabel("Provincia:");
-		lblProvincia.setBounds(10, 86, 69, 20);
+		JLabel lblProvincia = new JLabel("Provincias\r\n e Islas:");
+		lblProvincia.setBounds(10, 78, 132, 36);
 		contentPane.add(lblProvincia);
 		
 		JLabel lblPrecio = new JLabel("Precio:");

@@ -174,8 +174,6 @@ public class VentanaAjustes extends JFrame {
 			vA.setVisible(true);
 			}
 		});
-	
-		
 		BotonCuenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VentanaInicio vC = new VentanaInicio();
@@ -183,9 +181,6 @@ public class VentanaAjustes extends JFrame {
 				vC.setVisible(true);
 				}
 			});
-		
-			
-		
 		BotonInformacion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VentanaAyudaInformacion vI = new VentanaAyudaInformacion();
@@ -193,10 +188,6 @@ public class VentanaAjustes extends JFrame {
 				vI.setVisible(true);
 				}
 			});
-		
-			
-		
-		
 		BotonPrivacidad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VentanaPrivacidad vPr = new VentanaPrivacidad();
