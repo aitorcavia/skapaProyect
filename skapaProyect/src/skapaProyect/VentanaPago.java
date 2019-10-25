@@ -3,6 +3,11 @@ package skapaProyect;
 import java.awt.BorderLayout;
 import java.awt.Desktop;
 import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.swing.JOptionPane;
 import java.awt.EventQueue;
 
@@ -23,7 +28,7 @@ import javax.swing.JList;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
 
-public class VentanaPago extends JFrame {
+public class VentanaPago extends	 javax.swing.JFrame {
 
 	private static final Component ActionPerformed = null;
 	private JPanel contentPane;
@@ -387,19 +392,18 @@ public class VentanaPago extends JFrame {
 				
 			}
 		});
-		
-			/*private void BotonPaypal(java.awt.event.ActionEvent evt){
-				try {
-					Desktop.getDesktop().browse(new URI)
-				}catch
-				
-			}catch(IOException e) {
+	/*	
+	private void  JButton1ActionPerformed(ActionEvent evt) {
+		try {
+			Desktop.getDesktop().browse(new URL("https://www.paypal.com/es/signin").toURI());
+		}catch(MalformedUrlException ex){
+			Logger.getLogger(callbrowser.class.getName()).log(Level.SEVERE,null,ex);
 			
+		}catch(URISyntaxException ex) {
 			
-			
-		}*/
-		
-		
-		
+		}
+	}
+		*/
+	
 	}
 }
