@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.plaf.OptionPaneUI;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 
@@ -117,20 +118,37 @@ public class VentanaRegistro extends JFrame {
 				correo = textoCorreo.getText();
 	
 				try {
-					Class.forName("org.sqlite.JDBC");
 					
-					Connection conn = DriverManager.getConnection("jdbc:sqlite:data/BD.db");
-					Statement stmt = conn.createStatement();
-					
-					String query = "INSERT INTO usuario (usuario, correo, contraseña) VALUES ('" + usuario + "', '"+ correo + "', '" + contrasenya + "')" ;
-					stmt.executeUpdate(query);
-					
-					
-	
-					JOptionPane.showMessageDialog(null, "Cuenta creada correctamente", "Correcto", 1);
-					
-					stmt.close();
-					conn.close();
+					if (usuario.equals("") || contrasenya.equals("") || correo.equals("")) {
+						JOptionPane.showMessageDialog(null, "Alguno de los campos esta vacio o es nulo", "Error", 0);
+						
+					}else {
+						
+						if (correo.contains("@") && correo.contains(".")) {
+							Class.forName("org.sqlite.JDBC");
+							
+							Connection conn = DriverManager.getConnection("jdbc:sqlite:data/BD.db");
+							Statement stmt = conn.createStatement();
+						
+							String query = "INSERT INTO usuario (usuario, correo, contraseña) VALUES ('" + usuario + "', '"+ correo + "', '" + contrasenya + "')" ;
+							stmt.executeUpdate(query);
+						
+						
+		
+							JOptionPane.showMessageDialog(null, "Cuenta creada correctamente", "Correcto", 1);
+						
+							stmt.close();
+							conn.close();
+							
+							VentanaLogin vl = new VentanaLogin();
+							setVisible(false);
+							vl.setVisible(true);
+							
+						}else {
+							JOptionPane.showMessageDialog(null, "Direccion de correo no validaa", "Error", 0);
+						}
+						
+					}
 			
 				} catch (ClassNotFoundException e1) {
 					System.out.println("No se ja podido cargar el driver");
@@ -140,9 +158,7 @@ public class VentanaRegistro extends JFrame {
 					e1.printStackTrace();
 				}
 				
-				VentanaLogin vl = new VentanaLogin();
-				setVisible(false);
-				vl.setVisible(true);
+				
 			}
 		});
 		
