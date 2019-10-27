@@ -109,17 +109,17 @@ public class VentanaRegistro extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String usuario; 
+				String nombre; 
 				String contrasenya;
 				String correo;
 				 
-				usuario = textoUsuario.getText();
+				nombre = textoUsuario.getText();
 				contrasenya = textoContrasenya.getText();
 				correo = textoCorreo.getText();
 	
 				try {
 					
-					if (usuario.equals("") || contrasenya.equals("") || correo.equals("")) {
+					if (nombre.equals("") || contrasenya.equals("") || correo.equals("")) {
 						JOptionPane.showMessageDialog(null, "Alguno de los campos esta vacio o es nulo", "Error", 0);
 						
 					}else {
@@ -130,7 +130,7 @@ public class VentanaRegistro extends JFrame {
 							Connection conn = DriverManager.getConnection("jdbc:sqlite:data/BD.db");
 							Statement stmt = conn.createStatement();
 						
-							String query = "INSERT INTO usuario (usuario, correo, contraseña) VALUES ('" + usuario + "', '"+ correo + "', '" + contrasenya + "')" ;
+							String query = "INSERT INTO usuario (nombre, contrasenya, correo) VALUES ('" + nombre + "', '"+ contrasenya + "', '" + correo + "')" ;
 							stmt.executeUpdate(query);
 						
 						

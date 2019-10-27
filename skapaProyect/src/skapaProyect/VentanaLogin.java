@@ -131,14 +131,14 @@ public class VentanaLogin extends JFrame {
 					Statement stmt = conn.createStatement();
 				
 					//Recuperar datos, consultas
-					ResultSet rs = stmt.executeQuery("SELECT Usuario, Contraseña, Correo FROM usuario");
+					ResultSet rs = stmt.executeQuery("SELECT nombre, contrasenya, correo FROM usuario");
 					
 					int cont = 0;
 					
 					while (rs.next()) {
-						String usuarioB = rs.getString("Usuario");
-						String contrasenyaB = rs.getString("Contraseña");
-						String correoB = rs.getString("Correo");
+						String usuarioB = rs.getString("nombre");
+						String contrasenyaB = rs.getString("contrasenya");
+						String correoB = rs.getString("correo");
 					
 						
 						if (usuarioB.equals(usuario) && contrasenyaB.equals(contrasenya) || correoB.equals(usuario) && contrasenyaB.equals(contrasenya)) {
