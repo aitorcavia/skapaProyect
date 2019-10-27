@@ -116,11 +116,13 @@ public class VentanaCreacionAnuncio extends JFrame {
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			int idUsuario;
 			String titulo; 
 			String precio;
 			String categoria;
 			String descripcion;
 			 
+			idUsuario = new Usuario().getId();
 			titulo = textoTitulo.getText();
 			precio = textoPrecio.getText();
 			descripcion = textoDescripcion.getText();
@@ -131,7 +133,7 @@ public class VentanaCreacionAnuncio extends JFrame {
 				Connection conn = DriverManager.getConnection("jdbc:sqlite:data/BD.db");
 				Statement stmt = conn.createStatement();
 				
-				String query = "INSERT INTO anuncio (titulo, precio, descripcion) VALUES ('" + titulo + "', '"+ precio + "', '" + descripcion + "')" ;
+				String query = "INSERT INTO anuncio (idUsuario, titulo, precio, descripcion) VALUES ('"+ idUsuario + "', '" + titulo + "', '"+ precio + "', '" + descripcion + "')" ;
 				stmt.executeUpdate(query);
 				
 				
