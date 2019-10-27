@@ -4,23 +4,41 @@ import java.util.ArrayList;
 
 public class Usuario {
 
-	protected String usuario;
-	protected String contrasenya;
-	protected String correo;
+	private int id = -1;
+	private String nombre;
+	private String contrasenya;
+	private String correo;
 	
-	public Usuario(String usuario, String contrasenya, String correo) {
+	public Usuario(int id, String nombre, String contrasenya, String correo) {
 		super();
-		this.usuario = usuario;
+		this.id = -1;
+		this.nombre = nombre;
 		this.contrasenya = contrasenya;
 		this.correo = correo;
 	}
-
-	public String getUsuario() {
-		return usuario;
+	
+	public Usuario() {
+		super();
+		this.id = 0;
+		this.nombre = "";
+		this.contrasenya = "";
+		this.correo = "";
 	}
 
-	public void setUsuario(String usuario) {
-		this.usuario = usuario;
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
 	}
 
 	public String getContrasenya() {
@@ -41,8 +59,11 @@ public class Usuario {
 
 	@Override
 	public String toString() {
-		return "Usuario [usuario=" + usuario + ", contrasenya=" + contrasenya + ", correo=" + correo + "]";
+		return "Usuario [id=" + id + ", nombre=" + nombre + ", contrasenya=" + contrasenya + ", correo=" + correo + "]";
 	}
 	
 	
+	
+	
+
 }

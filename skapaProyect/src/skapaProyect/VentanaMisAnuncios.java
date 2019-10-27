@@ -50,23 +50,12 @@ public class VentanaMisAnuncios extends JFrame {
 	 */
 	public VentanaMisAnuncios() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(100, 100, 380, 520);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		GroupLayout gl_contentPane = new GroupLayout(contentPane);
-		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 10, Short.MAX_VALUE)
-		);
-		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.LEADING)
-				.addGap(0, 2, Short.MAX_VALUE)
-		);
-		contentPane.setLayout(gl_contentPane);
-		
-				
-		
+		contentPane.setLayout(null);
+	
 				
 		try {
 			Class.forName("org.sqlite.JDBC");
@@ -76,17 +65,31 @@ public class VentanaMisAnuncios extends JFrame {
 				
 			//Recuperar datos, consultas
 			ResultSet rs = stmt.executeQuery("SELECT titulo, descripcion, precio, categoria, idUsuario FROM anuncio");
-				
-			int cont = 0;
 			
+			int cont = 16;
+			int contS = 0;
 			while (rs.next()) {
+			
+				String npanel = "panel" + contS;
+				System.out.println(npanel);
 				JPanel panel = new JPanel();
-				panel.setBackground(Color.BLACK);
-				
-				panel.setSize(100, 50);
+				panel.setName(npanel);
+				panel.setBackground(new Color(135, 206, 235));
+				panel.setBounds(15, cont, 328, 76);
 				contentPane.add(panel);
-				cont++;
+				panel.setLayout(null);
+				
+				JLabel lblTitulo = new JLabel("titulo");
+				lblTitulo.setBounds(15, cont, 69, 20);
+				panel.add(lblTitulo);
+				
+				JLabel lblPrecio = new JLabel("precio");
+				lblPrecio.setBounds(15, 25+cont, 69, 20);
+				panel.add(lblPrecio);
+			
 				System.out.println("paso");
+				cont = cont + 80;
+				contS++;
 			}
 			
 			stmt.close();
@@ -100,10 +103,5 @@ public class VentanaMisAnuncios extends JFrame {
 					e1.printStackTrace();
 				}
 			}
-	
-		
-		
-		
-		
 	}
 
