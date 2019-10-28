@@ -84,6 +84,8 @@ public class VentanaCreacionAnuncio extends JFrame {
 		
 		JComboBox comboBox = new JComboBox();
 		comboBox.setBounds(123, 234, 180, 26);
+		comboBox.addItem("Deporte");
+		comboBox.addItem("Motor");
 		panel.add(comboBox);
 		
 		JLabel lblCategoria = new JLabel("Categoria:");
@@ -126,6 +128,7 @@ public class VentanaCreacionAnuncio extends JFrame {
 			titulo = textoTitulo.getText();
 			precio = textoPrecio.getText();
 			descripcion = textoDescripcion.getText();
+			categoria = comboBox.getSelectedItem().toString();
 
 			try {
 				Class.forName("org.sqlite.JDBC");
@@ -133,7 +136,7 @@ public class VentanaCreacionAnuncio extends JFrame {
 				Connection conn = DriverManager.getConnection("jdbc:sqlite:data/BD.db");
 				Statement stmt = conn.createStatement();
 				
-				String query = "INSERT INTO anuncio (idUsuario, titulo, precio, descripcion) VALUES ('"+ idUsuario + "', '" + titulo + "', '"+ precio + "', '" + descripcion + "')" ;
+				String query = "INSERT INTO anuncio (idUsuario, titulo, precio, categoria, descripcion) VALUES ('"+ idUsuario + "', '" + titulo + "', '"+ precio + "', '" + categoria + "', '" + descripcion + "')" ;
 				stmt.executeUpdate(query);
 				
 				

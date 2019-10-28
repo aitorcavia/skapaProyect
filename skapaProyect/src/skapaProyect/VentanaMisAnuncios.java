@@ -11,6 +11,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -55,7 +56,6 @@ public class VentanaMisAnuncios extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-	
 				
 		try {
 			Class.forName("org.sqlite.JDBC");
@@ -68,26 +68,38 @@ public class VentanaMisAnuncios extends JFrame {
 			
 			int cont = 16;
 			int contS = 0;
-			while (rs.next()) {
+	
+			ArrayList<JPanel> paneles = new ArrayList<JPanel>();
 			
-				String npanel = "panel" + contS;
-				System.out.println(npanel);
+			while (rs.next()) {
+				
+				String titulo = rs.getString("titulo");
+				String precio = rs.getString("precio");
+				String categoria = rs.getString("categoria");
+				String descripcion = rs.getString("descripcion");
+
+			
 				JPanel panel = new JPanel();
-				panel.setName(npanel);
 				panel.setBackground(new Color(135, 206, 235));
 				panel.setBounds(15, cont, 328, 76);
-				contentPane.add(panel);
-				panel.setLayout(null);
 				
-				JLabel lblTitulo = new JLabel("titulo");
-				lblTitulo.setBounds(15, cont, 69, 20);
-				panel.add(lblTitulo);
+				paneles.add(panel);
 				
-				JLabel lblPrecio = new JLabel("precio");
-				lblPrecio.setBounds(15, 25+cont, 69, 20);
-				panel.add(lblPrecio);
+				contentPane.add(paneles.get(contS));
+				paneles.get(contS).setLayout(null);
+				
+				
 			
-				System.out.println("paso");
+				JLabel lblTitulo = new JLabel (titulo);
+				lblTitulo.setBounds(15, 16, 160, 20);
+				paneles.get(contS).add(lblTitulo);
+				
+				
+				JLabel lblPrecio = new JLabel("Precio: " + precio + " €");
+				lblPrecio.setBounds(15, 25+16, 80, 20);
+				paneles.get(contS).add(lblPrecio);
+			
+				
 				cont = cont + 80;
 				contS++;
 			}

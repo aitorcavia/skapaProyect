@@ -132,8 +132,7 @@ public class VentanaRegistro extends JFrame {
 						
 							String query = "INSERT INTO usuario (nombre, contrasenya, correo) VALUES ('" + nombre + "', '"+ contrasenya + "', '" + correo + "')" ;
 							stmt.executeUpdate(query);
-						
-						
+					
 		
 							JOptionPane.showMessageDialog(null, "Cuenta creada correctamente", "Correcto", 1);
 						

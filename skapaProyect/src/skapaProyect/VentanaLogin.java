@@ -39,11 +39,14 @@ public class VentanaLogin extends JFrame {
 	private JPanel contentPane;
 	private JPasswordField textoContrasenya;
 	private JTextField textoSkapa;
+	private int idUsuario;
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		
+
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -136,12 +139,14 @@ public class VentanaLogin extends JFrame {
 					int cont = 0;
 					
 					while (rs.next()) {
+						int idB = rs.getInt("id");
 						String usuarioB = rs.getString("nombre");
 						String contrasenyaB = rs.getString("contrasenya");
 						String correoB = rs.getString("correo");
 					
 						
 						if (usuarioB.equals(usuario) && contrasenyaB.equals(contrasenya) || correoB.equals(usuario) && contrasenyaB.equals(contrasenya)) {
+							idUsuario = idB;
 							VentanaInicio vi = new VentanaInicio();
 							setVisible(false);
 							vi.setVisible(true);
@@ -193,5 +198,13 @@ public class VentanaLogin extends JFrame {
 			}
 		});
 		
+		
+		
+	
+		
 	}
+	
+	public int getUsuarioId(){
+		return idUsuario;
+		}
 }
