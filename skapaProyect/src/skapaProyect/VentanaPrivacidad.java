@@ -2,6 +2,8 @@
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -70,5 +72,21 @@ public class VentanaPrivacidad extends JFrame {
 		JButton btnUsuariosBloqueados = new JButton("Usuarios bloqueados");
 		btnUsuariosBloqueados.setBounds(56, 273, 166, 23);
 		contentPane.add(btnUsuariosBloqueados);
+		
+		JButton Volver = new JButton("A");
+		Volver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		Volver.setBounds(233, 458, 79, 29);
+		contentPane.add(Volver);
+		
+		Volver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VentanaAjustes vA = new VentanaAjustes();
+				setVisible(false);
+				vA.setVisible(true);
+				}
+			});
 	}
 }

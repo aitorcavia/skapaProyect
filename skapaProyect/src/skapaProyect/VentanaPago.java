@@ -394,6 +394,21 @@ public class VentanaPago extends	 javax.swing.JFrame {
 				
 			}
 		});
+		JButton Volver = new JButton("A");
+		Volver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		Volver.setBounds(233, 458, 79, 29);
+		contentPane.add(Volver);
+		
+		Volver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VentanaAjustes vA = new VentanaAjustes();
+				setVisible(false);
+				vA.setVisible(true);
+				}
+			});
 		/*
 	private void  JButton1ActionPerformed(ActionEvent evt) {
 		try {

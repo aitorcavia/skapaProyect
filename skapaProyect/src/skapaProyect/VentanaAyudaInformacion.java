@@ -3,11 +3,14 @@ package skapaProyect;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JTextPane;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.Color;
 
 public class VentanaAyudaInformacion extends JFrame {
@@ -86,5 +89,22 @@ public class VentanaAyudaInformacion extends JFrame {
 		TextoInformacion.setText("     Informaci\u00F3n");
 		TextoInformacion.setBounds(15, 260, 159, 26);
 		contentPane.add(TextoInformacion);
+		
+		
+		JButton Volver = new JButton("A");
+		Volver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		Volver.setBounds(233, 458, 79, 29);
+		contentPane.add(Volver);
+		
+		Volver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VentanaAjustes vA = new VentanaAjustes();
+				setVisible(false);
+				vA.setVisible(true);
+				}
+			});
 	}
 }

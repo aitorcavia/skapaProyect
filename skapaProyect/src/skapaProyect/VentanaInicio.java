@@ -23,6 +23,7 @@ import java.awt.Cursor;
 import javax.swing.JLabel;
 import javax.swing.JSeparator;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
 
 public class VentanaInicio extends JFrame {
 
@@ -155,5 +156,20 @@ public class VentanaInicio extends JFrame {
 				va.setVisible(true);
 			}
 		});
+		JButton Volver = new JButton("A");
+		Volver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		Volver.setBounds(233, 458, 79, 29);
+		contentPane.add(Volver);
+		
+		Volver.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VentanaAjustes vA = new VentanaAjustes();
+				setVisible(false);
+				vA.setVisible(true);
+				}
+			});
 	}
 }
