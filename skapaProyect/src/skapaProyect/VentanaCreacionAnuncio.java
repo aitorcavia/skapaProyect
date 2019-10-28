@@ -154,9 +154,9 @@ public class VentanaCreacionAnuncio extends JFrame {
 				e1.printStackTrace();
 			}
 			
-			VentanaAnuncio va = new VentanaAnuncio();
+			VentanaMisAnuncios vma = new VentanaMisAnuncios();
 			setVisible(false);
-			va.setVisible(true);
+			vma.setVisible(true);
 		}
 	});
 	

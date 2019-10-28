@@ -25,6 +25,7 @@ import java.awt.CardLayout;
 import javax.swing.SpringLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
 
 public class VentanaMisAnuncios extends JFrame {
 
@@ -56,6 +57,11 @@ public class VentanaMisAnuncios extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
+		
+		JButton botonCrearAnuncio = new JButton("Crear anuncio");
+		botonCrearAnuncio.setBackground(new Color(135, 206, 235));
+		botonCrearAnuncio.setBounds(228, 419, 115, 29);
+		contentPane.add(botonCrearAnuncio);
 				
 		try {
 			Class.forName("org.sqlite.JDBC");
@@ -114,6 +120,19 @@ public class VentanaMisAnuncios extends JFrame {
 					System.out.println("No se ha podido conectar a BD");
 					e1.printStackTrace();
 				}
+		
+		
+		botonCrearAnuncio.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				VentanaCreacionAnuncio vca = new VentanaCreacionAnuncio();
+				vca.setVisible(true);
+				setVisible(false);
+				
+				
+			}
+		});
 			}
 	}
 
