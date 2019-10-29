@@ -14,11 +14,15 @@ import java.awt.event.MouseListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import java.awt.Color;
+import javax.swing.JLabel;
+import javax.swing.ImageIcon;
 
 public class VentanaUsuario extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textoNombreUsuario;
+	private JTextField txtVentas;
+	private JTextField txtCompras;
 
 	/**
 	 *   Launch the application.
@@ -65,166 +69,90 @@ public class VentanaUsuario extends JFrame {
 		contentPane.add(botonOpiniones);
 		
 		JButton botonInfo = new JButton("+ Info");
-		botonInfo.setBounds(10, 447, 302, 40);
+		botonInfo.setBounds(10, 443, 302, 40);
 		contentPane.add(botonInfo);
 		
 		textoNombreUsuario = new JTextField();
 		textoNombreUsuario.setEditable(false);
-		textoNombreUsuario.setBounds(10, 60, 131, 40);
+		textoNombreUsuario.setBounds(10, 28, 150, 40);
 		contentPane.add(textoNombreUsuario);
 		textoNombreUsuario.setColumns(10);
 		
-		botonArticulosVenta.setCursor(new Cursor(HAND_CURSOR));
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Gaizka\\Desktop\\UNIVERSIDAD DEUSTO\\Prog\\Proyecto ProgIII\\Tony muy grande.png"));
+		lblNewLabel.setBounds(184, 11, 128, 121);
+		contentPane.add(lblNewLabel);
 		
-		botonArticulosVenta.addMouseListener(new MouseListener() {
+		txtVentas = new JTextField();
+		txtVentas.setEditable(false);
+		txtVentas.setText("Ventas");
+		txtVentas.setBounds(117, 195, 46, 20);
+		contentPane.add(txtVentas);
+		txtVentas.setColumns(10);
+		
+		txtCompras = new JTextField();
+		txtCompras.setEditable(false);
+		txtCompras.setText("Compras");
+		txtCompras.setBounds(203, 195, 56, 20);
+		contentPane.add(txtCompras);
+		txtCompras.setColumns(10);
+		
+		JLabel lblNewLabel_1 = new JLabel("");
+		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Gaizka\\Desktop\\UNIVERSIDAD DEUSTO\\Prog\\Proyecto ProgIII\\grafica-64985.gif"));
+		lblNewLabel_1.setBounds(10, 150, 97, 106);
+		contentPane.add(lblNewLabel_1);
+		
+		botonArticulosVenta.addActionListener(new ActionListener() {
 
 			@Override
-			public void mouseClicked(MouseEvent e) {
-				VentanaArticulosVenta vA = new VentanaArticulosVenta();
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				VentanaArticulosVenta va = new VentanaArticulosVenta();
 				setVisible(false);
-				vA.setVisible(true);
-				
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-			
-				
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				
-				
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-			
-				
-			}
-		
-		});
-		
-		botonArticulosFavoritos.setCursor(new Cursor(HAND_CURSOR));
-		
-		botonArticulosFavoritos.addMouseListener(new MouseListener() {
-
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				VentanaArticulosFavoritos vF = new VentanaArticulosFavoritos();
-				setVisible(false);
-				vF.setVisible(true);
-	
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				
-				
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				
-				
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				
+				va.setVisible(true);
 				
 			}
 			
 		});
 		
-		
-		botonOpiniones.setCursor(new Cursor(HAND_CURSOR));
-		
-		botonOpiniones.addMouseListener(new MouseListener() {
+		botonArticulosFavoritos.addActionListener(new ActionListener() {
 
 			@Override
-			public void mouseClicked(MouseEvent e) {
-				VentanaOpiniones vO = new VentanaOpiniones();
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				VentanaArticulosFavoritos vf = new VentanaArticulosFavoritos();
 				setVisible(false);
-				vO.setVisible(true);
-	
-			}
-
-			@Override
-			public void mousePressed(MouseEvent e) {
-				
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				
-				
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				
-				
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				
+				vf.setVisible(true);
 				
 			}
 			
 		});
 		
-		botonInfo.setCursor(new Cursor(HAND_CURSOR));
-		
-		botonInfo.addMouseListener(new MouseListener() {
+		botonOpiniones.addActionListener(new ActionListener() {
 
 			@Override
-			public void mouseClicked(MouseEvent e) {
-				VentanaInfo vI = new VentanaInfo();
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				VentanaOpiniones vo = new VentanaOpiniones();
 				setVisible(false);
-				vI.setVisible(true);
-	
+				vo.setVisible(true);
 			}
+			
+		});
+		
+		botonInfo.addActionListener(new ActionListener() {
 
 			@Override
-			public void mousePressed(MouseEvent e) {
-				
-				
-			}
-
-			@Override
-			public void mouseReleased(MouseEvent e) {
-				
-				
-			}
-
-			@Override
-			public void mouseEntered(MouseEvent e) {
-				
-				
-			}
-
-			@Override
-			public void mouseExited(MouseEvent e) {
-				
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				VentanaAyudaInformacion vi = new VentanaAyudaInformacion();
+				setVisible(false);
+				vi.setVisible(true);
 				
 			}
 			
 		});
 	
 	
-}}
+}	
+}
