@@ -78,10 +78,10 @@ public class VentanaUsuario extends JFrame {
 		contentPane.add(textoNombreUsuario);
 		textoNombreUsuario.setColumns(10);
 		
-		JLabel lblNewLabel = new JLabel("New label");
-		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Gaizka\\Desktop\\UNIVERSIDAD DEUSTO\\Prog\\Proyecto ProgIII\\Tony muy grande.png"));
-		lblNewLabel.setBounds(184, 11, 128, 121);
-		contentPane.add(lblNewLabel);
+		JLabel FotoUsuario = new JLabel("New label");
+		FotoUsuario.setIcon(new ImageIcon("C:\\Users\\Gaizka\\git\\skapaProyect\\skapaProyect\\multimedia\\Tony muy grande.png"));
+		FotoUsuario.setBounds(184, 11, 128, 121);
+		contentPane.add(FotoUsuario);
 		
 		txtVentas = new JTextField();
 		txtVentas.setEditable(false);
@@ -97,10 +97,10 @@ public class VentanaUsuario extends JFrame {
 		contentPane.add(txtCompras);
 		txtCompras.setColumns(10);
 		
-		JLabel lblNewLabel_1 = new JLabel("");
-		lblNewLabel_1.setIcon(new ImageIcon("C:\\Users\\Gaizka\\Desktop\\UNIVERSIDAD DEUSTO\\Prog\\Proyecto ProgIII\\grafica-64985.gif"));
-		lblNewLabel_1.setBounds(10, 150, 97, 106);
-		contentPane.add(lblNewLabel_1);
+		JLabel LabelGrafico = new JLabel("");
+		LabelGrafico.setIcon(new ImageIcon("C:\\Users\\Gaizka\\git\\skapaProyect\\skapaProyect\\multimedia\\grafica-64985.gif"));
+		LabelGrafico.setBounds(10, 150, 97, 106);
+		contentPane.add(LabelGrafico);
 		
 		botonArticulosVenta.addActionListener(new ActionListener() {
 
@@ -153,6 +153,42 @@ public class VentanaUsuario extends JFrame {
 			
 		});
 	
+		FotoUsuario.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+				VentanaPerfil vr = new VentanaPerfil();
+				setVisible(false);
+				vr.setVisible(true);
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
 	
 }	
 }
