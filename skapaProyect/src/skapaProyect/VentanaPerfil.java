@@ -55,8 +55,7 @@ public class VentanaPerfil extends JFrame {
 		fotoperfil.setBounds(205, 17, 132, 148);
 		contentPane.add(fotoperfil);
 		
-		JTextPane TextoNombre = new JTextPane();
-		TextoNombre.setEditable(false);
+		JLabel TextoNombre = new JLabel();
 		TextoNombre.setText("Nombre");
 		TextoNombre.setBounds(15, 27, 72, 26);
 		contentPane.add(TextoNombre);
@@ -65,8 +64,7 @@ public class VentanaPerfil extends JFrame {
 		nombreUsuario.setBounds(15, 58, 105, 26);
 		contentPane.add(nombreUsuario);
 		
-		JTextPane TextoUbicacinProvincia = new JTextPane();
-		TextoUbicacinProvincia.setEditable(false);
+		JLabel TextoUbicacinProvincia = new JLabel();
 		TextoUbicacinProvincia.setText("Apellido");
 		TextoUbicacinProvincia.setBounds(15, 109, 72, 26);
 		contentPane.add(TextoUbicacinProvincia);
@@ -75,7 +73,7 @@ public class VentanaPerfil extends JFrame {
 		apellidoUsuario.setBounds(15, 139, 172, 26);
 		contentPane.add(apellidoUsuario);
 		
-		JTextPane TextoUbicacinProvincia_1 = new JTextPane();
+		JLabel TextoUbicacinProvincia_1 = new JLabel();
 		TextoUbicacinProvincia_1.setText("Ubicaci\u00F3n / Provincia");
 		TextoUbicacinProvincia_1.setBounds(15, 181, 162, 26);
 		contentPane.add(TextoUbicacinProvincia_1);
@@ -84,7 +82,7 @@ public class VentanaPerfil extends JFrame {
 		ubicacionProvinciaUsuario.setBounds(15, 215, 182, 26);
 		contentPane.add(ubicacionProvinciaUsuario);
 		
-		JTextPane txtpnInformacinPrivada = new JTextPane();
+		JLabel txtpnInformacinPrivada = new JLabel();
 		txtpnInformacinPrivada.setFont(new Font("Tahoma", Font.BOLD, 16));
 		txtpnInformacinPrivada.setText("Informaci\u00F3n Privada");
 		txtpnInformacinPrivada.setBounds(15, 280, 172, 26);
@@ -95,8 +93,7 @@ public class VentanaPerfil extends JFrame {
 		Sexo.setBounds(15, 322, 105, 26);
 		contentPane.add(Sexo);
 		
-		JTextPane TextoFechaDeNacimiento = new JTextPane();
-		TextoFechaDeNacimiento.setEditable(false);
+		JLabel TextoFechaDeNacimiento = new JLabel();
 		TextoFechaDeNacimiento.setText("Fecha de Nacimiento");
 		TextoFechaDeNacimiento.setBounds(15, 363, 152, 26);
 		contentPane.add(TextoFechaDeNacimiento);
@@ -105,8 +102,7 @@ public class VentanaPerfil extends JFrame {
 		FechaDeNacimiento.setBounds(15, 393, 152, 26);
 		contentPane.add(FechaDeNacimiento);
 		
-		JTextPane TextoCorreoElectrnico = new JTextPane();
-		TextoCorreoElectrnico.setEditable(false);
+		JLabel TextoCorreoElectrnico = new JLabel();
 		TextoCorreoElectrnico.setText("Correo electr\u00F3nico");
 		TextoCorreoElectrnico.setBounds(15, 425, 162, 26);
 		contentPane.add(TextoCorreoElectrnico);
