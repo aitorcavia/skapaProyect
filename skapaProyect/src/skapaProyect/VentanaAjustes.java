@@ -202,6 +202,24 @@ public class VentanaAjustes extends JFrame {
 				vP.setVisible(true);
 				}
 			});
+		JButton btnAtras = new JButton("<--\r\n");
+		btnAtras.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+				}
+			});
+		
+		btnAtras.setFont(new Font("Tahoma", Font.BOLD, 16));
+		btnAtras.setBounds(239, 467, 83, 29);
+		contentPane.add(btnAtras);
+		
+		
+		btnAtras.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				VentanaPerfil vP = new VentanaPerfil();
+				setVisible(false);
+				vP.setVisible(true);
+				}
+			});
 		
 		
 		
