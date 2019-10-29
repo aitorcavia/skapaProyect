@@ -62,6 +62,10 @@ public class VentanaMisAnuncios extends JFrame {
 		botonCrearAnuncio.setBackground(new Color(135, 206, 235));
 		botonCrearAnuncio.setBounds(228, 419, 115, 29);
 		contentPane.add(botonCrearAnuncio);
+		
+		JButton btnAtras = new JButton("Atras");
+		btnAtras.setBounds(15, 419, 115, 29);
+		contentPane.add(btnAtras);
 			
 		
 		int a = VentanaLogin.getUsuarioId();
@@ -135,6 +139,16 @@ public class VentanaMisAnuncios extends JFrame {
 				vca.setVisible(true);
 				setVisible(false);
 				
+				
+			}
+		});
+		
+		btnAtras.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				VentanaUsuario vu = new VentanaUsuario();
+				vu.setVisible(true);
+				setVisible(false);
 				
 			}
 		});

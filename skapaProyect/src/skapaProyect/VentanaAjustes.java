@@ -71,13 +71,13 @@ public class VentanaAjustes extends JFrame {
 		BotonAnyadirCuenta.setBounds(15, 435, 177, 29);
 		contentPane.add(BotonAnyadirCuenta);
 		
-		JButton BotonCambiarCuenta = new JButton("Cambiar Cuenta");
-		BotonCambiarCuenta.addActionListener(new ActionListener() {
+		JButton botonCerrarSesion = new JButton("Cerrar sesion");
+		botonCerrarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		BotonCambiarCuenta.setBounds(15, 404, 177, 29);
-		contentPane.add(BotonCambiarCuenta);
+		botonCerrarSesion.setBounds(15, 404, 177, 29);
+		contentPane.add(botonCerrarSesion);
 		
 		JTextPane TextoCuenta = new JTextPane();
 		TextoCuenta.setEditable(false);
@@ -220,6 +220,16 @@ public class VentanaAjustes extends JFrame {
 				vP.setVisible(true);
 				}
 			});
+		
+		botonCerrarSesion.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				VentanaLogin vl = new VentanaLogin();
+				vl.setVisible(true);
+				setVisible(false);
+				
+			}
+		});
 		
 		
 		

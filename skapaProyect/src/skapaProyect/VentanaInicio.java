@@ -170,7 +170,7 @@ public class VentanaInicio extends JFrame {
 				
 			}
 		});
-		int a = VentanaLogin.getUsuarioId();
+		
 		
 	}
 }
