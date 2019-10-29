@@ -79,7 +79,7 @@ public class VentanaUsuario extends JFrame {
 		textoNombreUsuario.setColumns(10);
 		
 		JLabel FotoUsuario = new JLabel("New label");
-		FotoUsuario.setIcon(new ImageIcon("C:\\Users\\Gaizka\\git\\skapaProyect\\skapaProyect\\multimedia\\Tony muy grande.png"));
+		FotoUsuario.setIcon(new ImageIcon("../skapaProyect/multimedia/Tony muy grande.png"));
 		FotoUsuario.setBounds(184, 11, 128, 121);
 		contentPane.add(FotoUsuario);
 		
@@ -98,7 +98,7 @@ public class VentanaUsuario extends JFrame {
 		txtCompras.setColumns(10);
 		
 		JLabel LabelGrafico = new JLabel("");
-		LabelGrafico.setIcon(new ImageIcon("C:\\Users\\Gaizka\\git\\skapaProyect\\skapaProyect\\multimedia\\grafica-64985.gif"));
+		LabelGrafico.setIcon(new ImageIcon("../skapaProyect/multimedia/grafica-64985.gif"));
 		LabelGrafico.setBounds(10, 150, 97, 106);
 		contentPane.add(LabelGrafico);
 		
