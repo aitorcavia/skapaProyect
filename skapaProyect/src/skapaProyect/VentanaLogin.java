@@ -39,7 +39,7 @@ public class VentanaLogin extends JFrame {
 	private JPanel contentPane;
 	private JPasswordField textoContrasenya;
 	private JTextField textoSkapa;
-	private int idUsuario;
+	public static int idUsuario;
 
 	/**
 	 * Launch the application.
@@ -204,7 +204,7 @@ public class VentanaLogin extends JFrame {
 		
 	}
 	
-	public int getUsuarioId(){
+	public static int getUsuarioId(){
 		return idUsuario;
 		}
 }

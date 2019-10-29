@@ -3,15 +3,17 @@ package skapaProyect;
 import java.util.ArrayList;
 
 public class Usuario {
+	
+	public static int cont;
 
-	private int id = -1;
+	private int id;
 	private String nombre;
 	private String contrasenya;
 	private String correo;
 	
 	public Usuario(int id, String nombre, String contrasenya, String correo) {
 		super();
-		this.id = -1;
+		this.id = cont++;
 		this.nombre = nombre;
 		this.contrasenya = contrasenya;
 		this.correo = correo;
@@ -19,7 +21,7 @@ public class Usuario {
 	
 	public Usuario() {
 		super();
-		this.id = 0;
+		this.id = cont++;
 		this.nombre = "";
 		this.contrasenya = "";
 		this.correo = "";

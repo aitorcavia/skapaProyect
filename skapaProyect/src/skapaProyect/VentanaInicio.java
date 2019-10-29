@@ -171,5 +171,8 @@ public class VentanaInicio extends JFrame {
 				vA.setVisible(true);
 				}
 			});
+		
+		int a = VentanaLogin.getUsuarioId();
+		System.out.println(a);
 	}
 }

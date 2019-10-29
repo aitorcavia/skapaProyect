@@ -59,6 +59,7 @@ public class VentanaAnuncio extends JFrame {
 		contentPane.add(TextoDescripcion);
 		
 		JLabel Foto = new JLabel("(IMAGEN PRODUCTO)");
+		Foto.setIcon(null);
 		Foto.setBounds(15, 16, 297, 177);
 		contentPane.add(Foto);
 		

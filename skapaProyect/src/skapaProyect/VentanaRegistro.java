@@ -112,10 +112,12 @@ public class VentanaRegistro extends JFrame {
 				String nombre; 
 				String contrasenya;
 				String correo;
-				 
+				int id;
+			
 				nombre = textoUsuario.getText();
 				contrasenya = textoContrasenya.getText();
 				correo = textoCorreo.getText();
+		
 	
 				try {
 					
