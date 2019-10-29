@@ -51,7 +51,7 @@ public class VentanaPerfil extends JFrame {
 		contentPane.setLayout(null);
 		
 		JLabel fotoperfil = new JLabel("");
-		fotoperfil.setIcon(new ImageIcon("C:\\Users\\Gaizka\\git\\skapaProyect\\skapaProyect\\multimedia\\FotoPerfil.png"));
+		fotoperfil.setIcon(new ImageIcon("../skapaProyect/multimedia/FotoPerfil.png"));
 		fotoperfil.setBounds(205, 17, 132, 148);
 		contentPane.add(fotoperfil);
 		
