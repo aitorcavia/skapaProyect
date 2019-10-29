@@ -62,15 +62,20 @@ public class VentanaMisAnuncios extends JFrame {
 		botonCrearAnuncio.setBackground(new Color(135, 206, 235));
 		botonCrearAnuncio.setBounds(228, 419, 115, 29);
 		contentPane.add(botonCrearAnuncio);
-				
+			
+		
+		int a = VentanaLogin.getUsuarioId();
+	
+		
 		try {
 			Class.forName("org.sqlite.JDBC");
 					
 			Connection conn = DriverManager.getConnection("jdbc:sqlite:data/BD.db");
 			Statement stmt = conn.createStatement();
+			
 				
 			//Recuperar datos, consultas
-			ResultSet rs = stmt.executeQuery("SELECT titulo, descripcion, precio, categoria, idUsuario FROM anuncio");
+			ResultSet rs = stmt.executeQuery("SELECT idUsuario, titulo, descripcion, precio, categoria FROM anuncio WHERE idUsuario ="+ a);
 			
 			int cont = 16;
 			int contS = 0;
@@ -133,6 +138,11 @@ public class VentanaMisAnuncios extends JFrame {
 				
 			}
 		});
-			}
+		
+		
+		
+		
+		
+		}
 	}
 

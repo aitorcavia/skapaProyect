@@ -124,7 +124,10 @@ public class VentanaCreacionAnuncio extends JFrame {
 			String categoria;
 			String descripcion;
 			 
-			idUsuario = new Usuario().getId();
+			int a = VentanaLogin.getUsuarioId();
+			
+			
+			idUsuario = a;
 			titulo = textoTitulo.getText();
 			precio = textoPrecio.getText();
 			descripcion = textoDescripcion.getText();

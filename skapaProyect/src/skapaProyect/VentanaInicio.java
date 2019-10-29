@@ -63,12 +63,12 @@ public class VentanaInicio extends JFrame {
 		
 		JComboBox comboBoxCategoria = new JComboBox();
 		comboBoxCategoria.setModel(new DefaultComboBoxModel(new String[] {"Cocina", "Videojuegos", "Hogar", "Juguetes", "Libreria", "Seguridad", "Codigos"}));
-		comboBoxCategoria.setBounds(160, 47, 146, 20);
+		comboBoxCategoria.setBounds(160, 77, 146, 20);
 		contentPane.add(comboBoxCategoria);
 		
 		JComboBox comboBoxProvincia = new JComboBox();
 		comboBoxProvincia.setModel(new DefaultComboBoxModel(new String[] {"Coru\u00F1a", "Pontevedra", "Lugo", "Orense", "Asturias", "Cantabria", "Bizkaia", "Gipuzkoa", "Alaba", "Navarra", "Huesca", "Zaragoza", "L\u00E9rida", "Girona", "Barcelona", "Tarragona", "Teruel", "La Rioja", "Le\u00F3n", "Palencia", "Burgos", "Soria", "Segovia", "Valladolid", "Zamora", "Salamanca", "\u00C1vila", "Madrid", "Guadalajara", "Cuenca", "Albacete", "Toledo", "Ciudad Real", "Castell\u00F3n", "Valencia", "Alicante", "C\u00E1ceres", "Badajoz", "Murcia", "Huelva", "Sevilla", "C\u00F3rdoba", "Ja\u00E9n", "C\u00E1diz", "M\u00E1laga", "Granada", "Almeria", "Islas Baleares", "Islas Canarias"}));
-		comboBoxProvincia.setBounds(160, 91, 146, 20);
+		comboBoxProvincia.setBounds(160, 102, 146, 20);
 		contentPane.add(comboBoxProvincia);
 		
 		JComboBox comboBoxPrecio1 = new JComboBox();
@@ -82,7 +82,7 @@ public class VentanaInicio extends JFrame {
 		contentPane.add(comboBoxPrecio2);
 		
 		JEditorPane buscador = new JEditorPane();
-		buscador.setBounds(66, 11, 225, 20);
+		buscador.setBounds(87, 41, 225, 20);
 		contentPane.add(buscador);
 		
 		nombreAnuncio1 = new JTextField();
@@ -116,20 +116,24 @@ public class VentanaInicio extends JFrame {
 		contentPane.add(anuncio3);
 		
 		JLabel lblCategoria = new JLabel("Categoria:");
-		lblCategoria.setBounds(10, 42, 80, 20);
+		lblCategoria.setBounds(20, 77, 80, 20);
 		contentPane.add(lblCategoria);
 		
 		JLabel lblProvincia = new JLabel("Provincias\r\n e Islas:");
-		lblProvincia.setBounds(10, 78, 132, 36);
+		lblProvincia.setBounds(20, 94, 132, 36);
 		contentPane.add(lblProvincia);
 		
 		JLabel lblPrecio = new JLabel("Precio:");
-		lblPrecio.setBounds(10, 127, 59, 20);
+		lblPrecio.setBounds(20, 127, 59, 20);
 		contentPane.add(lblPrecio);
 		
 		nombreAnuncio1.setCursor(new Cursor(HAND_CURSOR));
 		nombreAnuncio2.setCursor(new Cursor(HAND_CURSOR));
 		nombreAnuncio3.setCursor(new Cursor(HAND_CURSOR));
+		
+		JButton btnPerfil = new JButton("Perfil");
+		btnPerfil.setBounds(10, 16, 115, 29);
+		contentPane.add(btnPerfil);
 		
 		nombreAnuncio1.addMouseListener(new MouseListener() {
 			
@@ -156,23 +160,17 @@ public class VentanaInicio extends JFrame {
 				va.setVisible(true);
 			}
 		});
-		JButton Volver = new JButton("A");
-		Volver.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		
+		btnPerfil.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				VentanaUsuario vu = new VentanaUsuario();
+				vu.setVisible(true);
+				setVisible(false);
+				
 			}
 		});
-		Volver.setBounds(233, 458, 79, 29);
-		contentPane.add(Volver);
-		
-		Volver.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				VentanaAjustes vA = new VentanaAjustes();
-				setVisible(false);
-				vA.setVisible(true);
-				}
-			});
-		
 		int a = VentanaLogin.getUsuarioId();
-		System.out.println(a);
+		
 	}
 }
