@@ -107,9 +107,9 @@ public class VentanaUsuario extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				VentanaArticulosVenta va = new VentanaArticulosVenta();
+				VentanaMisAnuncios vMa = new VentanaMisAnuncios();
 				setVisible(false);
-				va.setVisible(true);
+				vMa.setVisible(true);
 				
 			}
 			
