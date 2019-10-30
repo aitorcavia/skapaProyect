@@ -86,10 +86,9 @@ public class VentanaCreacionAnuncio extends JFrame {
 		panel.add(labelInserteUnPrecio);
 		
 		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Cocina", "Videojuegos", "Hogar", "Juguetes", "Libreria", "Seguridad", "Codigos", "Deporte", "Motor", "Otros"}));
+
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Cocina", "Videojuegos", "Hogar", "Juguetes", "Libreria", "Seguridad", "Codigos", "Prendas", "Informatica", "Comida"}));
 		comboBox.setBounds(123, 234, 180, 26);
-		comboBox.addItem("Deporte");
-		comboBox.addItem("Motor");
 		panel.add(comboBox);
 		
 		JLabel lblCategoria = new JLabel("Categoria:");

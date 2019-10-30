@@ -65,7 +65,7 @@ public class VentanaInicio extends JFrame {
 		contentPane.setLayout(null);
 		
 		JComboBox comboBoxCategoria = new JComboBox();
-		comboBoxCategoria.setModel(new DefaultComboBoxModel(new String[] {"Cocina", "Videojuegos", "Hogar", "Juguetes", "Libreria", "Seguridad", "Codigos"}));
+		comboBoxCategoria.setModel(new DefaultComboBoxModel(new String[] {"Cocina", "Videojuegos", "Hogar", "Juguetes", "Libreria", "Seguridad", "Codigos", "Prendas", "Informatica", "Comida"}));
 		comboBoxCategoria.setBounds(160, 77, 146, 20);
 		contentPane.add(comboBoxCategoria);
 		
