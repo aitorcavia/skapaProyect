@@ -137,7 +137,7 @@ public class VentanaInicio extends JFrame {
 			
 				JPanel panelAnuncio = new JPanel();
 				panelAnuncio.setBackground(new Color(255,255,255));
-				panelAnuncio.setBounds(0, 16, 297, 83);
+				panelAnuncio.setBounds(0, cont, 297, 76);
 				panelAnuncios.add(panelAnuncio);
 				panelAnuncio.setLayout(null);
 				
@@ -149,6 +149,7 @@ public class VentanaInicio extends JFrame {
 				precioAnuncio.setBounds(15, 47, 96, 20);
 				panelAnuncio.add(precioAnuncio);
 				
+				cont = cont + 80;
 			}
 			
 			stmt.close();
