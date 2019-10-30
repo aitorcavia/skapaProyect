@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.GridLayout;
 import java.awt.Label;
+import java.awt.ScrollPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -15,6 +16,8 @@ import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.Scrollable;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -60,12 +63,19 @@ public class VentanaMisAnuncios extends JFrame {
 		
 		JButton botonCrearAnuncio = new JButton("Crear anuncio");
 		botonCrearAnuncio.setBackground(new Color(135, 206, 235));
-		botonCrearAnuncio.setBounds(228, 419, 115, 29);
+		botonCrearAnuncio.setBounds(204, 419, 139, 29);
 		contentPane.add(botonCrearAnuncio);
 		
 		JButton btnAtras = new JButton("Atras");
 		btnAtras.setBounds(15, 419, 115, 29);
 		contentPane.add(btnAtras);
+		
+		JPanel panelAnuncios = new JPanel();
+		panelAnuncios.setBounds(15, 16, 328, 387);
+		contentPane.add(panelAnuncios);
+		panelAnuncios.setLayout(null);
+	
+	
 			
 		
 		int a = VentanaLogin.getUsuarioId();
@@ -96,12 +106,14 @@ public class VentanaMisAnuncios extends JFrame {
 			
 				JPanel panel = new JPanel();
 				panel.setBackground(new Color(135, 206, 235));
-				panel.setBounds(15, cont, 328, 76);
+				panel.setBounds(0, cont, 328, 76);
 				
 				paneles.add(panel);
 				
-				contentPane.add(paneles.get(contS));
+				panelAnuncios.add(paneles.get(contS));
 				paneles.get(contS).setLayout(null);
+				
+				
 				
 				
 			
@@ -109,6 +121,8 @@ public class VentanaMisAnuncios extends JFrame {
 				lblTitulo.setBounds(15, 16, 160, 20);
 				paneles.get(contS).add(lblTitulo);
 				
+				
+			
 				
 				JLabel lblPrecio = new JLabel("Precio: " + precio + " €");
 				lblPrecio.setBounds(15, 25+16, 80, 20);
@@ -152,6 +166,8 @@ public class VentanaMisAnuncios extends JFrame {
 				
 			}
 		});
+		
+		
 		
 		
 		

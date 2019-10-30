@@ -8,8 +8,7 @@ public class anuncioTest {
 
 	@Test
 	public void testGetPrecio() {
-		Producto p = new Producto(44.5);
-		Anuncio a = new Anuncio (p, "titulo", "descripcion", "categoria");
+		Anuncio a = new Anuncio (5, "titulo", "45", "categoria", "descripcion");
 		assertEquals("categoria" , a.getCategoria());
 		
 	}

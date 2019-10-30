@@ -13,6 +13,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
@@ -24,12 +25,14 @@ import javax.swing.JComboBox;
 import javax.swing.JSlider;
 import javax.swing.JSpinner;
 import javax.swing.JButton;
+import javax.swing.DefaultComboBoxModel;
 
 public class VentanaCreacionAnuncio extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField textoTitulo;
 	private JTextField textoPrecio;
+	public static int idAnuncio;
 
 	/**
 	 * Launch the application.
@@ -83,6 +86,7 @@ public class VentanaCreacionAnuncio extends JFrame {
 		panel.add(labelInserteUnPrecio);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Cocina", "Videojuegos", "Hogar", "Juguetes", "Libreria", "Seguridad", "Codigos", "Deporte", "Motor", "Otros"}));
 		comboBox.setBounds(123, 234, 180, 26);
 		comboBox.addItem("Deporte");
 		comboBox.addItem("Motor");
@@ -141,10 +145,14 @@ public class VentanaCreacionAnuncio extends JFrame {
 				
 				String query = "INSERT INTO anuncio (idUsuario, titulo, precio, categoria, descripcion) VALUES ('"+ idUsuario + "', '" + titulo + "', '"+ precio + "', '" + categoria + "', '" + descripcion + "')" ;
 				stmt.executeUpdate(query);
-				
-				
-
+			
+			
 				JOptionPane.showMessageDialog(null, "Anuncio creado correctamente", "Correcto", 1);
+				
+				
+				ResultSet rs = stmt.executeQuery("SELECT idUsuario, idAnuncio, titulo, precio, categoria, descripcion FROM anuncio WHERE idUsuario ='" + idUsuario + "' and titulo ='" + titulo + "' and descripcion= '"+ descripcion + "'");
+				
+				idAnuncio = rs.getInt("idAnuncio");
 				
 				stmt.close();
 				conn.close();
@@ -157,13 +165,18 @@ public class VentanaCreacionAnuncio extends JFrame {
 				e1.printStackTrace();
 			}
 			
-			VentanaMisAnuncios vma = new VentanaMisAnuncios();
+			VentanaAnuncio va = new VentanaAnuncio();
 			setVisible(false);
-			vma.setVisible(true);
+			va.setVisible(true);
 		}
 	});
 	
+
 	
 	}
+	
+	public static int getAnuncioId(){
+		return idAnuncio;
+		}
 	
 }

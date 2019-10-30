@@ -16,8 +16,14 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class VentanaAnuncio extends JFrame {
 
@@ -43,6 +49,7 @@ public class VentanaAnuncio extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaAnuncio() {
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 349, 559);
 		contentPane = new JPanel();
@@ -51,22 +58,25 @@ public class VentanaAnuncio extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JTextPane TextoDescripcion = new JTextPane();
-		TextoDescripcion.setEditable(false);
-		TextoDescripcion.setFont(new Font("Tahoma", Font.BOLD, 16));
-		TextoDescripcion.setText("Descripci\u00F3n");
-		TextoDescripcion.setBounds(15, 265, 297, 222);
-		contentPane.add(TextoDescripcion);
+		JTextPane textoDescripcion = new JTextPane();
+		textoDescripcion.setEditable(false);
+		textoDescripcion.setFont(new Font("Tahoma", Font.BOLD, 16));
+		textoDescripcion.setText("Descripci\u00F3n");
+		textoDescripcion.setBounds(15, 265, 297, 222);
+		
+		contentPane.add(textoDescripcion);
+		
+		
 		
 		JLabel Foto = new JLabel("(IMAGEN PRODUCTO)");
 		Foto.setIcon(null);
 		Foto.setBounds(15, 16, 297, 177);
 		contentPane.add(Foto);
 		
-		JLabel lblNewLabel = new JLabel("TITULO                    Precio: ");
-		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 16));
-		lblNewLabel.setBounds(15, 209, 297, 40);
-		contentPane.add(lblNewLabel);
+		JLabel labelTitulo = new JLabel();
+		labelTitulo.setFont(new Font("Tahoma", Font.BOLD, 16));
+		labelTitulo.setBounds(15, 229, 163, 20);
+		contentPane.add(labelTitulo);
 		
 		JButton Volver = new JButton("A\r\n");
 		Volver.addActionListener(new ActionListener() {
@@ -76,14 +86,64 @@ public class VentanaAnuncio extends JFrame {
 		Volver.setBounds(0, 0, 79, 29);
 		contentPane.add(Volver);
 		
+		JLabel labelPrecio = new JLabel();
+		labelPrecio.setBounds(183, 229, 69, 20);
+		contentPane.add(labelPrecio);
+		
 		Volver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				VentanaAjustes vA = new VentanaAjustes();
+				VentanaMisAnuncios vma = new VentanaMisAnuncios();
 				setVisible(false);
-				vA.setVisible(true);
+				vma.setVisible(true);
 				}
 			});
 		
+		
+		int an = VentanaCreacionAnuncio.getAnuncioId();
+		
+		System.out.println(an);
+		
+		
+		String titulo = "";
+		String precio = "";
+		String categoria = "";
+		String descripcion = "";
+		
+	
+		
+		
+		try {
+			Class.forName("org.sqlite.JDBC");
+			
+			Connection conn = DriverManager.getConnection("jdbc:sqlite:data/BD.db");
+			Statement stmt = conn.createStatement();
+		
+			//Recuperar datos, consultas
+			ResultSet rs = stmt.executeQuery("SELECT idUsuario, idAnuncio, titulo, precio, categoria, descripcion FROM anuncio WHERE idAnuncio = "+ an);
+			
+			
+			titulo = rs.getString("titulo");
+			precio = rs.getString("precio");
+			categoria = rs.getString("categoria");
+			descripcion = rs.getString("descripcion");
+			
+			labelTitulo.setText(titulo);
+			labelPrecio.setText("Precio: " + precio + " €");
+			textoDescripcion.setText(descripcion);
+			
+		
+			
+			stmt.close();
+			conn.close();
+			
+		} catch (ClassNotFoundException e1) {
+			System.out.println("No se ja podido cargar el driver");
+			e1.printStackTrace();
+		}catch (SQLException e1) {
+			System.out.println("No se ha podido conectar a BD");
+			e1.printStackTrace();
+		}
+		
+		
 	}
-
 }
