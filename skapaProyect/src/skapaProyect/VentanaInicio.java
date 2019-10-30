@@ -6,6 +6,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -28,9 +34,6 @@ import javax.swing.JButton;
 public class VentanaInicio extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField nombreAnuncio1;
-	private JTextField nombreAnuncio2;
-	private JTextField nombreAnuncio3;
 
 	/**
 	 * Launch the application.
@@ -85,36 +88,6 @@ public class VentanaInicio extends JFrame {
 		buscador.setBounds(87, 41, 225, 20);
 		contentPane.add(buscador);
 		
-		nombreAnuncio1 = new JTextField();
-		nombreAnuncio1.setEditable(false);
-		nombreAnuncio1.setBounds(20, 179, 155, 30);
-		contentPane.add(nombreAnuncio1);
-		nombreAnuncio1.setColumns(10);
-		
-		JSeparator anuncio1 = new JSeparator();
-		anuncio1.setBounds(10, 169, 286, 106);
-		contentPane.add(anuncio1);
-		
-		nombreAnuncio2 = new JTextField();
-		nombreAnuncio2.setEditable(false);
-		nombreAnuncio2.setBounds(20, 298, 155, 30);
-		contentPane.add(nombreAnuncio2);
-		nombreAnuncio2.setColumns(10);
-		
-		JSeparator anuncio2 = new JSeparator();
-		anuncio2.setBounds(10, 391, 286, 118);
-		contentPane.add(anuncio2);
-		
-		nombreAnuncio3 = new JTextField();
-		nombreAnuncio3.setEditable(false);
-		nombreAnuncio3.setBounds(20, 408, 155, 30);
-		contentPane.add(nombreAnuncio3);
-		nombreAnuncio3.setColumns(10);
-		
-		JSeparator anuncio3 = new JSeparator();
-		anuncio3.setBounds(10, 286, 286, 118);
-		contentPane.add(anuncio3);
-		
 		JLabel lblCategoria = new JLabel("Categoria:");
 		lblCategoria.setBounds(20, 77, 80, 20);
 		contentPane.add(lblCategoria);
@@ -127,39 +100,68 @@ public class VentanaInicio extends JFrame {
 		lblPrecio.setBounds(20, 127, 59, 20);
 		contentPane.add(lblPrecio);
 		
-		nombreAnuncio1.setCursor(new Cursor(HAND_CURSOR));
-		nombreAnuncio2.setCursor(new Cursor(HAND_CURSOR));
-		nombreAnuncio3.setCursor(new Cursor(HAND_CURSOR));
-		
 		JButton btnPerfil = new JButton("Perfil");
 		btnPerfil.setBounds(10, 16, 115, 29);
 		contentPane.add(btnPerfil);
 		
-		nombreAnuncio1.addMouseListener(new MouseListener() {
+		JPanel panelAnuncios = new JPanel();
+		panelAnuncios.setBackground(new Color(135, 206, 250));
+		panelAnuncios.setBounds(15, 189, 297, 298);
+		contentPane.add(panelAnuncios);
+		panelAnuncios.setLayout(null);
+		
+	
+		
+		try {
+			Class.forName("org.sqlite.JDBC");
+					
+			Connection conn = DriverManager.getConnection("jdbc:sqlite:data/BD.db");
+			Statement stmt = conn.createStatement();
 			
-			@Override
-			public void mouseReleased(MouseEvent e) {
+				
+			//Recuperar datos, consultas
+			ResultSet rs = stmt.executeQuery("SELECT idUsuario, titulo, descripcion, precio, categoria FROM anuncio");
+			
+			int cont = 16;
+			int contS = 0;
+	
+			ArrayList<JPanel> paneles = new ArrayList<JPanel>();
+			
+			while (rs.next()) {
+				
+				String titulo = rs.getString("titulo");
+				String precio = rs.getString("precio");
+				String categoria = rs.getString("categoria");
+				String descripcion = rs.getString("descripcion");
+
+			
+				JPanel panelAnuncio = new JPanel();
+				panelAnuncio.setBackground(new Color(255,255,255));
+				panelAnuncio.setBounds(0, 16, 297, 83);
+				panelAnuncios.add(panelAnuncio);
+				panelAnuncio.setLayout(null);
+				
+				JLabel tituloAnuncio = new JLabel(titulo);
+				tituloAnuncio.setBounds(15, 16, 117, 20);
+				panelAnuncio.add(tituloAnuncio);
+				
+				JLabel precioAnuncio = new JLabel("Precio: " + precio);
+				precioAnuncio.setBounds(15, 47, 96, 20);
+				panelAnuncio.add(precioAnuncio);
+				
 			}
 			
-			@Override
-			public void mousePressed(MouseEvent e) {
-			}
-			
-			@Override
-			public void mouseExited(MouseEvent e) {
-			}
-			
-			@Override
-			public void mouseEntered(MouseEvent e) {
-			}
-			
-			@Override
-			public void mouseClicked(MouseEvent e) {
-				VentanaAnuncio va = new VentanaAnuncio();
-				setVisible(false);	
-				va.setVisible(true);
-			}
-		});
+			stmt.close();
+			conn.close();
+					
+				} catch (ClassNotFoundException e1) {
+					System.out.println("No se ja podido cargar el driver");
+					e1.printStackTrace();
+				}catch (SQLException e1) {
+					System.out.println("No se ha podido conectar a BD");
+					e1.printStackTrace();
+				}
+		
 		
 		btnPerfil.addActionListener(new ActionListener() {
 			@Override
