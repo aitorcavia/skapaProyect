@@ -24,6 +24,7 @@ import javax.swing.JComboBox;
 import javax.swing.JSlider;
 import javax.swing.JSpinner;
 import javax.swing.JButton;
+import javax.swing.DefaultComboBoxModel;
 
 public class VentanaCreacionAnuncio extends JFrame {
 
@@ -83,6 +84,7 @@ public class VentanaCreacionAnuncio extends JFrame {
 		panel.add(labelInserteUnPrecio);
 		
 		JComboBox comboBox = new JComboBox();
+		comboBox.setModel(new DefaultComboBoxModel(new String[] {"Cocina", "Videojuegos", "Hogar", "Juguetes", "Libreria", "Seguridad", "Codigos", "Prendas", "Informatica", "Comida"}));
 		comboBox.setBounds(123, 234, 180, 26);
 		comboBox.addItem("Deporte");
 		comboBox.addItem("Motor");
