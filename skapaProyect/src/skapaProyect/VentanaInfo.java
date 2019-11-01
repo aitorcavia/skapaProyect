@@ -2,11 +2,20 @@ package skapaProyect;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import java.awt.Color;
+import javax.swing.JLabel;
+import javax.swing.JButton;
+import javax.swing.JTextField;
+import javax.swing.JTextPane;
+import javax.swing.ImageIcon;
 
 public class VentanaInfo extends JFrame {
 
@@ -37,8 +46,80 @@ public class VentanaInfo extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(135, 206, 250));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPane);
-	}
+		contentPane.setLayout(null);
+		
+		JLabel labelHistorial = new JLabel("Historial");
+		labelHistorial.setBounds(10, 11, 73, 39);
+		contentPane.add(labelHistorial);
+		
+		JButton botonProductosVendidos = new JButton("Productos Vendidos");
+		botonProductosVendidos.setBounds(37, 61, 137, 23);
+		contentPane.add(botonProductosVendidos);
+		
+		JLabel labelInformacionVerificada = new JLabel("Informaci\u00F3n verificada");
+		labelInformacionVerificada.setBounds(10, 95, 164, 39);
+		contentPane.add(labelInformacionVerificada);
+		
+		JTextPane txtInformacionVerificada = new JTextPane();
+		txtInformacionVerificada.setEditable(false);
+		txtInformacionVerificada.setText("Facebook \r\n\r\n\r\n\r\nCorreo Eletr\u00F3nico\r\n\r\n\r\n\r\nNumero de Tel\u00E9fono");
+		txtInformacionVerificada.setBounds(10, 131, 280, 163);
+		contentPane.add(txtInformacionVerificada);
+		
+		JLabel labelMiembroDesde = new JLabel("Miembro desde");
+		labelMiembroDesde.setBounds(10, 448, 97, 14);
+		contentPane.add(labelMiembroDesde);
+		
+		botonProductosVendidos.addActionListener(new ActionListener() {
 
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		
+		txtInformacionVerificada.addMouseListener(new MouseListener() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// TODO Auto-generated method stub
+			VentanaVerificacion vr = new VentanaVerificacion();
+			setVisible(false);
+			vr.setVisible(true);
+				
+				
+			}
+
+			@Override
+			public void mousePressed(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseEntered(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void mouseExited(MouseEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+		});
+		
+		
+	}
+	
 }
