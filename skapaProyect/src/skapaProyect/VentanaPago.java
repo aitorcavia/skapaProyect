@@ -23,6 +23,7 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.IOException;
 import java.awt.event.ActionEvent;
 import javax.swing.JList;
 import javax.swing.JComboBox;
@@ -409,18 +410,24 @@ public class VentanaPago extends	 javax.swing.JFrame {
 				vA.setVisible(true);
 				}
 			});
-		/*
-	private void  JButton1ActionPerformed(ActionEvent evt) {
-		try {
-			Desktop.getDesktop().browse(new URL("https://www.paypal.com/es/signin").toURI());
-		}catch(MalformedUrlException ex){
-			Logger.getLogger(callbrowser.class.getName()).log(Level.SEVERE,null,ex);
+		BotonPaypal.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				if(java.awt.Desktop.isDesktopSupported()) {
+					java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+					
+					if (desktop.isSupported(java.awt.Desktop.Action.BROWSE)) {
+						try {
+							java.net.URI uri = new java.net.URI("https://www.paypal.com/es/signin");
+							desktop.browse(uri);
+						}catch (URISyntaxException | IOException ex) {}
+						}
+					}
+				
+			}
 			
-		}catch(URISyntaxException ex) {
-			
-		}
-	}
-		*/
-	
+		});
 	}
 }
