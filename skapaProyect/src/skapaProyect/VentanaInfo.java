@@ -20,6 +20,7 @@ import javax.swing.ImageIcon;
 public class VentanaInfo extends JFrame {
 
 	private JPanel contentPane;
+	private JTextField textField;
 
 	/**
 	 * Launch the application.
@@ -58,24 +59,38 @@ public class VentanaInfo extends JFrame {
 		contentPane.add(botonProductosVendidos);
 		
 		JLabel labelInformacionVerificada = new JLabel("Informaci\u00F3n verificada");
-		labelInformacionVerificada.setBounds(10, 95, 164, 39);
+		labelInformacionVerificada.setBounds(10, 88, 164, 39);
 		contentPane.add(labelInformacionVerificada);
 		
 		JTextPane txtInformacionVerificada = new JTextPane();
 		txtInformacionVerificada.setEditable(false);
-		txtInformacionVerificada.setText("Facebook \r\n\r\n\r\n\r\nCorreo Eletr\u00F3nico\r\n\r\n\r\n\r\nNumero de Tel\u00E9fono");
-		txtInformacionVerificada.setBounds(10, 131, 280, 163);
+		txtInformacionVerificada.setText("Facebook \r\n\r\n\r\n\r\n\r\nCorreo Eletr\u00F3nico\r\n\r\n\r\n\r\n\r\n\r\nNumero de Tel\u00E9fono");
+		txtInformacionVerificada.setBounds(85, 167, 203, 185);
 		contentPane.add(txtInformacionVerificada);
 		
 		JLabel labelMiembroDesde = new JLabel("Miembro desde");
 		labelMiembroDesde.setBounds(10, 448, 97, 14);
 		contentPane.add(labelMiembroDesde);
 		
+		JLabel lblNewLabel = new JLabel("New label");
+		lblNewLabel.setIcon(new ImageIcon("C:\\Users\\Gaizka\\git\\skapaProyect\\skapaProyect\\multimedia\\icono-telefono.png"));
+		lblNewLabel.setBounds(10, 300, 63, 58);
+		contentPane.add(lblNewLabel);
+		
+		textField = new JTextField();
+		textField.setEditable(false);
+		textField.setBounds(20, 465, 86, 20);
+		contentPane.add(textField);
+		textField.setColumns(10);
+		
 		botonProductosVendidos.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				VentanaProductosVendidos vp = new VentanaProductosVendidos();
+				setVisible(false);
+				vp.setVisible(true);
 				
 			}
 			
