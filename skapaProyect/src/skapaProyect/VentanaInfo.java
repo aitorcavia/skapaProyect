@@ -79,7 +79,7 @@ public class VentanaInfo extends JFrame {
 		
 		textField = new JTextField();
 		textField.setEditable(false);
-		textField.setBounds(20, 465, 86, 20);
+		textField.setBounds(37, 468, 86, 20);
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
