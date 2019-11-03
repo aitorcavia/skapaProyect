@@ -78,10 +78,10 @@ public class VentanaInicio extends JFrame {
 		comboBoxProvincia.setBounds(160, 117, 181, 20);
 		contentPane.add(comboBoxProvincia);
 		
-		JEditorPane buscador = new JEditorPane();
-		buscador.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		buscador.setBounds(15, 25, 642, 36);
-		contentPane.add(buscador);
+		JEditorPane textoBuscador = new JEditorPane();
+		textoBuscador.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		textoBuscador.setBounds(15, 25, 642, 36);
+		contentPane.add(textoBuscador);
 		
 		JLabel lblCategoria = new JLabel("Categoria:");
 		lblCategoria.setBounds(15, 77, 80, 20);
@@ -105,10 +105,10 @@ public class VentanaInicio extends JFrame {
 		contentPane.add(panelAnuncios);
 		panelAnuncios.setLayout(null);
 		
-		JButton btnNewButton = new JButton("BUSCAR");
-		btnNewButton.setBackground(new Color(240, 255, 255));
-		btnNewButton.setBounds(686, 25, 132, 36);
-		contentPane.add(btnNewButton);
+		JButton botonBuscar = new JButton("BUSCAR");
+		botonBuscar.setBackground(new Color(240, 255, 255));
+		botonBuscar.setBounds(686, 25, 132, 36);
+		contentPane.add(botonBuscar);
 		
 		JLabel lblEntre = new JLabel("entre");
 		lblEntre.setBounds(86, 153, 69, 20);
@@ -142,9 +142,6 @@ public class VentanaInicio extends JFrame {
 			ResultSet rs = stmt.executeQuery("SELECT idUsuario, titulo, descripcion, precio, categoria FROM anuncio");
 			
 			int cont = 16;
-			int contS = 0;
-	
-			ArrayList<JPanel> paneles = new ArrayList<JPanel>();
 			
 			while (rs.next()) {
 				
@@ -210,6 +207,86 @@ public class VentanaInicio extends JFrame {
 				
 			}
 		});
+		
+		botonBuscar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				String texto = textoBuscador.getText();
+				panelAnuncios.removeAll();
+				panelAnuncios.repaint();
+				
+				
+				try {
+					Class.forName("org.sqlite.JDBC");
+							
+					Connection conn = DriverManager.getConnection("jdbc:sqlite:data/BD.db");
+					Statement stmt = conn.createStatement();
+					
+						
+					//Recuperar datos, consultas
+					ResultSet rs = stmt.executeQuery("SELECT idUsuario, titulo, descripcion, precio, categoria FROM anuncio WHERE titulo LIKE '%" + texto + "%'");
+					
+					int cont = 16;
+					
+					while (rs.next()) {
+						
+						String titulo = rs.getString("titulo");
+						String precio = rs.getString("precio");
+						String categoria = rs.getString("categoria");
+						String descripcion = rs.getString("descripcion");
+
+					
+						JPanel panelAnuncio = new JPanel();
+						panelAnuncio.setBackground(new Color(255,255,255));
+						panelAnuncio.setBounds(0, cont, 1250, 90);
+						panelAnuncios.add(panelAnuncio);
+						panelAnuncio.setLayout(null);
+						
+						JLabel tituloAnuncio = new JLabel(titulo);
+						tituloAnuncio.setBounds(15, 16, 117, 20);
+						panelAnuncio.add(tituloAnuncio);
+						
+						JLabel precioAnuncio = new JLabel("PRECIO: " + precio + " €");
+						precioAnuncio.setBounds(15, 47, 96, 20);
+						panelAnuncio.add(precioAnuncio);
+						
+						JLabel lblNewLabel = new JLabel(descripcion);
+						lblNewLabel.setBounds(260, 0, 688, 47);
+						panelAnuncio.add(lblNewLabel);
+						
+						JLabel labelImagen = new JLabel("[IMAGEN]");
+						labelImagen.setBackground(SystemColor.activeCaptionBorder);
+						labelImagen.setBounds(1000, 0, 87, 76);
+						panelAnuncio.add(labelImagen);
+						
+						JButton btnContactar = new JButton("Contactar");
+						btnContactar.setBounds(1142, 16, 99, 23);
+						panelAnuncio.add(btnContactar);
+						
+						JButton btninfo = new JButton("+INFO");
+						btninfo.setBounds(1142, 44, 99, 23);
+						panelAnuncio.add(btninfo);
+						
+						
+						cont = cont + 95;
+					}
+					
+					stmt.close();
+					conn.close();
+							
+						} catch (ClassNotFoundException e1) {
+							System.out.println("No se ja podido cargar el driver");
+							e1.printStackTrace();
+						}catch (SQLException e1) {
+							System.out.println("No se ha podido conectar a BD");
+							e1.printStackTrace();
+						}
+				
+			}
+		});
+		
+		
 		
 		
 	}
