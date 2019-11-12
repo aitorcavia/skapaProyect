@@ -19,7 +19,7 @@ public class DBManager {
 	public void connect() throws DBException {
 		try {
 			Class.forName("org.sqlite.JDBC");
-			conn = DriverManager.getConnection("jdbc:sqlite:data/sample.db");
+			conn = DriverManager.getConnection("jdbc:sqlite:data/BD.db");
 		} catch (ClassNotFoundException e) {
 			throw new DBException("Error cargando el driver de la BD", e);
 		} catch (SQLException e) {
@@ -57,6 +57,56 @@ public class DBManager {
 			throw new DBException("Error obteniendo todos los usuarios'", e);
 		}
 	}
+	
+	//LISTAR TODOS LOS ANUNCIOS
+		public List<Anuncio> listarAnuncios() throws DBException {
+			List<Anuncio> anuncios = new ArrayList<Anuncio>();
+			try (Statement stmt = conn.createStatement()) {
+				ResultSet rs = stmt.executeQuery("SELECT idUsuario, idAnuncio, titulo, descripcion, precio, categoria FROM anuncio");
+
+				while(rs.next()) {
+					Anuncio anuncio = new Anuncio();
+					anuncio.setIdUsuario(rs.getInt("idUsuario"));
+					anuncio.setIdAnuncio(rs.getInt("idAnuncio"));
+					anuncio.setTitulo(rs.getString("titulo"));
+					anuncio.setPrecio(rs.getString("precio"));
+					anuncio.setCategoria(rs.getString("categoria"));
+					anuncio.setDescripcion(rs.getString("descripcion"));
+					anuncios.add(anuncio);
+				}
+				
+				return anuncios;
+				
+			} catch (SQLException e) {
+				throw new DBException("Error obteniendo todos los anuncios'", e);
+			}
+		}
+		
+		//LISTAR TODOS LOS ANUNCIOS POR IdUsuario
+				public List<Anuncio> listarAnunciosIdUsuario(int idUsuario) throws DBException {
+					List<Anuncio> anuncios = new ArrayList<Anuncio>();
+					try (PreparedStatement stmt = conn.prepareStatement("SELECT idUsuario, idAnuncio, titulo, descripcion, precio, categoria FROM anuncio WHERE idUsuario = ?")) {
+						stmt.setInt(1, idUsuario);
+						
+						ResultSet rs = stmt.executeQuery();
+
+						while(rs.next()) {
+							Anuncio anuncio = new Anuncio();
+							anuncio.setIdUsuario(rs.getInt("idUsuario"));
+							anuncio.setIdAnuncio(rs.getInt("idAnuncio"));
+							anuncio.setTitulo(rs.getString("titulo"));
+							anuncio.setPrecio(rs.getString("precio"));
+							anuncio.setCategoria(rs.getString("categoria"));
+							anuncio.setDescripcion(rs.getString("descripcion"));
+							anuncios.add(anuncio);
+						}
+						
+						return anuncios;
+						
+					} catch (SQLException e) {
+						throw new DBException("Error obteniendo todos los anuncios'", e);
+					}
+				}
 	
 	//OBTENER USUARIO POR LA ID
 	public Usuario getUser(int id) throws DBException {

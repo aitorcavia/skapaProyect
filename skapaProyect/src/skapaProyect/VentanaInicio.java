@@ -32,6 +32,7 @@ import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import java.awt.SystemColor;
 import java.awt.Font;
+import java.awt.List;
 
 public class VentanaInicio extends JFrame {
 
@@ -128,27 +129,18 @@ public class VentanaInicio extends JFrame {
 		textField_1.setBounds(287, 153, 100, 26);
 		contentPane.add(textField_1);
 		
-		
-		
+		DBManager conexion = new DBManager();
 		
 		try {
-			Class.forName("org.sqlite.JDBC");
-					
-			Connection conn = DriverManager.getConnection("jdbc:sqlite:data/BD.db");
-			Statement stmt = conn.createStatement();
-			
-				
-			//Recuperar datos, consultas
-			ResultSet rs = stmt.executeQuery("SELECT idUsuario, titulo, descripcion, precio, categoria FROM anuncio");
-			
+			conexion.connect();
 			int cont = 16;
 			
-			while (rs.next()) {
+			for (Anuncio anuncio : conexion.listarAnuncios()) {
 				
-				String titulo = rs.getString("titulo");
-				String precio = rs.getString("precio");
-				String categoria = rs.getString("categoria");
-				String descripcion = rs.getString("descripcion");
+				String titulo = anuncio.getTitulo();
+				String precio = anuncio.getPrecio();
+				String categoria = anuncio.getCategoria();
+				String descripcion = anuncio.getDescripcion();
 
 			
 				JPanel panelAnuncio = new JPanel();
@@ -181,21 +173,17 @@ public class VentanaInicio extends JFrame {
 				JButton btninfo = new JButton("+INFO");
 				btninfo.setBounds(1142, 44, 99, 23);
 				panelAnuncio.add(btninfo);
-				
-				
+
 				cont = cont + 92;
 			}
+	
 			
-			stmt.close();
-			conn.close();
-					
-				} catch (ClassNotFoundException e1) {
-					System.out.println("No se ja podido cargar el driver");
-					e1.printStackTrace();
-				}catch (SQLException e1) {
-					System.out.println("No se ha podido conectar a BD");
-					e1.printStackTrace();
-				}
+		} catch (DBException e2) {
+			// TODO Auto-generated catch block
+			e2.printStackTrace();
+		}
+		
+		
 		
 		
 		btnPerfil.addActionListener(new ActionListener() {
