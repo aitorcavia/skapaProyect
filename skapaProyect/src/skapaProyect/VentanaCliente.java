@@ -121,7 +121,7 @@ public class VentanaCliente  {
 		Thread principal =  new Thread(new Runnable() {
 			public void run() {
 				try {
-					socket = new Socket("192.168.222.1",9000);
+					socket = new Socket("localhost",9000);
  						leer();
 						escribir();
 					
@@ -167,7 +167,7 @@ public class VentanaCliente  {
 							String enviar_mensaje = txt_mensaje.getText();
 							escritor.println(enviar_mensaje);
 							txt_mensaje.setText("");
-							area_chat.append("							Yo: " + enviar_mensaje +"\n");
+							area_chat.append("Yo: " + enviar_mensaje +"\n");
 		
 							
 
