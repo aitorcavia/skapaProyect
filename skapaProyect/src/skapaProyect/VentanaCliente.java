@@ -121,7 +121,7 @@ public class VentanaCliente  {
 		Thread principal =  new Thread(new Runnable() {
 			public void run() {
 				try {
-					socket = new Socket( "192.168.222.1",9000);
+					socket = new Socket("10.164.62.39",9000);
  						leer();
 						escribir();
 					
