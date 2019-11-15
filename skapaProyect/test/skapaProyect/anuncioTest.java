@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import skapaProyect.VentanaSecundarias.Anuncio;
+import skapaProyect.VentanasPrimarias.Anuncio;
 
 public class anuncioTest {
 

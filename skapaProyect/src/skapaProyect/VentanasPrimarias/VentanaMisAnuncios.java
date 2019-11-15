@@ -1,10 +1,7 @@
 package skapaProyect.VentanasPrimarias;
 
-import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
-import java.awt.GridLayout;
-import java.awt.Label;
-import java.awt.ScrollPane;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -14,21 +11,12 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.Scrollable;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
-import java.awt.Color;
-import javax.swing.BoxLayout;
-import java.awt.CardLayout;
-import javax.swing.SpringLayout;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import skapaProyect.DataBase.*;
 
 public class VentanaMisAnuncios extends JFrame {
 
@@ -75,8 +63,6 @@ public class VentanaMisAnuncios extends JFrame {
 		contentPane.add(panelAnuncios);
 		panelAnuncios.setLayout(null);
 	
-	
-			
 		
 		int a = VentanaLogin.getUsuarioId();
 	
@@ -175,4 +161,5 @@ public class VentanaMisAnuncios extends JFrame {
 		
 		}
 	}
+
 

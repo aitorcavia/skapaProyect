@@ -1,4 +1,4 @@
-package skapaProyect.VentanaSecundarias;
+package skapaProyect.VentanasPrimarias;
 
 import java.util.ArrayList;
 

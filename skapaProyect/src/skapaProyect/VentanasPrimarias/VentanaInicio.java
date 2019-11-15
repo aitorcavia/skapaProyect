@@ -1,49 +1,30 @@
 package skapaProyect.VentanasPrimarias;
 
-import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Font;
+import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JEditorPane;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-import javax.swing.event.AncestorEvent;
-import javax.swing.event.AncestorListener;
 
 import skapaProyect.DataBase.DBException;
 import skapaProyect.DataBase.DBManager;
-import skapaProyect.VentanaSecundarias.Anuncio;
-
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import javax.swing.JToolBar;
-import javax.swing.JEditorPane;
-import javax.swing.JTextPane;
-import java.awt.Color;
-import java.awt.Cursor;
-
-import javax.swing.JLabel;
-import javax.swing.JSeparator;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JButton;
-import java.awt.SystemColor;
-import java.awt.Font;
-import java.awt.List;
 
 public class VentanaInicio extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField textoPrecio1;
+	private JTextField textoPrecio2;
 
 	/**
 	 * Launch the application.
@@ -124,15 +105,18 @@ public class VentanaInicio extends JFrame {
 		lblY.setBounds(261, 153, 26, 20);
 		contentPane.add(lblY);
 		
-		textField = new JTextField();
-		textField.setBounds(146, 153, 100, 26);
-		contentPane.add(textField);
-		textField.setColumns(10);
+		textoPrecio1 = new JTextField();
+		textoPrecio1.setBounds(146, 153, 100, 26);
+		contentPane.add(textoPrecio1);
+		textoPrecio1.setColumns(10);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(287, 153, 100, 26);
-		contentPane.add(textField_1);
+		textoPrecio2 = new JTextField();
+		textoPrecio2.setColumns(10);
+		textoPrecio2.setBounds(287, 153, 100, 26);
+		contentPane.add(textoPrecio2);
+		
+		
+		//LISTADO DE TODOS LOS ANUNCIOS
 		
 		DBManager conexion = new DBManager();
 		
@@ -141,13 +125,11 @@ public class VentanaInicio extends JFrame {
 			int cont = 16;
 			
 			for (Anuncio anuncio : conexion.listarAnuncios()) {
-				
 				String titulo = anuncio.getTitulo();
 				String precio = anuncio.getPrecio();
 				String categoria = anuncio.getCategoria();
 				String descripcion = anuncio.getDescripcion();
 
-			
 				JPanel panelAnuncio = new JPanel();
 				panelAnuncio.setBackground(new Color(255,255,255));
 				panelAnuncio.setBounds(0, cont, 1250, 85);
@@ -182,22 +164,17 @@ public class VentanaInicio extends JFrame {
 				cont = cont + 92;
 			}
 	
-			
 		} catch (DBException e2) {
-			// TODO Auto-generated catch block
 			e2.printStackTrace();
 		}
 		
-		
-		
-		
+
 		btnPerfil.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				VentanaUsuario vu = new VentanaUsuario();
 				vu.setVisible(true);
 				setVisible(false);
-				
 			}
 		});
 		
@@ -205,31 +182,28 @@ public class VentanaInicio extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				String texto = textoBuscador.getText();
+				String textoB = textoBuscador.getText();
+				String categoriaB = comboBoxCategoria.getSelectedItem().toString();
+				String provinciaB = comboBoxProvincia.getSelectedItem().toString();
+				String precio1B = textoPrecio1.getText();
+				String precio2B = textoPrecio2.getText();
+				
 				panelAnuncios.removeAll();
 				panelAnuncios.repaint();
 				
+				DBManager conexion = new DBManager();
 				
 				try {
-					Class.forName("org.sqlite.JDBC");
-							
-					Connection conn = DriverManager.getConnection("jdbc:sqlite:data/BD.db");
-					Statement stmt = conn.createStatement();
-					
-						
-					//Recuperar datos, consultas
-					ResultSet rs = stmt.executeQuery("SELECT idUsuario, titulo, descripcion, precio, categoria FROM anuncio WHERE titulo LIKE '%" + texto + "%'");
+					conexion.connect();
 					
 					int cont = 16;
 					
-					while (rs.next()) {
+					for (Anuncio anuncio : conexion.listarAnunciosFiltro(textoB, categoriaB, provinciaB, precio1B, precio2B)) {
+						String titulo = anuncio.getTitulo();
+						String precio = anuncio.getPrecio();
+						String categoria = anuncio.getCategoria();
+						String descripcion = anuncio.getDescripcion();
 						
-						String titulo = rs.getString("titulo");
-						String precio = rs.getString("precio");
-						String categoria = rs.getString("categoria");
-						String descripcion = rs.getString("descripcion");
-
-					
 						JPanel panelAnuncio = new JPanel();
 						panelAnuncio.setBackground(new Color(255,255,255));
 						panelAnuncio.setBounds(0, cont, 1250, 90);
@@ -260,21 +234,17 @@ public class VentanaInicio extends JFrame {
 						JButton btninfo = new JButton("+INFO");
 						btninfo.setBounds(1142, 44, 99, 23);
 						panelAnuncio.add(btninfo);
-						
-						
+		
 						cont = cont + 95;
+			
 					}
+					conexion.disconnect();
 					
-					stmt.close();
-					conn.close();
-							
-						} catch (ClassNotFoundException e1) {
-							System.out.println("No se ja podido cargar el driver");
-							e1.printStackTrace();
-						}catch (SQLException e1) {
-							System.out.println("No se ha podido conectar a BD");
-							e1.printStackTrace();
-						}
+				} catch (DBException e2) {
+					e2.printStackTrace();
+				}
+				
+				
 				
 			}
 		});
