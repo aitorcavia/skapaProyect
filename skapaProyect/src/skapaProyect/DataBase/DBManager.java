@@ -1,4 +1,4 @@
-package skapaProyect;
+package skapaProyect.DataBase;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -10,6 +10,9 @@ import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+
+import skapaProyect.VentanaSecundarias.Anuncio;
+import skapaProyect.VentanaSecundarias.Usuario;
 
 public class DBManager {
 

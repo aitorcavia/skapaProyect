@@ -1,4 +1,4 @@
-package skapaProyect;
+package skapaProyect.VentanasPrimarias;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -18,6 +18,11 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.AncestorEvent;
 import javax.swing.event.AncestorListener;
+
+import skapaProyect.DataBase.DBException;
+import skapaProyect.DataBase.DBManager;
+import skapaProyect.VentanaSecundarias.Anuncio;
+
 import javax.swing.JTextField;
 import javax.swing.JComboBox;
 import javax.swing.JToolBar;

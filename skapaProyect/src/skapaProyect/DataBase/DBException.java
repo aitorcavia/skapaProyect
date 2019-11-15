@@ -1,4 +1,4 @@
-package skapaProyect;
+package skapaProyect.DataBase;
 
 public class DBException extends Exception {
 

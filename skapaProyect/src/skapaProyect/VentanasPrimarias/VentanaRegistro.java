@@ -1,4 +1,4 @@
-package skapaProyect;
+package skapaProyect.VentanasPrimarias;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;

@@ -4,6 +4,8 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+import skapaProyect.VentanaSecundarias.Usuario;
+
 public class usuarioTest {
 
 	@Test

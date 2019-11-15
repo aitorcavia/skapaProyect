@@ -15,6 +15,10 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import skapaProyect.DataBase.DBException;
+import skapaProyect.DataBase.DBManager;
+import skapaProyect.VentanaSecundarias.Usuario;
+
 public class DBManagerTest {
 
 	private DBManager dbManager = null;

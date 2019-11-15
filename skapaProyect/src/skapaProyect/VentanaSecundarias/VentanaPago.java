@@ -1,4 +1,4 @@
-package skapaProyect;
+package skapaProyect.VentanaSecundarias;
 
 import java.awt.BorderLayout;
 import java.awt.Desktop;

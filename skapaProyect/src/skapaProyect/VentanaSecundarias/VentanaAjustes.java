@@ -1,4 +1,4 @@
-package skapaProyect;
+package skapaProyect.VentanaSecundarias;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -6,6 +6,11 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import skapaProyect.VentanasPrimarias.VentanaInicio;
+import skapaProyect.VentanasPrimarias.VentanaLogin;
+import skapaProyect.VentanasPrimarias.VentanaPerfil;
+
 import javax.swing.JTextPane;
 import java.awt.Font;
 import javax.swing.JButton;

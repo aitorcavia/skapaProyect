@@ -1,4 +1,4 @@
-package skapaProyect;
+package skapaProyect.VentanaSecundarias;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -10,6 +10,9 @@ import java.awt.event.MouseListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import skapaProyect.VentanasPrimarias.VentanaProductosVendidos;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JButton;

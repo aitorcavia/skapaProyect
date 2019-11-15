@@ -1,5 +1,5 @@
 
-package skapaProyect;
+package skapaProyect.DataBase;
 
 import java.rmi.ConnectIOException;
 import java.sql.Connection;

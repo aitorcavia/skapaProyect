@@ -1,4 +1,4 @@
-package skapaProyect;
+package skapaProyect.VentanaSecundarias;
 
 public class Producto {
 	

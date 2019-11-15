@@ -1,4 +1,4 @@
-package skapaProyect;
+package skapaProyect.Chat;
 
 import javax.swing.*;
 

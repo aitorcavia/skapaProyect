@@ -1,4 +1,4 @@
-package skapaProyect;
+package skapaProyect.VentanaSecundarias;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -7,6 +7,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import skapaProyect.VentanasPrimarias.VentanaCreacionAnuncio;
+import skapaProyect.VentanasPrimarias.VentanaMisAnuncios;
+
 import javax.swing.JTextField;
 import javax.swing.JScrollBar;
 import javax.swing.JSeparator;
