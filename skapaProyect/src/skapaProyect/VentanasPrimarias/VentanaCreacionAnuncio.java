@@ -132,7 +132,7 @@ public class VentanaCreacionAnuncio extends JFrame {
 			 
 			int a = VentanaLogin.getUsuarioId();
 			
-			
+			//IMAGEN https://www.youtube.com/watch?v=MxJThrSoTaU
 			idUsuario = a;
 			titulo = textoTitulo.getText();
 			precio = textoPrecio.getText();

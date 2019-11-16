@@ -117,11 +117,34 @@ public class DBManager {
 				
 	public List<Anuncio> listarAnunciosFiltro (String texto, String categoria, String provincia, String precio1, String precio2) throws DBException {
 		List<Anuncio> anuncios = new ArrayList<Anuncio>();
-		try (PreparedStatement stmt = conn.prepareStatement("SELECT idUsuario, idAnuncio, titulo, descripcion, precio, categoria FROM anuncio WHERE titulo LIKE ? AND precio BETWEEN ? AND ? AND categoria = ?")) {
-			stmt.setString(1, texto);
-			stmt.setString(2, precio1);
-			stmt.setString(3, precio2);
-			stmt.setString(4, categoria);
+		
+		int cont = 0;
+		
+		String query = "SELECT idUsuario, idAnuncio, titulo, descripcion, precio, categoria FROM anuncio WHERE titulo LIKE ?";
+		if (!categoria.equals(">Seleccionar categoria<")) {
+			query = query + " AND categoria = ?";
+			cont = cont + 1;
+		}
+		if (!precio1.isEmpty() && !precio2.isEmpty()) {
+			query = query + " AND precio BETWEEN ? AND ?";
+			cont = cont + 2;
+		}
+			
+		try (PreparedStatement stmt = conn.prepareStatement(query)) {
+			stmt.setString(1, "%" + texto + "%");
+			
+			if (cont ==1) {
+				stmt.setString(2, categoria);
+			}else if (cont ==2) {
+				stmt.setString(2, precio1);
+				stmt.setString(3, precio2);
+			}else if (cont ==3) {
+				stmt.setString(2, categoria);
+				stmt.setString(3, precio1);
+				stmt.setString(4, precio2);
+			}
+			
+			
 			//stmt.setString(4, provincia);
 			
 			
