@@ -117,12 +117,12 @@ public class DBManager {
 				
 	public List<Anuncio> listarAnunciosFiltro (String texto, String categoria, String provincia, String precio1, String precio2) throws DBException {
 		List<Anuncio> anuncios = new ArrayList<Anuncio>();
-		try (PreparedStatement stmt = conn.prepareStatement("SELECT idUsuario, idAnuncio, titulo, descripcion, precio, categoria FROM anuncio WHERE texto = ? AND categoria = ? AND provincia = ? AND precio BETWEEN '?' AND '?' ")) {
+		try (PreparedStatement stmt = conn.prepareStatement("SELECT idUsuario, idAnuncio, titulo, descripcion, precio, categoria FROM anuncio WHERE titulo LIKE ? AND precio BETWEEN ? AND ? AND categoria = ?")) {
 			stmt.setString(1, texto);
-			stmt.setString(2, categoria);
-			stmt.setString(3, provincia);
-			stmt.setString(4, precio1);
-			stmt.setString(5, precio2);
+			stmt.setString(2, precio1);
+			stmt.setString(3, precio2);
+			stmt.setString(4, categoria);
+			//stmt.setString(4, provincia);
 			
 			
 			ResultSet rs = stmt.executeQuery();
