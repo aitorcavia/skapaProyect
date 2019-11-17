@@ -3,6 +3,7 @@ package skapaProyect.VentanasPrimarias;
 import java.awt.BorderLayout;
 import java.awt.Cursor;
 import java.awt.EventQueue;
+import java.awt.Image;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -20,12 +21,12 @@ import java.awt.event.ActionEvent;
 import javax.swing.JTextField;
 import java.awt.Color;
 import javax.swing.JLabel;
+import javax.swing.Icon;
 import javax.swing.ImageIcon;
 
 public class VentanaUsuario extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField textoNombreUsuario;
 	private JTextField txtVentas;
 	private JTextField txtCompras;
 
@@ -77,16 +78,17 @@ public class VentanaUsuario extends JFrame {
 		botonInfo.setBounds(10, 443, 302, 40);
 		contentPane.add(botonInfo);
 		
-		textoNombreUsuario = new JTextField();
-		textoNombreUsuario.setEditable(false);
-		textoNombreUsuario.setBounds(10, 28, 150, 40);
-		contentPane.add(textoNombreUsuario);
-		textoNombreUsuario.setColumns(10);
+		//CREADO Y ESCALADO DE IMAGEN
 		
-		JLabel FotoUsuario = new JLabel("New label");
-		FotoUsuario.setIcon(new ImageIcon("../skapaProyect/multimedia/Tony muy grande.png"));
-		FotoUsuario.setBounds(184, 11, 128, 121);
-		contentPane.add(FotoUsuario);
+		JLabel imagenPerfil = new JLabel("");
+		imagenPerfil.setBounds(229, 17, 83, 80);
+	
+		ImageIcon imagenP = new ImageIcon("../skapaProyect/multimedia/FotoPerfil.png");
+		
+		Icon icono = new ImageIcon(imagenP.getImage().getScaledInstance(imagenPerfil.getWidth(), imagenPerfil.getHeight(), Image.SCALE_DEFAULT));
+		imagenPerfil.setIcon(icono);
+		
+		contentPane.add(imagenPerfil);
 		
 		txtVentas = new JTextField();
 		txtVentas.setEditable(false);
@@ -106,6 +108,14 @@ public class VentanaUsuario extends JFrame {
 		LabelGrafico.setIcon(new ImageIcon("../skapaProyect/multimedia/grafica-64985.gif"));
 		LabelGrafico.setBounds(10, 150, 97, 106);
 		contentPane.add(LabelGrafico);
+		
+		JLabel labelNombre = new JLabel("New label");
+		labelNombre.setBounds(10, 17, 204, 20);
+		contentPane.add(labelNombre);
+		
+		JLabel labelApellidos = new JLabel("New label");
+		labelApellidos.setBounds(10, 53, 204, 20);
+		contentPane.add(labelApellidos);
 		
 		botonArticulosVenta.addActionListener(new ActionListener() {
 
@@ -158,7 +168,7 @@ public class VentanaUsuario extends JFrame {
 			
 		});
 	
-		FotoUsuario.addMouseListener(new MouseListener() {
+		imagenPerfil.addMouseListener(new MouseListener() {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {

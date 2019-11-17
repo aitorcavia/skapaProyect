@@ -14,7 +14,10 @@ import javax.swing.JTextPane;
 import java.awt.Color;
 import javax.swing.JComboBox;
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.Icon;
+
 import java.awt.Font;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -53,10 +56,17 @@ public class VentanaPerfil extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel fotoperfil = new JLabel("");
-		fotoperfil.setIcon(new ImageIcon("../skapaProyect/multimedia/FotoPerfil.png"));
-		fotoperfil.setBounds(205, 17, 132, 148);
-		contentPane.add(fotoperfil);
+		//CREADO Y ESCALADO DE IMAGEN
+		
+		JLabel imagenPerfil = new JLabel("");
+		imagenPerfil.setBounds(254, 17, 83, 80);
+	
+		ImageIcon imagenP = new ImageIcon("../skapaProyect/multimedia/FotoPerfil.png");
+		
+		Icon icono = new ImageIcon(imagenP.getImage().getScaledInstance(imagenPerfil.getWidth(), imagenPerfil.getHeight(), Image.SCALE_DEFAULT));
+		imagenPerfil.setIcon(icono);
+		
+		contentPane.add(imagenPerfil);
 		
 		JLabel TextoNombre = new JLabel();
 		TextoNombre.setText("Nombre");
@@ -64,7 +74,7 @@ public class VentanaPerfil extends JFrame {
 		contentPane.add(TextoNombre);
 		
 		JTextPane nombreUsuario = new JTextPane();
-		nombreUsuario.setBounds(15, 58, 105, 26);
+		nombreUsuario.setBounds(15, 58, 172, 26);
 		contentPane.add(nombreUsuario);
 		
 		JLabel TextoUbicacinProvincia = new JLabel();
