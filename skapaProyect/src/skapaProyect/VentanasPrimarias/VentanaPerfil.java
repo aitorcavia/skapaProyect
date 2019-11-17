@@ -27,6 +27,9 @@ import javax.swing.ImageIcon;
 public class VentanaPerfil extends JFrame {
 
 	private JPanel contentPane;
+	private int contC1 = 0;
+	private int contC2 = 0;
+	private int contC3 = 0;
 
 	/**
 	 * Launch the application.
@@ -48,8 +51,10 @@ public class VentanaPerfil extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaPerfil() {
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 359, 549);
+		setBounds(100, 100, 557, 621);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(135, 206, 250));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -59,7 +64,7 @@ public class VentanaPerfil extends JFrame {
 		//CREADO Y ESCALADO DE IMAGEN
 		
 		JLabel imagenPerfil = new JLabel("");
-		imagenPerfil.setBounds(254, 17, 83, 80);
+		imagenPerfil.setBounds(415, 41, 105, 107);
 	
 		ImageIcon imagenP = new ImageIcon("../skapaProyect/multimedia/FotoPerfil.png");
 		
@@ -70,68 +75,170 @@ public class VentanaPerfil extends JFrame {
 		
 		JLabel TextoNombre = new JLabel();
 		TextoNombre.setText("Nombre");
-		TextoNombre.setBounds(15, 27, 72, 26);
+		TextoNombre.setBounds(15, 170, 72, 26);
 		contentPane.add(TextoNombre);
 		
 		JTextPane nombreUsuario = new JTextPane();
-		nombreUsuario.setBounds(15, 58, 172, 26);
+		nombreUsuario.setBounds(102, 170, 384, 26);
 		contentPane.add(nombreUsuario);
 		
 		JLabel TextoUbicacinProvincia = new JLabel();
-		TextoUbicacinProvincia.setText("Apellido");
-		TextoUbicacinProvincia.setBounds(15, 109, 72, 26);
+		TextoUbicacinProvincia.setText("Apellidos");
+		TextoUbicacinProvincia.setBounds(15, 202, 72, 26);
 		contentPane.add(TextoUbicacinProvincia);
 		
 		JTextPane apellidoUsuario = new JTextPane();
-		apellidoUsuario.setBounds(15, 139, 172, 26);
+		apellidoUsuario.setBounds(102, 202, 384, 26);
 		contentPane.add(apellidoUsuario);
 		
 		JLabel TextoUbicacinProvincia_1 = new JLabel();
 		TextoUbicacinProvincia_1.setText("Ubicaci\u00F3n / Provincia");
-		TextoUbicacinProvincia_1.setBounds(15, 181, 162, 26);
+		TextoUbicacinProvincia_1.setBounds(15, 235, 162, 26);
 		contentPane.add(TextoUbicacinProvincia_1);
 		
 		JTextPane ubicacionProvinciaUsuario = new JTextPane();
-		ubicacionProvinciaUsuario.setBounds(15, 215, 182, 26);
+		ubicacionProvinciaUsuario.setBounds(185, 235, 301, 26);
 		contentPane.add(ubicacionProvinciaUsuario);
 		
 		JLabel txtpnInformacinPrivada = new JLabel();
-		txtpnInformacinPrivada.setFont(new Font("Tahoma", Font.BOLD, 16));
-		txtpnInformacinPrivada.setText("Informaci\u00F3n Privada");
-		txtpnInformacinPrivada.setBounds(15, 280, 172, 26);
+		txtpnInformacinPrivada.setFont(new Font("Tahoma", Font.BOLD, 18));
+		txtpnInformacinPrivada.setText("Informacion personal\r\n");
+		txtpnInformacinPrivada.setBounds(15, 16, 218, 26);
 		contentPane.add(txtpnInformacinPrivada);
 		
-		JComboBox Sexo = new JComboBox();
-		Sexo.setModel(new DefaultComboBoxModel(new String[] {"Hombre", "Mujer", "Otro"}));
-		Sexo.setBounds(15, 322, 105, 26);
-		contentPane.add(Sexo);
-		
-		JLabel TextoFechaDeNacimiento = new JLabel();
-		TextoFechaDeNacimiento.setText("Fecha de Nacimiento");
-		TextoFechaDeNacimiento.setBounds(15, 363, 152, 26);
-		contentPane.add(TextoFechaDeNacimiento);
-		
-		JTextPane FechaDeNacimiento = new JTextPane();
-		FechaDeNacimiento.setBounds(15, 393, 152, 26);
-		contentPane.add(FechaDeNacimiento);
+		JLabel labelAnyoN = new JLabel();
+		labelAnyoN.setText("A\u00F1o de nacimiento");
+		labelAnyoN.setBounds(15, 277, 152, 26);
+		contentPane.add(labelAnyoN);
 		
 		JLabel TextoCorreoElectrnico = new JLabel();
 		TextoCorreoElectrnico.setText("Correo electr\u00F3nico");
-		TextoCorreoElectrnico.setBounds(15, 425, 162, 26);
+		TextoCorreoElectrnico.setBounds(15, 406, 162, 26);
 		contentPane.add(TextoCorreoElectrnico);
 		
-		JTextPane CorreoUsuario = new JTextPane();
-		CorreoUsuario.setBounds(15, 456, 260, 21);
-		contentPane.add(CorreoUsuario);
-		
 		JButton BotonTarjeta = new JButton("Tarjeta");
+		BotonTarjeta.setBackground(new Color(224, 255, 255));
 		BotonTarjeta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
 		BotonTarjeta.setFont(new Font("Tahoma", Font.BOLD, 16));
-		BotonTarjeta.setBounds(207, 336, 115, 29);
+		BotonTarjeta.setBounds(371, 448, 115, 29);
 		contentPane.add(BotonTarjeta);
+		
+		
+		ImageIcon imagenCandadoCerrado = new ImageIcon("../skapaProyect/multimedia/candadoCerrado.png");
+		ImageIcon imagenCandadoAbierto = new ImageIcon("../skapaProyect/multimedia/candadoAbierto.png");
+		
+		
+		
+		//BOTON CANDADO 1 (Nombre)
+	
+		JButton botonCNombre = new JButton("");
+		botonCNombre.setBounds(491, 170, 29, 26);
+		
+		Icon iconoCandadoC1 = new ImageIcon(imagenCandadoCerrado.getImage().getScaledInstance(botonCNombre.getWidth(), botonCNombre.getHeight(), Image.SCALE_DEFAULT));
+		Icon iconoCandadoA1 = new ImageIcon(imagenCandadoAbierto.getImage().getScaledInstance(botonCNombre.getWidth(), botonCNombre.getHeight(), Image.SCALE_DEFAULT));
+		
+		botonCNombre.setIcon(iconoCandadoC1);
+		contentPane.add(botonCNombre);
+		
+		botonCNombre.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				if (contC1 % 2 ==0) {
+					botonCNombre.setIcon(iconoCandadoA1);
+				}else {
+					botonCNombre.setIcon(iconoCandadoC1);
+				}
+				
+				contC1 = contC1 + 1;
+				
+			}
+		});
+		
+		//BOTON CANDADO 2 (Apellidos)
+		
+		JButton botonCApellidos = new JButton("");
+		botonCApellidos.setBounds(491, 202, 29, 26);
+		
+		Icon iconoCandadoC2 = new ImageIcon(imagenCandadoCerrado.getImage().getScaledInstance(botonCApellidos.getWidth(), botonCApellidos.getHeight(), Image.SCALE_DEFAULT));
+		Icon iconoCandadoA2 = new ImageIcon(imagenCandadoAbierto.getImage().getScaledInstance(botonCApellidos.getWidth(), botonCApellidos.getHeight(), Image.SCALE_DEFAULT));
+		
+		botonCApellidos.setIcon(iconoCandadoC2);
+		contentPane.add(botonCApellidos);
+		
+		botonCApellidos.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				if (contC2 % 2 ==0) {
+					botonCApellidos.setIcon(iconoCandadoA2);
+				}else {
+					botonCApellidos.setIcon(iconoCandadoC2);
+				}
+				
+				contC2 = contC2 + 1;	
+			}
+		});
+		
+		//BOTON CANDADO 2 (Provincia)
+		
+		JButton botonCProvincia = new JButton("");
+		botonCProvincia.setBounds(491, 235, 29, 26);
+		Icon iconoCandadoC3 = new ImageIcon(imagenCandadoCerrado.getImage().getScaledInstance(botonCProvincia.getWidth(), botonCProvincia.getHeight(), Image.SCALE_DEFAULT));
+		Icon iconoCandadoA3 = new ImageIcon(imagenCandadoAbierto.getImage().getScaledInstance(botonCProvincia.getWidth(), botonCProvincia.getHeight(), Image.SCALE_DEFAULT));
+		
+		botonCProvincia.setIcon(iconoCandadoC3);
+		contentPane.add(botonCProvincia);
+		
+		JLabel labelNombreUsuario = new JLabel("nombUsuario");
+		labelNombreUsuario.setBounds(25, 58, 152, 20);
+		contentPane.add(labelNombreUsuario);
+		
+		JComboBox comboAnyo = new JComboBox();
+		comboAnyo.setBounds(185, 277, 301, 26);
+		contentPane.add(comboAnyo);
+		
+		JTextPane textoCorreo = new JTextPane();
+		textoCorreo.setBounds(170, 406, 317, 26);
+		contentPane.add(textoCorreo);
+		
+		JButton button = new JButton("");
+		button.setBounds(491, 276, 29, 26);
+		contentPane.add(button);
+		
+		JLabel lblInformacionPrivada = new JLabel();
+		lblInformacionPrivada.setText("Informacion privada");
+		lblInformacionPrivada.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblInformacionPrivada.setBounds(15, 357, 218, 26);
+		contentPane.add(lblInformacionPrivada);
+		
+		JLabel lblGestionDePago = new JLabel();
+		lblGestionDePago.setText("Gestion de pago\r\n");
+		lblGestionDePago.setBounds(15, 448, 132, 26);
+		contentPane.add(lblGestionDePago);
+		
+		JButton btnGuardarCambios = new JButton("Guardar cambios");
+		btnGuardarCambios.setBounds(340, 520, 180, 29);
+		contentPane.add(btnGuardarCambios);
+		
+		botonCProvincia.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				if (contC3 % 2 ==0) {
+					botonCProvincia.setIcon(iconoCandadoA3);
+				}else {
+					botonCProvincia.setIcon(iconoCandadoC3);
+				}
+				
+				contC3 = contC3 + 1;	
+			}
+		});
+		
+		
 		
 		
 		BotonTarjeta.addActionListener(new ActionListener() {

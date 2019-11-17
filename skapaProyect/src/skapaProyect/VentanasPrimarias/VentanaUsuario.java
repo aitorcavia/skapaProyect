@@ -51,7 +51,7 @@ public class VentanaUsuario extends JFrame {
 	 */
 	public VentanaUsuario() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 349, 559);
+		setBounds(100, 100, 448, 559);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(135, 206, 250));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -59,11 +59,11 @@ public class VentanaUsuario extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton botonArticulosVenta = new JButton("Articulos en venta");
-		botonArticulosVenta.setBounds(10, 310, 302, 40);
+		botonArticulosVenta.setBounds(10, 310, 401, 40);
 		contentPane.add(botonArticulosVenta);
 		
 		JButton botonArticulosFavoritos = new JButton("Articulos favoritos");
-		botonArticulosFavoritos.setBounds(10, 354, 302, 40);
+		botonArticulosFavoritos.setBounds(10, 354, 401, 40);
 		contentPane.add(botonArticulosFavoritos);
 		
 		JButton botonOpiniones = new JButton("Opiniones");
@@ -71,17 +71,17 @@ public class VentanaUsuario extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		botonOpiniones.setBounds(10, 397, 302, 40);
+		botonOpiniones.setBounds(10, 397, 401, 40);
 		contentPane.add(botonOpiniones);
 		
 		JButton botonInfo = new JButton("+ Info");
-		botonInfo.setBounds(10, 443, 302, 40);
+		botonInfo.setBounds(10, 443, 401, 40);
 		contentPane.add(botonInfo);
 		
 		//CREADO Y ESCALADO DE IMAGEN
 		
 		JLabel imagenPerfil = new JLabel("");
-		imagenPerfil.setBounds(229, 17, 83, 80);
+		imagenPerfil.setBounds(320, 17, 91, 81);
 	
 		ImageIcon imagenP = new ImageIcon("../skapaProyect/multimedia/FotoPerfil.png");
 		
@@ -93,14 +93,14 @@ public class VentanaUsuario extends JFrame {
 		txtVentas = new JTextField();
 		txtVentas.setEditable(false);
 		txtVentas.setText("Ventas");
-		txtVentas.setBounds(117, 195, 46, 20);
+		txtVentas.setBounds(80, 195, 83, 20);
 		contentPane.add(txtVentas);
 		txtVentas.setColumns(10);
 		
 		txtCompras = new JTextField();
 		txtCompras.setEditable(false);
 		txtCompras.setText("Compras");
-		txtCompras.setBounds(203, 195, 56, 20);
+		txtCompras.setBounds(203, 195, 109, 20);
 		contentPane.add(txtCompras);
 		txtCompras.setColumns(10);
 		
