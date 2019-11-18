@@ -61,6 +61,29 @@ public class DBManager {
 		}
 	}
 	
+	//OBTENER USUARIO POR LA ID
+	public Usuario buscarUsuarioId(int id) throws DBException {
+		try (PreparedStatement stmt = conn.prepareStatement("SELECT id, nombre, contrasenya, correo FROM usuario WHERE id = ?")) {
+			stmt.setInt(1, id);
+			
+			ResultSet rs = stmt.executeQuery();
+
+			if (rs.next()) {
+				Usuario usuario = new Usuario();
+				usuario.setId(rs.getInt("id"));
+				usuario.setNombre(rs.getString("nombre"));
+				usuario.setContrasenya(rs.getString("contrasenya"));
+				usuario.setCorreo(rs.getString("correo"));
+				return usuario;
+			} else {
+				return new Usuario();
+			}
+		} catch (SQLException e) {
+			throw new DBException("Error obteniendo el usuario con id " + id, e);
+		}
+	}
+		
+	
 	//LISTAR TODOS LOS ANUNCIOS
 		public List<Anuncio> listarAnuncios() throws DBException {
 			List<Anuncio> anuncios = new ArrayList<Anuncio>();
@@ -169,29 +192,7 @@ public class DBManager {
 		}
 	}
 	
-	//OBTENER USUARIO POR LA ID
-	public Usuario getUser(int id) throws DBException {
-		try (PreparedStatement stmt = conn.prepareStatement("SELECT id, nombre, contrasenya, correo FROM usuario WHERE id = ?")) {
-			stmt.setInt(1, id);
-			
-			ResultSet rs = stmt.executeQuery();
 
-			if (rs.next()) {
-				Usuario usuario = new Usuario();
-				usuario.setId(rs.getInt("id"));
-				usuario.setNombre(rs.getString("name"));
-				usuario.setContrasenya(rs.getString("contrasenya"));
-				usuario.setCorreo(rs.getString("correo"));
-				return usuario;
-			} else {
-				return new Usuario();
-			}
-		} catch (SQLException e) {
-			throw new DBException("Error obteniendo el usuario con id " + id, e);
-		}
-	}
-	
-	
 	
 	//CREACION DE USUARIO POR PRIMERA VEZ (GENERACION AUTOMATICA DE ID)
 	public void store(Usuario usuario) throws DBException {

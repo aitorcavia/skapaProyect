@@ -50,7 +50,7 @@ public class DBManagerTest {
 	
 	@Test
 	public void testGetUser() throws DBException {
-		Usuario usuario = dbManager.getUser(2);
+		Usuario usuario = dbManager.buscarUsuarioId(2);
 		assertEquals(2, usuario.getId());
 		assertEquals("Isaac", usuario.getNombre());
 		assertEquals("Newton", usuario.getContrasenya());
@@ -58,7 +58,7 @@ public class DBManagerTest {
 	
 	@Test
 	public void testGetUserNotFound() throws DBException {
-		Usuario usuario = dbManager.getUser(50);
+		Usuario usuario = dbManager.buscarUsuarioId(50);
 		assertEquals(-1, usuario.getId());
 	}
 	
@@ -86,17 +86,17 @@ public class DBManagerTest {
 	
 	@Test
 	public void testUpdate() throws DBException {
-		Usuario usuario = dbManager.getUser(1);
+		Usuario usuario = dbManager.buscarUsuarioId(1);
 		usuario.setNombre("Carl F.");
 		dbManager.update(usuario);
 		
-		Usuario updated = dbManager.getUser(1);
+		Usuario updated = dbManager.buscarUsuarioId(1);
 		assertEquals("Carl F.", updated.getNombre());
 	}
 	
 	@Test
 	public void deleteUser() throws DBException {
-		Usuario usuario = dbManager.getUser(2);
+		Usuario usuario = dbManager.buscarUsuarioId(2);
 		dbManager.delete(usuario);
 		
 		List<Usuario> usuarios = dbManager.getAllUsers();

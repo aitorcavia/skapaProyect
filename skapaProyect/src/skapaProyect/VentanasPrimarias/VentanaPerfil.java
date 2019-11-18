@@ -7,6 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import skapaProyect.DataBase.DBException;
+import skapaProyect.DataBase.DBManager;
 import skapaProyect.VentanaSecundarias.VentanaPago;
 
 import javax.swing.JLabel;
@@ -20,6 +22,8 @@ import java.awt.Font;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
@@ -30,6 +34,7 @@ public class VentanaPerfil extends JFrame {
 	private int contC1 = 0;
 	private int contC2 = 0;
 	private int contC3 = 0;
+	private int contC4 = 0;
 
 	/**
 	 * Launch the application.
@@ -52,6 +57,7 @@ public class VentanaPerfil extends JFrame {
 	 */
 	public VentanaPerfil() {
 		
+		int idUsuario = VentanaLogin.getUsuarioId();
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 557, 621);
@@ -126,6 +132,66 @@ public class VentanaPerfil extends JFrame {
 		BotonTarjeta.setBounds(371, 448, 115, 29);
 		contentPane.add(BotonTarjeta);
 		
+		DBManager conexion = new DBManager();
+		try {
+			conexion.connect();
+			
+			Usuario usuario = conexion.buscarUsuarioId(idUsuario);
+			
+			JLabel labelNombreUsuario = new JLabel(usuario.getNombre());
+			labelNombreUsuario.setBounds(25, 58, 152, 20);
+			contentPane.add(labelNombreUsuario);
+			conexion.disconnect();
+			
+			
+		} catch (DBException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		
+		
+		
+		JComboBox comboAnyo = new JComboBox();
+		
+		Calendar data = Calendar.getInstance();
+		int cont = 0;
+		int anyo = data.get(Calendar.YEAR);
+		while (cont < 80) {
+			String anyoActual = Integer.toString(anyo);
+			comboAnyo.addItem(anyoActual);
+			cont++;
+			anyo--;
+			
+		
+		}
+	
+		
+		comboAnyo.setToolTipText("");
+		comboAnyo.setBounds(185, 277, 301, 26);
+		contentPane.add(comboAnyo);
+		
+		JTextPane textoCorreo = new JTextPane();
+		textoCorreo.setBounds(170, 406, 317, 26);
+		contentPane.add(textoCorreo);
+		
+		
+		
+		JLabel lblInformacionPrivada = new JLabel();
+		lblInformacionPrivada.setText("Informacion privada");
+		lblInformacionPrivada.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblInformacionPrivada.setBounds(15, 357, 218, 26);
+		contentPane.add(lblInformacionPrivada);
+		
+		JLabel lblGestionDePago = new JLabel();
+		lblGestionDePago.setText("Gestion de pago\r\n");
+		lblGestionDePago.setBounds(15, 448, 132, 26);
+		contentPane.add(lblGestionDePago);
+		
+		JButton btnGuardarCambios = new JButton("Guardar cambios");
+		btnGuardarCambios.setBounds(340, 520, 180, 29);
+		contentPane.add(btnGuardarCambios);
+		
 		
 		ImageIcon imagenCandadoCerrado = new ImageIcon("../skapaProyect/multimedia/candadoCerrado.png");
 		ImageIcon imagenCandadoAbierto = new ImageIcon("../skapaProyect/multimedia/candadoAbierto.png");
@@ -183,7 +249,8 @@ public class VentanaPerfil extends JFrame {
 			}
 		});
 		
-		//BOTON CANDADO 2 (Provincia)
+		
+		//BOTON CANDADO 3 (Provincia)
 		
 		JButton botonCProvincia = new JButton("");
 		botonCProvincia.setBounds(491, 235, 29, 26);
@@ -192,37 +259,6 @@ public class VentanaPerfil extends JFrame {
 		
 		botonCProvincia.setIcon(iconoCandadoC3);
 		contentPane.add(botonCProvincia);
-		
-		JLabel labelNombreUsuario = new JLabel("nombUsuario");
-		labelNombreUsuario.setBounds(25, 58, 152, 20);
-		contentPane.add(labelNombreUsuario);
-		
-		JComboBox comboAnyo = new JComboBox();
-		comboAnyo.setBounds(185, 277, 301, 26);
-		contentPane.add(comboAnyo);
-		
-		JTextPane textoCorreo = new JTextPane();
-		textoCorreo.setBounds(170, 406, 317, 26);
-		contentPane.add(textoCorreo);
-		
-		JButton button = new JButton("");
-		button.setBounds(491, 276, 29, 26);
-		contentPane.add(button);
-		
-		JLabel lblInformacionPrivada = new JLabel();
-		lblInformacionPrivada.setText("Informacion privada");
-		lblInformacionPrivada.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblInformacionPrivada.setBounds(15, 357, 218, 26);
-		contentPane.add(lblInformacionPrivada);
-		
-		JLabel lblGestionDePago = new JLabel();
-		lblGestionDePago.setText("Gestion de pago\r\n");
-		lblGestionDePago.setBounds(15, 448, 132, 26);
-		contentPane.add(lblGestionDePago);
-		
-		JButton btnGuardarCambios = new JButton("Guardar cambios");
-		btnGuardarCambios.setBounds(340, 520, 180, 29);
-		contentPane.add(btnGuardarCambios);
 		
 		botonCProvincia.addActionListener(new ActionListener() {
 			@Override
@@ -237,6 +273,33 @@ public class VentanaPerfil extends JFrame {
 				contC3 = contC3 + 1;	
 			}
 		});
+		
+		//BOTON CANDADO 4 (Año de nacimiento)
+		
+		JButton botonCAnyo = new JButton("");
+		botonCAnyo.setBounds(491, 276, 29, 26);
+		
+		Icon iconoCandadoC4 = new ImageIcon(imagenCandadoCerrado.getImage().getScaledInstance(botonCAnyo.getWidth(), botonCAnyo.getHeight(), Image.SCALE_DEFAULT));
+		Icon iconoCandadoA4 = new ImageIcon(imagenCandadoAbierto.getImage().getScaledInstance(botonCAnyo.getWidth(), botonCAnyo.getHeight(), Image.SCALE_DEFAULT));
+				
+		botonCAnyo.setIcon(iconoCandadoC4);
+		contentPane.add(botonCAnyo);
+				
+		botonCAnyo.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+						
+				if (contC4 % 2 ==0) {
+					botonCAnyo.setIcon(iconoCandadoA4);
+				}else {
+					botonCAnyo.setIcon(iconoCandadoC4);
+				}
+		
+				contC4 = contC4 + 1;	
+					}
+				});
+				
+			
 		
 		
 		
