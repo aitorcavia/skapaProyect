@@ -39,17 +39,37 @@ public class DBManager {
 		}
 	}
 	
+	//REGISTRAR NUEVO USUARIO
+	public void registrarUsuario(Usuario usuario) throws DBException{
+		
+		String nomUsuario = usuario.getNombre();
+		String contrasenya = usuario.getContrasenya();
+		String correo = usuario.getCorreo();
+		
+		
+		try (Statement stmt= conn.createStatement()) {
+			stmt.executeUpdate("INSERT INTO usuario (nomUsuario, contrasenya, correo) VALUES ('" + nomUsuario + "', '"+ contrasenya + "', '" + correo + "')");
+		} catch (SQLException e) {
+			throw new DBException("No ha sido posible ejecutar la query");
+		}
+		
+		
+	
+		
+		
+	}
+	
 	
 	//LISTAR TODOS LOS USUARIOS
 	public List<Usuario> getAllUsers() throws DBException {
 		List<Usuario> usuarios = new ArrayList<Usuario>();
 		try (Statement stmt = conn.createStatement()) {
-			ResultSet rs = stmt.executeQuery("SELECT id, nombre, contrasenya, correo FROM user");
+			ResultSet rs = stmt.executeQuery("SELECT id, nomUsuario, contrasenya, correo FROM user");
 
 			while(rs.next()) {
 				Usuario usuario = new Usuario();
 				usuario.setId(rs.getInt("id"));
-				usuario.setNombre(rs.getString("combre"));
+				usuario.setNombre(rs.getString("nomUsuario"));
 				usuario.setContrasenya(rs.getString("contrasenya"));
 				usuario.setCorreo(rs.getString("correo"));
 				usuarios.add(usuario);
@@ -63,7 +83,7 @@ public class DBManager {
 	
 	//OBTENER USUARIO POR LA ID
 	public Usuario buscarUsuarioId(int id) throws DBException {
-		try (PreparedStatement stmt = conn.prepareStatement("SELECT id, nombre, contrasenya, correo FROM usuario WHERE id = ?")) {
+		try (PreparedStatement stmt = conn.prepareStatement("SELECT id, nomUsuario, contrasenya, correo FROM usuario WHERE id = ?")) {
 			stmt.setInt(1, id);
 			
 			ResultSet rs = stmt.executeQuery();
@@ -71,7 +91,7 @@ public class DBManager {
 			if (rs.next()) {
 				Usuario usuario = new Usuario();
 				usuario.setId(rs.getInt("id"));
-				usuario.setNombre(rs.getString("nombre"));
+				usuario.setNombre(rs.getString("nomUsuario"));
 				usuario.setContrasenya(rs.getString("contrasenya"));
 				usuario.setCorreo(rs.getString("correo"));
 				return usuario;
@@ -196,7 +216,7 @@ public class DBManager {
 	
 	//CREACION DE USUARIO POR PRIMERA VEZ (GENERACION AUTOMATICA DE ID)
 	public void store(Usuario usuario) throws DBException {
-		try (PreparedStatement stmt = conn.prepareStatement("INSERT INTO user (nombre, contrasenya, correo) VALUES (?, ?, ?)");
+		try (PreparedStatement stmt = conn.prepareStatement("INSERT INTO user (nomUsuario, contrasenya, correo) VALUES (?, ?, ?)");
 			Statement stmtForId = conn.createStatement()) {
 			stmt.setString(1, usuario.getNombre());
 			stmt.setString(2, usuario.getContrasenya());
@@ -219,7 +239,7 @@ public class DBManager {
 	
 	//ACTUALIZAR USUARIO YA EXISTENTE CON UN ID
 	public void update(Usuario usuario) throws DBException {
-		try (PreparedStatement stmt = conn.prepareStatement("UPDATE usuario SET nombre=?, contrasenya=?, correo=? WHERE id=?")) {
+		try (PreparedStatement stmt = conn.prepareStatement("UPDATE usuario SET nomUsuario=?, contrasenya=?, correo=? WHERE id=?")) {
 			stmt.setString(1, usuario.getNombre());
 			stmt.setString(2, usuario.getContrasenya());
 			stmt.setString(3, usuario.getCorreo());

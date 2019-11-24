@@ -4,14 +4,13 @@ import java.util.ArrayList;
 
 public class Usuario {
 	
-	public static int cont;
-
+	public static int cont = 0;
 	private int id;
 	private String nombre;
 	private String contrasenya;
 	private String correo;
 	
-	public Usuario(int id, String nombre, String contrasenya, String correo) {
+	public Usuario(String nombre, String contrasenya, String correo) {
 		super();
 		this.id = cont++;
 		this.nombre = nombre;

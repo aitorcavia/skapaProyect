@@ -1,38 +1,32 @@
 package skapaProyect.VentanasPrimarias;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.plaf.OptionPaneUI;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
-import java.awt.Font;
-import javax.swing.JTextArea;
-import javax.swing.JPasswordField;
-import javax.swing.JButton;
 import java.awt.Color;
-import javax.swing.UIManager;
-import java.awt.Window.Type;
+import java.awt.EventQueue;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.lang.reflect.Array;
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.awt.Dialog.ModalExclusionType;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextArea;
+import javax.swing.border.EmptyBorder;
+
+import skapaProyect.DataBase.DBException;
+import skapaProyect.DataBase.DBManager;
 
 public class VentanaRegistro extends JFrame {
 
 	private JPanel contentPane;
 	private JPasswordField textoContrasenya;
+	
 
 	/**
 	 * Launch the application.
@@ -109,19 +103,40 @@ public class VentanaRegistro extends JFrame {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String nombre; 
+				String nomUsuario; 
 				String contrasenya;
 				String correo;
 				
-			
-				nombre = textoUsuario.getText();
+				nomUsuario = textoUsuario.getText();
 				contrasenya = textoContrasenya.getText();
 				correo = textoCorreo.getText();
+				
+				if (nomUsuario.equals("") || contrasenya.equals("") || correo.equals("")) {
+					JOptionPane.showMessageDialog(null, "Alguno de los campos esta vacio o es nulo", "Error", 0);
+				}else {
+				
+					Usuario usuario = new Usuario();
+					usuario.setNombre(nomUsuario);
+					usuario.setContrasenya(contrasenya);
+					usuario.setCorreo(correo);
 		
-	
-				try {
+					DBManager conexion = new DBManager();
 					
-					if (nombre.equals("") || contrasenya.equals("") || correo.equals("")) {
+					try {
+						conexion.connect();
+						conexion.registrarUsuario(usuario);
+						JOptionPane.showMessageDialog(null, "Cuenta creada correctamente", "Correcto", 1);
+						conexion.disconnect();
+						
+					} catch (DBException e1) {
+						e1.printStackTrace();
+					}
+				
+				}
+	
+			/*	try {
+					
+					if (nomUsuario.equals("") || contrasenya.equals("") || correo.equals("")) {
 						JOptionPane.showMessageDialog(null, "Alguno de los campos esta vacio o es nulo", "Error", 0);
 						
 					}else {
@@ -132,7 +147,7 @@ public class VentanaRegistro extends JFrame {
 							Connection conn = DriverManager.getConnection("jdbc:sqlite:data/BD.db");
 							Statement stmt = conn.createStatement();
 						
-							String query = "INSERT INTO usuario (nombre, contrasenya, correo) VALUES ('" + nombre + "', '"+ contrasenya + "', '" + correo + "')" ;
+							String query = "INSERT INTO usuario (nomUsuario, contrasenya, correo) VALUES ('" + nomUsuario + "', '"+ contrasenya + "', '" + correo + "')" ;
 							stmt.executeUpdate(query);
 					
 		
@@ -140,7 +155,7 @@ public class VentanaRegistro extends JFrame {
 						
 							stmt.close();
 							conn.close();
-							
+				
 							VentanaLogin vl = new VentanaLogin(); 
 							setVisible(false);
 							vl.setVisible(true);
@@ -159,8 +174,9 @@ public class VentanaRegistro extends JFrame {
 					e1.printStackTrace();
 				}
 				
-				
+				*/
 			}
+			
 		});
 		
 		botonAtras.addActionListener(new ActionListener() {

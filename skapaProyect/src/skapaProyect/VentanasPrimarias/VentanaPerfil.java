@@ -299,11 +299,7 @@ public class VentanaPerfil extends JFrame {
 					}
 				});
 				
-			
-		
-		
-		
-		
+
 		BotonTarjeta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VentanaPago vP = new VentanaPago();

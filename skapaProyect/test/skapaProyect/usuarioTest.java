@@ -10,18 +10,18 @@ public class usuarioTest {
 
 	@Test
 	public void testGetNombre() {
-		Usuario u = new Usuario (0,"Tony", "tony123", "tony@gmail.com");
+		Usuario u = new Usuario ("Tony", "tony123", "tony@gmail.com");
 		assertEquals("Tony", u.getNombre());
 	}
 	
 	@Test
 	public void testGetCorreo() {
-		Usuario u = new Usuario (1, "Tony", "tony123", "tony@gmail.com");
+		Usuario u = new Usuario ("Tony", "tony123", "tony@gmail.com");
 		assertEquals("tony@gmail.com", u.getCorreo());
 	}
 	@Test
 	public void testGetContrasenya() {
-		Usuario u = new Usuario (0, "Tony", "tony123", "tony@gmail.com");
+		Usuario u = new Usuario ("Tony", "tony123", "tony@gmail.com");
 		assertEquals("tony123", u.getContrasenya());
 	}
 
