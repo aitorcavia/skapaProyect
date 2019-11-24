@@ -181,16 +181,16 @@ public class VentanaPago extends	 javax.swing.JFrame {
 		int idUsuario = idU;
 		
 		String tipo =  TipoTarjeta.getSelectedItem().toString();
-		String numeroTarjeta = TextoNTarjeta.getSelectedText();
-		String fecha =	Textocaducidad.getSelectedText();
-		String codigoDeSeguridad =	TextoCodigodeSeguridad.getSelectedText();
-		String codigoPostal2 =	txtCodigoPostal.getSelectedText();
-		String nombreCompleto =	txtNombreCompleto.getSelectedText();
-		String direccion =	txtDireccin.getSelectedText();
-		String lineaSegundaDireccion = txtLneaDeDireccin.getSelectedText();
-		String ciudad =	txtCiudad.getSelectedText();
-		String estadoProvincia	=	txtEstadoprovincia.getSelectedText();
-		String codigoPostal	= txtCodigoPostal_1.getSelectedText();
+		String numeroTarjeta = TextoNTarjeta.getText();
+		String fecha =	Textocaducidad.getText();
+		String codigoDeSeguridad =	TextoCodigodeSeguridad.getText();
+		String codigoPostal2 =	txtCodigoPostal.getText();
+		String nombreCompleto =	txtNombreCompleto.getText();
+		String direccion =	txtDireccin.getText();
+		String lineaSegundaDireccion = txtLneaDeDireccin.getText();
+		String ciudad =	txtCiudad.getText();
+		String estadoProvincia	=	txtEstadoprovincia.getText();
+		String codigoPostal	= txtCodigoPostal_1.getText();
 		
 		Tarjeta tarjeta = new Tarjeta();
 		
