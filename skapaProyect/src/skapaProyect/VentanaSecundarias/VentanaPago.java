@@ -14,6 +14,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import skapaProyect.DataBase.DBException;
+import skapaProyect.DataBase.DBManager;
+
 import javax.swing.JTextField;
 import java.awt.Font;
 import java.awt.Color;
@@ -75,8 +79,8 @@ public class VentanaPago extends	 javax.swing.JFrame {
 		contentPane.setLayout(null);
 		
 		TextoPagoConTarjeta = new JTextField();
-		TextoPagoConTarjeta.setFont(new Font("Tahoma", Font.BOLD, 16));
 		TextoPagoConTarjeta.setEditable(false);
+		TextoPagoConTarjeta.setFont(new Font("Tahoma", Font.BOLD, 16));
 		TextoPagoConTarjeta.setText("Pago con Tarjeta de Credito o Debito");
 		TextoPagoConTarjeta.setBounds(0, 16, 312, 26);
 		contentPane.add(TextoPagoConTarjeta);
@@ -429,5 +433,47 @@ public class VentanaPago extends	 javax.swing.JFrame {
 			}
 			
 		});
+		
+		String tipo =  TipoTarjeta.getSelectedItem().toString();
+		String numeroTarjeta = TextoNTarjeta.getSelectedText();
+		String fecha =	Textocaducidad.getSelectedText();
+		String codigoDeSeguridad =	TextoCodigodeSeguridad.getSelectedText();
+		String codigoPostal2 =	txtCodigoPostal.getSelectedText();
+		String nombreCompleto =	txtNombreCompleto.getSelectedText();
+		String direccion =	txtDireccin.getSelectedText();
+		String lineaSegundaDireccion = txtLneaDeDireccin.getSelectedText();
+		String ciudad =	txtCiudad.getSelectedText();
+		String estadoProvincia	=	txtEstadoprovincia.getSelectedText();
+		String codigoPostal	= txtCodigoPostal_1.getSelectedText();
+		
+		Tarjeta tarjeta = new Tarjeta();
+		
+		tarjeta.setTipo(tipo);
+		tarjeta.setNumeroTarjeta(numeroTarjeta);
+		tarjeta.setFecha(fecha);
+		tarjeta.setCodigoDeSeguridad(codigoDeSeguridad);
+		tarjeta.setCodigoPostal2(codigoPostal2);
+		tarjeta.setNombreCompleto(nombreCompleto);
+		tarjeta.setDireccion(direccion);
+		tarjeta.setLineaSegundaDireccion(lineaSegundaDireccion);
+		tarjeta.setCiudad(ciudad);
+		tarjeta.setEstadoProvincia(estadoProvincia);
+		tarjeta.setCodigoPostal(codigoPostal);
+		
+		
+		DBManager conexionT = new DBManager();
+		
+		try {
+			conexionT.connect();
+			
+		} catch (DBException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		
+		
+		
+		
 	}
 }
