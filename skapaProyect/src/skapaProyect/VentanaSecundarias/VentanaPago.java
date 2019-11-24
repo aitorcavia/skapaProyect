@@ -178,52 +178,7 @@ public class VentanaPago extends	 javax.swing.JFrame {
 		contentPane.add(BotonGuardar);
 		int idU = VentanaLogin.getUsuarioId();
 		
-		int idUsuario = idU;
 		
-		String tipo =  TipoTarjeta.getSelectedItem().toString();
-		String numeroTarjeta = TextoNTarjeta.getText();
-		String fecha =	Textocaducidad.getText();
-		String codigoDeSeguridad =	TextoCodigodeSeguridad.getText();
-		String codigoPostal2 =	txtCodigoPostal.getText();
-		String nombreCompleto =	txtNombreCompleto.getText();
-		String direccion =	txtDireccin.getText();
-		String lineaSegundaDireccion = txtLneaDeDireccin.getText();
-		String ciudad =	txtCiudad.getText();
-		String estadoProvincia	=	txtEstadoprovincia.getText();
-		String codigoPostal	= txtCodigoPostal_1.getText();
-		
-		Tarjeta tarjeta = new Tarjeta();
-		
-		tarjeta.setidUsuario(idUsuario);
-		tarjeta.setTipo(tipo);
-		tarjeta.setNumeroTarjeta(numeroTarjeta);
-		tarjeta.setFecha(fecha);
-		tarjeta.setCodigoDeSeguridad(codigoDeSeguridad);
-		tarjeta.setCodigoPostal2(codigoPostal2);
-		tarjeta.setNombreCompleto(nombreCompleto);
-		tarjeta.setDireccion(direccion);
-		tarjeta.setLineaSegundaDireccion(lineaSegundaDireccion);
-		tarjeta.setCiudad(ciudad);
-		tarjeta.setEstadoProvincia(estadoProvincia);
-		tarjeta.setCodigoPostal(codigoPostal);
-		
-		BotonGuardar.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				DBManager conexionT = new DBManager();
-				
-				try {
-					conexionT.connect();
-					conexionT.insertarDatosTarjeta(tarjeta);
-					JOptionPane.showMessageDialog(null, "Los datos de la tarjeta se han guardado correctamente", "Correcto", 1);
-					conexionT.disconnect();
-				} catch (DBException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				}
-				
-			}
-		});
 	
 		
 		
@@ -482,7 +437,52 @@ public class VentanaPago extends	 javax.swing.JFrame {
 			
 		});
 		
+		int idUsuario = idU;
 		
+		String tipo =  TipoTarjeta.getSelectedItem().toString();
+		String numeroTarjeta = TextoNTarjeta.getText();
+		String fecha =	Textocaducidad.getText();
+		String codigoDeSeguridad =	TextoCodigodeSeguridad.getText();
+		String codigoPostal2 =	txtCodigoPostal.getText();
+		String nombreCompleto =	txtNombreCompleto.getText();
+		String direccion =	txtDireccin.getText();
+		String lineaSegundaDireccion = txtLneaDeDireccin.getText();
+		String ciudad =	txtCiudad.getText();
+		String estadoProvincia	=	txtEstadoprovincia.getText();
+		String codigoPostal	= txtCodigoPostal_1.getText();
+		
+		Tarjeta tarjeta = new Tarjeta();
+		
+		tarjeta.setidUsuario(idUsuario);
+		tarjeta.setTipo(tipo);
+		tarjeta.setNumeroTarjeta(numeroTarjeta);
+		tarjeta.setFecha(fecha);
+		tarjeta.setCodigoDeSeguridad(codigoDeSeguridad);
+		tarjeta.setCodigoPostal2(codigoPostal2);
+		tarjeta.setNombreCompleto(nombreCompleto);
+		tarjeta.setDireccion(direccion);
+		tarjeta.setLineaSegundaDireccion(lineaSegundaDireccion);
+		tarjeta.setCiudad(ciudad);
+		tarjeta.setEstadoProvincia(estadoProvincia);
+		tarjeta.setCodigoPostal(codigoPostal);
+		
+		BotonGuardar.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				DBManager conexionT = new DBManager();
+				
+				try {
+					conexionT.connect();
+					conexionT.insertarDatosTarjeta(tarjeta);
+					JOptionPane.showMessageDialog(null, "Los datos de la tarjeta se han guardado correctamente", "Correcto", 1);
+					conexionT.disconnect();
+				} catch (DBException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			}
+		});
 		
 		
 		
