@@ -370,6 +370,7 @@ public class DBManager {
 		
 		try (Statement stmt= conn.createStatement()) {
 			
+			int idUsuario = tarjeta.getidUsuario();
 			String tipo =  tarjeta.getTipo();
 			String numeroTarjeta = tarjeta.getNumeroTarjeta();
 			String fecha =	tarjeta.getFecha();
@@ -382,7 +383,7 @@ public class DBManager {
 			String estadoProvincia	= tarjeta.getEstadoProvincia();
 			String codigoPostal	= tarjeta.getCodigoPostal();
 			
-			stmt.executeUpdate("INSERT INTO tarjeta (idUsuario, tipo, numeroTarjeta, fecha, codigoDeSeguridad, codigoPostal2, nombreCompleto,direccion, lineaSegundaDireccion, ciudad, estadoProvincia, codigoPostal) VALUES ('" + tipo + "' , '" + numeroTarjeta + "', '" + fecha + "', '" + codigoDeSeguridad + "', '" + nombreCompleto + "', '" + codigoPostal2 + "', '" + direccion + "', '" + lineaSegundaDireccion + "', '" + ciudad + "', '" + estadoProvincia + "', '" + codigoPostal + "')");
+			stmt.executeUpdate("INSERT INTO tarjeta (idUsuario, tipo, numeroTarjeta, fecha, codigoDeSeguridad, codigoPostal2, nombreCompleto,direccion, lineaSegundaDireccion, ciudad, estadoProvincia, codigoPostal) VALUES ('" + idUsuario + "', '" + tipo + "' , '" + numeroTarjeta + "', '" + fecha + "', '" + codigoDeSeguridad + "', '" + nombreCompleto + "', '" + codigoPostal2 + "', '" + direccion + "', '" + lineaSegundaDireccion + "', '" + ciudad + "', '" + estadoProvincia + "', '" + codigoPostal + "')");
 			
 			
 			
