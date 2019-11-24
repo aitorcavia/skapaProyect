@@ -84,27 +84,21 @@ public class VentanaPerfil extends JFrame {
 		TextoNombre.setBounds(15, 170, 72, 26);
 		contentPane.add(TextoNombre);
 		
-		JTextPane nombreUsuario = new JTextPane();
-		nombreUsuario.setBounds(102, 170, 384, 26);
-		contentPane.add(nombreUsuario);
+		
 		
 		JLabel TextoUbicacinProvincia = new JLabel();
 		TextoUbicacinProvincia.setText("Apellidos");
 		TextoUbicacinProvincia.setBounds(15, 202, 72, 26);
 		contentPane.add(TextoUbicacinProvincia);
 		
-		JTextPane apellidoUsuario = new JTextPane();
-		apellidoUsuario.setBounds(102, 202, 384, 26);
-		contentPane.add(apellidoUsuario);
+		
 		
 		JLabel TextoUbicacinProvincia_1 = new JLabel();
 		TextoUbicacinProvincia_1.setText("Ubicaci\u00F3n / Provincia");
 		TextoUbicacinProvincia_1.setBounds(15, 235, 162, 26);
 		contentPane.add(TextoUbicacinProvincia_1);
 		
-		JTextPane ubicacionProvinciaUsuario = new JTextPane();
-		ubicacionProvinciaUsuario.setBounds(185, 235, 301, 26);
-		contentPane.add(ubicacionProvinciaUsuario);
+		
 		
 		JLabel txtpnInformacinPrivada = new JLabel();
 		txtpnInformacinPrivada.setFont(new Font("Tahoma", Font.BOLD, 18));
@@ -133,14 +127,46 @@ public class VentanaPerfil extends JFrame {
 		contentPane.add(BotonTarjeta);
 		
 		DBManager conexion = new DBManager();
+		
 		try {
 			conexion.connect();
 			
 			Usuario usuario = conexion.buscarUsuarioId(idUsuario);
 			
-			JLabel labelNombreUsuario = new JLabel(usuario.getNombre());
+			String nomUsuario = usuario.getNomUsuario();
+			String contrasenya = usuario.getContrasenya();
+			String correo = usuario.getCorreo();
+			String nombre = usuario.getNombre();
+			String apellidos = usuario.getApellidos();
+			String ubicacion = usuario.getUbicacion();
+			String direccionIP = usuario.getDireccionIP();
+
+			JLabel labelNombreUsuario = new JLabel(nomUsuario);
 			labelNombreUsuario.setBounds(25, 58, 152, 20);
 			contentPane.add(labelNombreUsuario);
+			
+			JTextPane nombreUsuario = new JTextPane();
+			nombreUsuario.setText(nombre);
+			nombreUsuario.setBounds(102, 170, 384, 26);
+			contentPane.add(nombreUsuario);
+			
+			JTextPane apellidoUsuario = new JTextPane();
+			apellidoUsuario.setText(apellidos);
+			apellidoUsuario.setBounds(102, 202, 384, 26);
+			contentPane.add(apellidoUsuario);
+			
+			JTextPane ubicacionProvinciaUsuario = new JTextPane();
+			ubicacionProvinciaUsuario.setText(ubicacion);
+			ubicacionProvinciaUsuario.setBounds(185, 235, 301, 26);
+			contentPane.add(ubicacionProvinciaUsuario);
+			
+			JTextPane textoCorreo = new JTextPane();
+			textoCorreo.setText(correo);
+			textoCorreo.setBounds(170, 406, 317, 26);
+			contentPane.add(textoCorreo);
+			
+			
+			
 			conexion.disconnect();
 			
 			
@@ -148,6 +174,8 @@ public class VentanaPerfil extends JFrame {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
+		
+		
 		
 		
 		
@@ -171,9 +199,7 @@ public class VentanaPerfil extends JFrame {
 		comboAnyo.setBounds(185, 277, 301, 26);
 		contentPane.add(comboAnyo);
 		
-		JTextPane textoCorreo = new JTextPane();
-		textoCorreo.setBounds(170, 406, 317, 26);
-		contentPane.add(textoCorreo);
+		
 		
 		
 		
@@ -195,6 +221,10 @@ public class VentanaPerfil extends JFrame {
 		
 		ImageIcon imagenCandadoCerrado = new ImageIcon("../skapaProyect/multimedia/candadoCerrado.png");
 		ImageIcon imagenCandadoAbierto = new ImageIcon("../skapaProyect/multimedia/candadoAbierto.png");
+		
+		
+		
+		
 		
 		
 		

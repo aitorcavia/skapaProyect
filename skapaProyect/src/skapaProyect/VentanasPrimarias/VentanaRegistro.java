@@ -5,6 +5,8 @@ import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -106,10 +108,23 @@ public class VentanaRegistro extends JFrame {
 				String nomUsuario; 
 				String contrasenya;
 				String correo;
+				String direccionIP = null;
 				
+		
 				nomUsuario = textoUsuario.getText();
 				contrasenya = textoContrasenya.getText();
 				correo = textoCorreo.getText();
+				
+				//SACAR DIRECCION IP LOCAL
+				InetAddress adress;
+				try {
+					adress = InetAddress.getLocalHost();
+					direccionIP = adress.getHostAddress().toString();
+				} catch (UnknownHostException e2) {
+					e2.printStackTrace();
+				}
+				
+				
 				
 				if (nomUsuario.equals("") || contrasenya.equals("") || correo.equals("")) {
 					JOptionPane.showMessageDialog(null, "Alguno de los campos esta vacio o es nulo", "Error", 0);
@@ -119,9 +134,10 @@ public class VentanaRegistro extends JFrame {
 					if (correo.contains("@") && correo.contains(".")) {
 				
 						Usuario usuario = new Usuario();
-						usuario.setNombre(nomUsuario);
+						usuario.setNomUsuario(nomUsuario);
 						usuario.setContrasenya(contrasenya);
 						usuario.setCorreo(correo);
+						usuario.setDireccionIP(direccionIP);
 			
 						DBManager conexion = new DBManager();
 						

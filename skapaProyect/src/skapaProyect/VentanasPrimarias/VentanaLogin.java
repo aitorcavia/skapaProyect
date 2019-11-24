@@ -138,6 +138,7 @@ public class VentanaLogin extends JFrame {
 					conexion.connect();
 					
 					if (conexion.loginUsuario(nomUsuario, contrasenya) == true) {
+						idUsuario = conexion.obtenerId(nomUsuario);
 						VentanaInicio vi = new VentanaInicio();
 						setVisible(false);
 						vi.setVisible(true);
@@ -181,6 +182,7 @@ public class VentanaLogin extends JFrame {
 				
 			}
 		});
+		
 		
 		
 		
