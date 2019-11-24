@@ -171,6 +171,55 @@ public class VentanaPago extends	 javax.swing.JFrame {
 		BotonGuardar.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
 		BotonGuardar.setBounds(98, 425, 115, 29);
 		contentPane.add(BotonGuardar);
+int idU = VentanaLogin.getUsuarioId();
+		
+		int idUsuario = idU;
+		
+		//String tipo =  TipoTarjeta.getSelectedItem().toString();
+		String numeroTarjeta = TextoNTarjeta.getSelectedText();
+		String fecha =	Textocaducidad.getSelectedText();
+		String codigoDeSeguridad =	TextoCodigodeSeguridad.getSelectedText();
+		String codigoPostal2 =	txtCodigoPostal.getSelectedText();
+		String nombreCompleto =	txtNombreCompleto.getSelectedText();
+		String direccion =	txtDireccin.getSelectedText();
+		String lineaSegundaDireccion = txtLneaDeDireccin.getSelectedText();
+		String ciudad =	txtCiudad.getSelectedText();
+		String estadoProvincia	=	txtEstadoprovincia.getSelectedText();
+		String codigoPostal	= txtCodigoPostal_1.getSelectedText();
+		
+		Tarjeta tarjeta = new Tarjeta();
+		
+		tarjeta.setidUsuario(idUsuario);
+		//tarjeta.setTipo(tipo);
+		tarjeta.setNumeroTarjeta(numeroTarjeta);
+		tarjeta.setFecha(fecha);
+		tarjeta.setCodigoDeSeguridad(codigoDeSeguridad);
+		tarjeta.setCodigoPostal2(codigoPostal2);
+		tarjeta.setNombreCompleto(nombreCompleto);
+		tarjeta.setDireccion(direccion);
+		tarjeta.setLineaSegundaDireccion(lineaSegundaDireccion);
+		tarjeta.setCiudad(ciudad);
+		tarjeta.setEstadoProvincia(estadoProvincia);
+		tarjeta.setCodigoPostal(codigoPostal);
+		/*
+		BotonGuardar.addActionListener(new ActionListener() {
+			
+			
+			
+			DBManager conexionT = new DBManager();
+			
+			try {
+				conexionT.connect();
+				conexionT.insertarDatosTarjeta(tarjeta);
+				conexionT.disconnect();
+			} catch (DBException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
+		
+			
+		});*/
 		
 		JComboBox TipoTarjeta = new JComboBox();
 		TipoTarjeta.setModel(new DefaultComboBoxModel(new String[] {"Visa", "MasterCard", "BBK", "Caixa", "Discover", "American Express"}));
@@ -434,48 +483,6 @@ public class VentanaPago extends	 javax.swing.JFrame {
 			}
 			
 		});
-		
-		int idU = VentanaLogin.getUsuarioId();
-		
-		int idUsuario = idU;
-		
-		String tipo =  TipoTarjeta.getSelectedItem().toString();
-		String numeroTarjeta = TextoNTarjeta.getSelectedText();
-		String fecha =	Textocaducidad.getSelectedText();
-		String codigoDeSeguridad =	TextoCodigodeSeguridad.getSelectedText();
-		String codigoPostal2 =	txtCodigoPostal.getSelectedText();
-		String nombreCompleto =	txtNombreCompleto.getSelectedText();
-		String direccion =	txtDireccin.getSelectedText();
-		String lineaSegundaDireccion = txtLneaDeDireccin.getSelectedText();
-		String ciudad =	txtCiudad.getSelectedText();
-		String estadoProvincia	=	txtEstadoprovincia.getSelectedText();
-		String codigoPostal	= txtCodigoPostal_1.getSelectedText();
-		
-		Tarjeta tarjeta = new Tarjeta();
-		
-		tarjeta.setidUsuario(idUsuario);
-		tarjeta.setTipo(tipo);
-		tarjeta.setNumeroTarjeta(numeroTarjeta);
-		tarjeta.setFecha(fecha);
-		tarjeta.setCodigoDeSeguridad(codigoDeSeguridad);
-		tarjeta.setCodigoPostal2(codigoPostal2);
-		tarjeta.setNombreCompleto(nombreCompleto);
-		tarjeta.setDireccion(direccion);
-		tarjeta.setLineaSegundaDireccion(lineaSegundaDireccion);
-		tarjeta.setCiudad(ciudad);
-		tarjeta.setEstadoProvincia(estadoProvincia);
-		tarjeta.setCodigoPostal(codigoPostal);
-		
-		
-		DBManager conexionT = new DBManager();
-		
-		try {
-			conexionT.connect();
-			
-		} catch (DBException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
 		
 		
 		
