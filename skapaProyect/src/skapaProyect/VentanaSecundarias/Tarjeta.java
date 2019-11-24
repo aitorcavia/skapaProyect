@@ -12,10 +12,12 @@ public class Tarjeta {
 	private String ciudad;
 	private String estadoProvincia;
 	private String codigoPostal;
+	private int idUsuario;
+	private int idTarjeta;
 	
 	public Tarjeta(String tipo, String numeroTarjeta, String fecha, String codigoDeSeguridad, String codigoPostal2,
 			String nombreCompleto, String direccion, String lineaSegundaDireccion, String ciudad,
-			String estadoProvincia, String codigoPostal) {
+			String estadoProvincia, String codigoPostal,int idUsuario) {
 		super();
 		this.tipo = tipo;
 		this.numeroTarjeta = numeroTarjeta;
@@ -28,6 +30,7 @@ public class Tarjeta {
 		this.ciudad = ciudad;
 		this.estadoProvincia = estadoProvincia;
 		this.codigoPostal = codigoPostal;
+		this.idUsuario = idUsuario;
 	}
 	public Tarjeta() {
 		super();
@@ -112,6 +115,17 @@ public class Tarjeta {
 		this.codigoPostal = codigoPostal;
 	}
 	
-	
+	public int getidUsuario() {
+		return idUsuario;
+	}
+	public void setidUsuario(int idUsuario) {
+		 this.idUsuario = idUsuario;
+	}
+	public int getidTarjeta() {
+		return idTarjeta;
+	}
+	public void setidTarjeta(int idTarjeta) {
+		this.idTarjeta = idTarjeta ;
+	}
 	
 }

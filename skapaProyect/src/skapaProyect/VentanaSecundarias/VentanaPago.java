@@ -438,6 +438,7 @@ public class VentanaPago extends	 javax.swing.JFrame {
 		int idU = VentanaLogin.getUsuarioId();
 		
 		int idUsuario = idU;
+		
 		String tipo =  TipoTarjeta.getSelectedItem().toString();
 		String numeroTarjeta = TextoNTarjeta.getSelectedText();
 		String fecha =	Textocaducidad.getSelectedText();
@@ -452,7 +453,7 @@ public class VentanaPago extends	 javax.swing.JFrame {
 		
 		Tarjeta tarjeta = new Tarjeta();
 		
-		//tarjeta.setId
+		tarjeta.setidUsuario(idUsuario);
 		tarjeta.setTipo(tipo);
 		tarjeta.setNumeroTarjeta(numeroTarjeta);
 		tarjeta.setFecha(fecha);
