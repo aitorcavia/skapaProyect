@@ -1,16 +1,16 @@
-nov 15, 2019 1:17:59 PM bitacor.Bitacora main
+nov 19, 2019 8:29:01 AM bitacor.Bitacora main
 INFORMACIÓN: Bitacora inicializada
-nov 15, 2019 1:17:59 PM bitacor.Bitacora main
+nov 19, 2019 8:29:01 AM bitacor.Bitacora main
 INFORMACIÓN: Llamadas a los componentes del sistema
-nov 15, 2019 1:17:59 PM bitacora.subnivel.Utilidades funcionDudosa
+nov 19, 2019 8:29:01 AM bitacora.subnivel.Utilidades funcionDudosa
 GRAVE: ERROR MASIVO
-nov 15, 2019 1:17:59 PM bitacora.subnivel.Control controlar
+nov 19, 2019 8:29:01 AM bitacora.subnivel.Control controlar
 INFORMACIÓN: Proceso exitoso
-nov 15, 2019 1:17:59 PM bitacora.subnivel.under.InternalSys llamadaSistema
+nov 19, 2019 8:29:01 AM bitacora.subnivel.under.InternalSys llamadaSistema
 ADVERTENCIA: Ocurrio un error de acceso en 0xFF
-nov 15, 2019 1:17:59 PM bitacor.Bitacora main
+nov 19, 2019 8:29:01 AM bitacor.Bitacora main
 INFORMACIÓN: Probando manejo de excepciones
-nov 15, 2019 1:17:59 PM bitacor.Bitacora main
+nov 19, 2019 8:29:01 AM bitacor.Bitacora main
 GRAVE: java.lang.Exception: ERROR DE CONTROL DE FLUJO DE PROGRAMA
 	at bitacor.Bitacora.main(Bitacora.java:74)
 
