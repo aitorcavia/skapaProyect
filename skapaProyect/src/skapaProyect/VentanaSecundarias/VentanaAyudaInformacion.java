@@ -67,21 +67,20 @@ public class VentanaAyudaInformacion extends JFrame {
 		TextoCorreo.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		TextoCorreo.setFocusable(false);
 		TextoCorreo.setText("      skapatutienda2@gmail.com");
-		TextoCorreo.setBounds(74, 108, 339, 41);
+		TextoCorreo.setBounds(70, 116, 339, 41);
 		contentPane.add(TextoCorreo);
 		
 		JLabel TextoInstagram = new JLabel();
 		TextoInstagram.setFocusable(false);
 		TextoInstagram.setFont(new Font("Tahoma", Font.BOLD, 16));
 		TextoInstagram.setText("Instagram");
-		TextoInstagram.setBounds(35, 165, 157, 47);
+		TextoInstagram.setBounds(15, 202, 157, 47);
 		contentPane.add(TextoInstagram);
 		
 		JLabel TextoNombreInstagram = new JLabel();
 		TextoNombreInstagram.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		TextoNombreInstagram.setFocusable(false);
-		TextoNombreInstagram.setText("         Skapa");
-		TextoNombreInstagram.setBounds(103, 206, 159, 38);
+		TextoNombreInstagram.setText("Skapa");
+		TextoNombreInstagram.setBounds(118, 265, 120, 38);
 		contentPane.add(TextoNombreInstagram);
 		
 		JLabel TextoIntroduccion = new JLabel();
@@ -90,12 +89,6 @@ public class VentanaAyudaInformacion extends JFrame {
 		TextoIntroduccion.setText("En caso de necesitar ayuda contacte con nosotros ");
 		TextoIntroduccion.setBounds(15, 0, 435, 81);
 		contentPane.add(TextoIntroduccion);
-		
-		JLabel TextoInformacion = new JLabel();
-		TextoInformacion.setFont(new Font("Tahoma", Font.BOLD, 16));
-		TextoInformacion.setText("   Informaci\u00F3n");
-		TextoInformacion.setBounds(28, 260, 129, 26);
-		contentPane.add(TextoInformacion);
 		
 		
 		JButton Volver = new JButton("A");
@@ -106,41 +99,17 @@ public class VentanaAyudaInformacion extends JFrame {
 		Volver.setBounds(274, 458, 104, 29);
 		contentPane.add(Volver);
 		
-		JLabel imagenGmail = new JLabel("Gmail");
-		imagenGmail.setBounds(25, 112, 60, 54);
+		JButton imagenGmail = new JButton();
+		imagenGmail.setBounds(15, 112, 79, 74);
 		ImageIcon imagenP = new ImageIcon("../skapaProyect/multimedia/Captura.png");
 		
 		Icon icono = new ImageIcon(imagenP.getImage().getScaledInstance(imagenGmail.getWidth(), imagenGmail.getHeight(), Image.SCALE_DEFAULT));
 		imagenGmail.setIcon(icono);
 		contentPane.add(imagenGmail);
 		
-		JLabel imagenInstagram = new JLabel("Instagram");
-		imagenInstagram.setBounds(37, 201, 65, 43);
-		ImageIcon imagenP1 = new ImageIcon("../skapaProyect/multimedia/Captura1.png");
-		
-		Icon icono1 = new ImageIcon(imagenP1.getImage().getScaledInstance(imagenInstagram.getWidth(), imagenInstagram.getHeight(), Image.SCALE_DEFAULT));
-		imagenInstagram.setIcon(icono1);
-		contentPane.add(imagenInstagram);
-		
-		
-		JTextArea txtrunaManeraFcil = new JTextArea();
-		txtrunaManeraFcil.setEditable(false);
-		txtrunaManeraFcil.setFont(new Font("Monospaced", Font.PLAIN, 13));
-		txtrunaManeraFcil.setText("\"Una manera f\u00E1cil y gratuita de ganar dinero \r\n vendiendo las cosas que ya no usas desde \r\n una sola aplicaci\u00F3n. En esta aplicaci\u00F3n puedes\r\n  vender, ceder incluso intercambiar objetos\"");
-		txtrunaManeraFcil.setBounds(15, 302, 379, 81);
-		contentPane.add(txtrunaManeraFcil);
-		
-		JButton BotonGmail = new JButton("");
-		BotonGmail.setFont(new Font("Tahoma", Font.BOLD, 16));
-		BotonGmail.setBounds(74, 157, 11, 9);
-		contentPane.add(BotonGmail);
-		
-		
-		BotonGmail.addActionListener(new ActionListener() {
-
+		imagenGmail.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				if(java.awt.Desktop.isDesktopSupported()) {
 					java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
 					
@@ -153,19 +122,19 @@ public class VentanaAyudaInformacion extends JFrame {
 					}
 				
 			}
-			
 		});
-		JButton BotonInstagram = new JButton("");
-		BotonInstagram.setFont(new Font("Tahoma", Font.BOLD, 16));
-		BotonInstagram.setBounds(91, 235, 11, 9);
-		contentPane.add(BotonInstagram);
 		
+		JButton imagenInstagram = new JButton();
+		imagenInstagram.setBounds(15, 250, 79, 72);
+		ImageIcon imagenP1 = new ImageIcon("../skapaProyect/multimedia/Captura1.png");
 		
-		BotonInstagram.addActionListener(new ActionListener() {
-
+		Icon icono1 = new ImageIcon(imagenP1.getImage().getScaledInstance(imagenInstagram.getWidth(), imagenInstagram.getHeight(), Image.SCALE_DEFAULT));
+		imagenInstagram.setIcon(icono1);
+		contentPane.add(imagenInstagram);
+		
+		imagenInstagram.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
 				if(java.awt.Desktop.isDesktopSupported()) {
 					java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
 					
@@ -178,11 +147,16 @@ public class VentanaAyudaInformacion extends JFrame {
 					}
 				
 			}
-			
 		});
 		
 		
-		
+		JTextArea textoEslogan = new JTextArea();
+		textoEslogan.setFont(new Font("Monospaced", Font.PLAIN, 13));
+		textoEslogan.setText("\"Una manera f\u00E1cil y gratuita de ganar dinero \r\n vendiendo las cosas que ya no usas desde \r\n una sola aplicaci\u00F3n. En esta aplicaci\u00F3n puedes\r\n  vender, ceder incluso intercambiar objetos\"");
+		textoEslogan.setBounds(15, 345, 379, 81);
+		textoEslogan.setOpaque(false);
+		contentPane.add(textoEslogan);
+
 		
 		Volver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

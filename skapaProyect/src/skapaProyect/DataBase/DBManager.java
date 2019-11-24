@@ -169,11 +169,12 @@ public class DBManager {
 	public void actualizarBase (Usuario usuario) throws DBException{
 	
 		
-		try (PreparedStatement stmt = conn.prepareStatement("UPDATE usuario	SET nombre= ?, apellidos = ?, correo = ? WHERE id= ?")) {
+		try (PreparedStatement stmt = conn.prepareStatement("UPDATE usuario	SET nombre= ?, apellidos = ?, correo = ?, ubicacion = ? WHERE id= ?")) {
 			stmt.setString(1, usuario.getNombre());
 			stmt.setString(2, usuario.getApellidos());
 			stmt.setString(3, usuario.getCorreo());
-			stmt.setInt(4, usuario.getId());
+			stmt.setString(4, usuario.getUbicacion());
+			stmt.setInt(5, usuario.getId());
 			stmt.executeUpdate();
 			
 			

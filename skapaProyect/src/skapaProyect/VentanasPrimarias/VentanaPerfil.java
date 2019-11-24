@@ -118,7 +118,7 @@ public class VentanaPerfil extends JFrame {
 		contentPane.add(TextoCorreoElectrnico);
 		
 		JButton BotonTarjeta = new JButton("Tarjeta");
-		BotonTarjeta.setBackground(new Color(224, 255, 255));
+		BotonTarjeta.setBackground(new Color(176, 196, 222));
 		BotonTarjeta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
@@ -148,31 +148,27 @@ public class VentanaPerfil extends JFrame {
 			String ubicacion = usuario.getUbicacion();
 			String direccionIP = usuario.getDireccionIP();
 
-			JLabel labelNombreUsuario = new JLabel(nomUsuario);
-			labelNombreUsuario.setBounds(25, 58, 152, 20);
-			contentPane.add(labelNombreUsuario);
 			
+			JLabel labelNombreUsuario = new JLabel(nomUsuario);
+			labelNombreUsuario.setFont(new Font("Tahoma", Font.PLAIN, 22));
+			labelNombreUsuario.setBounds(15, 58, 162, 20);
+			contentPane.add(labelNombreUsuario);
 			
 			nombreUsuario.setText(nombre);
 			nombreUsuario.setBounds(102, 170, 384, 26);
 			contentPane.add(nombreUsuario);
 			
-			
 			apellidoUsuario.setText(apellidos);
 			apellidoUsuario.setBounds(102, 202, 384, 26);
 			contentPane.add(apellidoUsuario);
-			
 			
 			ubicacionProvinciaUsuario.setText(ubicacion);
 			ubicacionProvinciaUsuario.setBounds(185, 235, 301, 26);
 			contentPane.add(ubicacionProvinciaUsuario);
 			
-			
 			textoCorreo.setText(correo);
 			textoCorreo.setBounds(170, 406, 317, 26);
 			contentPane.add(textoCorreo);
-			
-			
 			
 			conexion.disconnect();
 			
@@ -181,12 +177,7 @@ public class VentanaPerfil extends JFrame {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
 		}
-		
-		
-		
-		
-		
-		
+
 		JComboBox comboAnyo = new JComboBox();
 		
 		Calendar data = Calendar.getInstance();
@@ -222,6 +213,8 @@ public class VentanaPerfil extends JFrame {
 		contentPane.add(lblGestionDePago);
 		
 		JButton btnGuardarCambios = new JButton("Guardar cambios");
+		btnGuardarCambios.setBackground(new Color(224, 255, 255));
+		btnGuardarCambios.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		btnGuardarCambios.setBounds(340, 520, 180, 29);
 		contentPane.add(btnGuardarCambios);
 		
@@ -244,6 +237,7 @@ public class VentanaPerfil extends JFrame {
 					usuario.setNombre(nombreUsuario.getText());
 					usuario.setApellidos(apellidoUsuario.getText());
 					usuario.setCorreo(textoCorreo.getText());
+					usuario.setUbicacion(ubicacionProvinciaUsuario.getText());
 					
 					try {
 						conexion.actualizarBase(usuario);
@@ -261,11 +255,6 @@ public class VentanaPerfil extends JFrame {
 				} catch (DBException e2) {
 					e2.printStackTrace();
 				}
-				
-				
-				
-	
-				
 				
 			}
 		});
@@ -358,6 +347,20 @@ public class VentanaPerfil extends JFrame {
 				
 		botonCAnyo.setIcon(iconoCandadoC4);
 		contentPane.add(botonCAnyo);
+		
+		JButton btnAtras = new JButton("Atras");
+		btnAtras.setBounds(15, 520, 96, 29);
+		contentPane.add(btnAtras);
+		
+		btnAtras.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				VentanaUsuario vu = new VentanaUsuario();
+				vu.setVisible(true);
+				setVisible(false);
+				
+			}
+		});
 				
 		botonCAnyo.addActionListener(new ActionListener() {
 			@Override

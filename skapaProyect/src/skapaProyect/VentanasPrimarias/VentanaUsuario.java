@@ -27,8 +27,6 @@ import javax.swing.ImageIcon;
 public class VentanaUsuario extends JFrame {
 
 	private JPanel contentPane;
-	private JTextField txtVentas;
-	private JTextField txtCompras;
 
 	/**
 	 *   Launch the application.
@@ -90,20 +88,6 @@ public class VentanaUsuario extends JFrame {
 		
 		contentPane.add(imagenPerfil);
 		
-		txtVentas = new JTextField();
-		txtVentas.setEditable(false);
-		txtVentas.setText("Ventas");
-		txtVentas.setBounds(80, 195, 83, 20);
-		contentPane.add(txtVentas);
-		txtVentas.setColumns(10);
-		
-		txtCompras = new JTextField();
-		txtCompras.setEditable(false);
-		txtCompras.setText("Compras");
-		txtCompras.setBounds(203, 195, 109, 20);
-		contentPane.add(txtCompras);
-		txtCompras.setColumns(10);
-		
 		JLabel LabelGrafico = new JLabel("");
 		LabelGrafico.setIcon(new ImageIcon("../skapaProyect/multimedia/grafica-64985.gif"));
 		LabelGrafico.setBounds(10, 150, 97, 106);
@@ -116,6 +100,14 @@ public class VentanaUsuario extends JFrame {
 		JLabel labelApellidos = new JLabel("New label");
 		labelApellidos.setBounds(10, 53, 204, 20);
 		contentPane.add(labelApellidos);
+		
+		JButton btnNewButton = new JButton("Ventas");
+		btnNewButton.setBounds(10, 265, 196, 29);
+		contentPane.add(btnNewButton);
+		
+		JButton btnNewButton_1 = new JButton("Compras");
+		btnNewButton_1.setBounds(220, 265, 191, 29);
+		contentPane.add(btnNewButton_1);
 		
 		botonArticulosVenta.addActionListener(new ActionListener() {
 
