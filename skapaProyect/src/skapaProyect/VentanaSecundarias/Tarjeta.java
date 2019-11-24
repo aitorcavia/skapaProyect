@@ -43,6 +43,8 @@ public class Tarjeta {
 		this.estadoProvincia = "";
 		this.codigoPostal = "";
 	}
+	
+	
 	public String getTipo() {
 		return tipo;
 	}

@@ -11,6 +11,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import skapaProyect.VentanaSecundarias.Tarjeta;
 import skapaProyect.VentanasPrimarias.Anuncio;
 import skapaProyect.VentanasPrimarias.Usuario;
 
@@ -57,9 +58,7 @@ public class DBManager {
 	}
 
 	//COMPROBAR NOMUSUARIO EXISTE
-	
 	public boolean comprobarNomUsuario(Usuario usuario) throws DBException{
-		
 		boolean existe;
 		String nomUsuario = usuario.getNomUsuario();
 		
@@ -148,7 +147,6 @@ public class DBManager {
 	}
 	
 	//OBTENER ID DE NOMUSUARIO
-	
 	public int obtenerId (String nomUsuario) throws DBException{
 		int idUsuario = 0;
 		
@@ -236,36 +234,34 @@ public class DBManager {
 			}
 		}
 		
-		//LISTAR TODOS LOS ANUNCIOS POR IdUsuario
-		
-		public List<Anuncio> listarAnunciosIdUsuario(int idUsuario) throws DBException {
-			List<Anuncio> anuncios = new ArrayList<Anuncio>();
-			try (PreparedStatement stmt = conn.prepareStatement("SELECT idUsuario, idAnuncio, titulo, descripcion, precio, categoria FROM anuncio WHERE idUsuario = ?")) {
-				stmt.setInt(1, idUsuario);
-				
-				ResultSet rs = stmt.executeQuery();
+	//LISTAR TODOS LOS ANUNCIOS POR IdUsuario
+	public List<Anuncio> listarAnunciosIdUsuario(int idUsuario) throws DBException {
+		List<Anuncio> anuncios = new ArrayList<Anuncio>();
+		try (PreparedStatement stmt = conn.prepareStatement("SELECT idUsuario, idAnuncio, titulo, descripcion, precio, categoria FROM anuncio WHERE idUsuario = ?")) {
+			stmt.setInt(1, idUsuario);
+			
+			ResultSet rs = stmt.executeQuery();
 
-				while(rs.next()) {
-					Anuncio anuncio = new Anuncio();
-					anuncio.setIdUsuario(rs.getInt("idUsuario"));
-					anuncio.setIdAnuncio(rs.getInt("idAnuncio"));
-					anuncio.setTitulo(rs.getString("titulo"));
-					anuncio.setPrecio(rs.getString("precio"));
-					anuncio.setCategoria(rs.getString("categoria"));
-					anuncio.setDescripcion(rs.getString("descripcion"));
-					anuncios.add(anuncio);
-				}
-				
-				return anuncios;
-				
-			} catch (SQLException e) {
-				throw new DBException("Error obteniendo todos los anuncios'", e);
+			while(rs.next()) {
+				Anuncio anuncio = new Anuncio();
+				anuncio.setIdUsuario(rs.getInt("idUsuario"));
+				anuncio.setIdAnuncio(rs.getInt("idAnuncio"));
+				anuncio.setTitulo(rs.getString("titulo"));
+				anuncio.setPrecio(rs.getString("precio"));
+				anuncio.setCategoria(rs.getString("categoria"));
+				anuncio.setDescripcion(rs.getString("descripcion"));
+				anuncios.add(anuncio);
 			}
+			
+			return anuncios;
+			
+		} catch (SQLException e) {
+			throw new DBException("Error obteniendo todos los anuncios'", e);
 		}
-				
-				
-	//LISTAR TODOS LOS ANUNCIOS POR FILTRO buscador, categoria, provincia, precio
-				
+	}
+			
+			
+	//LISTAR TODOS LOS ANUNCIOS POR FILTRO buscador, categoria, provincia, precio		
 	public List<Anuncio> listarAnunciosFiltro (String texto, String categoria, String provincia, String precio1, String precio2) throws DBException {
 		List<Anuncio> anuncios = new ArrayList<Anuncio>();
 		
@@ -366,6 +362,32 @@ public class DBManager {
 			stmt.executeUpdate();
 		} catch (SQLException e) {
 			throw new DBException("No se pudo elimiar el usuario con id " + usuario.getId(), e);
+		}
+	}
+	
+	//INSERTAR DATOS A TARJETA
+	public void insertarDatosTarjeta (Tarjeta tarjeta) throws DBException{
+		
+		try (Statement stmt= conn.createStatement()) {
+			
+			String tipo =  tarjeta.getTipo();
+			String numeroTarjeta = tarjeta.getNumeroTarjeta();
+			String fecha =	tarjeta.getFecha();
+			String codigoDeSeguridad = tarjeta.getCodigoDeSeguridad();
+			String codigoPostal2 =	tarjeta.getCodigoPostal2();
+			String nombreCompleto =	tarjeta.getNombreCompleto();
+			String direccion =	tarjeta.getDireccion();
+			String lineaSegundaDireccion = tarjeta.getLineaSegundaDireccion();
+			String ciudad =	tarjeta.getCiudad();
+			String estadoProvincia	= tarjeta.getEstadoProvincia();
+			String codigoPostal	= tarjeta.getCodigoPostal();
+			
+			stmt.executeUpdate("INSERT INTO tarjeta (idUsuario, tipo, numeroTarjeta, fecha, codigoDeSeguridad, codigoPostal2, nombreCompleto,direccion, lineaSegundaDireccion, ciudad, estadoProvincia, codigoPostal) VALUES ('" + tipo + "' , '" + numeroTarjeta + "', '" + fecha + "', '" + codigoDeSeguridad + "', '" + nombreCompleto + "', '" + codigoPostal2 + "', '" + direccion + "', '" + lineaSegundaDireccion + "', '" + ciudad + "', '" + estadoProvincia + "', '" + codigoPostal + "')");
+			
+			
+			
+		} catch (SQLException e) {
+			throw new DBException("No ha sido posible ejecutar la query");
 		}
 	}
 }

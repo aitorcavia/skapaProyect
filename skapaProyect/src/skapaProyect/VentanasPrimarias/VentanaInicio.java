@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import skapaProyect.Chat.VentanaCliente;
 import skapaProyect.DataBase.DBException;
 import skapaProyect.DataBase.DBManager;
 
@@ -117,7 +118,6 @@ public class VentanaInicio extends JFrame {
 		
 		
 		//LISTADO DE TODOS LOS ANUNCIOS
-		
 		DBManager conexion = new DBManager();
 		
 		try {
@@ -231,6 +231,16 @@ public class VentanaInicio extends JFrame {
 						btnContactar.setBounds(1142, 16, 99, 23);
 						panelAnuncio.add(btnContactar);
 						
+						btnContactar.addActionListener(new ActionListener() {
+							@Override
+							public void actionPerformed(ActionEvent e) {
+								// TODO Auto-generated method stub
+								
+							}
+						});
+						
+						
+						
 						JButton btninfo = new JButton("+INFO");
 						btninfo.setBounds(1142, 44, 99, 23);
 						panelAnuncio.add(btninfo);
@@ -238,6 +248,7 @@ public class VentanaInicio extends JFrame {
 						cont = cont + 95;
 			
 					}
+					
 					conexion.disconnect();
 					
 				} catch (DBException e2) {

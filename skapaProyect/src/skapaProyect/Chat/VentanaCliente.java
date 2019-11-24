@@ -16,6 +16,9 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+
+import skapaProyect.DataBase.DBManager;
+
 import java.awt.TextArea;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -60,18 +63,18 @@ public class VentanaCliente  {
 	public void hacerInterfaz() {
 		ventana_chat = new JFrame("Cliente"); 
 		ventana_chat.getContentPane().setBackground(new Color(135, 206, 250));
-		 txt_nick = new JTextField(5);
-		 txt_ip = new JTextField(8);
+		txt_nick = new JTextField(5);
+		txt_ip = new JTextField(8);
 		 
-		 nick_txt = new JTextField();
-			nick_txt.setBounds(0, 42, 82, 26);
-			ventana_chat.getContentPane().add(nick_txt);
-			nick_txt.setColumns(10);
+		nick_txt = new JTextField();
+		nick_txt.setBounds(0, 42, 82, 26);
+		ventana_chat.getContentPane().add(nick_txt);
+		nick_txt.setColumns(10);
 			
-			ip_txt = new JTextField();
-			ip_txt.setBounds(148, 42, 195, 26);
-			ventana_chat.getContentPane().add(ip_txt);
-			ip_txt.setColumns(10);
+		ip_txt = new JTextField();
+		ip_txt.setBounds(148, 42, 195, 26);
+		ventana_chat.getContentPane().add(ip_txt);
+		ip_txt.setColumns(10);
 
 		contenedor_areachat = new JPanel();
 		contenedor_areachat.setBounds(0, 0, 294, 0);
@@ -121,6 +124,9 @@ public class VentanaCliente  {
 		Thread principal =  new Thread(new Runnable() {
 			public void run() {
 				try {
+					
+					
+					
 					socket = new Socket("localhost",9000);
  						leer();
 						escribir();

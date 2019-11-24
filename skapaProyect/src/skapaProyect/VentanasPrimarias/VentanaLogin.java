@@ -188,5 +188,5 @@ public class VentanaLogin extends JFrame {
 	
 	public static int getUsuarioId(){
 		return idUsuario;
-		}
+	}
 }
