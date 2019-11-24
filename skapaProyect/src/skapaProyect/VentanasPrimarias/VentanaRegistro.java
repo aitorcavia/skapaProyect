@@ -113,68 +113,43 @@ public class VentanaRegistro extends JFrame {
 				
 				if (nomUsuario.equals("") || contrasenya.equals("") || correo.equals("")) {
 					JOptionPane.showMessageDialog(null, "Alguno de los campos esta vacio o es nulo", "Error", 0);
+					
 				}else {
-				
-					Usuario usuario = new Usuario();
-					usuario.setNombre(nomUsuario);
-					usuario.setContrasenya(contrasenya);
-					usuario.setCorreo(correo);
-		
-					DBManager conexion = new DBManager();
 					
-					try {
-						conexion.connect();
-						conexion.registrarUsuario(usuario);
-						JOptionPane.showMessageDialog(null, "Cuenta creada correctamente", "Correcto", 1);
-						conexion.disconnect();
-						
-					} catch (DBException e1) {
-						e1.printStackTrace();
-					}
+					if (correo.contains("@") && correo.contains(".")) {
 				
-				}
-	
-			/*	try {
-					
-					if (nomUsuario.equals("") || contrasenya.equals("") || correo.equals("")) {
-						JOptionPane.showMessageDialog(null, "Alguno de los campos esta vacio o es nulo", "Error", 0);
-						
-					}else {
-						
-						if (correo.contains("@") && correo.contains(".")) {
-							Class.forName("org.sqlite.JDBC");
-							
-							Connection conn = DriverManager.getConnection("jdbc:sqlite:data/BD.db");
-							Statement stmt = conn.createStatement();
-						
-							String query = "INSERT INTO usuario (nomUsuario, contrasenya, correo) VALUES ('" + nomUsuario + "', '"+ contrasenya + "', '" + correo + "')" ;
-							stmt.executeUpdate(query);
-					
-		
-							JOptionPane.showMessageDialog(null, "Cuenta creada correctamente", "Correcto", 1);
-						
-							stmt.close();
-							conn.close();
-				
-							VentanaLogin vl = new VentanaLogin(); 
-							setVisible(false);
-							vl.setVisible(true);
-							
-						}else {
-							JOptionPane.showMessageDialog(null, "Direccion de correo no validaa", "Error", 0);
-						}
-						
-					}
+						Usuario usuario = new Usuario();
+						usuario.setNombre(nomUsuario);
+						usuario.setContrasenya(contrasenya);
+						usuario.setCorreo(correo);
 			
-				} catch (ClassNotFoundException e1) {
-					System.out.println("No se ja podido cargar el driver");
-					e1.printStackTrace();
-				}catch (SQLException e1) {
-					System.out.println("No se ha podido conectar a BD");
-					e1.printStackTrace();
-				}
+						DBManager conexion = new DBManager();
+						
+						try {
+							conexion.connect();
+							if (conexion.comprobarNomUsuario(usuario) == false) {
+								conexion.registrarUsuario(usuario);
+								JOptionPane.showMessageDialog(null, "Cuenta creada correctamente", "Correcto", 1);
+								
+								VentanaLogin vl = new VentanaLogin(); 
+								setVisible(false);
+								vl.setVisible(true);
+								
+							}else {
+								JOptionPane.showMessageDialog(null, "El nombre de usuario ya esta en uso", "Error" , 0);
+							}
+							
+							conexion.disconnect();
+							
+						} catch (DBException e1) {
+							e1.printStackTrace();
+						}
+					}else {
+						JOptionPane.showMessageDialog(null, "Direccion de correo no validaa", "Error", 0);
+						
+					}
 				
-				*/
+				}
 			}
 			
 		});
@@ -189,9 +164,7 @@ public class VentanaRegistro extends JFrame {
 				
 			}
 		});
-		
-	
-		
+
 		
 	}
 }

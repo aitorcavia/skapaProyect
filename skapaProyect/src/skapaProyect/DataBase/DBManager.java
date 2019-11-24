@@ -53,11 +53,76 @@ public class DBManager {
 			throw new DBException("No ha sido posible ejecutar la query");
 		}
 		
-		
-	
-		
-		
 	}
+
+	//COMPROBAR NOMUSUARIO EXISTE
+	
+	public boolean comprobarNomUsuario(Usuario usuario) throws DBException{
+		
+		boolean existe;
+		String nomUsuario = usuario.getNombre();
+		
+		try (PreparedStatement stmt = conn.prepareStatement("SELECT id, nomUsuario, contrasenya, correo FROM usuario WHERE nomUsuario = ?")) {
+			stmt.setString(1, nomUsuario);
+			
+			ResultSet rs = stmt.executeQuery();
+			
+			if (rs.next()) {
+				existe = true;
+			}else {
+				existe = false;
+			}
+					
+		} catch (SQLException e) {
+			throw new DBException("Error obteniendo datos de la query", e);
+		}
+		
+		return existe;
+	}
+	
+	//LOGIN DE USUARIO
+	
+		public boolean loginUsuario (String nomUsuario, String contrasenya) throws DBException{
+			
+			boolean acceso = false;
+			
+			if (nomUsuario.contains("@")) {
+				try (PreparedStatement stmt = conn.prepareStatement("SELECT id, nomUsuario, contrasenya, correo FROM usuario WHERE correo = ? AND contrasenya = ?")) {
+					stmt.setString(1, nomUsuario);
+					stmt.setString(2, contrasenya);
+					
+					ResultSet rs = stmt.executeQuery();
+					
+					if (rs.next()) {
+						acceso = true;
+					}else {
+						acceso = false;
+					}
+					
+				} catch (SQLException e) {
+					throw new DBException("Error obteniendo datos de la query", e);
+				}
+				
+			}else {
+				try (PreparedStatement stmt = conn.prepareStatement("SELECT id, nomUsuario, contrasenya, correo FROM usuario WHERE nomUsuario = ? AND contrasenya = ?")) {
+					stmt.setString(1, nomUsuario);
+					stmt.setString(2, contrasenya);
+					
+					ResultSet rs = stmt.executeQuery();
+					
+					if (rs.next()) {
+						acceso = true;
+					}else {
+						acceso = false;
+					}
+					
+				} catch (SQLException e) {
+					throw new DBException("Error obteniendo datos de la query", e);
+				}
+			}
+			
+			return acceso;
+		}
 	
 	
 	//LISTAR TODOS LOS USUARIOS

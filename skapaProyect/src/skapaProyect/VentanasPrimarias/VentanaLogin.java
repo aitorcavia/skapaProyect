@@ -6,6 +6,10 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import skapaProyect.DataBase.DBException;
+import skapaProyect.DataBase.DBManager;
+
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.JLabel;
@@ -124,53 +128,33 @@ public class VentanaLogin extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				String usuario = textoUsuario.getText();
+				String nomUsuario = textoUsuario.getText();
 				String contrasenya = textoContrasenya.getText();
 				
-				try {
-					Class.forName("org.sqlite.JDBC");
-					
-					Connection conn = DriverManager.getConnection("jdbc:sqlite:data/BD.db");
-					Statement stmt = conn.createStatement();
 				
-					//Recuperar datos, consultas
-					ResultSet rs = stmt.executeQuery("SELECT id, nomUsuario, contrasenya, correo FROM usuario");
+				DBManager conexion = new DBManager();
+				
+				try {
+					conexion.connect();
 					
-					int cont = 0;
-					
-					while (rs.next()) {
-						int idB = rs.getInt("id");
-						String usuarioB = rs.getString("nomUsuario");
-						String contrasenyaB = rs.getString("contrasenya");
-						String correoB = rs.getString("correo");
-					
+					if (conexion.loginUsuario(nomUsuario, contrasenya) == true) {
+						VentanaInicio vi = new VentanaInicio();
+						setVisible(false);
+						vi.setVisible(true);
 						
-						if (usuarioB.equals(usuario) && contrasenyaB.equals(contrasenya) || correoB.equals(usuario) && contrasenyaB.equals(contrasenya)) {
-							idUsuario = idB;
-							VentanaInicio vi = new VentanaInicio();
-							setVisible(false);
-							vi.setVisible(true);
-							cont++;
-							break;
-						}
-					}
-					
-					if(cont ==0) {
+					}else {
 						JOptionPane.showMessageDialog(null, "No se ha podido iniciar sesion", "Error", 0);
 						textoUsuario.setText("");
 						textoContrasenya.setText("");
 					}
 					
-					stmt.close();
-					conn.close();
+					conexion.disconnect();
 					
-				} catch (ClassNotFoundException e1) {
-					System.out.println("No se ja podido cargar el driver");
-					e1.printStackTrace();
-				}catch (SQLException e1) {
-					System.out.println("No se ha podido conectar a BD");
+				} catch (DBException e1) {
+					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+			
 			}
 		});
 		
