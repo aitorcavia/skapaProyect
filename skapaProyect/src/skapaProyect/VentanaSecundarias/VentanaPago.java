@@ -163,6 +163,11 @@ public class VentanaPago extends	 javax.swing.JFrame {
 		txtCodigoPostal_1.setBounds(166, 394, 146, 26);
 		contentPane.add(txtCodigoPostal_1);
 		
+		JComboBox TipoTarjeta = new JComboBox();
+		TipoTarjeta.setModel(new DefaultComboBoxModel(new String[] {"Visa", "MasterCard", "BBK", "Caixa", "Discover", "American Express"}));
+		TipoTarjeta.setBounds(225, 46, 87, 26);
+		contentPane.add(TipoTarjeta);
+		
 		JButton BotonGuardar = new JButton("Guardar"); 
 		BotonGuardar.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -171,11 +176,11 @@ public class VentanaPago extends	 javax.swing.JFrame {
 		BotonGuardar.setFont(new Font("Tahoma", Font.BOLD | Font.ITALIC, 16));
 		BotonGuardar.setBounds(98, 425, 115, 29);
 		contentPane.add(BotonGuardar);
-int idU = VentanaLogin.getUsuarioId();
+		int idU = VentanaLogin.getUsuarioId();
 		
 		int idUsuario = idU;
 		
-		//String tipo =  TipoTarjeta.getSelectedItem().toString();
+		String tipo =  TipoTarjeta.getSelectedItem().toString();
 		String numeroTarjeta = TextoNTarjeta.getSelectedText();
 		String fecha =	Textocaducidad.getSelectedText();
 		String codigoDeSeguridad =	TextoCodigodeSeguridad.getSelectedText();
@@ -190,7 +195,7 @@ int idU = VentanaLogin.getUsuarioId();
 		Tarjeta tarjeta = new Tarjeta();
 		
 		tarjeta.setidUsuario(idUsuario);
-		//tarjeta.setTipo(tipo);
+		tarjeta.setTipo(tipo);
 		tarjeta.setNumeroTarjeta(numeroTarjeta);
 		tarjeta.setFecha(fecha);
 		tarjeta.setCodigoDeSeguridad(codigoDeSeguridad);
@@ -201,32 +206,25 @@ int idU = VentanaLogin.getUsuarioId();
 		tarjeta.setCiudad(ciudad);
 		tarjeta.setEstadoProvincia(estadoProvincia);
 		tarjeta.setCodigoPostal(codigoPostal);
-		/*
+		
 		BotonGuardar.addActionListener(new ActionListener() {
-			
-			
-			
-			DBManager conexionT = new DBManager();
-			
-			try {
-				conexionT.connect();
-				conexionT.insertarDatosTarjeta(tarjeta);
-				conexionT.disconnect();
-			} catch (DBException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				DBManager conexionT = new DBManager();
+				
+				try {
+					conexionT.connect();
+					conexionT.insertarDatosTarjeta(tarjeta);
+					JOptionPane.showMessageDialog(null, "Los datos de la tarjeta se han guardado correctamente", "Correcto", 1);
+					conexionT.disconnect();
+				} catch (DBException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
 			}
-			
-		
-			
-		});*/
-		
-		JComboBox TipoTarjeta = new JComboBox();
-		TipoTarjeta.setModel(new DefaultComboBoxModel(new String[] {"Visa", "MasterCard", "BBK", "Caixa", "Discover", "American Express"}));
-		TipoTarjeta.setBounds(225, 46, 87, 26);
-		contentPane.add(TipoTarjeta);
-		
-			
+		});
+	
 		
 		
 		JButton BotonPaypal = new JButton("Pagar Con Paypal");
