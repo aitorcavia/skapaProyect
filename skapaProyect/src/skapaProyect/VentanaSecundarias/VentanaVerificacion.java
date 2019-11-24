@@ -14,6 +14,8 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.awt.event.ActionEvent;
+import javax.swing.UIManager;
+import java.awt.SystemColor;
 
 public class VentanaVerificacion extends JFrame {
 
@@ -51,40 +53,47 @@ public class VentanaVerificacion extends JFrame {
 		contentPane.setLayout(null);
 		
 		JTextPane txtVerificar = new JTextPane();
+		txtVerificar.setBackground(new Color(135, 206, 250));
+		txtVerificar.setForeground(new Color(0, 0, 0));
 		txtVerificar.setEditable(false);
 		txtVerificar.setText("Al verificar tu identidad aumentar\u00E1 la confianza de tu perfil en la comunidad SKAPA");
 		txtVerificar.setBounds(47, 11, 216, 91);
 		contentPane.add(txtVerificar);
 		
-		JButton botonEmail = new JButton("Email\r\n");
-		botonEmail.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+		JButton botonGmail = new JButton("Gmail");
+		botonGmail.setBackground(SystemColor.menu);
+		botonGmail.addActionListener(new ActionListener() {
+		public void actionPerformed(ActionEvent e) {
 			}
 		});
-		botonEmail.setBounds(10, 131, 89, 23);
-		contentPane.add(botonEmail);
+		botonGmail.setBounds(10, 131, 89, 23);
+		contentPane.add(botonGmail);
 		
 		JButton botonTelefono = new JButton("Tel\u00E9fono\r\n");
-		botonTelefono.setBounds(10, 184, 89, 23);
+		botonTelefono.setBackground(SystemColor.menu);
+		botonTelefono.setBounds(10, 186, 89, 23);
 		contentPane.add(botonTelefono);
 		
 		JButton botonFacebook = new JButton("Facebook");
-		botonFacebook.setBounds(10, 241, 89, 23);
+		botonFacebook.setBackground(SystemColor.menu);
+		botonFacebook.setBounds(10, 242, 89, 23);
 		contentPane.add(botonFacebook);
 		
-		JButton botonGoogle = new JButton("Google\r\n");
-		botonGoogle.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		botonGoogle.setBounds(10, 297, 89, 23);
-		contentPane.add(botonGoogle);
-		
-		botonEmail.addActionListener(new ActionListener() {
+		botonGmail.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				if(java.awt.Desktop.isDesktopSupported()) {
+					java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
+					
+					if (desktop.isSupported(java.awt.Desktop.Action.BROWSE)) {
+						try {
+							java.net.URI uri = new java.net.URI("https://accounts.google.com/");
+							desktop.browse(uri);
+						}catch (URISyntaxException | IOException ex) {}
+						}
+					}
 				
 			}
 			
@@ -120,25 +129,7 @@ public class VentanaVerificacion extends JFrame {
 			
 		});
 		
-		botonGoogle.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				if(java.awt.Desktop.isDesktopSupported()) {
-					java.awt.Desktop desktop = java.awt.Desktop.getDesktop();
-					
-					if (desktop.isSupported(java.awt.Desktop.Action.BROWSE)) {
-						try {
-							java.net.URI uri = new java.net.URI("https://accounts.google.com");
-							desktop.browse(uri);
-						}catch (URISyntaxException | IOException ex) {}
-						}
-					}
-				
-			}
-			
-		});
+		
 	}
 
 }
