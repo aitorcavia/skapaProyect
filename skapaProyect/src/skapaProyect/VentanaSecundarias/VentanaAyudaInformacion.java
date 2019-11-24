@@ -53,8 +53,7 @@ public class VentanaAyudaInformacion extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
-		
+	
 		
 		JLabel TextoCorreoDeContacto = new JLabel();
 		TextoCorreoDeContacto.setFont(new Font("Tahoma", Font.BOLD, 16));
