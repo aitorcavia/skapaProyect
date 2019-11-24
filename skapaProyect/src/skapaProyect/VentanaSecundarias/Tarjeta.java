@@ -125,7 +125,7 @@ public class Tarjeta {
 		return idTarjeta;
 	}
 	public void setidTarjeta(int idTarjeta) {
-		this.idTarjeta = idTarjeta ;
+		this.idTarjeta = idTarjeta;
 	}
 	
 }
