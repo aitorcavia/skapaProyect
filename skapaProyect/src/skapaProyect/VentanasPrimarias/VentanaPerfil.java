@@ -12,6 +12,7 @@ import skapaProyect.DataBase.DBManager;
 import skapaProyect.VentanaSecundarias.VentanaPago;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextPane;
 import java.awt.Color;
 import javax.swing.JComboBox;
@@ -126,6 +127,12 @@ public class VentanaPerfil extends JFrame {
 		BotonTarjeta.setBounds(371, 448, 115, 29);
 		contentPane.add(BotonTarjeta);
 		
+		JTextPane nombreUsuario = new JTextPane();
+		JTextPane apellidoUsuario = new JTextPane();
+		JTextPane ubicacionProvinciaUsuario = new JTextPane();
+		JTextPane textoCorreo = new JTextPane();
+		
+		
 		DBManager conexion = new DBManager();
 		
 		try {
@@ -145,22 +152,22 @@ public class VentanaPerfil extends JFrame {
 			labelNombreUsuario.setBounds(25, 58, 152, 20);
 			contentPane.add(labelNombreUsuario);
 			
-			JTextPane nombreUsuario = new JTextPane();
+			
 			nombreUsuario.setText(nombre);
 			nombreUsuario.setBounds(102, 170, 384, 26);
 			contentPane.add(nombreUsuario);
 			
-			JTextPane apellidoUsuario = new JTextPane();
+			
 			apellidoUsuario.setText(apellidos);
 			apellidoUsuario.setBounds(102, 202, 384, 26);
 			contentPane.add(apellidoUsuario);
 			
-			JTextPane ubicacionProvinciaUsuario = new JTextPane();
+			
 			ubicacionProvinciaUsuario.setText(ubicacion);
 			ubicacionProvinciaUsuario.setBounds(185, 235, 301, 26);
 			contentPane.add(ubicacionProvinciaUsuario);
 			
-			JTextPane textoCorreo = new JTextPane();
+			
 			textoCorreo.setText(correo);
 			textoCorreo.setBounds(170, 406, 317, 26);
 			contentPane.add(textoCorreo);
@@ -224,7 +231,44 @@ public class VentanaPerfil extends JFrame {
 		
 		
 		
-		
+		btnGuardarCambios.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				DBManager conexion = new DBManager();
+				
+				try {
+					conexion.connect();
+					
+					Usuario usuario = new Usuario();
+					usuario.setId(idUsuario);
+					usuario.setNombre(nombreUsuario.getText());
+					usuario.setApellidos(apellidoUsuario.getText());
+					usuario.setCorreo(textoCorreo.getText());
+					
+					try {
+						conexion.actualizarBase(usuario);
+						JOptionPane.showMessageDialog(null, "Datos actualizados correctamente", "Correcto", 1);
+						VentanaPerfil vp = new VentanaPerfil();
+						vp.setVisible(true);
+						setVisible(false);
+						
+					} catch (DBException e1) {
+						e1.printStackTrace();
+					}
+					
+					conexion.disconnect();
+					
+				} catch (DBException e2) {
+					e2.printStackTrace();
+				}
+				
+				
+				
+	
+				
+				
+			}
+		});
 		
 		
 		

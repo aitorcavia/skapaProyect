@@ -165,6 +165,24 @@ public class DBManager {
 		return idUsuario;
 	}
 	
+	//ACTUALIZAR BASE DE DATOS
+	public void actualizarBase (Usuario usuario) throws DBException{
+	
+		
+		try (PreparedStatement stmt = conn.prepareStatement("UPDATE usuario	SET nombre= ?, apellidos = ?, correo = ? WHERE id= ?")) {
+			stmt.setString(1, usuario.getNombre());
+			stmt.setString(2, usuario.getApellidos());
+			stmt.setString(3, usuario.getCorreo());
+			stmt.setInt(4, usuario.getId());
+			stmt.executeUpdate();
+			
+			
+		
+		} catch (SQLException e) {
+			throw new DBException("Error obteniendo todos los usuarios'", e);
+		}	
+	}
+	
 	//OBTENER USUARIO POR LA ID
 	public Usuario buscarUsuarioId(int id) throws DBException {
 		try (PreparedStatement stmt = conn.prepareStatement("SELECT id, nomUsuario, contrasenya, correo, nombre, apellidos, ubicacion, direccionIP FROM usuario WHERE id = ?")) {
