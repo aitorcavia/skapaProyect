@@ -1,4 +1,4 @@
-package skapaProyect.VentanaSecundarias;
+package skapaProyect.ventanaSecundarias;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -14,7 +14,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import skapaProyect.VentanasPrimarias.VentanaProductosVendidos;
+import skapaProyect.ventanasPrimarias.VentanaProductosVendidos;
 
 import java.awt.Color;
 import javax.swing.JLabel;

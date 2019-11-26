@@ -1,4 +1,4 @@
-package skapaProyect.VentanaSecundarias;
+package skapaProyect.ventanaSecundarias;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -9,7 +9,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Color;
 import javax.swing.JLabel;
 
-public class VentanaOpiniones extends JFrame {
+public class VentanaMensajes extends JFrame {
 
 	private JPanel contentPane;
 
@@ -20,7 +20,7 @@ public class VentanaOpiniones extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					VentanaOpiniones frame = new VentanaOpiniones();
+					VentanaMensajes frame = new VentanaMensajes();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -32,7 +32,7 @@ public class VentanaOpiniones extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public VentanaOpiniones() {
+	public VentanaMensajes() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 349, 559);
 		contentPane = new JPanel();
@@ -41,8 +41,9 @@ public class VentanaOpiniones extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JLabel labelOpiniones = new JLabel("Opiniones:");
-		labelOpiniones.setBounds(22, 22, 75, 31);
-		contentPane.add(labelOpiniones);
+		JLabel lblConversaciones = new JLabel("Conversaciones");
+		lblConversaciones.setBounds(24, 11, 90, 37);
+		contentPane.add(lblConversaciones);
 	}
+
 }

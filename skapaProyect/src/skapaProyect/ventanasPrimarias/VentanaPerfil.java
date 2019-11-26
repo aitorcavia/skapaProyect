@@ -1,4 +1,4 @@
-package skapaProyect.VentanasPrimarias;
+package skapaProyect.ventanasPrimarias;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
@@ -9,7 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import skapaProyect.DataBase.DBException;
 import skapaProyect.DataBase.DBManager;
-import skapaProyect.VentanaSecundarias.VentanaPago;
+import skapaProyect.ventanaSecundarias.VentanaPago;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;

@@ -1,4 +1,4 @@
-package skapaProyect.VentanasPrimarias;
+package skapaProyect.ventanasPrimarias;
 
 public class Anuncio {
 	

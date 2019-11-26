@@ -4,7 +4,7 @@ import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-import skapaProyect.VentanasPrimarias.Usuario;
+import skapaProyect.ventanasPrimarias.Usuario;
 
 public class usuarioTest {
 

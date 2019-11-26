@@ -1,4 +1,4 @@
-package skapaProyect.VentanaSecundarias;
+package skapaProyect.ventanaSecundarias;
 
 import java.awt.BorderLayout;
 import java.awt.Desktop;
@@ -17,7 +17,7 @@ import javax.swing.border.EmptyBorder;
 
 import skapaProyect.DataBase.DBException;
 import skapaProyect.DataBase.DBManager;
-import skapaProyect.VentanasPrimarias.VentanaLogin;
+import skapaProyect.ventanasPrimarias.VentanaLogin;
 
 import javax.swing.JTextField;
 import java.awt.Font;
