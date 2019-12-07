@@ -26,6 +26,7 @@ public class VentanaInicio extends JFrame {
 	private JPanel contentPane;
 	private JTextField textoPrecio1;
 	private JTextField textoPrecio2;
+	private static int idServidor;
 
 	/**
 	 * Launch the application.
@@ -234,13 +235,12 @@ public class VentanaInicio extends JFrame {
 						btnContactar.addActionListener(new ActionListener() {
 							@Override
 							public void actionPerformed(ActionEvent e) {
-								// TODO Auto-generated method stub
-								
+								idServidor = anuncio.getIdUsuario();
+								VentanaCliente vc = new VentanaCliente();
+								vc.setVisible(true);
 							}
 						});
-						
-						
-						
+				
 						JButton btninfo = new JButton("+INFO");
 						btninfo.setBounds(1142, 44, 99, 23);
 						panelAnuncio.add(btninfo);
@@ -260,8 +260,10 @@ public class VentanaInicio extends JFrame {
 			}
 		});
 		
+
 		
-		
-		
+	}
+	public static int getIdServidor(){
+		return idServidor;
 	}
 }

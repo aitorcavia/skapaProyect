@@ -29,6 +29,8 @@ import java.util.Date;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 
+import skapaProyect.DataBase.*;
+
 public class VentanaPerfil extends JFrame {
 
 	private JPanel contentPane;

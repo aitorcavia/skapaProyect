@@ -11,9 +11,10 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-import skapaProyect.VentanaSecundarias.Tarjeta;
-import skapaProyect.VentanasPrimarias.Anuncio;
-import skapaProyect.VentanasPrimarias.Usuario;
+import skapaProyect.ventanaSecundarias.Tarjeta;
+import skapaProyect.ventanasPrimarias.Anuncio;
+import skapaProyect.ventanasPrimarias.Usuario;
+
 
 public class DBManager {
 

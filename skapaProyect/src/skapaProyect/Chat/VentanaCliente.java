@@ -17,7 +17,11 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import skapaProyect.DataBase.DBException;
 import skapaProyect.DataBase.DBManager;
+import skapaProyect.ventanasPrimarias.Usuario;
+import skapaProyect.ventanasPrimarias.VentanaInicio;
+import skapaProyect.ventanasPrimarias.VentanaLogin;
 
 import java.awt.TextArea;
 import java.awt.event.ActionEvent;
@@ -34,7 +38,7 @@ import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JSeparator;
 
-public class VentanaCliente  {
+public class VentanaCliente extends JFrame {
 
 	JTextArea area_chat = null;
 	JFrame ventana_chat = null;
@@ -42,6 +46,8 @@ public class VentanaCliente  {
 	JTextField txt_mensaje = null;
 	JPanel contenedor_areachat = null;
 	JPanel contenedor_btntxt = null;
+	String direccionIpCliente = null;
+	String direccionIpServidor = null;
 	
 	
 //	JScrollPane scroll = null;
@@ -61,6 +67,26 @@ public class VentanaCliente  {
 	}
 	
 	public void hacerInterfaz() {
+		
+		
+		//SACAR DIRECCION IP SERVIDOR Y IP CLIENTE
+		DBManager conexion = new DBManager();
+		try {
+			conexion.connect();
+			Usuario uServidor = conexion.buscarUsuarioId(VentanaInicio.getIdServidor());
+			direccionIpServidor = uServidor.getDireccionIP();
+			Usuario uCliente = conexion.buscarUsuarioId(VentanaLogin.getUsuarioId());
+			direccionIpCliente = uCliente.getDireccionIP();
+			conexion.disconnect();
+			
+		} catch (DBException e1) {
+			e1.printStackTrace();
+		}
+		
+		System.out.println(direccionIpCliente);
+		System.out.println(direccionIpServidor);
+
+		
 		ventana_chat = new JFrame("Cliente"); 
 		ventana_chat.getContentPane().setBackground(new Color(135, 206, 250));
 		txt_nick = new JTextField(5);
@@ -124,9 +150,7 @@ public class VentanaCliente  {
 		Thread principal =  new Thread(new Runnable() {
 			public void run() {
 				try {
-					
-					
-					
+		
 					socket = new Socket("localhost",9000);
  						leer();
 						escribir();
