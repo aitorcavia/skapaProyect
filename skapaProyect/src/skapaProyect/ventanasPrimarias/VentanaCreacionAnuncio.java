@@ -19,6 +19,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -36,6 +38,7 @@ public class VentanaCreacionAnuncio extends JFrame {
 	private JTextField textoTitulo;
 	private JTextField textoPrecio;
 	public static int idAnuncio;
+	Logger logger = Logger.getLogger(VentanaCreacionAnuncio.class.getName());
 
 	/**
 	 * Launch the application.
@@ -57,6 +60,9 @@ public class VentanaCreacionAnuncio extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaCreacionAnuncio() {
+		
+		logger.log(Level.INFO, "Ventana inicializada");
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 340, 550);
 		contentPane = new JPanel();
@@ -118,6 +124,9 @@ public class VentanaCreacionAnuncio extends JFrame {
 		JButton botonGuardar = new JButton("Guardar");
 		botonGuardar.setBounds(188, 458, 115, 29);
 		panel.add(botonGuardar);
+		
+		
+		
 	
 	
 	botonGuardar.addActionListener(new ActionListener() {
@@ -140,6 +149,7 @@ public class VentanaCreacionAnuncio extends JFrame {
 			categoria = comboBox.getSelectedItem().toString();
 
 			try {
+				
 				Class.forName("org.sqlite.JDBC");
 				
 				Connection conn = DriverManager.getConnection("jdbc:sqlite:data/BD.db");
@@ -172,8 +182,6 @@ public class VentanaCreacionAnuncio extends JFrame {
 			va.setVisible(true);
 		}
 	});
-	
-
 	
 	}
 	
