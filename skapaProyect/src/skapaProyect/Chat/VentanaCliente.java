@@ -82,9 +82,6 @@ public class VentanaCliente extends JFrame {
 		} catch (DBException e1) {
 			e1.printStackTrace();
 		}
-		
-		System.out.println(direccionIpCliente);
-		System.out.println(direccionIpServidor);
 
 		
 		ventana_chat = new JFrame("Cliente"); 
@@ -181,9 +178,7 @@ public class VentanaCliente extends JFrame {
 			}
 		});
 		leer_hilo.start();
-		
-		
-		
+
 	}
 
 	public void escribir() {
