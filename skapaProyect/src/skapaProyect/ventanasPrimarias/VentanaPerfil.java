@@ -5,6 +5,7 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JProgressBar;
 import javax.swing.border.EmptyBorder;
 
 import skapaProyect.dataBase.*;
@@ -35,6 +36,8 @@ public class VentanaPerfil extends JFrame {
 	private int contC2 = 0;
 	private int contC3 = 0;
 	private int contC4 = 0;
+	private int valueProgressBar = 0;
+	
 
 	/**
 	 * Launch the application.
@@ -56,6 +59,8 @@ public class VentanaPerfil extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaPerfil() {
+		
+		
 		
 		int idUsuario = VentanaLogin.getUsuarioId();
 		
@@ -81,21 +86,21 @@ public class VentanaPerfil extends JFrame {
 		
 		JLabel TextoNombre = new JLabel();
 		TextoNombre.setText("Nombre");
-		TextoNombre.setBounds(15, 170, 72, 26);
+		TextoNombre.setBounds(15, 133, 72, 26);
 		contentPane.add(TextoNombre);
 		
 		
 		
 		JLabel TextoUbicacinProvincia = new JLabel();
 		TextoUbicacinProvincia.setText("Apellidos");
-		TextoUbicacinProvincia.setBounds(15, 202, 72, 26);
+		TextoUbicacinProvincia.setBounds(15, 164, 72, 26);
 		contentPane.add(TextoUbicacinProvincia);
 		
 		
 		
 		JLabel TextoUbicacinProvincia_1 = new JLabel();
 		TextoUbicacinProvincia_1.setText("Ubicaci\u00F3n / Provincia");
-		TextoUbicacinProvincia_1.setBounds(15, 235, 162, 26);
+		TextoUbicacinProvincia_1.setBounds(15, 195, 162, 26);
 		contentPane.add(TextoUbicacinProvincia_1);
 		
 		
@@ -108,12 +113,12 @@ public class VentanaPerfil extends JFrame {
 		
 		JLabel labelAnyoN = new JLabel();
 		labelAnyoN.setText("A\u00F1o de nacimiento");
-		labelAnyoN.setBounds(15, 277, 152, 26);
+		labelAnyoN.setBounds(15, 233, 152, 26);
 		contentPane.add(labelAnyoN);
 		
 		JLabel TextoCorreoElectrnico = new JLabel();
 		TextoCorreoElectrnico.setText("Correo electr\u00F3nico");
-		TextoCorreoElectrnico.setBounds(15, 406, 162, 26);
+		TextoCorreoElectrnico.setBounds(15, 330, 162, 26);
 		contentPane.add(TextoCorreoElectrnico);
 		
 		JButton BotonTarjeta = new JButton("Tarjeta");
@@ -123,13 +128,19 @@ public class VentanaPerfil extends JFrame {
 			}
 		});
 		BotonTarjeta.setFont(new Font("Tahoma", Font.BOLD, 16));
-		BotonTarjeta.setBounds(371, 448, 115, 29);
+		BotonTarjeta.setBounds(371, 367, 115, 29);
 		contentPane.add(BotonTarjeta);
 		
 		JTextPane nombreUsuario = new JTextPane();
 		JTextPane apellidoUsuario = new JTextPane();
 		JTextPane ubicacionProvinciaUsuario = new JTextPane();
 		JTextPane textoCorreo = new JTextPane();
+		
+		JProgressBar progressBar = new JProgressBar();
+		progressBar.setBounds(169, 451, 317, 14);
+		contentPane.add(progressBar);
+		
+		
 		
 		
 		DBManager conexion = new DBManager();
@@ -154,19 +165,19 @@ public class VentanaPerfil extends JFrame {
 			contentPane.add(labelNombreUsuario);
 			
 			nombreUsuario.setText(nombre);
-			nombreUsuario.setBounds(102, 170, 384, 26);
+			nombreUsuario.setBounds(102, 133, 384, 26);
 			contentPane.add(nombreUsuario);
 			
 			apellidoUsuario.setText(apellidos);
-			apellidoUsuario.setBounds(102, 202, 384, 26);
+			apellidoUsuario.setBounds(102, 164, 384, 26);
 			contentPane.add(apellidoUsuario);
 			
 			ubicacionProvinciaUsuario.setText(ubicacion);
-			ubicacionProvinciaUsuario.setBounds(185, 235, 301, 26);
+			ubicacionProvinciaUsuario.setBounds(185, 195, 301, 26);
 			contentPane.add(ubicacionProvinciaUsuario);
 			
 			textoCorreo.setText(correo);
-			textoCorreo.setBounds(170, 406, 317, 26);
+			textoCorreo.setBounds(169, 330, 317, 26);
 			contentPane.add(textoCorreo);
 			
 			conexion.disconnect();
@@ -193,7 +204,7 @@ public class VentanaPerfil extends JFrame {
 	
 		
 		comboAnyo.setToolTipText("");
-		comboAnyo.setBounds(185, 277, 301, 26);
+		comboAnyo.setBounds(185, 233, 301, 26);
 		contentPane.add(comboAnyo);
 		
 		
@@ -203,12 +214,12 @@ public class VentanaPerfil extends JFrame {
 		JLabel lblInformacionPrivada = new JLabel();
 		lblInformacionPrivada.setText("Informacion privada");
 		lblInformacionPrivada.setFont(new Font("Tahoma", Font.BOLD, 18));
-		lblInformacionPrivada.setBounds(15, 357, 218, 26);
+		lblInformacionPrivada.setBounds(15, 288, 218, 26);
 		contentPane.add(lblInformacionPrivada);
 		
 		JLabel lblGestionDePago = new JLabel();
 		lblGestionDePago.setText("Gestion de pago\r\n");
-		lblGestionDePago.setBounds(15, 448, 132, 26);
+		lblGestionDePago.setBounds(15, 368, 132, 26);
 		contentPane.add(lblGestionDePago);
 		
 		JButton btnGuardarCambios = new JButton("Guardar cambios");
@@ -255,15 +266,31 @@ public class VentanaPerfil extends JFrame {
 					e2.printStackTrace();
 				}
 				
+				
+				
+				if (nombreUsuario.getText().isEmpty()) {
+					valueProgressBar = valueProgressBar + 2;
+				}
+				if (apellidoUsuario.getText().isEmpty()) {
+					valueProgressBar = valueProgressBar + 2;
+				}
+				if (ubicacionProvinciaUsuario.getText().isEmpty()) {
+					valueProgressBar = valueProgressBar + 2;
+				}
+				
+				
+				
+				
 			}
 		});
 		
+		progressBar.setValue(valueProgressBar);
 		
 		
 		//BOTON CANDADO 1 (Nombre)
 	
 		JButton botonCNombre = new JButton("");
-		botonCNombre.setBounds(491, 170, 29, 26);
+		botonCNombre.setBounds(491, 133, 29, 26);
 		
 		Icon iconoCandadoC1 = new ImageIcon(imagenCandadoCerrado.getImage().getScaledInstance(botonCNombre.getWidth(), botonCNombre.getHeight(), Image.SCALE_DEFAULT));
 		Icon iconoCandadoA1 = new ImageIcon(imagenCandadoAbierto.getImage().getScaledInstance(botonCNombre.getWidth(), botonCNombre.getHeight(), Image.SCALE_DEFAULT));
@@ -289,7 +316,7 @@ public class VentanaPerfil extends JFrame {
 		//BOTON CANDADO 2 (Apellidos)
 		
 		JButton botonCApellidos = new JButton("");
-		botonCApellidos.setBounds(491, 202, 29, 26);
+		botonCApellidos.setBounds(491, 164, 29, 26);
 		
 		Icon iconoCandadoC2 = new ImageIcon(imagenCandadoCerrado.getImage().getScaledInstance(botonCApellidos.getWidth(), botonCApellidos.getHeight(), Image.SCALE_DEFAULT));
 		Icon iconoCandadoA2 = new ImageIcon(imagenCandadoAbierto.getImage().getScaledInstance(botonCApellidos.getWidth(), botonCApellidos.getHeight(), Image.SCALE_DEFAULT));
@@ -315,7 +342,7 @@ public class VentanaPerfil extends JFrame {
 		//BOTON CANDADO 3 (Provincia)
 		
 		JButton botonCProvincia = new JButton("");
-		botonCProvincia.setBounds(491, 235, 29, 26);
+		botonCProvincia.setBounds(491, 195, 29, 26);
 		Icon iconoCandadoC3 = new ImageIcon(imagenCandadoCerrado.getImage().getScaledInstance(botonCProvincia.getWidth(), botonCProvincia.getHeight(), Image.SCALE_DEFAULT));
 		Icon iconoCandadoA3 = new ImageIcon(imagenCandadoAbierto.getImage().getScaledInstance(botonCProvincia.getWidth(), botonCProvincia.getHeight(), Image.SCALE_DEFAULT));
 		
@@ -339,7 +366,7 @@ public class VentanaPerfil extends JFrame {
 		//BOTON CANDADO 4 (Año de nacimiento)
 		
 		JButton botonCAnyo = new JButton("");
-		botonCAnyo.setBounds(491, 276, 29, 26);
+		botonCAnyo.setBounds(491, 233, 29, 26);
 		
 		Icon iconoCandadoC4 = new ImageIcon(imagenCandadoCerrado.getImage().getScaledInstance(botonCAnyo.getWidth(), botonCAnyo.getHeight(), Image.SCALE_DEFAULT));
 		Icon iconoCandadoA4 = new ImageIcon(imagenCandadoAbierto.getImage().getScaledInstance(botonCAnyo.getWidth(), botonCAnyo.getHeight(), Image.SCALE_DEFAULT));
@@ -350,6 +377,12 @@ public class VentanaPerfil extends JFrame {
 		JButton btnAtras = new JButton("Atras");
 		btnAtras.setBounds(15, 520, 96, 29);
 		contentPane.add(btnAtras);
+		
+		
+		
+		JLabel lblAutentificacion = new JLabel("Autentificacion");
+		lblAutentificacion.setBounds(15, 451, 132, 20);
+		contentPane.add(lblAutentificacion);
 		
 		btnAtras.addActionListener(new ActionListener() {
 			@Override
@@ -383,5 +416,8 @@ public class VentanaPerfil extends JFrame {
 				vP.setVisible(true);
 				}
 			});
+		
+		
+		
 	}
 }
