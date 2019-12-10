@@ -21,8 +21,8 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
 
-import skapaProyect.DataBase.DBException;
-import skapaProyect.DataBase.DBManager;
+import skapaProyect.dataBase.DBException;
+import skapaProyect.dataBase.DBManager;
 
 public class VentanaRegistro extends JFrame {
 

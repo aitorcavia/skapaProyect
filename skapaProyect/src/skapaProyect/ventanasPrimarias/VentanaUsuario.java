@@ -9,8 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import skapaProyect.DataBase.DBException;
-import skapaProyect.DataBase.DBManager;
+import skapaProyect.dataBase.DBException;
+import skapaProyect.dataBase.DBManager;
 import skapaProyect.ventanaSecundarias.VentanaArticulosFavoritos;
 import skapaProyect.ventanaSecundarias.VentanaAyudaInformacion;
 import skapaProyect.ventanaSecundarias.VentanaOpiniones;

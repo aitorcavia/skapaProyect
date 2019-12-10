@@ -1,6 +1,6 @@
 package skapaProyect.ventanasPrimarias;
 
-public class UsuarioVerificado extends Usuario implements Verificador{
+public class UsuarioVerificado extends Usuario implements Verificado{
 	private String verificado;
 
 	public UsuarioVerificado(String nomUsuario, String contrasenya, 

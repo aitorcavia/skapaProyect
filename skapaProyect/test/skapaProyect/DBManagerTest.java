@@ -15,8 +15,8 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import skapaProyect.DataBase.DBException;
-import skapaProyect.DataBase.DBManager;
+import skapaProyect.dataBase.DBException;
+import skapaProyect.dataBase.DBManager;
 import skapaProyect.ventanasPrimarias.Usuario;
 
 public class DBManagerTest {

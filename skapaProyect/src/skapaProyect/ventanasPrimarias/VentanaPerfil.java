@@ -7,8 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import skapaProyect.DataBase.DBException;
-import skapaProyect.DataBase.DBManager;
+import skapaProyect.dataBase.*;
 import skapaProyect.ventanaSecundarias.VentanaPago;
 
 import javax.swing.JLabel;
@@ -28,8 +27,6 @@ import java.util.Date;
 
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
-
-import skapaProyect.DataBase.*;
 
 public class VentanaPerfil extends JFrame {
 

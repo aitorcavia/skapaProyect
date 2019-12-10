@@ -7,8 +7,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
-import skapaProyect.DataBase.DBException;
-import skapaProyect.DataBase.DBManager;
+import skapaProyect.dataBase.DBException;
+import skapaProyect.dataBase.DBManager;
 
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -223,19 +223,15 @@ public class VentanaLogin extends JFrame {
 			@Override
 			public void mouseReleased(MouseEvent e) {
 			}
-
 			@Override
 			public void mousePressed(MouseEvent e) {
 			}
-
 			@Override
 			public void mouseExited(MouseEvent e) {
 			}
-
 			@Override
 			public void mouseEntered(MouseEvent e) {
 			}
-
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				VentanaRegistro vr = new VentanaRegistro();

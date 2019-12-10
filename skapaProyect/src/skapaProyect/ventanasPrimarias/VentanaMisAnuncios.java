@@ -16,7 +16,8 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import skapaProyect.DataBase.*;
+
+import skapaProyect.dataBase.*;
 
 public class VentanaMisAnuncios extends JFrame {
 

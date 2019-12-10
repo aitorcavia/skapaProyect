@@ -1,4 +1,4 @@
-package skapaProyect.Chat;
+package skapaProyect.chat;
 
 // parte1 https://www.youtube.com/watch?v=zZIeUCBKwjc
 //parte 2 https://www.youtube.com/watch?v=VvKv0EN6q0k
@@ -17,8 +17,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import skapaProyect.DataBase.DBException;
-import skapaProyect.DataBase.DBManager;
+import skapaProyect.dataBase.DBException;
+import skapaProyect.dataBase.DBManager;
 import skapaProyect.ventanasPrimarias.Usuario;
 import skapaProyect.ventanasPrimarias.VentanaInicio;
 import skapaProyect.ventanasPrimarias.VentanaLogin;

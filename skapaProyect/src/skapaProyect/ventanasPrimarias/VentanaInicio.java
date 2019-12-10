@@ -17,9 +17,9 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
-import skapaProyect.Chat.VentanaCliente;
-import skapaProyect.DataBase.DBException;
-import skapaProyect.DataBase.DBManager;
+import skapaProyect.chat.VentanaCliente;
+import skapaProyect.dataBase.DBException;
+import skapaProyect.dataBase.DBManager;
 
 public class VentanaInicio extends JFrame {
 

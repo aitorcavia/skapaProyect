@@ -1,4 +1,4 @@
-package skapaProyect.DataBase;
+package skapaProyect.dataBase;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
