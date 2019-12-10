@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.HashMap;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -115,6 +116,8 @@ public class VentanaRegistro extends JFrame {
 				contrasenya = textoContrasenya.getText();
 				correo = textoCorreo.getText();
 				
+				HashMap<String, Usuario> usuarios = new HashMap<String, Usuario>();
+				
 				//SACAR DIRECCION IP LOCAL
 				InetAddress adress;
 				try {
@@ -145,6 +148,7 @@ public class VentanaRegistro extends JFrame {
 							conexion.connect();
 							if (conexion.comprobarNomUsuario(usuario) == false) {
 								conexion.registrarUsuario(usuario);
+								usuarios.put(nomUsuario, usuario);
 								JOptionPane.showMessageDialog(null, "Cuenta creada correctamente", "Correcto", 1);
 								
 								VentanaLogin vl = new VentanaLogin(); 
