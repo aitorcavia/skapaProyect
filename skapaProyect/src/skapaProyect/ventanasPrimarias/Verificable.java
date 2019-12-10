@@ -1,6 +1,6 @@
 package skapaProyect.ventanasPrimarias;
 
-public interface Verificado {
+public interface Verificable {
 	
 	public void verificable();
 		
