@@ -9,6 +9,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import skapaProyect.DataBase.DBException;
+import skapaProyect.DataBase.DBManager;
 import skapaProyect.ventanaSecundarias.VentanaArticulosFavoritos;
 import skapaProyect.ventanaSecundarias.VentanaAyudaInformacion;
 import skapaProyect.ventanaSecundarias.VentanaOpiniones;
@@ -23,6 +25,7 @@ import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
+import java.awt.Font;
 
 public class VentanaUsuario extends JFrame {
 
@@ -93,12 +96,30 @@ public class VentanaUsuario extends JFrame {
 		LabelGrafico.setBounds(10, 150, 97, 106);
 		contentPane.add(LabelGrafico);
 		
-		JLabel labelNombre = new JLabel("New label");
-		labelNombre.setBounds(10, 17, 204, 20);
+		
+		String nomUsuario = "";
+		String apellidoUsuario = "";
+		int id =VentanaLogin.getUsuarioId();
+		
+		DBManager conexion = new DBManager();
+		try {
+			conexion.connect();
+			Usuario user = conexion.buscarUsuarioId(id);
+			nomUsuario = user.getNombre();
+			apellidoUsuario = user.getApellidos();
+			conexion.disconnect();
+		} catch (DBException e1) {
+			e1.printStackTrace();
+		}
+		
+		JLabel labelNombre = new JLabel(nomUsuario);
+		labelNombre.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		labelNombre.setBounds(15, 17, 204, 20);
 		contentPane.add(labelNombre);
 		
-		JLabel labelApellidos = new JLabel("New label");
-		labelApellidos.setBounds(10, 53, 204, 20);
+		JLabel labelApellidos = new JLabel(apellidoUsuario);
+		labelApellidos.setFont(new Font("Tahoma", Font.PLAIN, 20));
+		labelApellidos.setBounds(15, 53, 204, 20);
 		contentPane.add(labelApellidos);
 		
 		JButton btnNewButton = new JButton("Ventas");

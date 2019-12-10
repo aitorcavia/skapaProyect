@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import bitacor.Bitacora;
 import skapaProyect.ventanaSecundarias.VentanaAnuncio;
 
 import java.awt.Color;
@@ -14,11 +15,13 @@ import javax.swing.JTextPane;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.PrintStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -38,7 +41,8 @@ public class VentanaCreacionAnuncio extends JFrame {
 	private JTextField textoTitulo;
 	private JTextField textoPrecio;
 	public static int idAnuncio;
-	Logger logger = Logger.getLogger(VentanaCreacionAnuncio.class.getName());
+	static PrintStream log;
+	Logger logger = Logger.getLogger("LOGGER");
 
 	/**
 	 * Launch the application.
@@ -60,6 +64,8 @@ public class VentanaCreacionAnuncio extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaCreacionAnuncio() {
+		
+		Bitacora bit = new Bitacora();
 		
 		logger.log(Level.INFO, "Ventana inicializada");
 		
