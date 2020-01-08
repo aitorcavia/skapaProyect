@@ -1,6 +1,7 @@
 package skapaProyect.ventanasPrimarias;
 
 import java.awt.BorderLayout;
+
 import java.awt.Cursor;
 import java.awt.EventQueue;
 import java.awt.Image;
@@ -11,7 +12,6 @@ import javax.swing.border.EmptyBorder;
 
 import skapaProyect.dataBase.DBException;
 import skapaProyect.dataBase.DBManager;
-import skapaProyect.ventanaSecundarias.VentanaArticulosFavoritos;
 import skapaProyect.ventanaSecundarias.VentanaAyudaInformacion;
 import skapaProyect.ventanaSecundarias.VentanaOpiniones;
 
@@ -63,9 +63,7 @@ public class VentanaUsuario extends JFrame {
 		botonArticulosVenta.setBounds(10, 310, 401, 40);
 		contentPane.add(botonArticulosVenta);
 		
-		JButton botonArticulosFavoritos = new JButton("Articulos favoritos");
-		botonArticulosFavoritos.setBounds(10, 354, 401, 40);
-		contentPane.add(botonArticulosFavoritos);
+		
 		
 		JButton botonOpiniones = new JButton("Opiniones");
 		botonOpiniones.addActionListener(new ActionListener() {
@@ -143,18 +141,7 @@ public class VentanaUsuario extends JFrame {
 			
 		});
 		
-		botonArticulosFavoritos.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-				VentanaArticulosFavoritos vf = new VentanaArticulosFavoritos();
-				setVisible(false);
-				vf.setVisible(true);
-				
-			}
-			
-		});
+		
 		
 		botonOpiniones.addActionListener(new ActionListener() {
 
