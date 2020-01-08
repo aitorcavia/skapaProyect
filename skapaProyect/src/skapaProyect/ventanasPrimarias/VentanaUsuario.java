@@ -60,7 +60,7 @@ public class VentanaUsuario extends JFrame {
 		contentPane.setLayout(null);
 		
 		JButton botonArticulosVenta = new JButton("Articulos en venta");
-		botonArticulosVenta.setBounds(10, 310, 401, 40);
+		botonArticulosVenta.setBounds(10, 310, 401, 76);
 		contentPane.add(botonArticulosVenta);
 		
 		
