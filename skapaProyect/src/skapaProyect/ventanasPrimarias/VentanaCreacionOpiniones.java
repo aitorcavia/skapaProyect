@@ -5,6 +5,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import bitacor.Bitacora;
+import skapaProyect.dataBase.DBException;
+import skapaProyect.dataBase.DBManager;
 import skapaProyect.ventanaSecundarias.VentanaAnuncio;
 import java.awt.Color;
 import javax.swing.JTextPane;
@@ -102,65 +104,30 @@ public class VentanaCreacionOpiniones extends JFrame{
 		panel.add(botonGuardar);
 		
 		
+		int idUsuario = 0;
+		String titulo = textoTitulo.getText();
+		String descripcion = textoOpinion.getText();
 		
-	/*
-	
-	botonGuardar.addActionListener(new ActionListener() {
 		
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			int idOpinion;
-			String titulo; 
-			String Opinion;
-			 
-			int a = VentanaLogin.getUsuarioId();
+		botonGuardar.addActionListener(new ActionListener() {
 			
-			//IMAGEN https://www.youtube.com/watch?v=MxJThrSoTaU
-			idOpinion = a;
-			titulo = textoTitulo.getText();
-			Opinion = textoOpinion.getText();
-
-			try {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				DBManager dbm = new DBManager();
+				try {
+					
+					dbm.connect();
+					Opinion opinion = new Opinion(idUsuario, titulo, descripcion);
+					dbm.insertarOpinion(opinion);
+					dbm.disconnect();
+					
+				} catch (DBException e1) {
+					
+					e1.printStackTrace();
+				}
 				
-				Class.forName("org.sqlite.JDBC");
-				
-				Connection conn = DriverManager.getConnection("jdbc:sqlite:data/BD.db");
-				Statement stmt = conn.createStatement();
-				
-				String query = "INSERT INTO anuncio (idOpinion, titulo,Opinion) VALUES ('"+ idOpinion + "', '" +titulo+","+ Opinion + "')" ;
-				stmt.executeUpdate(query);
-			
-			
-				JOptionPane.showMessageDialog(null, "Opinion creada correctamente", "Correcto", 1);
-				
-				
-				ResultSet rs = stmt.executeQuery("SELECT idUsuario, idOpinion, titulo,Opinion FROM anuncio WHERE idUsuario ='" + idOpinion + "' and titulo ='" + titulo + "' and Opinion= '"+ Opinion + "'");
-				
-				idOpinion = rs.getInt("idOpinion");
-				
-				stmt.close();
-				conn.close();
-		
-			} catch (ClassNotFoundException e1) {
-				System.out.println("No se ha podido cargar el driver");
-				e1.printStackTrace();
-			}catch (SQLException e1) {
-				System.out.println("No se ha podido conectar a BD");
-				e1.printStackTrace();
 			}
-			
-			VentanaOpinion vO = new VentanaOpinion();
-			setVisible(false);
-			va.setVisible(true);
-		}
-	});
-	
-	}
-	
-	public static int getOpinion(){
-		return idOpinion();
-		}
-	*/
+		});
 	
 	}
 }
