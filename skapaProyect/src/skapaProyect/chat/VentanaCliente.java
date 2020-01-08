@@ -59,8 +59,6 @@ public class VentanaCliente extends JFrame {
 	private JTextField nick_txt;
 	private JTextField ip_txt;
 
-
-	
 	
 	public VentanaCliente() {
 		hacerInterfaz();

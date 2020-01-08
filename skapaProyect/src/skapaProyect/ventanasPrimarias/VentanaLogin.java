@@ -36,6 +36,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.FileHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.awt.event.ActionEvent;
 
 import javax.security.auth.login.LoginContext;
@@ -51,6 +55,7 @@ public class VentanaLogin extends JFrame {
 	private JPasswordField textoContrasenya;
 	private JTextField textoSkapa;
 	public static int idUsuario;
+	static Logger log;
 
 	/**
 	 * Launch the application.
@@ -73,6 +78,18 @@ public class VentanaLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaLogin() {
+		try {
+			log = Logger.getLogger("VentanaLogin");
+			log.setLevel(Level.ALL);
+			Handler h = new FileHandler("infoLogger/ventanaLogin.xml");
+			log.addHandler(h);
+			h.setLevel(Level.WARNING);
+			
+		}catch (Exception e) {
+			
+		}
+		
+		log.log(Level.INFO, "Inicio de Ventana");
 
 		setTitle("Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -142,7 +159,6 @@ public class VentanaLogin extends JFrame {
 		// GUARDADO DE DATOS (INICIO RAPIDO)
 		String desktopPath = System.getProperty("user.home") + "/Desktop" + "/texto.txt";
 		String ruta = desktopPath.replace("\\", "/");
-		System.out.println(ruta);
 		File archivo = new File(ruta);
 		BufferedWriter bw;
 		
@@ -181,6 +197,7 @@ public class VentanaLogin extends JFrame {
 
 				try {
 					conexion.connect();
+					log.log(Level.INFO, "Conexion con BD establecida");
 
 					if (conexion.loginUsuario(nomUsuario, contrasenya) == true) {
 						idUsuario = conexion.obtenerId(nomUsuario);
@@ -210,8 +227,16 @@ public class VentanaLogin extends JFrame {
 							escribir.close();
 						}
 
-					} catch (Exception e1) {
+					}catch (Exception e1) {
 
+					}
+				}else {
+					try {
+						if (archivo.exists()) {
+							archivo.delete();
+						}
+					}catch (Exception e2) {
+						
 					}
 				}
 			}

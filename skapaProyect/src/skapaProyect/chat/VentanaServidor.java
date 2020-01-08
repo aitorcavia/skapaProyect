@@ -30,6 +30,7 @@ public VentanaServidor() {
 }
 
 public void hacerInterfaz() {
+	
 	ventana_chat = new JFrame("Servidor"); 
 	contenedor_areachat = new JPanel();
 	contenedor_areachat.setBounds(0, 0, 294, 0);

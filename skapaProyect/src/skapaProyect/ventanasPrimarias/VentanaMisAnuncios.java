@@ -43,6 +43,8 @@ public class VentanaMisAnuncios extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaMisAnuncios() {
+		
+		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 380, 520);
 		contentPane = new JPanel();
