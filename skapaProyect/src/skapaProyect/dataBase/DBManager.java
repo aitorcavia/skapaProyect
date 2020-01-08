@@ -13,6 +13,7 @@ import java.util.List;
 
 import skapaProyect.ventanaSecundarias.Tarjeta;
 import skapaProyect.ventanasPrimarias.Anuncio;
+import skapaProyect.ventanasPrimarias.Opinion;
 import skapaProyect.ventanasPrimarias.Usuario;
 
 
@@ -387,9 +388,24 @@ public class DBManager {
 			stmt.executeUpdate("INSERT INTO tarjeta (idUsuario, tipo, numeroTarjeta, fecha, codigoDeSeguridad, codigoPostal2, nombreCompleto,direccion, lineaSegundaDireccion, ciudad, estadoProvincia, codigoPostal) VALUES ('" + idUsuario + "', '" + tipo + "' , '" + numeroTarjeta + "', '" + fecha + "', '" + codigoDeSeguridad + "', '" + nombreCompleto + "', '" + codigoPostal2 + "', '" + direccion + "', '" + lineaSegundaDireccion + "', '" + ciudad + "', '" + estadoProvincia + "', '" + codigoPostal + "')");
 			
 			
-			
 		} catch (SQLException e) {
 			throw new DBException("No ha sido posible ejecutar la query");
 		}
+	}
+	
+	//INSERTAR NUEVA OPINION
+	public void insertarOpinion (Opinion opinion) throws DBException{
+		
+		try (Statement stmt= conn.createStatement()) {
+			
+			int idUsuario = opinion.getIdUsuario();
+			String titulo = opinion.getTitulo();
+			String descripcion = opinion.getDescripcion();
+			
+			stmt.executeUpdate("INSERT INTO opinin (idUsuario, titulo, descripcion) VALUES ("+ idUsuario + ", " + titulo + ", " + descripcion + ")");
+		
+		} catch (SQLException e) {
+			throw new DBException("No ha sido posible ejecutar la query");
+}
 	}
 }
