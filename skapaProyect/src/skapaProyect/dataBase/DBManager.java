@@ -408,4 +408,16 @@ public class DBManager {
 			throw new DBException("No ha sido posible ejecutar la query");
 }
 	}
+	
+	//ELIMINAR UN ANUNCIO POR ID
+	public void eliminarAnuncio (int idAnuncio) throws DBException{
+		try (PreparedStatement stmt = conn.prepareStatement("DELETE FROM anuncio WHERE idAnuncio = ?")){
+			stmt.setInt(1, idAnuncio);
+			stmt.executeUpdate();
+			
+			
+		}catch (SQLException e) {
+			throw new DBException("No ha sido posible ejecutar la query");
+		}
+	}
 }

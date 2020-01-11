@@ -46,7 +46,7 @@ public class VentanaAjustes extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaAjustes() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 349, 559);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(135, 206, 250));
@@ -173,11 +173,20 @@ public class VentanaAjustes extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				VentanaLogin vl = new VentanaLogin();
 				vl.setVisible(true);
-				setVisible(false);
+				dispose();
+				
+			
 				
 			}
 		});
 		
+		BotonSalir.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				System.exit(-1);
+				
+			}
+		});
 		
 		
 }	

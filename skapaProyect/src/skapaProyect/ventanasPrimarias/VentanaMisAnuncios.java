@@ -2,6 +2,7 @@ package skapaProyect.ventanasPrimarias;
 
 import java.awt.Color;
 import java.awt.EventQueue;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.Connection;
@@ -11,6 +12,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -45,7 +48,7 @@ public class VentanaMisAnuncios extends JFrame {
 	public VentanaMisAnuncios() {
 		
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 380, 520);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -78,15 +81,17 @@ public class VentanaMisAnuncios extends JFrame {
 			
 				
 			//Recuperar datos, consultas
-			ResultSet rs = stmt.executeQuery("SELECT idUsuario, titulo, descripcion, precio, categoria FROM anuncio WHERE idUsuario ="+ a);
+			ResultSet rs = stmt.executeQuery("SELECT idUsuario, idAnuncio, titulo, descripcion, precio, categoria FROM anuncio WHERE idUsuario ="+ a);
 			
 			int cont = 16;
 			int contS = 0;
 	
 			ArrayList<JPanel> paneles = new ArrayList<JPanel>();
+
 			
 			while (rs.next()) {
 				
+				int idAnuncio = rs.getInt("idAnuncio");
 				String titulo = rs.getString("titulo");
 				String precio = rs.getString("precio");
 				String categoria = rs.getString("categoria");
@@ -101,16 +106,27 @@ public class VentanaMisAnuncios extends JFrame {
 				
 				panelAnuncios.add(paneles.get(contS));
 				paneles.get(contS).setLayout(null);
-				
-				
-				
-				
-			
+		
 				JLabel lblTitulo = new JLabel (titulo);
 				lblTitulo.setBounds(15, 16, 160, 20);
 				paneles.get(contS).add(lblTitulo);
 				
+				JButton botonEliminar = new JButton();
+				botonEliminar.setBounds(288, 16, 20, 20);
+				paneles.get(contS).add(botonEliminar);
 				
+				ImageIcon imagenX = new ImageIcon("../skapaProyect/multimedia/x_cerrar.png");
+				
+				Icon icono = new ImageIcon(imagenX.getImage().getScaledInstance(botonEliminar.getWidth(), botonEliminar.getHeight(), Image.SCALE_DEFAULT));
+				botonEliminar.setIcon(icono);
+				
+				botonEliminar.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						
+						
+					}
+				});
 			
 				
 				JLabel lblPrecio = new JLabel("Precio: " + precio + " €");
