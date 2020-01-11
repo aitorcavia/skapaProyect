@@ -22,7 +22,7 @@ public class DBManager {
 	private Connection conn = null; 
 	
 	//CREAR CONEXION CON BD
-	public void connect() throws DBException {
+	public void connect() throws DBException { 
 		try {
 			Class.forName("org.sqlite.JDBC");
 			conn = DriverManager.getConnection("jdbc:sqlite:data/BD.db");
