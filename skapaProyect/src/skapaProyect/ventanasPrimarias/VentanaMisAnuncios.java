@@ -17,6 +17,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -71,32 +72,25 @@ public class VentanaMisAnuncios extends JFrame {
 	
 		
 		int a = VentanaLogin.getUsuarioId();
-	
+		DBManager dbm = new DBManager();
+		
 		
 		try {
-			Class.forName("org.sqlite.JDBC");
-					
-			Connection conn = DriverManager.getConnection("jdbc:sqlite:data/BD.db");
-			Statement stmt = conn.createStatement();
-			
-				
-			//Recuperar datos, consultas
-			ResultSet rs = stmt.executeQuery("SELECT idUsuario, idAnuncio, titulo, descripcion, precio, categoria FROM anuncio WHERE idUsuario ="+ a);
+			dbm.connect();
+			ArrayList<Anuncio> anuncios = new ArrayList<Anuncio>();
+			anuncios = dbm.listarAnunciosIdUsuario(a);
 			
 			int cont = 16;
 			int contS = 0;
-	
+
 			ArrayList<JPanel> paneles = new ArrayList<JPanel>();
 
-			
-			while (rs.next()) {
-				
-				int idAnuncio = rs.getInt("idAnuncio");
-				String titulo = rs.getString("titulo");
-				String precio = rs.getString("precio");
-				String categoria = rs.getString("categoria");
-				String descripcion = rs.getString("descripcion");
-
+			for (Anuncio anuncio : anuncios) {
+				int idAnuncio = anuncio.getIdAnuncio();
+				String titulo = anuncio.getTitulo();
+				String precio = anuncio.getPrecio();
+				String categoria = anuncio.getCategoria();
+				String descripcion = anuncio.getDescripcion();
 			
 				JPanel panel = new JPanel();
 				panel.setBackground(new Color(135, 206, 235));
@@ -124,6 +118,22 @@ public class VentanaMisAnuncios extends JFrame {
 					@Override
 					public void actionPerformed(ActionEvent e) {
 						
+						if (JOptionPane.showConfirmDialog(null, "¿Desea eliminar el anuncio '"+ anuncio.getTitulo()+ "'", "Eliminacion de anuncio", JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION) {
+							try {
+								dbm.connect();
+								dbm.eliminarAnuncio(idAnuncio);
+								dbm.disconnect();
+								
+							} catch (DBException e1) {
+								e1.printStackTrace();
+							}
+							JOptionPane.showMessageDialog(null, "Anuncio eliminado correctamente", "Confirmacion", 1);
+							VentanaMisAnuncios vma = new VentanaMisAnuncios();
+							vma.setVisible(true);
+							setVisible(false);
+						}
+						
+						
 						
 					}
 				});
@@ -136,19 +146,16 @@ public class VentanaMisAnuncios extends JFrame {
 				
 				cont = cont + 80;
 				contS++;
-			}
 			
-			stmt.close();
-			conn.close();
-					
-				} catch (ClassNotFoundException e1) {
-					System.out.println("No se ja podido cargar el driver");
-					e1.printStackTrace();
-				}catch (SQLException e1) {
-					System.out.println("No se ha podido conectar a BD");
-					e1.printStackTrace();
-				}
+			}
+
+			dbm.disconnect();
+			
+		} catch (DBException e1) {
+			e1.printStackTrace();
+		}
 		
+
 		
 		botonCrearAnuncio.addActionListener(new ActionListener() {
 			@Override

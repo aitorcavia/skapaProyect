@@ -237,8 +237,8 @@ public class DBManager {
 		}
 		
 	//LISTAR TODOS LOS ANUNCIOS POR IdUsuario
-	public List<Anuncio> listarAnunciosIdUsuario(int idUsuario) throws DBException {
-		List<Anuncio> anuncios = new ArrayList<Anuncio>();
+	public ArrayList<Anuncio> listarAnunciosIdUsuario(int idUsuario) throws DBException {
+		ArrayList<Anuncio> anuncios = new ArrayList<Anuncio>();
 		try (PreparedStatement stmt = conn.prepareStatement("SELECT idUsuario, idAnuncio, titulo, descripcion, precio, categoria FROM anuncio WHERE idUsuario = ?")) {
 			stmt.setInt(1, idUsuario);
 			
