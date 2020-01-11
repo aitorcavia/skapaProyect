@@ -20,6 +20,7 @@ import java.awt.event.MouseListener;
 import java.awt.event.ActionEvent;
 import java.awt.Color;
 import java.awt.Cursor;
+import javax.swing.JLabel;
 
 public class VentanaAjustes extends JFrame {
 
@@ -53,139 +54,65 @@ public class VentanaAjustes extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
-		JTextPane TextoAjustes = new JTextPane();
-		TextoAjustes.setEditable(false);
-		TextoAjustes.setFont(new Font("Tahoma", Font.BOLD, 16));
-		TextoAjustes.setText("      Ajustes");
-		TextoAjustes.setBounds(0, 0, 128, 39);
-		contentPane.add(TextoAjustes);
-		
 		JButton BotonSalir = new JButton("Salir de la aplicacion");
+		BotonSalir.setBackground(new Color(255, 255, 255));
 		BotonSalir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		BotonSalir.setBounds(15, 467, 177, 36);
+		BotonSalir.setBounds(15, 326, 297, 29);
 		contentPane.add(BotonSalir);
 		
 		JButton BotonAnyadirCuenta = new JButton("Añadir Cuenta");
+		BotonAnyadirCuenta.setBackground(new Color(255, 255, 255));
 		BotonAnyadirCuenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		BotonAnyadirCuenta.setBounds(15, 435, 177, 29);
+		BotonAnyadirCuenta.setBounds(15, 292, 297, 29);
 		contentPane.add(BotonAnyadirCuenta);
 		
 		JButton botonCerrarSesion = new JButton("Cerrar sesion");
+		botonCerrarSesion.setBackground(new Color(255, 255, 255));
 		botonCerrarSesion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		botonCerrarSesion.setBounds(15, 404, 177, 29);
+		botonCerrarSesion.setBounds(15, 258, 297, 29);
 		contentPane.add(botonCerrarSesion);
 		
-		JTextPane TextoCuenta = new JTextPane();
-		TextoCuenta.setEditable(false);
-		TextoCuenta.setFont(new Font("Tahoma", Font.BOLD, 16));
-		TextoCuenta.setText("        Cuenta");
-		TextoCuenta.setBounds(15, 321, 142, 26);
-		contentPane.add(TextoCuenta);
-		
-		JTextPane TextoAnuncios = new JTextPane();
-		TextoAnuncios.setFont(new Font("Tahoma", Font.BOLD, 16));
-		TextoAnuncios.setEditable(false);
-		TextoAnuncios.setText("       Anuncios");
-		TextoAnuncios.setBounds(15, 147, 142, 39);
-		contentPane.add(TextoAnuncios);
-		
-		JTextPane TextoPagos = new JTextPane();
-		TextoPagos.setFont(new Font("Tahoma", Font.BOLD, 18));
-		TextoPagos.setEditable(false);
-		TextoPagos.setText("        Pagos");
-		TextoPagos.setBounds(15, 192, 142, 39);
-		contentPane.add(TextoPagos);
-		
-		JTextPane TextoAyuda = new JTextPane();
-		TextoAyuda.setFont(new Font("Tahoma", Font.BOLD, 16));
-		TextoAyuda.setEditable(false);
-		TextoAyuda.setText("         Ayuda");
-		TextoAyuda.setBounds(15, 237, 142, 26);
-		contentPane.add(TextoAyuda);
-		
-		JTextPane TextoInformacion = new JTextPane();
-		TextoInformacion.setEditable(false);
-		TextoInformacion.setFont(new Font("Tahoma", Font.BOLD, 16));
-		TextoInformacion.setText("     Informaci\u00F3n");
-		TextoInformacion.setBounds(15, 279, 142, 26);
-		contentPane.add(TextoInformacion);
-		
-		JTextPane TextoPrivacidad = new JTextPane();
-		TextoPrivacidad.setEditable(false);
-		TextoPrivacidad.setFont(new Font("Tahoma", Font.BOLD, 16));
-		TextoPrivacidad.setText("     Privacidad");
-		TextoPrivacidad.setBounds(15, 76, 142, 26);
-		contentPane.add(TextoPrivacidad);
-		
-		JTextPane TextoSeguridad = new JTextPane();
-		TextoSeguridad.setFont(new Font("Tahoma", Font.BOLD, 16));
-		TextoSeguridad.setEditable(false);
-		TextoSeguridad.setText("     Seguridad");
-		TextoSeguridad.setBounds(15, 110, 142, 26);
-		contentPane.add(TextoSeguridad);
-		
-		JButton BotonPrivacidad = new JButton("P");
+		JButton BotonPrivacidad = new JButton("Privacidad de cuenta");
+		BotonPrivacidad.setBackground(new Color(255, 255, 255));
 		BotonPrivacidad.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		BotonPrivacidad.setBounds(168, 73, 115, 29);
+		BotonPrivacidad.setBounds(15, 95, 297, 29);
 		contentPane.add(BotonPrivacidad);
 		
-		JButton BotonSeguridad = new JButton("S");
-		BotonSeguridad.setBounds(168, 110, 115, 26);
+		JButton BotonSeguridad = new JButton("Seguridad");
+		BotonSeguridad.setBackground(new Color(255, 255, 255));
+		BotonSeguridad.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			}
+		});
+		BotonSeguridad.setBounds(15, 129, 297, 26);
 		contentPane.add(BotonSeguridad);
 		
-		JButton BotonAnuncio = new JButton("A");
-		BotonAnuncio.setBounds(168, 147, 115, 29);
-		contentPane.add(BotonAnuncio);
-		
-		JButton BotonPago = new JButton("$");
+		JButton BotonPago = new JButton("Pagos");
+		BotonPago.setBackground(new Color(255, 255, 255));
 		BotonPago.setFont(new Font("Tahoma", Font.PLAIN, 16));
-		BotonPago.setBounds(168, 192, 115, 39);
+		BotonPago.setBounds(15, 161, 297, 26);
 		contentPane.add(BotonPago);
 		
-		JButton BotonInformacion = new JButton("(i) / Ayuda");
+		JButton BotonInformacion = new JButton("Ayuda");
+		BotonInformacion.setBackground(new Color(255, 255, 255));
 		BotonInformacion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		BotonInformacion.setBounds(168, 237, 115, 68);
+		BotonInformacion.setBounds(15, 395, 297, 29);
 		contentPane.add(BotonInformacion);
-		
-		JButton BotonCuenta = new JButton("C");
-		BotonCuenta.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			}
-		});
-		BotonCuenta.setBounds(168, 318, 115, 29);
-		contentPane.add(BotonCuenta);
-		
-		
-		BotonAnuncio.addActionListener(new ActionListener() {
-
-		public void actionPerformed(ActionEvent e) {
-			VentanaAnuncio vA = new VentanaAnuncio();
-			setVisible(false);
-			vA.setVisible(true);
-			}
-		});
-		BotonCuenta.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				VentanaInicio vC = new VentanaInicio();
-				setVisible(false);
-				vC.setVisible(true);
-				}
-			});
 		BotonInformacion.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VentanaAyudaInformacion vI = new VentanaAyudaInformacion();
@@ -207,15 +134,30 @@ public class VentanaAjustes extends JFrame {
 				vP.setVisible(true);
 				}
 			});
-		JButton btnAtras = new JButton("<--\r\n");
+		JButton btnAtras = new JButton("Atras");
 		btnAtras.addActionListener(new ActionListener() {
 				public void actionPerformed(ActionEvent e) {
 				}
 			});
 		
 		btnAtras.setFont(new Font("Tahoma", Font.BOLD, 16));
-		btnAtras.setBounds(239, 467, 83, 29);
+		btnAtras.setBounds(15, 458, 83, 29);
 		contentPane.add(btnAtras);
+		
+		JLabel lblConfiguracion = new JLabel("Configuracion");
+		lblConfiguracion.setFont(new Font("Tahoma", Font.ITALIC, 22));
+		lblConfiguracion.setBounds(15, 16, 297, 29);
+		contentPane.add(lblConfiguracion);
+		
+		JLabel lblCuenta = new JLabel("Cuenta");
+		lblCuenta.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblCuenta.setBounds(15, 61, 83, 20);
+		contentPane.add(lblCuenta);
+		
+		JLabel lblSesion = new JLabel("Sesion");
+		lblSesion.setFont(new Font("Tahoma", Font.BOLD, 16));
+		lblSesion.setBounds(15, 222, 69, 20);
+		contentPane.add(lblSesion);
 		
 		
 		btnAtras.addActionListener(new ActionListener() {
@@ -238,4 +180,5 @@ public class VentanaAjustes extends JFrame {
 		
 		
 		
-}}
+}	
+}

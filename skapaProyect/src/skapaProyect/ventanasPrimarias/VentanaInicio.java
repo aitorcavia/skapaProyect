@@ -20,6 +20,7 @@ import javax.swing.border.EmptyBorder;
 import skapaProyect.chat.VentanaCliente;
 import skapaProyect.dataBase.DBException;
 import skapaProyect.dataBase.DBManager;
+import skapaProyect.ventanaSecundarias.VentanaAjustes;
 
 public class VentanaInicio extends JFrame {
 
@@ -59,63 +60,81 @@ public class VentanaInicio extends JFrame {
 		
 		JComboBox comboBoxCategoria = new JComboBox();
 		comboBoxCategoria.setModel(new DefaultComboBoxModel(new String[] {">Seleccionar categoria<", "Cocina", "Videojuegos", "Hogar", "Juguetes", "Libreria", "Seguridad", "Codigos", "Prendas", "Informatica", "Comida"}));
-		comboBoxCategoria.setBounds(160, 77, 181, 20);
+		comboBoxCategoria.setBounds(160, 120, 181, 20);
 		contentPane.add(comboBoxCategoria);
 		
 		JComboBox comboBoxProvincia = new JComboBox();
 		comboBoxProvincia.setModel(new DefaultComboBoxModel(new String[] {"Coru\u00F1a", "Pontevedra", "Lugo", "Orense", "Asturias", "Cantabria", "Bizkaia", "Gipuzkoa", "Alaba", "Navarra", "Huesca", "Zaragoza", "L\u00E9rida", "Girona", "Barcelona", "Tarragona", "Teruel", "La Rioja", "Le\u00F3n", "Palencia", "Burgos", "Soria", "Segovia", "Valladolid", "Zamora", "Salamanca", "\u00C1vila", "Madrid", "Guadalajara", "Cuenca", "Albacete", "Toledo", "Ciudad Real", "Castell\u00F3n", "Valencia", "Alicante", "C\u00E1ceres", "Badajoz", "Murcia", "Huelva", "Sevilla", "C\u00F3rdoba", "Ja\u00E9n", "C\u00E1diz", "M\u00E1laga", "Granada", "Almeria", "Islas Baleares", "Islas Canarias"}));
-		comboBoxProvincia.setBounds(160, 117, 181, 20);
+		comboBoxProvincia.setBounds(160, 149, 181, 20);
 		contentPane.add(comboBoxProvincia);
 		
 		JEditorPane textoBuscador = new JEditorPane();
 		textoBuscador.setFont(new Font("Tahoma", Font.PLAIN, 20));
-		textoBuscador.setBounds(15, 25, 642, 36);
+		textoBuscador.setBounds(15, 61, 642, 36);
 		contentPane.add(textoBuscador);
 		
 		JLabel lblCategoria = new JLabel("Categoria:");
-		lblCategoria.setBounds(15, 77, 80, 20);
+		lblCategoria.setBounds(15, 120, 80, 20);
 		contentPane.add(lblCategoria);
 		
 		JLabel lblProvincia = new JLabel("Provincias\r\n e Islas:");
-		lblProvincia.setBounds(13, 109, 132, 36);
+		lblProvincia.setBounds(15, 141, 132, 36);
 		contentPane.add(lblProvincia);
 		
 		JLabel lblPrecio = new JLabel("Precio:");
-		lblPrecio.setBounds(20, 153, 59, 20);
+		lblPrecio.setBounds(15, 181, 59, 20);
 		contentPane.add(lblPrecio);
-		
-		JButton btnPerfil = new JButton("Perfil");
-		btnPerfil.setBounds(1156, 16, 115, 29);
-		contentPane.add(btnPerfil);
 		
 		JPanel panelAnuncios = new JPanel();
 		panelAnuncios.setBackground(new Color(135, 206, 250));
-		panelAnuncios.setBounds(15, 189, 1256, 474);
+		panelAnuncios.setBounds(15, 217, 1256, 446);
 		contentPane.add(panelAnuncios);
 		panelAnuncios.setLayout(null);
 		
 		JButton botonBuscar = new JButton("BUSCAR");
 		botonBuscar.setBackground(new Color(240, 255, 255));
-		botonBuscar.setBounds(686, 25, 132, 36);
+		botonBuscar.setBounds(683, 61, 132, 36);
 		contentPane.add(botonBuscar);
 		
 		JLabel lblEntre = new JLabel("entre");
-		lblEntre.setBounds(86, 153, 69, 20);
+		lblEntre.setBounds(78, 181, 69, 20);
 		contentPane.add(lblEntre);
 		
 		JLabel lblY = new JLabel("y");
-		lblY.setBounds(261, 153, 26, 20);
+		lblY.setBounds(257, 181, 26, 20);
 		contentPane.add(lblY);
 		
 		textoPrecio1 = new JTextField();
-		textoPrecio1.setBounds(146, 153, 100, 26);
+		textoPrecio1.setBounds(146, 178, 100, 26);
 		contentPane.add(textoPrecio1);
 		textoPrecio1.setColumns(10);
 		
 		textoPrecio2 = new JTextField();
 		textoPrecio2.setColumns(10);
-		textoPrecio2.setBounds(287, 153, 100, 26);
+		textoPrecio2.setBounds(287, 178, 100, 26);
 		contentPane.add(textoPrecio2);
+		
+		JPanel panel = new JPanel();
+		panel.setBackground(new Color(255, 255, 255));
+		panel.setBounds(0, 0, 1286, 43);
+		contentPane.add(panel);
+		panel.setLayout(null);
+		
+		JButton btnPerfil = new JButton("Perfil");
+		btnPerfil.setBackground(new Color(135, 206, 250));
+		btnPerfil.setBounds(1094, 16, 69, 29);
+		panel.add(btnPerfil);
+		
+		JButton btnMisAnuncios = new JButton("Mis Anuncios");
+		btnMisAnuncios.setBackground(new Color(135, 206, 250));
+		btnMisAnuncios.setBounds(947, 16, 132, 29);
+		panel.add(btnMisAnuncios);
+		
+		JButton btnAjustes = new JButton("Ajustes");
+		btnAjustes.setBackground(new Color(135, 206, 250));
+		btnAjustes.setBounds(1178, 16, 85, 29);
+		panel.add(btnAjustes);
+	
 		
 		
 		//LISTADO DE TODOS LOS ANUNCIOS
@@ -168,16 +187,6 @@ public class VentanaInicio extends JFrame {
 		} catch (DBException e2) {
 			e2.printStackTrace();
 		}
-		
-
-		btnPerfil.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent arg0) {
-				VentanaUsuario vu = new VentanaUsuario();
-				vu.setVisible(true);
-				setVisible(false);
-			}
-		});
 		
 		botonBuscar.addActionListener(new ActionListener() {
 			@Override
@@ -256,6 +265,33 @@ public class VentanaInicio extends JFrame {
 				}
 				
 				
+				
+			}
+		});
+		
+		btnMisAnuncios.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				VentanaMisAnuncios vms = new VentanaMisAnuncios();
+				vms.setVisible(true);
+				
+			}
+		});
+		
+		btnPerfil.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				VentanaPerfil vp = new VentanaPerfil();
+				vp.setVisible(true);
+				
+			}
+		});
+		
+		btnAjustes.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				VentanaAjustes va = new VentanaAjustes();
+				va.setVisible(true);
 				
 			}
 		});

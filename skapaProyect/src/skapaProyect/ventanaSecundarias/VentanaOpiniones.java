@@ -2,6 +2,7 @@ package skapaProyect.ventanaSecundarias;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.Font;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -49,13 +50,19 @@ public class VentanaOpiniones extends JFrame {
 		contentPane.setLayout(null);
 		
 		JPanel panelOpiniones = new JPanel();
-		panelOpiniones.setBackground(new Color(153, 204, 255));
-		panelOpiniones.setBounds(15, 16, 351, 434);
+		panelOpiniones.setBackground(new Color(135, 206, 250));
+		panelOpiniones.setBounds(0, 0, 381, 450);
 		contentPane.add(panelOpiniones);
+		panelOpiniones.setLayout(null);
+		
+		
 		
 		JButton button = new JButton("Atras");
 		button.setBounds(15, 466, 115, 29);
 		contentPane.add(button);
+		
+		 Font fuente = new Font("Serief",Font.BOLD,14);		
+        
 		
 		try {
 			Class.forName("org.sqlite.JDBC");
@@ -78,26 +85,24 @@ public class VentanaOpiniones extends JFrame {
 				String descripcion = rs.getString("descripcion");
 
 			
-				JPanel panel = new JPanel();
-				panel.setBackground(new Color(135, 206, 235));
-				panel.setBounds(0, cont, 328, 76);
+				JPanel panel_1 = new JPanel();
+				panel_1.setBackground(new Color(135, 206, 235));
+				panel_1.setBounds(15, cont, 351, 95);
+				panelOpiniones.add(panel_1);
+				panel_1.setLayout(null);
 				
-				paneles.add(panel);
+				JLabel lblLabeltitulo = new JLabel(titulo);
+				lblLabeltitulo.setFont(fuente);
 				
-				panelOpiniones.add(paneles.get(contS));
-				paneles.get(contS).setLayout(null);
-		
-				JLabel lblTitulo = new JLabel (titulo);
-				lblTitulo.setBounds(15, 16, 160, 20);
-				paneles.get(contS).add(lblTitulo);
+				lblLabeltitulo.setBounds(15, 16, 321, 20);
+				panel_1.add(lblLabeltitulo);
+				
+				JLabel labelOpinion = new JLabel(descripcion);
+				labelOpinion.setBounds(15, 41, 321, 38);
+				panel_1.add(labelOpinion);
 			
 				
-				JLabel lblPrecio = new JLabel(descripcion);
-				lblPrecio.setBounds(15, 25+16, 80, 20);
-				paneles.get(contS).add(lblPrecio);
-			
-				
-				cont = cont + 80;
+				cont = cont + 105;
 				contS++;
 			}
 			

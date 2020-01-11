@@ -402,7 +402,7 @@ public class DBManager {
 			String titulo = opinion.getTitulo();
 			String descripcion = opinion.getDescripcion();
 			
-			stmt.executeUpdate("INSERT INTO opinin (idUsuario, titulo, descripcion) VALUES ("+ idUsuario + ", " + titulo + ", " + descripcion + ")");
+			stmt.executeUpdate("INSERT INTO opinion (idUsuario, titulo, descripcion) VALUES ('"+ idUsuario + "', '" + titulo + "', '" + descripcion + "')");
 		
 		} catch (SQLException e) {
 			throw new DBException("No ha sido posible ejecutar la query");

@@ -8,6 +8,8 @@ import bitacor.Bitacora;
 import skapaProyect.dataBase.DBException;
 import skapaProyect.dataBase.DBManager;
 import skapaProyect.ventanaSecundarias.VentanaAnuncio;
+import skapaProyect.ventanaSecundarias.VentanaOpiniones;
+
 import java.awt.Color;
 import javax.swing.JTextPane;
 import java.awt.Font;
@@ -61,6 +63,8 @@ public class VentanaCreacionOpiniones extends JFrame{
 	 */
 	public VentanaCreacionOpiniones() {
 		
+		int idU = VentanaLogin.getUsuarioId();
+		
 		Bitacora bit = new Bitacora();
 		
 		logger.log(Level.INFO, "Ventana inicializada");
@@ -104,22 +108,23 @@ public class VentanaCreacionOpiniones extends JFrame{
 		panel.add(botonGuardar);
 		
 		
-		int idUsuario = 0;
-		String titulo = textoTitulo.getText();
-		String descripcion = textoOpinion.getText();
-		
-		
 		botonGuardar.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				DBManager dbm = new DBManager();
 				try {
+					int idUsuario = idU;
+					String titulo = textoTitulo.getText();
+					String descripcion = textoOpinion.getText();
 					
 					dbm.connect();
 					Opinion opinion = new Opinion(idUsuario, titulo, descripcion);
 					dbm.insertarOpinion(opinion);
 					dbm.disconnect();
+					
+					VentanaOpiniones vo = new VentanaOpiniones();
+					vo.setVisible(true);
 					
 				} catch (DBException e1) {
 					

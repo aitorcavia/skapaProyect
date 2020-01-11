@@ -7,6 +7,8 @@ import org.junit.Test;
 import skapaProyect.ventanasPrimarias.Usuario;
 
 public class usuarioTest {
+	
+
 
 	@Test
 	public void testGetNombre() {

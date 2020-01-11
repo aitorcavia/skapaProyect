@@ -75,7 +75,7 @@ public class VentanaPerfil extends JFrame {
 		//CREADO Y ESCALADO DE IMAGEN
 		
 		JLabel imagenPerfil = new JLabel("");
-		imagenPerfil.setBounds(415, 41, 105, 107);
+		imagenPerfil.setBounds(415, 16, 105, 103);
 	
 		ImageIcon imagenP = new ImageIcon("../skapaProyect/multimedia/FotoPerfil.png");
 		
