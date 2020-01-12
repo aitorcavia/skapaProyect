@@ -421,6 +421,18 @@ public class DBManager {
 		}
 	}
 	
+	//ELIMINAR TODOS LOS ANUNCIOS POR IDU
+	
+	public void eliminarAnunciosU (int idUsuario) throws DBException{
+		try (PreparedStatement stmt = conn.prepareStatement("DELETE FROM anuncio WHERE idUsuario = ?")){
+			stmt.setInt(1, idUsuario);
+			stmt.executeUpdate();
+			
+		}catch (SQLException e) {
+			throw new DBException("No ha sido posible ejecutar la query");
+		}
+	}
+	
 	//CAMBIAR CONTRASENYA USUARIO
 	public void cambiarContrsenya (Usuario user) throws DBException{
 		try (PreparedStatement stmt = conn.prepareStatement("UPDATE usuario SET contrasenya= ? WHERE nomUsuario ='"+ user.getNomUsuario() + "'")){
@@ -448,5 +460,16 @@ public class DBManager {
 		}
 	}
 	
+	//ELIMINAR CUENTA
+	public void eliminarUsuario (int idUsuario) throws DBException{
+		try (PreparedStatement stmt = conn.prepareStatement("DELETE FROM usuario WHERE id = ?")){
+			stmt.setInt(1, idUsuario);
+			stmt.executeUpdate();
+			
+			
+		}catch (SQLException e) {
+			throw new DBException("No ha sido posible ejecutar la query");
+		}
+	}
 	
 }

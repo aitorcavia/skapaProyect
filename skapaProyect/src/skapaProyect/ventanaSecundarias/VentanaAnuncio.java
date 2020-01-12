@@ -28,6 +28,7 @@ import java.sql.Statement;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.SwingConstants;
 
 public class VentanaAnuncio extends JFrame {
 
@@ -54,7 +55,7 @@ public class VentanaAnuncio extends JFrame {
 	 */
 	public VentanaAnuncio() {
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 349, 559);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(135, 206, 250));
@@ -64,34 +65,36 @@ public class VentanaAnuncio extends JFrame {
 		
 		JTextPane textoDescripcion = new JTextPane();
 		textoDescripcion.setEditable(false);
-		textoDescripcion.setFont(new Font("Tahoma", Font.BOLD, 16));
+		textoDescripcion.setFont(new Font("Tahoma", Font.PLAIN, 16));
 		textoDescripcion.setText("Descripci\u00F3n");
-		textoDescripcion.setBounds(15, 265, 297, 222);
+		textoDescripcion.setBounds(15, 269, 297, 158);
 		
 		contentPane.add(textoDescripcion);
 		
 		
 		
-		JLabel Foto = new JLabel("(IMAGEN PRODUCTO)");
+		JLabel Foto = new JLabel("[IMAGEN]");
+		Foto.setHorizontalAlignment(SwingConstants.CENTER);
 		Foto.setIcon(null);
-		Foto.setBounds(15, 16, 297, 177);
+		Foto.setBounds(15, 16, 297, 129);
 		contentPane.add(Foto);
 		
 		JLabel labelTitulo = new JLabel();
-		labelTitulo.setFont(new Font("Tahoma", Font.BOLD, 16));
-		labelTitulo.setBounds(15, 229, 163, 20);
+		labelTitulo.setFont(new Font("Tahoma", Font.BOLD, 18));
+		labelTitulo.setBounds(15, 161, 297, 20);
 		contentPane.add(labelTitulo);
 		
-		JButton Volver = new JButton("A\r\n");
+		JButton Volver = new JButton("Volver");
 		Volver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		Volver.setBounds(0, 0, 79, 29);
+		Volver.setBounds(15, 458, 94, 29);
 		contentPane.add(Volver);
 		
 		JLabel labelPrecio = new JLabel();
-		labelPrecio.setBounds(183, 229, 69, 20);
+		labelPrecio.setFont(new Font("Tahoma", Font.PLAIN, 18));
+		labelPrecio.setBounds(15, 197, 297, 20);
 		contentPane.add(labelPrecio);
 		
 		Volver.addActionListener(new ActionListener() {
@@ -135,8 +138,12 @@ public class VentanaAnuncio extends JFrame {
 			labelPrecio.setText("Precio: " + precio + " €");
 			textoDescripcion.setText(descripcion);
 			
-		
+			JLabel lblCategoria = new JLabel("Categoria: " + categoria);
+			lblCategoria.setFont(new Font("Tahoma", Font.PLAIN, 18));
+			lblCategoria.setBounds(15, 233, 297, 20);
+			contentPane.add(lblCategoria);
 			
+
 			stmt.close();
 			conn.close();
 			

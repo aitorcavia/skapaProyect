@@ -135,13 +135,12 @@ public class VentanaMisAnuncios extends JFrame {
 							} catch (DBException e1) {
 								e1.printStackTrace();
 							}
-							JOptionPane.showMessageDialog(null, "Anuncio eliminado correctamente", "Confirmacion", 1);
 							VentanaMisAnuncios vma = new VentanaMisAnuncios();
 							vma.setVisible(true);
 							setVisible(false);
+							JOptionPane.showMessageDialog(null, "Anuncio eliminado correctamente", "Confirmacion", 1);
 						}
-						
-						
+	
 						
 					}
 				});

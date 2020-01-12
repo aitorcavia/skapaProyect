@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.DefaultComboBoxModel;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JEditorPane;
@@ -120,14 +121,9 @@ public class VentanaInicio extends JFrame {
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		JButton btnPerfil = new JButton("Perfil");
-		btnPerfil.setBackground(new Color(135, 206, 250));
-		btnPerfil.setBounds(1094, 16, 69, 29);
-		panel.add(btnPerfil);
-		
 		JButton btnMisAnuncios = new JButton("Mis Anuncios");
 		btnMisAnuncios.setBackground(new Color(135, 206, 250));
-		btnMisAnuncios.setBounds(947, 16, 132, 29);
+		btnMisAnuncios.setBounds(1031, 16, 132, 29);
 		panel.add(btnMisAnuncios);
 		
 		JButton btnAjustes = new JButton("Ajustes");
@@ -274,15 +270,6 @@ public class VentanaInicio extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				VentanaMisAnuncios vms = new VentanaMisAnuncios();
 				vms.setVisible(true);
-				
-			}
-		});
-		
-		btnPerfil.addActionListener(new ActionListener() {
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				VentanaPerfil vp = new VentanaPerfil();
-				vp.setVisible(true);
 				
 			}
 		});

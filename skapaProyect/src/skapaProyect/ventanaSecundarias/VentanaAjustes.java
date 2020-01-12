@@ -64,6 +64,7 @@ public class VentanaAjustes extends JFrame {
 		contentPane.add(BotonSalir);
 		
 		JButton BotonAnyadirCuenta = new JButton("Añadir Cuenta");
+		BotonAnyadirCuenta.setEnabled(false);
 		BotonAnyadirCuenta.setBackground(new Color(255, 255, 255));
 		BotonAnyadirCuenta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

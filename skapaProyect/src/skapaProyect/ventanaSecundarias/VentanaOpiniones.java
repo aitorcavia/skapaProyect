@@ -3,6 +3,8 @@ package skapaProyect.ventanaSecundarias;
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -41,7 +43,7 @@ public class VentanaOpiniones extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaOpiniones() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 403, 559);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(135, 206, 250));
@@ -116,5 +118,18 @@ public class VentanaOpiniones extends JFrame {
 					System.out.println("No se ha podido conectar a BD");
 					e1.printStackTrace();
 				}
+		
+		
+		button.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				VentanaPrivacidad vp = new VentanaPrivacidad();
+				vp.setVisible(true);
+				setVisible(false);
+				
+			}
+		});
 	}
+	
+	
 }

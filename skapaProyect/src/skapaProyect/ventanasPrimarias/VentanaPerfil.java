@@ -9,7 +9,9 @@ import javax.swing.JProgressBar;
 import javax.swing.border.EmptyBorder;
 
 import skapaProyect.dataBase.*;
+import skapaProyect.ventanaSecundarias.VentanaAjustes;
 import skapaProyect.ventanaSecundarias.VentanaPago;
+import skapaProyect.ventanaSecundarias.VentanaPrivacidad;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -387,8 +389,8 @@ public class VentanaPerfil extends JFrame {
 		btnAtras.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VentanaUsuario vu = new VentanaUsuario();
-				vu.setVisible(true);
+				VentanaPrivacidad va = new VentanaPrivacidad();
+				va.setVisible(true);
 				setVisible(false);
 				
 			}
