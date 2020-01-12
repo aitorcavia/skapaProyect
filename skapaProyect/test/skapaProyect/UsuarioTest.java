@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import skapaProyect.ventanasPrimarias.Usuario;
 
-public class usuarioTest {
+public class UsuarioTest {
 	
 
 

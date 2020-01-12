@@ -254,7 +254,6 @@ public class VentanaLogin extends JFrame {
 				VentanaRegistro vr = new VentanaRegistro();
 				setVisible(false);
 				vr.setVisible(true);
-
 			}
 		});
 

@@ -6,7 +6,7 @@ import org.junit.Test;
 
 import skapaProyect.ventanasPrimarias.Anuncio;
 
-public class anuncioTest {
+public class AnuncioTest {
 
 	@Test
 	public void testGetPrecio() {
