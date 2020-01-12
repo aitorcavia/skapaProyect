@@ -1,13 +1,16 @@
-Para empezar con la inicialización del proyecto ejecutaremos 
-la VentanaLogin en caso de no tener cuenta nos registramos.
+
+
+Para empezar con la inicialización del proyecto es necesario ejecutar
+VentanaLogin en caso de no tener cuenta nos registramos.
 
 En el registro debemos poner un nombre de Usuario, contraseña
- y el email obligatorio(@ y .).
+y el email obligatorio(@ y .).
 
 Una vez registrados entramos en la aplicación, la primera 
 Ventana que obtendremos es VentanaInicio. En ella 
-tenemos los Anuncios creados ( desde el botón contacto accedes al chat,
- Un buscador etc...
+tenemos los Anuncios creados por todos los usuarios de la aplicacion
+( desde el botón contacto accedes al chat. En la parte superior 
+dispondremos de un buscador y sus respectivos filtrosUn buscador etc...
 
 En esa misma Ventana tenemos dos botones que nos llevan a 
 Mis Anuncios y a Ajustes (las dos ventanas se pueden cerrar al finalizar 
@@ -17,8 +20,7 @@ En Mis Anuncios podemos crear, eliminar y editar los anuncios.
 En Ajustes tenemos los diferentes apartados Cuenta, Sesion y Servicio 
 con sus respectivas funciones (cada una con botones).
 
-En Cuenta
-
+En los ajustes de cuenta
 Privacidad de Cuenta: Accedes a Información de cuenta (Accedes a tu 
 cuenta en la que puedes editar y añadir privacidad).También tiene 
 un Botón Tarjeta en el que guardas todo tipo de datos de tu tarjeta

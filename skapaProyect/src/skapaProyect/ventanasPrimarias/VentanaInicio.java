@@ -50,7 +50,6 @@ public class VentanaInicio extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaInicio() {
-		setUndecorated(true);
 		
 		//CREACION DE INTERFACE
 		setTitle("VentanaInicio");
