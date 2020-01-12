@@ -50,7 +50,6 @@ import java.awt.Dialog.ModalExclusionType;
 import javax.swing.JCheckBox;
 
 public class VentanaLogin extends JFrame {
-
 	private JPanel contentPane;
 	private JPasswordField textoContrasenya;
 	private JTextField textoSkapa;
@@ -101,8 +100,6 @@ public class VentanaLogin extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		// CREACION DE VENTANA
-
 		JLabel labelUsuario = new JLabel("Usuario o correo electronico");
 		labelUsuario.setFont(new Font("Yu Gothic UI", Font.PLAIN, 18));
 		labelUsuario.setBounds(15, 140, 223, 20);
@@ -148,6 +145,8 @@ public class VentanaLogin extends JFrame {
 		botonRegistro.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		botonRegistro.setBounds(15, 430, 199, 20);
 		contentPane.add(botonRegistro);
+		
+		
 
 		JCheckBox checkGuardarDatos = new JCheckBox("No volver a preguntar");
 		checkGuardarDatos.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -243,6 +242,13 @@ public class VentanaLogin extends JFrame {
 		});
 
 		botonRegistro.setCursor(new Cursor(HAND_CURSOR));
+		
+				// CREACION DE VENTANA
+				
+				JLabel label = new JLabel("");
+				label.setIcon(new ImageIcon("multimedia/Logo.png"));
+				label.setBounds(249,16, 154, 155);
+				contentPane.add(label);
 
 		botonRegistro.addMouseListener(new MouseListener() {
 			@Override
