@@ -257,9 +257,6 @@ public class VentanaInicio extends JFrame {
 				} catch (DBException e2) {
 					e2.printStackTrace();
 				}
-				
-				
-				
 			}
 		});
 		
@@ -280,10 +277,9 @@ public class VentanaInicio extends JFrame {
 				
 			}
 		});
-		
 
-		
 	}
+	
 	public static int getIdServidor(){
 		return idServidor;
 	}

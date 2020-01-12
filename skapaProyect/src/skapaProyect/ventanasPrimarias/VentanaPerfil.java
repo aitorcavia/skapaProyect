@@ -62,8 +62,8 @@ public class VentanaPerfil extends JFrame {
 	 */
 	public VentanaPerfil() {
 		
+		//CREACION DE INTERFACE
 		int contBarra = 0;
-		
 		int idUsuario = VentanaLogin.getUsuarioId();
 		
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -75,7 +75,6 @@ public class VentanaPerfil extends JFrame {
 		contentPane.setLayout(null);
 		
 		//CREADO Y ESCALADO DE IMAGEN
-		
 		JLabel imagenPerfil = new JLabel("");
 		imagenPerfil.setBounds(415, 16, 105, 103);
 	
@@ -138,13 +137,10 @@ public class VentanaPerfil extends JFrame {
 		JTextPane ubicacionProvinciaUsuario = new JTextPane();
 		JTextPane textoCorreo = new JTextPane();
 		
-		
-		
 		JProgressBar progressBar = new JProgressBar();
 		progressBar.setBounds(169, 451, 317, 14);
 		contentPane.add(progressBar);
 		
-
 		DBManager conexion = new DBManager();
 		
 		try {
@@ -290,7 +286,6 @@ public class VentanaPerfil extends JFrame {
 		
 		
 		//BOTON CANDADO 1 (Nombre)
-	
 		JButton botonCNombre = new JButton("");
 		botonCNombre.setBounds(491, 133, 29, 26);
 		
@@ -316,7 +311,6 @@ public class VentanaPerfil extends JFrame {
 		});
 		
 		//BOTON CANDADO 2 (Apellidos)
-		
 		JButton botonCApellidos = new JButton("");
 		botonCApellidos.setBounds(491, 164, 29, 26);
 		
@@ -342,7 +336,6 @@ public class VentanaPerfil extends JFrame {
 		
 		
 		//BOTON CANDADO 3 (Provincia)
-		
 		JButton botonCProvincia = new JButton("");
 		botonCProvincia.setBounds(491, 195, 29, 26);
 		Icon iconoCandadoC3 = new ImageIcon(imagenCandadoCerrado.getImage().getScaledInstance(botonCProvincia.getWidth(), botonCProvincia.getHeight(), Image.SCALE_DEFAULT));
@@ -366,7 +359,6 @@ public class VentanaPerfil extends JFrame {
 		});
 		
 		//BOTON CANDADO 4 (Año de nacimiento)
-		
 		JButton botonCAnyo = new JButton("");
 		botonCAnyo.setBounds(491, 233, 29, 26);
 		
@@ -380,8 +372,7 @@ public class VentanaPerfil extends JFrame {
 		btnAtras.setBounds(15, 520, 96, 29);
 		contentPane.add(btnAtras);
 		
-		
-		
+	
 		JLabel lblAutentificacion = new JLabel("Autentificacion");
 		lblAutentificacion.setBounds(15, 451, 132, 20);
 		contentPane.add(lblAutentificacion);
@@ -399,6 +390,7 @@ public class VentanaPerfil extends JFrame {
 			contBarra = contBarra + 20;
 		}
 		
+		//BOTON ATRAS
 		btnAtras.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -409,6 +401,7 @@ public class VentanaPerfil extends JFrame {
 			}
 		});
 				
+		//BOTON CANDADO AÑO
 		botonCAnyo.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -424,6 +417,7 @@ public class VentanaPerfil extends JFrame {
 				});
 				
 
+		//BOTON TARJETA
 		BotonTarjeta.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				VentanaPago vP = new VentanaPago();
@@ -431,7 +425,6 @@ public class VentanaPerfil extends JFrame {
 				vP.setVisible(true);
 				}
 			});
-		
 		
 		progressBar.setValue(contBarra);
 
