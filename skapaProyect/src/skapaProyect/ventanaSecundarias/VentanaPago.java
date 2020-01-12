@@ -88,22 +88,22 @@ public class VentanaPago extends	 javax.swing.JFrame {
 		TextoPagoConTarjeta.setColumns(10);
 		
 		TextoNTarjeta = new JTextField();
-		TextoNTarjeta.setFont(new Font("Tahoma", Font.BOLD, 16));
-		TextoNTarjeta.setText("           N\u00FAmero de la tarjeta");
+		TextoNTarjeta.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		TextoNTarjeta.setText("               N\u00FAmero de la tarjeta");
 		TextoNTarjeta.setBounds(15, 81, 297, 26);
 		contentPane.add(TextoNTarjeta);
 		TextoNTarjeta.setColumns(10);
 		
 		Textocaducidad = new JTextField();
-		Textocaducidad.setFont(new Font("Tahoma", Font.BOLD, 16));
-		Textocaducidad.setText("    MM/AA");
+		Textocaducidad.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		Textocaducidad.setText("     MM/AA");
 		Textocaducidad.setBounds(25, 114, 106, 26);
 		contentPane.add(Textocaducidad);
 		Textocaducidad.setColumns(10);
 		
 		TextoCodigodeSeguridad = new JTextField();
-		TextoCodigodeSeguridad.setFont(new Font("Tahoma", Font.BOLD, 16));
-		TextoCodigodeSeguridad.setText("        Codigo de Seguridad");
+		TextoCodigodeSeguridad.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		TextoCodigodeSeguridad.setText("  Codigo de Seguridad");
 		TextoCodigodeSeguridad.setBounds(135, 114, 177, 26);
 		contentPane.add(TextoCodigodeSeguridad);
 		TextoCodigodeSeguridad.setColumns(10);
@@ -123,15 +123,15 @@ public class VentanaPago extends	 javax.swing.JFrame {
 		txtDireccinDeFacturacin.setColumns(10);
 		
 		txtNombreCompleto = new JTextField();
-		txtNombreCompleto.setFont(new Font("Tahoma", Font.BOLD, 16));
-		txtNombreCompleto.setText("  Nombre Completo");
+		txtNombreCompleto.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		txtNombreCompleto.setText("    Nombre Completo");
 		txtNombreCompleto.setBounds(38, 233, 177, 26);
 		contentPane.add(txtNombreCompleto);
 		txtNombreCompleto.setColumns(10);
 		
 		txtDireccin = new JTextField();
-		txtDireccin.setFont(new Font("Tahoma", Font.BOLD, 16));
-		txtDireccin.setText("Direcci\u00F3n");
+		txtDireccin.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		txtDireccin.setText("               Direcci\u00F3n");
 		txtDireccin.setBounds(38, 275, 225, 26);
 		contentPane.add(txtDireccin);
 		txtDireccin.setColumns(10);
@@ -143,22 +143,22 @@ public class VentanaPago extends	 javax.swing.JFrame {
 		txtLneaDeDireccin.setColumns(10);
 		
 		txtCiudad = new JTextField();
-		txtCiudad.setFont(new Font("Tahoma", Font.BOLD, 16));
-		txtCiudad.setText("Ciudad");
+		txtCiudad.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		txtCiudad.setText("         Ciudad");
 		txtCiudad.setBounds(38, 359, 146, 26);
 		contentPane.add(txtCiudad);
 		txtCiudad.setColumns(10);
 		
 		txtEstadoprovincia = new JTextField();
-		txtEstadoprovincia.setFont(new Font("Tahoma", Font.BOLD, 16));
-		txtEstadoprovincia.setText("Estado/Provincia");
+		txtEstadoprovincia.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		txtEstadoprovincia.setText("   Estado/Provincia");
 		txtEstadoprovincia.setBounds(15, 394, 146, 26);
 		contentPane.add(txtEstadoprovincia);
 		txtEstadoprovincia.setColumns(10);
 		
 		txtCodigoPostal_1 = new JTextField();
-		txtCodigoPostal_1.setFont(new Font("Tahoma", Font.BOLD, 16));
-		txtCodigoPostal_1.setText("  Codigo Postal");
+		txtCodigoPostal_1.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		txtCodigoPostal_1.setText("    Codigo Postal");
 		txtCodigoPostal_1.setColumns(10);
 		txtCodigoPostal_1.setBounds(166, 394, 146, 26);
 		contentPane.add(txtCodigoPostal_1);
