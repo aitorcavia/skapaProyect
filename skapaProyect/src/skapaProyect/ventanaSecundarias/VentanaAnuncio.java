@@ -8,6 +8,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import skapaProyect.ventanasPrimarias.LogController;
 import skapaProyect.ventanasPrimarias.VentanaCreacionAnuncio;
 import skapaProyect.ventanasPrimarias.VentanaMisAnuncios;
 
@@ -25,6 +26,8 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
+import java.util.logging.Level;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -38,6 +41,7 @@ public class VentanaAnuncio extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		LogController.log ( Level.INFO, "Inicio Ventana " + (new Date()),null);
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

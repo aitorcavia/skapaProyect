@@ -11,6 +11,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -41,6 +42,7 @@ public class VentanaCreacionAnuncio extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		LogController.log ( Level.INFO, "Inicio Ventana " + (new Date()),null);
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

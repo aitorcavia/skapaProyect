@@ -6,6 +6,9 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import skapaProyect.ventanasPrimarias.LogController;
+
 import java.awt.Color;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
@@ -13,6 +16,8 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.Date;
+import java.util.logging.Level;
 import java.awt.event.ActionEvent;
 import javax.swing.UIManager;
 import java.awt.SystemColor;
@@ -25,6 +30,7 @@ public class VentanaVerificacion extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		LogController.log ( Level.INFO, "Inicio Ventana " + (new Date()),null);
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

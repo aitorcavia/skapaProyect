@@ -5,6 +5,7 @@ import java.awt.Desktop;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
+import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -17,6 +18,7 @@ import javax.swing.border.EmptyBorder;
 
 import skapaProyect.dataBase.DBException;
 import skapaProyect.dataBase.DBManager;
+import skapaProyect.ventanasPrimarias.LogController;
 import skapaProyect.ventanasPrimarias.VentanaLogin;
 
 import javax.swing.JTextField;
@@ -55,6 +57,7 @@ public class VentanaPago extends	 javax.swing.JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		LogController.log ( Level.INFO, "Inicio Ventana " + (new Date()),null);
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

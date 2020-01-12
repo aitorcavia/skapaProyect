@@ -11,6 +11,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Date;
+import java.util.logging.Level;
 
 import javax.swing.ButtonGroup;
 import javax.swing.Icon;
@@ -33,6 +35,7 @@ public class VentanaMisAnuncios extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		LogController.log ( Level.INFO, "Inicio Ventana " + (new Date()),null);
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -49,7 +52,6 @@ public class VentanaMisAnuncios extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaMisAnuncios() {
-		
 		
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 380, 520);

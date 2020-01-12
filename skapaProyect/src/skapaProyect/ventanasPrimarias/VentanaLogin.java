@@ -13,11 +13,8 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.util.logging.FileHandler;
-import java.util.logging.Handler;
+import java.util.Date;
 import java.util.logging.Level;
-import java.util.logging.Logger;
-
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -38,14 +35,15 @@ public class VentanaLogin extends JFrame {
 	private JPasswordField textoContrasenya;
 	private JTextField textoSkapa;
 	public static int idUsuario;
-	static Logger log;
+	
 
 	/**
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
-
+		LogController.log ( Level.INFO, "Inicio Ventana " + (new Date()),null);
 		EventQueue.invokeLater(new Runnable() {
+			
 			public void run() {
 				try {
 					VentanaLogin frame = new VentanaLogin();
@@ -61,21 +59,6 @@ public class VentanaLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaLogin() {
-		
-		
-		//LOGGER
-		try {
-			log = Logger.getLogger("VentanaLogin");
-			log.setLevel(Level.ALL);
-			Handler h = new FileHandler("infoLogger/ventanaLogin.xml");
-			log.addHandler(h);
-			h.setLevel(Level.WARNING);
-			
-		}catch (Exception e) {
-			
-		}
-		
-		log.log(Level.INFO, "Inicio de Ventana");
 
 		//CREACION INTERFACE
 		setTitle("Login");
@@ -141,6 +124,7 @@ public class VentanaLogin extends JFrame {
 
 		contentPane.add(checkGuardarDatos);
 
+		
 		// GUARDADO DE DATOS (INICIO RAPIDO)
 		String desktopPath = System.getProperty("user.home") + "/Desktop" + "/datosSkapa.txt";
 		String ruta = desktopPath.replace("\\", "/");
@@ -183,7 +167,6 @@ public class VentanaLogin extends JFrame {
 
 				try {
 					conexion.connect();
-					log.log(Level.INFO, "Conexion con BD establecida");
 
 					if (conexion.loginUsuario(nomUsuario, contrasenya) == true) {
 						idUsuario = conexion.obtenerId(nomUsuario);

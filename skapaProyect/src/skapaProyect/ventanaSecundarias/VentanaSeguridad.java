@@ -9,6 +9,7 @@ import javax.swing.border.EmptyBorder;
 
 import skapaProyect.dataBase.DBException;
 import skapaProyect.dataBase.DBManager;
+import skapaProyect.ventanasPrimarias.LogController;
 import skapaProyect.ventanasPrimarias.Usuario;
 import skapaProyect.ventanasPrimarias.VentanaLogin;
 
@@ -19,6 +20,8 @@ import javax.swing.JOptionPane;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Date;
+import java.util.logging.Level;
 
 import javax.swing.JTextField;
 import javax.swing.JPasswordField;
@@ -35,6 +38,7 @@ public class VentanaSeguridad extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		LogController.log ( Level.INFO, "Inicio Ventana " + (new Date()),null);
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

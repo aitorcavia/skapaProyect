@@ -12,6 +12,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.border.EmptyBorder;
+
+import skapaProyect.ventanasPrimarias.LogController;
+
 import javax.swing.JTextPane;
 import java.awt.Font;
 import java.awt.Image;
@@ -19,6 +22,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.Date;
+import java.util.logging.Level;
 import java.awt.Color;
 import javax.swing.SwingConstants;
 
@@ -30,6 +35,7 @@ public class VentanaAyudaInformacion extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		LogController.log ( Level.INFO, "Inicio Ventana " + (new Date()),null);
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
