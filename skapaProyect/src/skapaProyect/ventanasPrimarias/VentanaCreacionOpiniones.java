@@ -1,10 +1,10 @@
 package skapaProyect.ventanasPrimarias;
 import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import bitacor.Bitacora;
 import skapaProyect.dataBase.DBException;
 import skapaProyect.dataBase.DBManager;
 import skapaProyect.ventanaSecundarias.VentanaAnuncio;
@@ -65,7 +65,7 @@ public class VentanaCreacionOpiniones extends JFrame{
 		
 		int idU = VentanaLogin.getUsuarioId();
 		
-		Bitacora bit = new Bitacora();
+		
 		
 		logger.log(Level.INFO, "Ventana inicializada");
 		

@@ -1,6 +1,7 @@
 package skapaProyect.ventanasPrimarias;
 
 import java.awt.BorderLayout;
+
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -8,7 +9,6 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.plaf.FileChooserUI;
 
-import bitacor.Bitacora;
 import skapaProyect.ventanaSecundarias.VentanaAnuncio;
 
 import java.awt.Color;
@@ -68,7 +68,6 @@ public class VentanaCreacionAnuncio extends JFrame {
 	 */
 	public VentanaCreacionAnuncio() {
 		
-		Bitacora bit = new Bitacora();
 		
 		logger.log(Level.INFO, "Ventana inicializada");
 		
