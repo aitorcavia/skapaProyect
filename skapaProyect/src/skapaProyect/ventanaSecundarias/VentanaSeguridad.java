@@ -51,6 +51,7 @@ public class VentanaSeguridad extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaSeguridad() {
+		setUndecorated(true);
 		
 		int a = VentanaLogin.getUsuarioId();
 		

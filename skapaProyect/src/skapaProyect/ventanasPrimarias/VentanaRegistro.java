@@ -51,6 +51,7 @@ public class VentanaRegistro extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaRegistro() {
+		setUndecorated(true);
 		
 		//CREACION INTERFACE
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

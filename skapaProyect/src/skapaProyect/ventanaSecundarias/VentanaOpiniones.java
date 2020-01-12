@@ -46,6 +46,7 @@ public class VentanaOpiniones extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaOpiniones() {
+		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 403, 559);
 		contentPane = new JPanel();

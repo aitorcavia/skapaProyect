@@ -46,6 +46,7 @@ public class VentanaAyudaInformacion extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaAyudaInformacion() {
+		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 431, 559);
 		contentPane = new JPanel();

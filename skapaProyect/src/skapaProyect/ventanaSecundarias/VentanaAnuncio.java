@@ -54,6 +54,7 @@ public class VentanaAnuncio extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaAnuncio() {
+		setUndecorated(true);
 		
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 349, 559);

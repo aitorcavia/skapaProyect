@@ -71,6 +71,7 @@ public class VentanaPago extends	 javax.swing.JFrame {
 	 * Create the frame.
 	 */
 	public VentanaPago() {
+		setUndecorated(true);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 349, 559);
 		contentPane = new JPanel();

@@ -46,6 +46,7 @@ public class VentanaPrivacidad extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaPrivacidad() {
+		setUndecorated(true);
 		
 		int idU = VentanaLogin.getUsuarioId();
 		
