@@ -1,4 +1,4 @@
-package properties;
+package z_properties;
 
 import java.io.*;
 import java.util.*;
