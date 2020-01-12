@@ -420,4 +420,33 @@ public class DBManager {
 			throw new DBException("No ha sido posible ejecutar la query");
 		}
 	}
+	
+	//CAMBIAR CONTRASENYA USUARIO
+	public void cambiarContrsenya (Usuario user) throws DBException{
+		try (PreparedStatement stmt = conn.prepareStatement("UPDATE usuario SET contrasenya= ? WHERE nomUsuario ='"+ user.getNomUsuario() + "'")){
+			stmt.setString(1, user.getContrasenya());
+			stmt.executeUpdate();
+			
+			
+		}catch (SQLException e) {
+			throw new DBException("No ha sido posible ejecutar la query");
+		}
+	}
+	
+	//INSERTAR NUEVO ANUNCIO
+	public void insertarAnuncio (Anuncio anuncio) throws DBException{
+		try (PreparedStatement stmt = conn.prepareStatement("INSERT INTO anuncio (idUsuario, titulo, precio, categoria, descripcion) VALUES (?, ?, ?, ?, ? )")){
+			stmt.setInt(1, anuncio.getIdUsuario());
+			stmt.setString(2, anuncio.getTitulo());
+			stmt.setString(3, anuncio.getPrecio());
+			stmt.setString(4, anuncio.getCategoria());
+			stmt.setString(5, anuncio.getDescripcion());
+			stmt.executeUpdate();
+			
+		}catch (SQLException e) {
+			throw new DBException("No ha sido posible ejecutar la query");
+		}
+	}
+	
+	
 }

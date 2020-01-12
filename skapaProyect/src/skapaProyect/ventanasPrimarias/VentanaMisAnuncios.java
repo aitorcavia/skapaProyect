@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import javax.swing.ButtonGroup;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -26,6 +27,7 @@ import skapaProyect.dataBase.*;
 public class VentanaMisAnuncios extends JFrame {
 
 	private JPanel contentPane;
+	private static Anuncio an;
 
 	/** 
 	 * Launch the application.
@@ -58,22 +60,26 @@ public class VentanaMisAnuncios extends JFrame {
 		
 		JButton botonCrearAnuncio = new JButton("Crear anuncio");
 		botonCrearAnuncio.setBackground(new Color(135, 206, 235));
-		botonCrearAnuncio.setBounds(204, 419, 139, 29);
+		botonCrearAnuncio.setBounds(192, 419, 151, 29);
 		contentPane.add(botonCrearAnuncio);
 		
-		JButton btnAtras = new JButton("Atras");
-		btnAtras.setBounds(15, 419, 115, 29);
-		contentPane.add(btnAtras);
-		
 		JPanel panelAnuncios = new JPanel();
-		panelAnuncios.setBounds(15, 16, 328, 387);
+		panelAnuncios.setBounds(15, 0, 328, 403);
 		contentPane.add(panelAnuncios);
 		panelAnuncios.setLayout(null);
+		
+		JButton btnEditar = new JButton("Editar anuncio");
+		btnEditar.setBackground(new Color(135, 206, 235));
+		btnEditar.setBounds(15, 419, 151, 29);
+		contentPane.add(btnEditar);
 	
 		
 		int a = VentanaLogin.getUsuarioId();
 		DBManager dbm = new DBManager();
 		
+		ArrayList<JButton> botonesEliminar = new ArrayList<JButton>();
+		ArrayList<JButton> botonesEditar = new ArrayList<JButton>();
+
 		
 		try {
 			dbm.connect();
@@ -84,7 +90,7 @@ public class VentanaMisAnuncios extends JFrame {
 			int contS = 0;
 
 			ArrayList<JPanel> paneles = new ArrayList<JPanel>();
-
+			
 			for (Anuncio anuncio : anuncios) {
 				int idAnuncio = anuncio.getIdAnuncio();
 				String titulo = anuncio.getTitulo();
@@ -106,8 +112,10 @@ public class VentanaMisAnuncios extends JFrame {
 				paneles.get(contS).add(lblTitulo);
 				
 				JButton botonEliminar = new JButton();
-				botonEliminar.setBounds(288, 16, 20, 20);
+				botonEliminar.setBounds(288, 42, 20, 20);
 				paneles.get(contS).add(botonEliminar);
+				botonEliminar.setVisible(false);
+				botonesEliminar.add(botonEliminar);
 				
 				ImageIcon imagenX = new ImageIcon("../skapaProyect/multimedia/x_cerrar.png");
 				
@@ -137,7 +145,30 @@ public class VentanaMisAnuncios extends JFrame {
 						
 					}
 				});
-			
+				
+				JButton botonEditar = new JButton();
+				botonEditar.setBounds(288, 16, 20, 20);
+				paneles.get(contS).add(botonEditar);
+				botonEditar.setVisible(false);
+				botonesEditar.add(botonEditar);
+				
+				ImageIcon imagenE = new ImageIcon("../skapaProyect/multimedia/editar.png");
+				
+				Icon iconoE = new ImageIcon(imagenE.getImage().getScaledInstance(botonEditar.getWidth(), botonEditar.getHeight(), Image.SCALE_DEFAULT));
+				botonEditar.setIcon(iconoE);
+				
+				botonEditar.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						an = anuncio;
+						VentanaEdicionAnuncio vea = new VentanaEdicionAnuncio();
+						vea.setVisible(true);
+						setVisible(false);
+						
+						
+					}
+				});
+				
 				
 				JLabel lblPrecio = new JLabel("Precio: " + precio + " €");
 				lblPrecio.setBounds(15, 25+16, 80, 20);
@@ -168,24 +199,40 @@ public class VentanaMisAnuncios extends JFrame {
 				
 			}
 		});
-		
-		btnAtras.addActionListener(new ActionListener() {
+		btnEditar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				VentanaUsuario vu = new VentanaUsuario();
-				vu.setVisible(true);
-				setVisible(false);
+				
+				for (JButton boton : botonesEliminar) {
+					if(!boton.isVisible()) {
+						boton.setVisible(true);
+						btnEditar.setBackground(new Color(169, 204, 227 ));
+						
+					}else {
+						boton.setVisible(false);
+						btnEditar.setBackground(new Color(135, 206, 235));
+					}
+				}
+				
+				for (JButton boton : botonesEditar) {
+					if(!boton.isVisible()) {
+						boton.setVisible(true);
+						btnEditar.setBackground(new Color(169, 204, 227 ));
+						
+					}else {
+						boton.setVisible(false);
+						btnEditar.setBackground(new Color(135, 206, 235));
+					}
+				}
 				
 			}
 		});
-		
-		
-		
-		
-		
-		
+
 		
 		}
+	public static Anuncio getAnuncio() {
+		return an;
+	}
 	}
 
 

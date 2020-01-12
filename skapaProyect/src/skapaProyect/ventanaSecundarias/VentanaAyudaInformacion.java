@@ -53,53 +53,31 @@ public class VentanaAyudaInformacion extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-	
-		
-		JLabel TextoCorreoDeContacto = new JLabel();
-		TextoCorreoDeContacto.setFont(new Font("Tahoma", Font.BOLD, 16));
-		TextoCorreoDeContacto.setFocusable(false);
-		TextoCorreoDeContacto.setText("Correo de Contacto");
-		TextoCorreoDeContacto.setBounds(15, 70, 184, 26);
-		contentPane.add(TextoCorreoDeContacto);
 		
 		JLabel TextoCorreo = new JLabel();
 		TextoCorreo.setFont(new Font("Tahoma", Font.PLAIN, 22));
 		TextoCorreo.setFocusable(false);
-		TextoCorreo.setText("      skapatutienda2@gmail.com");
-		TextoCorreo.setBounds(70, 116, 339, 41);
+		TextoCorreo.setText("skapatutienda2@gmail.com");
+		TextoCorreo.setBounds(109, 118, 300, 41);
 		contentPane.add(TextoCorreo);
-		
-		JLabel TextoInstagram = new JLabel();
-		TextoInstagram.setFocusable(false);
-		TextoInstagram.setFont(new Font("Tahoma", Font.BOLD, 16));
-		TextoInstagram.setText("Instagram");
-		TextoInstagram.setBounds(15, 202, 157, 47);
-		contentPane.add(TextoInstagram);
 		
 		JLabel TextoNombreInstagram = new JLabel();
 		TextoNombreInstagram.setFont(new Font("Tahoma", Font.PLAIN, 20));
 		TextoNombreInstagram.setText("Skapa");
-		TextoNombreInstagram.setBounds(118, 265, 120, 38);
+		TextoNombreInstagram.setBounds(109, 237, 120, 38);
 		contentPane.add(TextoNombreInstagram);
 		
-		JLabel TextoIntroduccion = new JLabel();
-		TextoIntroduccion.setFocusable(false);
-		TextoIntroduccion.setFont(new Font("Tahoma", Font.BOLD, 15));
-		TextoIntroduccion.setText("En caso de necesitar ayuda contacte con nosotros ");
-		TextoIntroduccion.setBounds(15, 0, 435, 81);
-		contentPane.add(TextoIntroduccion);
 		
-		
-		JButton Volver = new JButton("A");
+		JButton Volver = new JButton("Atras");
 		Volver.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 			}
 		});
-		Volver.setBounds(274, 458, 104, 29);
+		Volver.setBounds(15, 458, 104, 29);
 		contentPane.add(Volver);
 		
 		JButton imagenGmail = new JButton();
-		imagenGmail.setBounds(15, 112, 79, 74);
+		imagenGmail.setBounds(15, 100, 79, 74);
 		ImageIcon imagenP = new ImageIcon("../skapaProyect/multimedia/Captura.png");
 		
 		Icon icono = new ImageIcon(imagenP.getImage().getScaledInstance(imagenGmail.getWidth(), imagenGmail.getHeight(), Image.SCALE_DEFAULT));
@@ -124,7 +102,7 @@ public class VentanaAyudaInformacion extends JFrame {
 		});
 		
 		JButton imagenInstagram = new JButton();
-		imagenInstagram.setBounds(15, 250, 79, 72);
+		imagenInstagram.setBounds(15, 214, 79, 72);
 		ImageIcon imagenP1 = new ImageIcon("../skapaProyect/multimedia/Captura1.png");
 		
 		Icon icono1 = new ImageIcon(imagenP1.getImage().getScaledInstance(imagenInstagram.getWidth(), imagenInstagram.getHeight(), Image.SCALE_DEFAULT));
@@ -152,9 +130,14 @@ public class VentanaAyudaInformacion extends JFrame {
 		JTextArea textoEslogan = new JTextArea();
 		textoEslogan.setFont(new Font("Monospaced", Font.PLAIN, 13));
 		textoEslogan.setText("\"Una manera f\u00E1cil y gratuita de ganar dinero \r\n vendiendo las cosas que ya no usas desde \r\n una sola aplicaci\u00F3n. En esta aplicaci\u00F3n puedes\r\n  vender, ceder incluso intercambiar objetos\"");
-		textoEslogan.setBounds(15, 345, 379, 81);
+		textoEslogan.setBounds(15, 332, 379, 81);
 		textoEslogan.setOpaque(false);
 		contentPane.add(textoEslogan);
+		
+		JLabel lblproblemasdudasContactanos = new JLabel("\u00BFProblemas? \u00BFDudas? Contactanos !!!");
+		lblproblemasdudasContactanos.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblproblemasdudasContactanos.setBounds(15, 16, 379, 38);
+		contentPane.add(lblproblemasdudasContactanos);
 
 		
 		Volver.addActionListener(new ActionListener() {

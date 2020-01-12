@@ -64,7 +64,7 @@ public class VentanaPerfil extends JFrame {
 		
 		int idUsuario = VentanaLogin.getUsuarioId();
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 557, 621);
 		contentPane = new JPanel();
 		contentPane.setBackground(new Color(135, 206, 250));
