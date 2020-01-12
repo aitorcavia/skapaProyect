@@ -1,4 +1,4 @@
-package z_properties;
+package skapaProyect.z_properties;
 
 import java.io.*;
 import java.util.*;
