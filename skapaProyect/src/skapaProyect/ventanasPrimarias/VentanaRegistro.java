@@ -51,6 +51,8 @@ public class VentanaRegistro extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaRegistro() {
+		
+		//CREACION INTERFACE
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 440, 523);
 		contentPane = new JPanel();
@@ -102,16 +104,15 @@ public class VentanaRegistro extends JFrame {
 		botonAtras.setBounds(15, 422, 91, 29);
 		contentPane.add(botonAtras);
 		
+		//BOTON REGISTRO DE USUARIOS
 		botonRegistro.addActionListener(new ActionListener() {
-			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				String nomUsuario; 
 				String contrasenya;
 				String correo;
 				String direccionIP = null;
-				
-		
+	
 				nomUsuario = textoUsuario.getText();
 				contrasenya = textoContrasenya.getText();
 				correo = textoCorreo.getText();

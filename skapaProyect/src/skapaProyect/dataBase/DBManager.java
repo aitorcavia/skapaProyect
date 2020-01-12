@@ -83,7 +83,6 @@ public class DBManager {
 	}
 	
 	//LOGIN DE USUARIO
-	
 		public boolean loginUsuario (String nomUsuario, String contrasenya) throws DBException{
 			
 			boolean acceso = false;
@@ -151,16 +150,28 @@ public class DBManager {
 	//OBTENER ID DE NOMUSUARIO
 	public int obtenerId (String nomUsuario) throws DBException{
 		int idUsuario = 0;
+		if (!nomUsuario.contains("@")) {
+			try (PreparedStatement stmt = conn.prepareStatement("SELECT id, nomUsuario, contrasenya, correo, nombre, apellidos, ubicacion, direccionIP FROM usuario WHERE nomUsuario = ?")) {
+				stmt.setString(1, nomUsuario);
+				ResultSet rs = stmt.executeQuery();
+				rs.next();
+				idUsuario = rs.getInt("id");
+				
+			} catch (SQLException e) {
+				throw new DBException("Error obteniendo todos los usuarios'", e);
+			}	
+		}else {
+			try (PreparedStatement stmt = conn.prepareStatement("SELECT id, nomUsuario, contrasenya, correo, nombre, apellidos, ubicacion, direccionIP FROM usuario WHERE correo = ?")) {
+				stmt.setString(1, nomUsuario);
+				ResultSet rs = stmt.executeQuery();
+				rs.next();
+				idUsuario = rs.getInt("id");
+				
+			} catch (SQLException e) {
+				throw new DBException("Error obteniendo todos los usuarios'", e);
+			}	
+		}
 		
-		try (PreparedStatement stmt = conn.prepareStatement("SELECT id, nomUsuario, contrasenya, correo, nombre, apellidos, ubicacion, direccionIP FROM usuario WHERE nomUsuario = ?")) {
-			stmt.setString(1, nomUsuario);
-			ResultSet rs = stmt.executeQuery();
-			rs.next();
-			idUsuario = rs.getInt("id");
-			
-		} catch (SQLException e) {
-			throw new DBException("Error obteniendo todos los usuarios'", e);
-		}	
 			
 		return idUsuario;
 	}

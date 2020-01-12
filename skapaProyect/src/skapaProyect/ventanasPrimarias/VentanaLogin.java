@@ -141,7 +141,7 @@ public class VentanaLogin extends JFrame {
 		contentPane.add(checkGuardarDatos);
 
 		// GUARDADO DE DATOS (INICIO RAPIDO)
-		String desktopPath = System.getProperty("user.home") + "/Desktop" + "/texto.txt";
+		String desktopPath = System.getProperty("user.home") + "/Desktop" + "/datosSkapa.txt";
 		String ruta = desktopPath.replace("\\", "/");
 		File archivo = new File(ruta);
 		BufferedWriter bw;
