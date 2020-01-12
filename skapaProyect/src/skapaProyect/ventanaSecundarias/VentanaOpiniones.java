@@ -15,6 +15,9 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import skapaProyect.ventanasPrimarias.VentanaCreacionOpiniones;
+
 import java.awt.Color;
 import javax.swing.JLabel;
 import javax.swing.JButton;
@@ -63,6 +66,10 @@ public class VentanaOpiniones extends JFrame {
 		button.setBounds(15, 466, 115, 29);
 		contentPane.add(button);
 		
+		JButton btnNuevoComentario = new JButton("Nuevo comentario");
+		btnNuevoComentario.setBounds(205, 466, 161, 29);
+		contentPane.add(btnNuevoComentario);
+		
 		 Font fuente = new Font("Serief",Font.BOLD,14);		
         
 		
@@ -88,7 +95,7 @@ public class VentanaOpiniones extends JFrame {
 
 			
 				JPanel panel_1 = new JPanel();
-				panel_1.setBackground(new Color(135, 206, 235));
+				panel_1.setBackground(Color.WHITE);
 				panel_1.setBounds(15, cont, 351, 95);
 				panelOpiniones.add(panel_1);
 				panel_1.setLayout(null);
@@ -129,7 +136,14 @@ public class VentanaOpiniones extends JFrame {
 				
 			}
 		});
+		btnNuevoComentario.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				VentanaCreacionOpiniones vco = new VentanaCreacionOpiniones();
+				vco.setVisible(true);
+				setVisible(false);
+				
+			}
+		});
 	}
-	
-	
 }

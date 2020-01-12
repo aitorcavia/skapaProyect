@@ -62,7 +62,7 @@ public class VentanaPerfil extends JFrame {
 	 */
 	public VentanaPerfil() {
 		
-		
+		int contBarra = 0;
 		
 		int idUsuario = VentanaLogin.getUsuarioId();
 		
@@ -138,13 +138,13 @@ public class VentanaPerfil extends JFrame {
 		JTextPane ubicacionProvinciaUsuario = new JTextPane();
 		JTextPane textoCorreo = new JTextPane();
 		
+		
+		
 		JProgressBar progressBar = new JProgressBar();
 		progressBar.setBounds(169, 451, 317, 14);
 		contentPane.add(progressBar);
 		
-		
-		
-		
+
 		DBManager conexion = new DBManager();
 		
 		try {
@@ -386,6 +386,19 @@ public class VentanaPerfil extends JFrame {
 		lblAutentificacion.setBounds(15, 451, 132, 20);
 		contentPane.add(lblAutentificacion);
 		
+		if(!nombreUsuario.getText().equals("")) {
+			contBarra = contBarra + 20;
+		}
+		if (!apellidoUsuario.getText().equals("")) {
+			contBarra = contBarra + 30;
+		}
+		if (!ubicacionProvinciaUsuario.getText().equals("")) {
+			contBarra = contBarra + 30;
+		}
+		if (!textoCorreo.getText().equals("")) {
+			contBarra = contBarra + 20;
+		}
+		
 		btnAtras.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -420,6 +433,9 @@ public class VentanaPerfil extends JFrame {
 			});
 		
 		
-		
+		progressBar.setValue(contBarra);
+
 	}
-}
+	
+} 
+

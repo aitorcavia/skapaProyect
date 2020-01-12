@@ -69,8 +69,8 @@ public class VentanaCreacionOpiniones extends JFrame{
 		
 		logger.log(Level.INFO, "Ventana inicializada");
 		
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 340, 550);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+		setBounds(100, 100, 340, 503);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -80,17 +80,17 @@ public class VentanaCreacionOpiniones extends JFrame{
 		panel.setLayout(null);
 		panel.setBorder(new EmptyBorder(5, 5, 5, 5));
 		panel.setBackground(new Color(135, 206, 250));
-		panel.setBounds(0, 0, 318, 503);
+		panel.setBounds(0, 0, 318, 460);
 		contentPane.add(panel);
 		
 		
 		textoTitulo = new JTextField();
-		textoTitulo.setBounds(15, 110, 142, 26);
+		textoTitulo.setBounds(15, 150, 288, 26);
 		panel.add(textoTitulo);
 		textoTitulo.setColumns(10);
 		
 		JLabel labelNewLabel = new JLabel("TITULO:");
-		labelNewLabel.setBounds(15, 80, 143, 26);
+		labelNewLabel.setBounds(14, 108, 143, 26);
 		panel.add(labelNewLabel);
 		
 	
@@ -100,12 +100,26 @@ public class VentanaCreacionOpiniones extends JFrame{
 		panel.add(labelOpinion);
 		
 		JTextArea textoOpinion = new JTextArea();
-		textoOpinion.setBounds(15, 298, 288, 120);
+		textoOpinion.setBounds(15, 234, 288, 120);
 		panel.add(textoOpinion);
 		
 		JButton botonGuardar = new JButton("Guardar");
-		botonGuardar.setBounds(188, 458, 115, 29);
+		botonGuardar.setBounds(188, 401, 115, 29);
 		panel.add(botonGuardar);
+		
+		JLabel lblDejanosTuOpinion = new JLabel("Dejanos tu opinion");
+		lblDejanosTuOpinion.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblDejanosTuOpinion.setBounds(15, 16, 182, 20);
+		panel.add(lblDejanosTuOpinion);
+		
+		JLabel lblYAlgunaspectoA = new JLabel("y algun aspecto a mejorar");
+		lblYAlgunaspectoA.setFont(new Font("Tahoma", Font.BOLD, 18));
+		lblYAlgunaspectoA.setBounds(15, 40, 261, 20);
+		panel.add(lblYAlgunaspectoA);
+		
+		JButton btnAtras = new JButton("Atras");
+		btnAtras.setBounds(15, 401, 96, 29);
+		panel.add(btnAtras);
 		
 		
 		botonGuardar.addActionListener(new ActionListener() {
@@ -130,6 +144,16 @@ public class VentanaCreacionOpiniones extends JFrame{
 					
 					e1.printStackTrace();
 				}
+				
+			}
+		});
+		
+		btnAtras.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				VentanaOpiniones vo = new VentanaOpiniones();
+				vo.setVisible(true);
+				setVisible(false);
 				
 			}
 		});
