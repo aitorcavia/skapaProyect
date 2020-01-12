@@ -1,27 +1,10 @@
 package skapaProyect.ventanasPrimarias;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-
-import skapaProyect.dataBase.DBException;
-import skapaProyect.dataBase.DBManager;
-
-import javax.swing.JTextField;
-import javax.swing.SwingConstants;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-
 import java.awt.Color;
 import java.awt.Cursor;
+import java.awt.EventQueue;
 import java.awt.Font;
-import javax.swing.JTextArea;
-import javax.swing.JButton;
-import javax.swing.JPasswordField;
-import javax.swing.UIManager;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -30,24 +13,25 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.logging.FileHandler;
 import java.util.logging.Handler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.awt.event.ActionEvent;
 
-import javax.security.auth.login.LoginContext;
-import javax.swing.DropMode;
-import java.awt.Window.Type;
 import javax.swing.ImageIcon;
-import java.awt.Dialog.ModalExclusionType;
+import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+import skapaProyect.dataBase.DBException;
+import skapaProyect.dataBase.DBManager;
 
 public class VentanaLogin extends JFrame {
 	private JPanel contentPane;
@@ -77,6 +61,8 @@ public class VentanaLogin extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaLogin() {
+		
+		//LOGGER
 		try {
 			log = Logger.getLogger("VentanaLogin");
 			log.setLevel(Level.ALL);
@@ -90,6 +76,7 @@ public class VentanaLogin extends JFrame {
 		
 		log.log(Level.INFO, "Inicio de Ventana");
 
+		//CREACION INTERFACE
 		setTitle("Login");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 440, 522);
@@ -145,8 +132,6 @@ public class VentanaLogin extends JFrame {
 		botonRegistro.setFont(new Font("Tahoma", Font.PLAIN, 18));
 		botonRegistro.setBounds(15, 430, 199, 20);
 		contentPane.add(botonRegistro);
-		
-		
 
 		JCheckBox checkGuardarDatos = new JCheckBox("No volver a preguntar");
 		checkGuardarDatos.setFont(new Font("Tahoma", Font.PLAIN, 12));
@@ -185,6 +170,7 @@ public class VentanaLogin extends JFrame {
 
 		}
 
+		//BOTON INICIAR SESION
 		botonInicioSesion.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -240,15 +226,14 @@ public class VentanaLogin extends JFrame {
 				}
 			}
 		});
-
-		botonRegistro.setCursor(new Cursor(HAND_CURSOR));
 		
-				// CREACION DE VENTANA
+		
+		JLabel label = new JLabel("");
+		label.setIcon(new ImageIcon("multimedia/Logo.png"));
+		label.setBounds(249,16, 154, 155);
+		contentPane.add(label);
 				
-				JLabel label = new JLabel("");
-				label.setIcon(new ImageIcon("multimedia/Logo.png"));
-				label.setBounds(249,16, 154, 155);
-				contentPane.add(label);
+		botonRegistro.setCursor(new Cursor(HAND_CURSOR));
 
 		botonRegistro.addMouseListener(new MouseListener() {
 			@Override
@@ -274,6 +259,7 @@ public class VentanaLogin extends JFrame {
 
 	}
 
+	//METODO GET ID USUARIO
 	public static int getUsuarioId() {
 		return idUsuario;
 	}

@@ -1,14 +1,11 @@
 package skapaProyect.ventanasPrimarias;
-
 import java.awt.Color;
 import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.SystemColor;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.DefaultComboBoxModel;
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JEditorPane;
@@ -17,7 +14,6 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
-
 import skapaProyect.chat.VentanaCliente;
 import skapaProyect.dataBase.DBException;
 import skapaProyect.dataBase.DBManager;
@@ -50,6 +46,8 @@ public class VentanaInicio extends JFrame {
 	 * Create the frame.
 	 */
 	public VentanaInicio() {
+		
+		//CREACION DE INTERFACE
 		setTitle("VentanaInicio");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1308, 735);
@@ -132,7 +130,6 @@ public class VentanaInicio extends JFrame {
 		panel.add(btnAjustes);
 	
 		
-		
 		//LISTADO DE TODOS LOS ANUNCIOS
 		DBManager conexion = new DBManager();
 		
@@ -184,6 +181,7 @@ public class VentanaInicio extends JFrame {
 			e2.printStackTrace();
 		}
 		
+		//BOTON BUSCAR ANUNCIO, FILTRADO
 		botonBuscar.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {

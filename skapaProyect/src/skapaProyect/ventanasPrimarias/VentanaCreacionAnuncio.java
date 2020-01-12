@@ -1,42 +1,32 @@
 package skapaProyect.ventanasPrimarias;
 
-import java.awt.BorderLayout;
-
-import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.plaf.FileChooserUI;
-
-import skapaProyect.ventanaSecundarias.VentanaAnuncio;
-
 import java.awt.Color;
-import javax.swing.JTextPane;
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.PrintStream;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.JTextArea;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
-import javax.swing.JSlider;
-import javax.swing.JSpinner;
-import javax.swing.JButton;
-import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+import skapaProyect.ventanaSecundarias.VentanaAnuncio;
 
 public class VentanaCreacionAnuncio extends JFrame {
 
@@ -68,9 +58,11 @@ public class VentanaCreacionAnuncio extends JFrame {
 	 */
 	public VentanaCreacionAnuncio() {
 		
-		
+		//LOGGER
 		logger.log(Level.INFO, "Ventana inicializada");
 		
+		
+		//CREACION DE INTERFACE
 		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setBounds(100, 100, 360, 550);
 		contentPane = new JPanel();
@@ -153,23 +145,17 @@ public class VentanaCreacionAnuncio extends JFrame {
 		panel.add(lblproximamente);
 		
 		
+		//BOTON AÑADIR (Pendiente de implementar)
 		botonAnyadir.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				JFileChooser fileChooser = new JFileChooser();
-				
-				
-				
-			
-				
+
 			}
 		});
+
 		
-		
-	
-	
 	botonGuardar.addActionListener(new ActionListener() {
-		
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			int idUsuario;
@@ -180,7 +166,6 @@ public class VentanaCreacionAnuncio extends JFrame {
 			 
 			int a = VentanaLogin.getUsuarioId();
 			
-			//IMAGEN https://www.youtube.com/watch?v=MxJThrSoTaU
 			idUsuario = a;
 			titulo = textoTitulo.getText();
 			precio = textoPrecio.getText();
@@ -197,12 +182,9 @@ public class VentanaCreacionAnuncio extends JFrame {
 				String query = "INSERT INTO anuncio (idUsuario, titulo, precio, categoria, descripcion) VALUES ('"+ idUsuario + "', '" + titulo + "', '"+ precio + "', '" + categoria + "', '" + descripcion + "')" ;
 				stmt.executeUpdate(query);
 			
-			
 				JOptionPane.showMessageDialog(null, "Anuncio creado correctamente", "Correcto", 1);
-				
-				
+	
 				ResultSet rs = stmt.executeQuery("SELECT idUsuario, idAnuncio, titulo, precio, categoria, descripcion FROM anuncio WHERE idUsuario ='" + idUsuario + "' and titulo ='" + titulo + "' and descripcion= '"+ descripcion + "'");
-				
 				idAnuncio = rs.getInt("idAnuncio");
 				
 				stmt.close();
@@ -224,6 +206,7 @@ public class VentanaCreacionAnuncio extends JFrame {
 	
 	}
 	
+	//METODO PARA SACAR IDANUNCIO
 	public static int getAnuncioId(){
 		return idAnuncio;
 		}
