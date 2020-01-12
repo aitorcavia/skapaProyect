@@ -1,38 +1,24 @@
 package skapaProyect.ventanasPrimarias;
-import java.awt.BorderLayout;
-
-import java.awt.EventQueue;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import skapaProyect.dataBase.DBException;
-import skapaProyect.dataBase.DBManager;
-import skapaProyect.ventanaSecundarias.VentanaAnuncio;
-import skapaProyect.ventanaSecundarias.VentanaOpiniones;
-
 import java.awt.Color;
-import javax.swing.JTextPane;
+import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.PrintStream;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JTextField;
-import javax.swing.JTextArea;
-import javax.swing.JComboBox;
-import javax.swing.JSlider;
-import javax.swing.JSpinner;
+
 import javax.swing.JButton;
-import javax.swing.DefaultComboBoxModel;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+
+import skapaProyect.dataBase.DBException;
+import skapaProyect.dataBase.DBManager;
+import skapaProyect.ventanaSecundarias.VentanaOpiniones;
 
 public class VentanaCreacionOpiniones extends JFrame{
 	private JPanel contentPane;

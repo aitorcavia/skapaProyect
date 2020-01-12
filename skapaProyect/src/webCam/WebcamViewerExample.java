@@ -41,7 +41,7 @@ public class WebcamViewerExample extends JFrame implements Runnable,ActionListen
 
 		Webcam.addDiscoveryListener(this);
 
-		setTitle("Java Webcam Capture POC");
+		setTitle("Java Webcam Skapa");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setLayout(new BorderLayout());
 
@@ -53,7 +53,7 @@ public class WebcamViewerExample extends JFrame implements Runnable,ActionListen
 		webcam = picker.getSelectedWebcam();
 
 		if (webcam == null) {
-			System.out.println("No webcams found...");
+			System.out.println("No webcams encontradas...");
 			System.exit(1);
 		}
 
@@ -91,17 +91,17 @@ public class WebcamViewerExample extends JFrame implements Runnable,ActionListen
 
 	@Override
 	public void webcamOpen(WebcamEvent we) {
-		System.out.println("webcam open");
+		System.out.println("webcam abierta");
 	}
 
 	@Override
 	public void webcamClosed(WebcamEvent we) {
-		System.out.println("webcam closed");
+		System.out.println("webcam cerrada");
 	}
 
 	@Override
 	public void webcamDisposed(WebcamEvent we) {
-		System.out.println("webcam disposed");
+		System.out.println("webcam dispuesta");
 	}
 
 	@Override
@@ -144,7 +144,7 @@ public class WebcamViewerExample extends JFrame implements Runnable,ActionListen
 
 	@Override
 	public void uncaughtException(Thread t, Throwable e) {
-		System.err.println(String.format("Exception in thread %s", t.getName()));
+		System.err.println(String.format("Excepcion en thread %s", t.getName()));
 		e.printStackTrace();
 	}
 
