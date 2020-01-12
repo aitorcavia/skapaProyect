@@ -1,4 +1,4 @@
-package webCam;
+package skapaProyect.webCam;
 
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
