@@ -1,5 +1,9 @@
 
 
+°°IMPORTANTE INICIAR DESDE VentanaLogin!!
+
+*Descripcion de Ventanas y sus funciones:*
+
 Para empezar con la inicializaci√≥n del proyecto es necesario ejecutar
 VentanaLogin en caso de no tener cuenta nos registramos.
 
