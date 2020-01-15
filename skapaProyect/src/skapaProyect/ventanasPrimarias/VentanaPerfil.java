@@ -12,6 +12,7 @@ import skapaProyect.dataBase.*;
 import skapaProyect.ventanaSecundarias.VentanaAjustes;
 import skapaProyect.ventanaSecundarias.VentanaPago;
 import skapaProyect.ventanaSecundarias.VentanaPrivacidad;
+import skapaProyect.webCam.WebcamViewerExample;
 
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -78,7 +79,7 @@ public class VentanaPerfil extends JFrame {
 		
 		//CREADO Y ESCALADO DE IMAGEN
 		JLabel imagenPerfil = new JLabel("");
-		imagenPerfil.setBounds(415, 16, 105, 103);
+		imagenPerfil.setBounds(415, 14, 105, 103);
 	
 		ImageIcon imagenP = new ImageIcon("../skapaProyect/multimedia/FotoPerfil.png");
 		
@@ -429,8 +430,18 @@ public class VentanaPerfil extends JFrame {
 			});
 		
 		progressBar.setValue(contBarra);
-
+		
+		JButton btnWebcam = new JButton("webcam");
+		btnWebcam.setBounds(392, 91, 23, 26);
+		contentPane.add(btnWebcam);
+		
+		btnWebcam.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+			WebcamViewerExample	 WC = new WebcamViewerExample();
+				setVisible(false);
+				WC.setVisible(true);
+				}
+			});
 	}
-	
 } 
 

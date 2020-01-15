@@ -144,7 +144,7 @@ public class VentanaCliente extends JFrame {
 			public void run() {
 				try {
 		
-					socket = new Socket("localhost",9000);
+					socket = new Socket(direccionIpCliente,9000);//"localhost"
  						leer();
 						escribir();
 					
