@@ -18,6 +18,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 import skapaProyect.chat.VentanaCliente;
+import skapaProyect.chat.VentanaServidor;
 import skapaProyect.dataBase.DBException;
 import skapaProyect.dataBase.DBManager;
 import skapaProyect.ventanaSecundarias.VentanaAjustes;
@@ -243,8 +244,11 @@ public class VentanaInicio extends JFrame {
 							@Override
 							public void actionPerformed(ActionEvent e) {
 								idServidor = anuncio.getIdUsuario();
+								VentanaServidor sv = new VentanaServidor();
+								sv.setVisible(true);
 								VentanaCliente vc = new VentanaCliente();
 								vc.setVisible(true);
+								
 							}
 						});
 				

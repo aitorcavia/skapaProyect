@@ -2,6 +2,7 @@ package skapaProyect.chat;
 
 import javax.swing.*;
 
+import org.omg.PortableServer.ServantRetentionPolicyValue;
 
 import java.awt.*;
 import java.net.*;
@@ -9,7 +10,7 @@ import java.io.*;
 import java.awt.event.*;
 
 
-public class VentanaServidor  {
+public class VentanaServidor  extends JFrame{
 
 	JFrame ventana_chat = null;
 	JButton btn_enviar = null;
@@ -132,6 +133,8 @@ public void escribir() {
 		}
 	}); 
 	escribir_hilo.start();
+	
+	
 	
 }
 public static void main(String[] args) {
