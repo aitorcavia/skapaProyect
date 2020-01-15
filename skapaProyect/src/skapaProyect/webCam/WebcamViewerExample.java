@@ -42,7 +42,7 @@ public class WebcamViewerExample extends JFrame implements Runnable,ActionListen
 		Webcam.addDiscoveryListener(this);
 
 		setTitle("Java Webcam SKAPA");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		setLayout(new BorderLayout());
 
 		addWindowListener(this);

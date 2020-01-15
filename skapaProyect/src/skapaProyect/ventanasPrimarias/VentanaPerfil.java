@@ -430,18 +430,6 @@ public class VentanaPerfil extends JFrame {
 			});
 		
 		progressBar.setValue(contBarra);
-		
-		JButton btnWebcam = new JButton("webcam");
-		btnWebcam.setBounds(392, 91, 23, 26);
-		contentPane.add(btnWebcam);
-		
-		btnWebcam.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-			WebcamViewerExample	 WC = new WebcamViewerExample();
-				setVisible(false);
-				WC.setVisible(true);
-				}
-			});
 	}
 } 
 

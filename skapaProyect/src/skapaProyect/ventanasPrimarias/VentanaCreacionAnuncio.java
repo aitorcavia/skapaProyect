@@ -27,7 +27,10 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
+import com.github.sarxos.webcam.WebcamViewer;
+
 import skapaProyect.ventanaSecundarias.VentanaAnuncio;
+import skapaProyect.webCam.WebcamViewerExample;
 
 public class VentanaCreacionAnuncio extends JFrame {
 
@@ -142,9 +145,9 @@ public class VentanaCreacionAnuncio extends JFrame {
 		botonAnyadir.setBounds(117, 383, 93, 29);
 		panel.add(botonAnyadir);
 		
-		JLabel lblproximamente = new JLabel("[SOON]");
-		lblproximamente.setBounds(251, 383, 69, 29);
-		panel.add(lblproximamente);
+		JButton btnCamara = new JButton("Camara");
+		btnCamara.setBounds(227, 383, 93, 29);
+		panel.add(btnCamara);
 		
 		
 		//BOTON AÑADIR (Pendiente de implementar)
@@ -206,7 +209,18 @@ public class VentanaCreacionAnuncio extends JFrame {
 		}
 	});
 	
+	btnCamara.addActionListener(new ActionListener() {
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			WebcamViewerExample wc = new WebcamViewerExample();
+			wc.run();  
+			
+		}
+	});
+	
 	}
+	
+	
 	
 	//METODO PARA SACAR IDANUNCIO
 	public static int getAnuncioId(){
