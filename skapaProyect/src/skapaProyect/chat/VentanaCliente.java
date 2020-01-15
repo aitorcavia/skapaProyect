@@ -35,6 +35,7 @@ import javax.swing.JLabel;
 import java.awt.Color;
 import java.awt.Font;
 import javax.swing.JSeparator;
+import java.awt.SystemColor;
 
 public class VentanaCliente extends JFrame {
 
@@ -54,8 +55,6 @@ public class VentanaCliente extends JFrame {
 	Socket socket = null;
 	BufferedReader lector = null;
 	PrintWriter escritor=null;
-	private JTextField nick_txt;
-	private JTextField ip_txt;
 
 	
 	public VentanaCliente() {
@@ -81,19 +80,9 @@ public class VentanaCliente extends JFrame {
 
 		
 		ventana_chat = new JFrame("Cliente"); 
-		ventana_chat.getContentPane().setBackground(new Color(135, 206, 250));
+		ventana_chat.getContentPane().setBackground(SystemColor.activeCaption);
 		txt_nick = new JTextField(5);
 		txt_ip = new JTextField(8);
-		 
-		nick_txt = new JTextField();
-		nick_txt.setBounds(0, 42, 82, 26);
-		ventana_chat.getContentPane().add(nick_txt);
-		nick_txt.setColumns(10);
-			
-		ip_txt = new JTextField();
-		ip_txt.setBounds(148, 42, 195, 26);
-		ventana_chat.getContentPane().add(ip_txt);
-		ip_txt.setColumns(10);
 
 		contenedor_areachat = new JPanel();
 		contenedor_areachat.setBounds(0, 0, 294, 0);
@@ -118,7 +107,7 @@ public class VentanaCliente extends JFrame {
 		btn_enviar.setBackground(new Color(224, 255, 255));
 		
 		area_chat =  new JTextArea();
-		area_chat.setBounds(0, 70, 343, 420);
+		area_chat.setBounds(0, 46, 343, 444);
 		area_chat.setEditable(false);
 		ventana_chat.getContentPane().add(area_chat);
 	
@@ -128,7 +117,7 @@ public class VentanaCliente extends JFrame {
 		labelChat.setBounds(0, 0, 294, 44);
 		labelChat.setFont(new Font("Sitka Small", Font.BOLD, 16));
 		labelChat.setOpaque(true);
-		labelChat.setBackground(new Color(135, 206, 250));
+		labelChat.setBackground(SystemColor.activeCaption);
 
 		
 		
